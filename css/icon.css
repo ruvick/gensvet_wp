@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?gypvo');
+  src:  url('../fonts/icomoon.eot?gypvo#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?gypvo') format('truetype'),
+    url('../fonts/icomoon.woff?gypvo') format('woff'),
+    url('../fonts/icomoon.svg?gypvo#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-points-addres:before {
+  content: "\e900";
+  color: #6b6b6b;
+}
+.icon-points-arrow:before {
+  content: "\e901";
+  color: #6b6b6b;
+}
+.icon-points-email:before {
+  content: "\e902";
+  color: #6b6b6b;
+}
+.icon-points-phone:before {
+  content: "\e903";
+  color: #6b6b6b;
+}
+.icon-points-web:before {
+  content: "\e904";
+  color: #6b6b6b;
+}
+.icon-files-download:before {
+  content: "\e905";
+}
+.icon-card-pdf:before {
+  content: "\e906";
+}
+.icon-card-print:before {
+  content: "\e907";
+}
+.icon-card-wsapp:before {
+  content: "\e908";
+}
+.icon-social-1:before {
+  content: "\e909";
+}
+.icon-social-2:before {
+  content: "\e90a";
+}
+.icon-social-3:before {
+  content: "\e90b";
+}
+.icon-social-4:before {
+  content: "\e90c";
+}
+.icon-social-5:before {
+  content: "\e90d";
+}
+.icon-social-6:before {
+  content: "\e90e";
+}
+.icon-cert-zoom:before {
+  content: "\e90f";
+  color: #fff;
+}
+.icon-calc:before {
+  content: "\e910";
+}
+.icon-header-addres:before {
+  content: "\e911";
+  color: #6b6b6b;
+}
+.icon-header-arrow-right:before {
+  content: "\e912";
+}
+.icon-header-email:before {
+  content: "\e913";
+  color: #6b6b6b;
+}
+.icon-header-menu-arrow-down:before {
+  content: "\e914";
+}
+.icon-header-menu-arrow-right:before {
+  content: "\e915";
+}
+.icon-production-calc:before {
+  content: "\e916";
+}
+.icon-production-map:before {
+  content: "\e917";
+  color: #fff;
+}
+.icon-subscription-check:before {
+  content: "\e918";
+}
+.icon-zoom:before {
+  content: "\e919";
+}
