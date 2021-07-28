@@ -50,10 +50,10 @@
                         </li>
                     </ul>
                     <div class="footer-top-wrap-links">
-                        <a href="#" class="footer-top-wrap-links-link">
+                        <a href="<?php echo carbon_get_theme_option('as_youtube'); ?>" class="footer-top-wrap-links-link">
                             <img src="<?php echo get_template_directory_uri();?>/img/home/footer-youtube.svg" alt="" class="footer-top-wrap-links-link__img">
                         </a>
-                        <a href="#" class="footer-top-wrap-links-link">
+                        <a href="<?php echo carbon_get_theme_option('as_insta'); ?>" class="footer-top-wrap-links-link">
                             <img src="<?php echo get_template_directory_uri();?>/img/home/footer-inst.svg" alt="" class="footer-top-wrap-links-link__img">
                         </a>
                     </div> 
@@ -64,7 +64,7 @@
         <div class="container">
             <div class="footer-bottom">
                 <p class="footer-bottom__desc">2021 © Все права защищены.</p>
-                <a href="#" class="footer-bottom__link">Политика конфиденциальности</a>
+                <a href="<?php echo get_permalink(6);?>" class="footer-bottom__link">Политика конфиденциальности</a>
             </div>
         </div>
     </footer>
