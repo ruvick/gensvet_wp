@@ -1,6 +1,6 @@
 <?php
 
-define("COMPANY_NAME", "АВТОМОБИЛЬНЫЕ СИДЕНЬЯ");
+define("COMPANY_NAME", "ГЕНСВЕТ");
 define("MAIL_RESEND", "noreply@ultrakresla.ru");
 
 //----Подключене carbon fields

@@ -161,9 +161,9 @@
                     <div class="news-list-left">
                         <h2 class="news-list-left__title">новости<br> и события</h2>
                         <div class="news-list-left-wrap">
-                            <button class="news-list-left-wrap-btn">
+                            <a href="<?php echo get_permalink(13);?>" class="news-list-left-wrap-btn">
                                 <img src="./img/home/header-arrow-right.svg" alt="" class="news-left-wrap-btn__img">
-                            </button>
+                            </a>
                             <p class="news-list-left-wrap__desc">Смотреть<br> все новости</p>
                         </div>
                     </div>
@@ -256,25 +256,8 @@
                 </div>
             </div>
         </section>
-        <section class="subscription">
-            <div class="container">
-                <div class="subscription-wrap">
-                    <h2 class="subscription-wrap__title">Получайте первыми<br> информацию<br> о новинках и акциях</h2>
-                    <div class="subscription-wrap-form">
-                        <input name="email" type="text" class="subscription-wrap-form__input" placeholder="Введите адрес электронной почты" minlength="2" maxlength="40" required>
-                        <button class="subscription-wrap__btn-767">подписаться</button>
-                        <div class="subscription-wrap-form-wrap">
-                            <input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked>
-                            <span class="subscription-wrap-form-wrap__checkbox"></span>
-                            <p class="subscription-wrap-form-wrap__desc">Отправляя форму, я соглашаюсь с условиями 
-                                <a href="#" class="subscription-wrap-form-wrap__link"> политики персональных данных</a>
-                            </p>
-                        </div>
-                    </div>
-                    <button class="subscription-wrap__btn">подписаться</button>
-                </div>
-            </div>
-        </section>
+        
+        <?php get_template_part('template-parts/subscription-section');?> 
 
 	</main>
 

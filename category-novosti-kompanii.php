@@ -30,11 +30,12 @@
                 <h1 class="newscom__title"><? single_cat_title(); ?></h1> 
 
                 <div class="newscom-wrap">
-                  <?php if (have_posts()) { while (have_posts()) { the_post(); ?> 
-
-
-                    <?php 	} //конец while
-                  } //конец if ?>
+                  <?php
+				            while(have_posts()):
+					           the_post();
+					           get_template_part('template-parts/news-elem');  
+				            endwhile;
+				          ?>
                 </div>
 
             </div>
