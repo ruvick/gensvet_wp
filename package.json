@@ -1,7 +1,7 @@
 {
-  "name": "almi",
+  "name": "gensvet",
   "version": "1.0.1",
-  "description": "Almi Product",
+  "description": "gensvet",
   "main": "index.php",
   "scripts": {
     "test": "editorconfig-checker",
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asmi046/almi_wp.git"
+    "url": "git+https://github.com/ruvick/gensvet_wp.git"
   },
   "keywords": [
     "wp",
@@ -40,9 +40,9 @@
   "author": "ruvick",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/asmi046/almi_wp/issues"
+    "url": "https://github.com/ruvick/gensvet_wp/issues"
   },
-  "homepage": "https://github.com/asmi046/almi_wp#readme",
+  "homepage": "https://github.com/ruvick/gensvet_wp#readme",
   "dependencies": {
     "editorconfig-checker": "^3.1.0",
     "group-css-media-queries": "^1.4.1",
