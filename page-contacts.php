@@ -94,7 +94,7 @@ get_header(); ?>
                         </div>
                     </div>
                     <div class="contacts-wrap-map">
-                        <iframe src="https://yandex.ru/map-widget/v1/-/CCUe5QU2OD" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
+                        <iframe src="<?php echo carbon_get_theme_option('map_point'); ?>" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
                         <!-- <img src="./img/contacts/map.png" alt="" class="contacts-wrap-map__img"> -->
                     </div>
                 </div>
