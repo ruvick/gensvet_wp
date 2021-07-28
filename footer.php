@@ -20,7 +20,7 @@
 		                            'container_class' => 'footer-top-wrap-list-item-sublist','container' => false )); ?> 
                         </li>      
                         <li class="footer-top-wrap-list-item"> 
-                            <a href="#" class="footer-top-wrap-list-item__link">контакты</a>   
+                            <a href="<?php echo get_permalink(38);?>" class="footer-top-wrap-list-item__link">контакты</a>    
                             <ul class="footer-top-wrap-list-item-sublist">
                                 <li class="footer-top-wrap-list-item-sublist-item">
                                   <? $tel = carbon_get_theme_option("as_phones_1"); if (!empty($tel)){?><a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="footer-top-wrap-list-item-sublist-item__link"><? echo $tel; ?></a><?}?> 
