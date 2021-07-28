@@ -83,8 +83,6 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
           ->set_width(50),
         Field::make('text', 'map_point', 'Координаты карты')
           ->set_width(50),
-        Field::make('text', 'text_map', 'Текст метки карты')
-          ->set_width(50),
     ) );
     Container::make('post_meta', 'ultra_product_cr', 'Характеристики товара')
     ->show_on_post_type(array( 'ultra'))
