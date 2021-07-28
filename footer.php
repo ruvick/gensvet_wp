@@ -38,13 +38,13 @@
                             <a href="#" class="footer-top-wrap-list-item__link">контакты</a>   
                             <ul class="footer-top-wrap-list-item-sublist">
                                 <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="tel:+73832485548" class="footer-top-wrap-list-item-sublist-item__link">+7 383 248-55-48</a>
+                                  <? $tel = carbon_get_theme_option("as_phones_1"); if (!empty($tel)){?><a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="footer-top-wrap-list-item-sublist-item__link"><? echo $tel; ?></a><?}?> 
                                 </li>
                                 <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="mailto:info@tpk-deko.ru" class="footer-top-wrap-list-item-sublist-item__link">info@tpk-deko.ru</a>
+                                  <? $mail = carbon_get_theme_option("as_email"); if (!empty($mail)){?><a href="mailto:<? echo $mail; ?>" class="footer-top-wrap-list-item-sublist-item__link"><? echo $mail; ?></a><?}?>
                                 </li>
                                 <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="#" class="footer-top-wrap-list-item-sublist-item__link">630024, Новосибирск, ул. Горбаня, 33</a>
+                                  <? $adr = carbon_get_theme_option("as_address"); if (!empty($adr)){?><a href="#" class="footer-top-wrap-list-item-sublist-item__link"><? echo $adr; ?></a><?}?>
                                 </li>
                             </ul>
                         </li>
@@ -56,7 +56,7 @@
                         <a href="#" class="footer-top-wrap-links-link">
                             <img src="<?php echo get_template_directory_uri();?>/img/home/footer-inst.svg" alt="" class="footer-top-wrap-links-link__img">
                         </a>
-                    </div>
+                    </div> 
                 </div>
                 
             </div>
