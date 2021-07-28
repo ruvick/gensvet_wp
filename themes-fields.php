@@ -97,6 +97,7 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
       Field::make('text', 'offer_price', 'Цена')->set_width(50),
       Field::make('text', 'offer_number', 'Колличество')->set_width(50),
       Field::make('text', 'offer_sku', 'Артикул (Базовый)')->set_width(50),
+      Field::make('text', 'offer_power', 'Мощность')->set_width(50),
       // Field::make('text', 'offer_benefit', 'Выгода')->set_width(50),
       Field::make('rich_text', 'prod_descrip', 'Описание товара')->set_width(100),
       Field::make('text', 'offer_calories', 'Калории')->set_width(50),
