@@ -50,38 +50,44 @@ get_header(); ?>
                             <?}?>
                             </div>
                         </div>
+												<? $mode = carbon_get_theme_option("as_schedule"); if (!empty($mode)){?>
                         <div class="contacts-wrap-left-block">
                             <h3 class="contacts-wrap-left-block__title">Режим работы:</h3>
-                            <p class="contacts-wrap-left-block__desc">ПН-ПТ с 09:00 до 17:00<br>Часовой пояс: <span class="contacts-wrap-left-block__desc contacts-wrap-left-block__desc--gray">МСК +4</span></p>
+                            <p class="contacts-wrap-left-block__desc"><? echo $mode; ?><br>Часовой пояс: <span class="contacts-wrap-left-block__desc contacts-wrap-left-block__desc--gray">МСК +4</span></p>
                         </div>
+												<?}?>
+                        <? $adr_3 = carbon_get_theme_option("as_address_3"); if (!empty($adr_3)){?>
                         <div class="contacts-wrap-left-block">
-                            <h3 class="contacts-wrap-left-block__title">Фактический адрес:</h3>
-                            <p class="contacts-wrap-left-block__desc">630024, Россия, г. Новосибирск, ул. Горбаня, 33</p>
+                          <h3 class="contacts-wrap-left-block__title">Фактический адрес:</h3>
+                          <p class="contacts-wrap-left-block__desc"><? echo $adr_3; ?></p>
                         </div>
+                        <?}?>
+												<? $adr_4 = carbon_get_theme_option("as_address_3"); if (!empty($adr_4)){?>
                         <div class="contacts-wrap-left-block">
-                            <h3 class="contacts-wrap-left-block__title">Юридический адрес:</h3>
-                            <p class="contacts-wrap-left-block__desc">630024, Россия г. Новосибирск, а/я 6</p>
+                          <h3 class="contacts-wrap-left-block__title">Юридический адрес:</h3>
+                          <p class="contacts-wrap-left-block__desc"><? echo $adr_4; ?></p>
                         </div>
+												<?}?>
                         <div class="contacts-wrap-left-social">
                             <h2 class="contacts-wrap-left-social__title">Мы в соцсетях</h2>
                             <div class="contacts-wrap-left-social-links">
-                                <a href="" class="contacts-wrap-left-social-links-link">
+                                <a href="<?php echo carbon_get_theme_option('as_youtube'); ?>" class="contacts-wrap-left-social-links-link">
                                     <span class="icon-social-1 icon-social"></span>
                                     <!-- <img src="./img/contacts/social-1.svg" alt="" class="contacts-wrap-left-social-links-link__img"> -->
                                 </a>
-                                <a href="" class="contacts-wrap-left-social-links-link">
+                                <a href="<?php echo carbon_get_theme_option('as_insta'); ?>" class="contacts-wrap-left-social-links-link">
                                     <span class="icon-social-2 icon-social"></span>
                                 </a>
-                                <a href="" class="contacts-wrap-left-social-links-link">
+                                <a href="<?php echo carbon_get_theme_option('as_telegr'); ?>" class="contacts-wrap-left-social-links-link">
                                     <span class="icon-social-3 icon-social"></span>
                                 </a>
-                                <a href="" class="contacts-wrap-left-social-links-link">
+                                <a href="<?php echo carbon_get_theme_option('as_ok'); ?>" class="contacts-wrap-left-social-links-link">
                                     <span class="icon-social-4 icon-social"></span>
                                 </a>
-                                <a href="" class="contacts-wrap-left-social-links-link">
+                                <a href="<?php echo carbon_get_theme_option('as_face'); ?>" class="contacts-wrap-left-social-links-link">
                                     <span class="icon-social-5 icon-social"></span>
                                 </a>
-                                <a href="" class="contacts-wrap-left-social-links-link">
+                                <a href="<?php echo carbon_get_theme_option('as_vk'); ?>" class="contacts-wrap-left-social-links-link">
                                     <span class="icon-social-6 icon-social"></span>
                                 </a>
                             </div>

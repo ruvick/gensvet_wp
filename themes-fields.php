@@ -57,6 +57,10 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
           ->set_width(50),
         Field::make( 'text', 'as_address_2', __( 'Адрес в подвале' ) )
           ->set_width(50),
+        Field::make( 'text', 'as_address_3', __( 'Фактический адрес' ) )
+          ->set_width(50),
+        Field::make( 'text', 'as_address_4', __( 'Юридический адрес' ) )
+          ->set_width(50),
         Field::make( 'text', 'as_bik', __( 'БИК' ) )
           ->set_width(50),
         Field::make( 'text', 'as_rs', __( 'Р/С' ) )
@@ -69,13 +73,13 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
           ->set_width(50),
         Field::make( 'text', 'as_insta', __( 'instagram' ) )
           ->set_width(50),
+        Field::make( 'text', 'as_telegr', __( 'telegram' ) )
+          ->set_width(50),
+        Field::make( 'text', 'as_ok', __( 'одноклассники' ) )
+          ->set_width(50),
         Field::make( 'text', 'as_face', __( 'facebook' ) )
           ->set_width(50),
         Field::make( 'text', 'as_vk', __( 'Вконтакте' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_telegr', __( 'telegram' ) )
-          ->set_width(50),
-        Field::make( 'text', 'as_whatsapp', __( 'whatsapp' ) )
           ->set_width(50),
         Field::make('text', 'map_point', 'Координаты карты')
           ->set_width(50),
