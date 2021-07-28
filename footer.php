@@ -11,28 +11,13 @@
                     <ul class="footer-top-wrap-list">
                         <li class="footer-top-wrap-list-item">
                             <a href="#" class="footer-top-wrap-list-item__link">Каталог</a>
-                            <ul class="footer-top-wrap-list-item-sublist">
-                                <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="#" class="footer-top-wrap-list-item-sublist-item__link">Продукция ГЕНСВЕТ</a>
-                                </li>
-                                <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="#" class="footer-top-wrap-list-item-sublist-item__link">Продукция DEKOlabs</a>
-                                </li>
-                            </ul>
+                              <?php wp_nav_menu( array('theme_location' => 'menu_cat','menu_class' => 'footer-top-wrap-list-item-sublist',
+		                            'container_class' => 'footer-top-wrap-list-item-sublist','container' => false )); ?> 
                         </li>
                         <li class="footer-top-wrap-list-item">
                             <a href="#" class="footer-top-wrap-list-item__link">О компании</a>
-                            <ul class="footer-top-wrap-list-item-sublist">
-                                <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="#" class="footer-top-wrap-list-item-sublist-item__link">О нас</a>
-                                </li>
-                                <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="#" class="footer-top-wrap-list-item-sublist-item__link">Презентация компании (PDF)</a>
-                                </li>
-                                <li class="footer-top-wrap-list-item-sublist-item">
-                                    <a href="#" class="footer-top-wrap-list-item-sublist-item__link">Сертификаты и награды</a>
-                                </li>
-                            </ul>
+                              <?php wp_nav_menu( array('theme_location' => 'menu_company','menu_class' => 'footer-top-wrap-list-item-sublist',
+		                            'container_class' => 'footer-top-wrap-list-item-sublist','container' => false )); ?> 
                         </li>      
                         <li class="footer-top-wrap-list-item"> 
                             <a href="#" class="footer-top-wrap-list-item__link">контакты</a>   

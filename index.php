@@ -7,7 +7,7 @@
 	<section class="production">
             <div class="container">
                 <div class="production-top">
-                    <h1 class="production-top__title">производство и продажа <br> светового оборудования</h1>
+                    <h1 class="production-top__title"><?php echo carbon_get_theme_option('about_home_title'); ?></h1>
                     <div class="production-top-right">
                         <h2 class="production-top-right__subtitle">Скачайте инструкцию <br>«Кривые силы света»</h2>
                         <button class="production-top-right__btn">Скачать инструкцию</button>
