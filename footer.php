@@ -29,8 +29,8 @@
                                   <? $mail = carbon_get_theme_option("as_email"); if (!empty($mail)){?><a href="mailto:<? echo $mail; ?>" class="footer-top-wrap-list-item-sublist-item__link"><? echo $mail; ?></a><?}?>
                                 </li>
                                 <li class="footer-top-wrap-list-item-sublist-item">
-                                  <? $adr = carbon_get_theme_option("as_address"); if (!empty($adr)){?><a href="#" class="footer-top-wrap-list-item-sublist-item__link"><? echo $adr; ?></a><?}?>
-                                </li>
+                                  <? $adr = carbon_get_theme_option("as_address_2"); if (!empty($adr)){?><a href="#" class="footer-top-wrap-list-item-sublist-item__link"><? echo $adr; ?></a><?}?>
+                                </li> 
                             </ul>
                         </li>
                     </ul>

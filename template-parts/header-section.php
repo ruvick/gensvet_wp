@@ -16,18 +16,18 @@
                     </li>
                     <li class="header-top-nav-item">
                         <img src="<?php echo get_template_directory_uri();?>/img/home/header-addres.svg" alt="" class="header-top-nav-item__img">
-                        <p class="header-top-nav-item__desc">г. Новосибирск, ул. Горбаня, 33</p>
+                        <p class="header-top-nav-item__desc"><? echo carbon_get_theme_option("as_address_1"); ?></p>
                     </li>
                     <li class="header-top-nav-item">
-                        <a href="mailto:info@tpk-deko.ru" class="header-top-nav-item__link">
+                        <a href="mailto:<? echo $mail = carbon_get_theme_option("as_email"); ?>" class="header-top-nav-item__link">
                             <span class="icon-header-email"></span>
-                            <p class="header-top-nav-item__link-desc">info@tpk-deko.ru</p>
+                            <p class="header-top-nav-item__link-desc"><? echo $mail; ?></p>
                         </a>
                     </li>  
                     <li class="header-top-nav-item">
-                        <a href="tel:+73832485548" class="header-top-nav-item__link">
+                        <a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header-top-nav-item__link">
                             <span class="icon-points-phone"></span>
-                            <p class="header-top-nav-item__link--bold">+7 383 248-55-48</p> 
+                            <p class="header-top-nav-item__link--bold"><? echo $tel = carbon_get_theme_option("as_phones_1"); ?></p> 
                         </a>
                     </li>
                 </ul>
@@ -1243,7 +1243,7 @@
                                             <a href="#" class="header-bottom-wrap-menu-item-submenu-item-subsubmenu-item__link">600 × 150</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> 
                             </ul>
                         </li>
                         <li class="header-bottom-wrap-menu-item">

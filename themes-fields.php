@@ -53,7 +53,9 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
           ->set_width(50),
         Field::make( 'text', 'as_kpp', __( 'КПП' ) )
           ->set_width(50),
-        Field::make( 'text', 'as_address', __( 'Адрес' ) )
+        Field::make( 'text', 'as_address_1', __( 'Адрес в шапке' ) )
+          ->set_width(50),
+        Field::make( 'text', 'as_address_2', __( 'Адрес в подвале' ) )
           ->set_width(50),
         Field::make( 'text', 'as_bik', __( 'БИК' ) )
           ->set_width(50),
