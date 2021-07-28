@@ -161,41 +161,44 @@
                     <div class="news-list-left">
                         <h2 class="news-list-left__title">новости<br> и события</h2>
                         <div class="news-list-left-wrap">
-                            <a href="<?php echo get_permalink(13);?>" class="news-list-left-wrap-btn">
+                            <a href="<?php echo get_category_link(4);?>" class="news-list-left-wrap-btn">
                                 <img src="./img/home/header-arrow-right.svg" alt="" class="news-left-wrap-btn__img">
                             </a>
                             <p class="news-list-left-wrap__desc">Смотреть<br> все новости</p>
                         </div>
                     </div>
+
                     <div class="news-list-wrap">
-                        <a href="" class="news-list-wrap-card">
+                    <?php 
+	                    $posts = get_posts( array(
+		                		'numberposts' => 5,
+												'category'    => 4,
+												'orderby'     => 'date',
+												// 'orderby'     => '612,616,626',
+												'order'       => 'DESC',
+												// 'include'     => '612,608,606',
+												'include'     => array(),
+												'exclude'     => array(),
+												'meta_key'    => '',
+												'meta_value'  =>'',
+												'post_type'   => 'post',
+												'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+											) );
+
+											$result = wp_get_recent_posts( $args );
+
+											foreach( $posts as $post ){
+											?>
+                        <a href="<?php echo get_permalink($p['ID'])?>" class="news-list-wrap-card"> 
                             <p class="news-list-wrap-card__date"><span class="news-list-wrap-card__date news-list-wrap-card__date--bold">12</span>/ 05</p>
-                            <p class="news-list-wrap-card__desc">
-                                Прошла очередная<br> конференция, на <br>которой инженеры<br> предприятия<br> выступили с докладом
-                            </p>
-                            <img src="<?php echo get_template_directory_uri();?>/img/home/news-1.png" alt="" class="news-list-wrap-card__img">
-                        </a>
-                        <a href="" class="news-list-wrap-card">
-                            <p class="news-list-wrap-card__date"><span class="news-list-wrap-card__date news-list-wrap-card__date--bold">04</span> / 05</p>
-                            <p class="news-list-wrap-card__desc">Краткий обзор<br> выставки<br> «Электроника – Урал –<br> 2021»</p>
-                            <img src="<?php echo get_template_directory_uri();?>/img/home/news-2.png" alt="" class="news-list-wrap-card__img">
-                        </a>
-                        <a href="" class="news-list-wrap-card">
-                            <p class="news-list-wrap-card__date"><span class="news-list-wrap-card__date news-list-wrap-card__date--bold">20</span> / 04</p>
-                            <p class="news-list-wrap-card__desc">Краткий обзор<br> выставки «Интерсвет –<br> 2021»</p>
-                            <img src="<?php echo get_template_directory_uri();?>/img/home/news-3.png" alt="" class="news-list-wrap-card__img">
-                        </a>
-                        <a href="" class="news-list-wrap-card">
-                            <p class="news-list-wrap-card__date"><span class="news-list-wrap-card__date news-list-wrap-card__date--bold">26</span> / 04</p>
-                            <p class="news-list-wrap-card__desc">Получена лицензия на<br> изготовление<br> оборудования для<br> ядерных установок</p>
-                            <img src="<?php echo get_template_directory_uri();?>/img/home/news-4.png" alt="" class="news-list-wrap-card__img">
-                        </a>
-                        <a href="" class="news-list-wrap-card">
-                            <p class="news-list-wrap-card__date"><span class="news-list-wrap-card__date news-list-wrap-card__date--bold">19</span> / 03</p>
-                            <p class="news-list-wrap-card__desc">Компания ГЕНСВЕТ<br> вошла в состав<br> комиссии</p>
-                            <img src="<?php echo get_template_directory_uri();?>/img/home/news-5.png" alt="" class="news-list-wrap-card__img">
-                        </a>
+                            <p class="news-list-wrap-card__desc"><?php echo $post->post_title?></p>
+                            <img src="<?php  $imgTm = get_the_post_thumbnail_url( get_the_ID(), "tominiatyre" ); echo empty($imgTm)?get_bloginfo("template_url")."/img/no-photo.jpg":$imgTm; ?>" alt="" class="news-list-wrap-card__img">
+                        </a>	
+											<?php 
+												} 
+											?>
                     </div>
+
                     <div class="news-list-left-wrap-hidden">
                         <button class="news-list-left-wrap-btn">
                             <img src="<?php echo get_template_directory_uri();?>/img/home/header-arrow-right.svg" alt="" class="news-left-wrap-btn__img">
@@ -256,7 +259,7 @@
                 </div>
             </div>
         </section>
-        
+
         <?php get_template_part('template-parts/subscription-section');?> 
 
 	</main>
