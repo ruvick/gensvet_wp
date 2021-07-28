@@ -3,16 +3,16 @@
             <div class="container">
                 <ul class="header-top-nav"> 
                     <li class="header-top-nav-item">
-                        <a href="#" class="header-top-nav-item__link">О компании</a>
+                        <a href="<?php echo get_permalink(6);?>" class="header-top-nav-item__link">О компании</a>
                     </li>
                     <li class="header-top-nav-item">
-                        <a href="#" class="header-top-nav-item__link">Презентация компании</a>
+                        <a href="<?php echo get_permalink(6);?>" class="header-top-nav-item__link">Презентация компании</a>
                     </li>
                     <li class="header-top-nav-item">
-                        <a href="#" class="header-top-nav-item__link">Сертификаты и награды</a>
+                        <a href="<?php echo get_permalink(6);?>" class="header-top-nav-item__link">Сертификаты и награды</a>
                     </li>
                     <li class="header-top-nav-item">
-                        <a href="#" class="header-top-nav-item__link">Контакты</a>
+                        <a href="<?php echo get_permalink(6);?>" class="header-top-nav-item__link">Контакты</a>
                     </li>
                     <li class="header-top-nav-item">
                         <img src="<?php echo get_template_directory_uri();?>/img/home/header-addres.svg" alt="" class="header-top-nav-item__img">
