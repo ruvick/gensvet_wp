@@ -41,7 +41,7 @@ Container::make( 'theme_options', __( 'Настройки темы', 'crb' ) )
           ->set_width(50),
         Field::make( 'text', 'as_phones_1', __( 'Телефон' ) )
           ->set_width(50),
-        Field::make( 'text', 'as_phone_2', __( 'Телефон дополнительный' ) )
+        Field::make( 'text', 'as_phone_2', __( 'Телефон на стр.Контаткы' ) )
           ->set_width(50),
         Field::make( 'text', 'as_email', __( 'Email' ) )
           ->set_width(50),
