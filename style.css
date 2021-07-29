@@ -3468,6 +3468,13 @@ body {
   height: 405px
 }
 
+.article-wrap p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
 .article-wrap__desc {
   font-weight: normal;
   font-size: 16px;
