@@ -185,7 +185,7 @@
 					foreach ($posts as $post) {
 					?>
 						<a href="<?php echo get_permalink($p['ID']) ?>" class="news-list-wrap-card">
-							<p class="news-list-wrap-card__date"><span class="news-list-wrap-card__date news-list-wrap-card__date--bold">12</span>/ 05</p>
+							<p class="news-list-wrap-card__date"><span class="news-list-wrap-card__date news-list-wrap-card__date--bold"><?php the_time('j') ?></span>/ <?php the_time('m') ?></p>
 							<p class="news-list-wrap-card__desc"><?php echo $post->post_title ?></p>
 							<img src="<?php $imgTm = get_the_post_thumbnail_url(get_the_ID(), "tominiatyre");
 												echo empty($imgTm) ? get_bloginfo("template_url") . "/img/no-photo.jpg" : $imgTm; ?>" alt="" class="news-list-wrap-card__img">
