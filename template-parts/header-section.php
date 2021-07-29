@@ -642,7 +642,7 @@
 						</ul>
 					</li>
 					<li class="header-bottom-wrap-menu-item">
-						<a href="#" class="header-bottom-wrap-menu-item__link">точки продажи</a>
+						<a href="<?php echo get_category_link(8); ?>" class="header-bottom-wrap-menu-item__link">точки продажи</a>
 					</li>
 				</ul>
 				<button class="header-bottom-wrap-menu-btn-767">

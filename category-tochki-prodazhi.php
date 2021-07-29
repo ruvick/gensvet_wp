@@ -26,7 +26,36 @@
       <div class="points-wrap">
         <div class="points-wrap-left">
           <select name="" size=19 id="" class="points-wrap-left-select">
-            <option value="" class="points-wrap-left-select__opt">Москва и область</option>
+            <?php
+            $parent_id = 8;
+            // echo '<select name="" size=19 id="" class="points-wrap-left-select">';
+
+            # получаем дочерние рубрики
+            $sub_cats = get_categories(array(
+              'child_of' => $parent_id,
+              'order'    => 'DESC',
+              'hide_empty' => 0
+            ));
+            if ($sub_cats) {
+              foreach ($sub_cats as $cat) {
+
+                echo '<option value="" class="points-wrap-left-select__opt">' . $cat->name . '</option>';
+
+                # получаем записи из рубрики
+                $myposts = get_posts(array(
+                  'numberposts' => -1,
+                  'category'    => $cat->cat_ID,
+                  'orderby'     => 'post_date',
+                  'order'       => 'ASC',
+                ));
+              }
+
+              wp_reset_postdata();
+            }
+            ?>
+          </select>
+          <!-- <select name="" size=19 id="" class="points-wrap-left-select">
+            <option value="" class="points-wrap-left-select__opt">Москва и область</option> 
             <option value="" class="points-wrap-left-select__opt">Алтайский край</option>
             <option value="" class="points-wrap-left-select__opt">Амурская область</option>
             <option value="" class="points-wrap-left-select__opt">Архангельская область</option>
@@ -110,7 +139,7 @@
             <option value="" class="points-wrap-left-select__opt">Чукотский автономный округ</option>
             <option value="" class="points-wrap-left-select__opt">Ямало-Ненецкий автономный округ</option>
             <option value="" class="points-wrap-left-select__opt">Ярославская область</option>
-          </select>
+          </select> -->
           <div class="dropdown">
             <button class="dropdown__button">Москва и область</button>
             <ul class="dropdown-list">
@@ -122,7 +151,49 @@
           </div>
         </div>
         <div class="points-wrap-partners">
-          <h2 class="points-wrap-partners__title">Москва и область</h2>
+          <?php
+          $parent_id = 8;
+          // echo '<h2>Услуги</h2>';
+
+          # получаем дочерние рубрики
+          $sub_cats = get_categories(array(
+            'child_of' => $parent_id,
+            'order'    => 'DESC',
+            'hide_empty' => 0
+          ));
+          if ($sub_cats) {
+            foreach ($sub_cats as $cat) {
+
+              echo '<h2 class="points-wrap-partners__title">' . $cat->name . '</h2>';
+
+              # получаем записи из рубрики
+              $myposts = get_posts(array(
+                'numberposts' => -1,
+                'category'    => $cat->cat_ID,
+                'orderby'     => 'post_date',
+                'order'       => 'DESC',
+              ));
+              # выводим записи
+              global $post;
+              foreach ($myposts as $post) {
+                setup_postdata($post);
+                echo '
+                <div class="points-wrap-partners-cards">
+                <a href="' . get_permalink() . '" class="points-wrap-partners-cards-card">
+                  <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "full") . ' " alt="" class="points-wrap-partners-cards-card__img">
+                  <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
+                  <div class="points-wrap-partners-cards-card-link">
+                    <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
+                  </div>
+                </a>
+                </div>';
+              }
+            }
+
+            wp_reset_postdata(); // сбрасываем глобальную переменную пост
+          } ?>
+          <!-- <h2 class="points-wrap-partners__title">Москва и область</h2>
           <div class="points-wrap-partners-cards">
             <a href="" class="points-wrap-partners-cards-card">
               <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-1.png" alt="" class="points-wrap-partners-cards-card__img">
@@ -197,6 +268,7 @@
               </div>
             </a>
           </div>
+
           <h2 class="points-wrap-partners__title">ленинградская область</h2>
           <div class="points-wrap-partners-cards">
             <a href="" class="points-wrap-partners-cards-card">
@@ -239,7 +311,8 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
               </div>
             </a>
-          </div>
+          </div> -->
+
         </div>
       </div>
     </div>
