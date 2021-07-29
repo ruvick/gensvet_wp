@@ -138,7 +138,6 @@
 							<h3 class="production-wrap-cards-card-link__title">калькулятор <br>освещенности</h3>
 							<img src="./img/home/production-bg-4.svg" alt="" class="production-wrap-cards-card-link__img">
 						</a>
-
 					</div>
 				</div>
 				<div class="production-wrap-cards">
@@ -147,11 +146,8 @@
 							<h3 class="production-wrap-cards-card-link__title">Точки <br>продажи</h3>
 							<img src="./img/home/production-bg-5.svg" alt="" class="production-wrap-cards-card-link__img">
 						</a>
-
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</section>
@@ -167,7 +163,6 @@
 						<p class="news-list-left-wrap__desc">Смотреть<br> все новости</p>
 					</div>
 				</div>
-
 				<div class="news-list-wrap">
 					<?php
 					$posts = get_posts(array(
@@ -199,7 +194,6 @@
 					}
 					?>
 				</div>
-
 				<div class="news-list-left-wrap-hidden">
 					<button class="news-list-left-wrap-btn">
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="news-left-wrap-btn__img">
@@ -236,9 +230,7 @@
 			</div>
 		</div>
 	</section>
-
 	<?php get_template_part('template-parts/subscription-section'); ?>
-
 </main>
 
 <?php get_footer(); ?>
