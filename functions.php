@@ -78,8 +78,8 @@ function my_assets()
 
 	// Подключение стилей 
 
-	$style_version = "1.0.1";
-	$scrypt_version = "1.0.1";
+	$style_version = "1.0.2";
+	$scrypt_version = "1.0.2";
 
 	wp_enqueue_style("style-fonts", get_template_directory_uri() . "/css/fonts.css", array(), $style_version, 'all'); //Fonts (стили)
 	wp_enqueue_style("style-icon", get_template_directory_uri() . "/css/icon.css", array(), $style_version, 'all'); //Icon (стили)

@@ -2443,10 +2443,16 @@ body {
   margin-top: 32px
 }
 
+.partner-wrap-article p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
 .partner-wrap-article__desc {
   margin-bottom: 20px;
   font-size: 16px;
-  line-height: 1.5
+  line-height: 1.5;
 }
 
 .contacts {
