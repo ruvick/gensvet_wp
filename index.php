@@ -142,7 +142,7 @@
 				</div>
 				<div class="production-wrap-cards">
 					<div class="production-wrap-cards-card">
-						<a href="#" class="production-wrap-cards-card-link">
+						<a href="<?php echo get_category_link(8); ?>" class="production-wrap-cards-card-link">
 							<h3 class="production-wrap-cards-card-link__title">Точки <br>продажи</h3>
 							<img src="./img/home/production-bg-5.svg" alt="" class="production-wrap-cards-card-link__img">
 						</a>
