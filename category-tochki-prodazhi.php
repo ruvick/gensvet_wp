@@ -180,12 +180,12 @@
                     </div>
                   </a>';
               }
+              echo '</div>';
             }
             wp_reset_postdata();
           } ?>
         </div>
       </div>
-    </div>
     </div>
   </section>
   <?php get_template_part('template-parts/subscription-section'); ?>
