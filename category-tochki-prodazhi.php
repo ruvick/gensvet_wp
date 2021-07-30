@@ -30,7 +30,6 @@
             $parent_id = 8;
             // echo '<select name="" size=19 id="" class="points-wrap-left-select">';
 
-            # получаем дочерние рубрики
             $sub_cats = get_categories(array(
               'child_of' => $parent_id,
               'order'    => 'DESC',
@@ -41,7 +40,6 @@
 
                 echo '<option value="" class="points-wrap-left-select__opt">' . $cat->name . '</option>';
 
-                # получаем записи из рубрики
                 $myposts = get_posts(array(
                   'numberposts' => -1,
                   'category'    => $cat->cat_ID,
@@ -49,7 +47,6 @@
                   'order'       => 'ASC',
                 ));
               }
-
               wp_reset_postdata();
             }
             ?>
@@ -153,9 +150,6 @@
         <div class="points-wrap-partners">
           <?php
           $parent_id = 8;
-          // echo '<h2>Услуги</h2>';
-
-          # получаем дочерние рубрики
           $sub_cats = get_categories(array(
             'child_of' => $parent_id,
             'order'    => 'DESC',
@@ -164,157 +158,34 @@
           if ($sub_cats) {
             foreach ($sub_cats as $cat) {
 
-              echo '<h2 class="points-wrap-partners__title">' . $cat->name . '</h2>';
+              echo '<h2 class="points-wrap-partners__title">' . $cat->name . '</h2>
+              <div class="points-wrap-partners-cards">';
 
-              # получаем записи из рубрики
               $myposts = get_posts(array(
                 'numberposts' => -1,
                 'category'    => $cat->cat_ID,
                 'orderby'     => 'post_date',
-                'order'       => 'DESC',
+                'order'       => 'ASC',
               ));
-              # выводим записи
               global $post;
               foreach ($myposts as $post) {
                 setup_postdata($post);
                 echo '
-                <div class="points-wrap-partners-cards">
-                <a href="' . get_permalink() . '" class="points-wrap-partners-cards-card">
-                  <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "full") . ' " alt="" class="points-wrap-partners-cards-card__img">
-                  <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
-                  <div class="points-wrap-partners-cards-card-link">
-                    <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-                  </div>
-                </a>
-                </div>';
+                  <a href="' . get_permalink() . '" class="points-wrap-partners-cards-card">
+                    <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "tominiatyre") . ' " alt="" class="points-wrap-partners-cards-card__img">
+                    <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
+                    <div class="points-wrap-partners-cards-card-link">
+                      <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
+                      <img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
+                    </div>
+                  </a>';
               }
             }
-
-            wp_reset_postdata(); // сбрасываем глобальную переменную пост
+            wp_reset_postdata();
           } ?>
-          <!-- <h2 class="points-wrap-partners__title">Москва и область</h2>
-          <div class="points-wrap-partners-cards">
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-1.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Планета электрика</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-2.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Петрович</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-3.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Все инструменты</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-4.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Леруа Мерлен</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-5.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">220 Вольт</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-6.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Аскона</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-7.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Икеа</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-8.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Максидом</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-9.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Сантехника онлайн</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-          </div>
-
-          <h2 class="points-wrap-partners__title">ленинградская область</h2>
-          <div class="points-wrap-partners-cards">
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-1.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Планета электрика</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-2.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Петрович</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-3.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Все инструменты</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-10.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">Леруа Мерлен</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-            <a href="" class="points-wrap-partners-cards-card">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/points/points-11.png" alt="" class="points-wrap-partners-cards-card__img">
-              <p class="points-wrap-partners-cards-card__name">220 Вольт</p>
-              <div class="points-wrap-partners-cards-card-link">
-                <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-              </div>
-            </a>
-          </div> -->
-
         </div>
       </div>
+    </div>
     </div>
   </section>
   <?php get_template_part('template-parts/subscription-section'); ?>
