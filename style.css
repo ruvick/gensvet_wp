@@ -6968,6 +6968,19 @@ input[type=number] {
   }
 }
 
+.company__desc p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.content p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
 /* Оформление корзины */
 .bascet_page_table {
   width: 100%;

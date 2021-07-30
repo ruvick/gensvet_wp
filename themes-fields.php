@@ -161,6 +161,39 @@ Container::make('post_meta', 'single-point', 'Контакты')
       ->set_width(50),
   ));
 
+Container::make('post_meta', 'page-about', 'Контент страницы')
+  ->show_on_template(array('page-about.php'))
+  ->add_fields(array(
+    Field::make('complex', 'picture_complex_l', 'Картинка слева, текст справа')
+      // ->set_max(3) // Можно будет выбрать только 5 постов
+      ->add_fields(array(
+        Field::make('image', 'picture_img_l', 'Картинка')
+          ->set_width(30),
+        Field::make('text', 'picture_text_l', 'Текст')
+          ->set_width(30),
+      )),
+    Field::make('complex', 'picture_complex_r', 'Текст справа, картинка слева')
+      // ->set_max(3) // Можно будет выбрать только 5 постов
+      ->add_fields(array(
+        Field::make('text', 'picture_text_r', 'Текст')
+          ->set_width(30),
+        Field::make('image', 'picture_img_r', 'Картинка')
+          ->set_width(30),
+      )),
+    Field::make('text', 'about_text_center', __('Текстовый блок по сережине'))
+      ->set_width(50),
+    Field::make('text', 'about_choose', __('Почему выбирают нас. Текст'))
+      ->set_width(50),
+    Field::make('complex', 'about_choose_blocks', 'Текстовые блоки')
+      // ->set_max(3) // Можно будет выбрать только 5 постов
+      ->add_fields(array(
+        Field::make('text', 'about_choose_blocks_title', 'Заголовок')
+          ->set_width(30),
+        Field::make('text', 'about_choose_blocks__text', 'Текст')
+          ->set_width(30),
+      )),
+  ));
+
   // Container::make('post_meta', 'page-gallery-tkaney-obivki-sidenii', 'Характеристики записи')
   // ->show_on_template(array('page-gallery-tkaney-obivki-sidenii.php'))
   //     ->add_fields(array(   
