@@ -3,7 +3,7 @@
 		<div class="container">
 			<ul class="header-top-nav">
 				<li class="header-top-nav-item">
-					<a href="<?php echo get_permalink(6); ?>" class="header-top-nav-item__link">О компании</a>
+					<a href="<?php echo get_permalink(136); ?>" class="header-top-nav-item__link">О компании</a>
 				</li>
 				<li class="header-top-nav-item">
 					<a href="<?php echo get_permalink(6); ?>" class="header-top-nav-item__link">Презентация компании</a>
