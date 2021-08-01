@@ -1250,17 +1250,17 @@
 						<a href="#" class="header-bottom-wrap-menu-item__link">точки продажи</a>
 					</li>
 				</ul>
-				<div class="header-bottom-wrap-search">
+				<form role="search" method="get" id="searchform" action="<?php echo home_url('/') ?>" class="header-bottom-wrap-search">
 					<button href="#" class="header-bottom-wrap-search-btn">
 						<img src="./img/home/zoom.svg" alt="" class="header-bottom-wrap-search-btn__img">
 						<p class="header-bottom-wrap-search-btn__desc">Поиск...</p>
 					</button>
 					<div class="header-bottom-wrap-search-hidden">
 						<img src="./img/home/zoom.svg" alt="" class="header-bottom-wrap-search-hidden__img">
-						<input name="search" type="text" class="header-bottom-wrap-search-hidden__input" placeholder="введите название или артикул товара..." minlength="2" maxlength="40" required>
-						<button class="header-bottom-wrap-search-hidden__btn">найти</button>
+						<input type="text" value="<?php echo get_search_query() ?>" name="s" id="s" class="header-bottom-wrap-search-hidden__input" placeholder="введите название или артикул товара..." minlength="2" maxlength="40" required>
+						<button type="submit" tabindex="2" id="searchsubmit" value="" class="header-bottom-wrap-search-hidden__btn sub-search">найти</button>
 					</div>
-				</div>
+				</form>
 				<button class="production-top-right__btn hidden">Скачать инструкцию</button>
 			</div>
 		</div>
