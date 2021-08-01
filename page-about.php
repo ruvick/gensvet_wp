@@ -120,7 +120,7 @@ get_header(); ?>
             <img src="<?php echo get_template_directory_uri(); ?>/img/about/banners-bg.svg" alt="" class="banners-wrap-card-link__bg">
             <img src="<?php echo get_template_directory_uri(); ?>/img/about/banners-3.svg" alt="" class="banners-wrap-card-link__img">
           </a>
-        </div> 
+        </div>
       </div>
     </div>
   </section>
