@@ -38,7 +38,7 @@ get_header(); ?>
                 <br>№ НСОПБ.СН.ПР026
               </p>
             </div>
-            <div class="certificates-wrap-tabs-tab-card" data-target="cert2">
+            <div class="certificates-wrap-tabs-tab-card" data-target="cert1">
               <a href="#" class="certificates-wrap-tabs-tab-card-wrap">
                 <img src="<?php echo get_template_directory_uri(); ?>/img/certificates/cert-2.png" alt="" class="certificates-wrap-tabs-tab-card-wrap__img">
               </a>

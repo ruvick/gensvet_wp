@@ -2745,7 +2745,7 @@ body {
   right: 0;
   z-index: 2;
   background-color: rgba(107, 107, 107, 0.8);
-  background-image: url(../img/certificates/cert-zoom.svg);
+  background-image: url(img/certificates/cert-zoom.svg);
   background-repeat: no-repeat;
   background-size: 35px 35px;
   background-position: center
@@ -2831,7 +2831,7 @@ body {
 .certificates-popup__close {
   position: absolute;
   display: inline-block;
-  background-image: url("../img/certificates/close.svg");
+  background-image: url("img/certificates/close.svg");
   width: 19px;
   height: 19px;
   top: 20px;
