@@ -164,20 +164,14 @@ Container::make('post_meta', 'single-point', 'Контакты')
 Container::make('post_meta', 'page-about', 'Контент страницы')
   ->show_on_template(array('page-about.php'))
   ->add_fields(array(
-    Field::make('complex', 'picture_complex_l', 'Картинка слева, текст справа')
+    Field::make('complex', 'picture_complex_about', 'Картинка с текстом')
       // ->set_max(3) // Можно будет выбрать только 5 постов
       ->add_fields(array(
-        Field::make('image', 'picture_img_l', 'Картинка')
+        Field::make("checkbox", "checkbox_pay_exc", "Текст слева, Картинка справа")
+          ->help_text('Меняет местами картинку и текст"'),
+        Field::make('image', 'picture_img_about', 'Картинка')
           ->set_width(30),
-        Field::make('text', 'picture_text_l', 'Текст')
-          ->set_width(30),
-      )),
-    Field::make('complex', 'picture_complex_r', 'Текст справа, картинка слева')
-      // ->set_max(3) // Можно будет выбрать только 5 постов
-      ->add_fields(array(
-        Field::make('text', 'picture_text_r', 'Текст')
-          ->set_width(30),
-        Field::make('image', 'picture_img_r', 'Картинка')
+        Field::make('text', 'picture_text_about', 'Текст')
           ->set_width(30),
       )),
     Field::make('text', 'about_text_center', __('Текстовый блок по сережине'))

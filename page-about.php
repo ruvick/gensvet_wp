@@ -30,38 +30,28 @@ get_header(); ?>
       </div>
 
       <div class="company-wrap">
-        <? $pic_l = carbon_get_the_post_meta('picture_complex_l');
-        if ($pic_l) {
-          $pic_lIndex = 0;
-          foreach ($pic_l as $item) {
-        ?>
-            <div class="company-wrap-card">
-              <img src="<?php echo wp_get_attachment_image_src($item['picture_img_l'], 'large')[0]; ?>" alt="" class="company-wrap-card__img">
-              <p class="company-wrap-card__desc"><? echo $item['picture_text_l']; ?></p>
-            </div>
+        <?php $complex = carbon_get_post_meta($post->ID, 'picture_complex_about');
+        if (!empty($complex)) : ?>
+          <?php foreach ($complex as $item) : ?>
 
-        <?
-            $pic_lIndex++;
-          }
-        }
-        ?>
-
-        <? $pic_r = carbon_get_the_post_meta('picture_complex_r');
-        if ($pic_r) {
-          $pic_rIndex = 0;
-          foreach ($pic_r as $item) {
-        ?>
-            <div class="company-wrap-card">
-              <p class="company-wrap-card__desc"><? echo $item['picture_text_r']; ?></p>
-              <img src="<?php echo wp_get_attachment_image_src($item['picture_img_r'], 'large')[0]; ?>" alt="" class="company-wrap-card__img">
-            </div>
-
-        <?
-            $pic_rIndex++;
-          }
-        }
-        ?>
+            <?php if (!empty($item['checkbox_pay_exc'])) {
+              echo '    
+              <div class="company-wrap-card">
+                <p class="company-wrap-card__desc">' . $item['picture_text_about'] . '</p>
+                <img src="' . wp_get_attachment_image_src($item['picture_img_about'], 'large')[0] . '" alt="" class="company-wrap-card__img">
+              </div>';
+            } else {
+              echo '
+              <div class="company-wrap-card">
+                <img src="' . wp_get_attachment_image_src($item['picture_img_about'], 'large')[0] . '" alt="" class="company-wrap-card__img">
+                <p class="company-wrap-card__desc">' . $item['picture_text_about'] . '</p>
+              </div>';
+            }
+            ?>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </div>
+
       <? $abouttc = carbon_get_post_meta(get_the_ID(), "about_text_center");
       if (!empty($abouttc)) { ?>
         <p class="company__tagline"><? echo $abouttc; ?></p>
