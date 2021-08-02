@@ -188,6 +188,31 @@ Container::make('post_meta', 'page-about', 'Контент страницы')
       )),
   ));
 
+Container::make('post_meta', 'page-certificates', 'Сертификаты и награды')
+  ->show_on_template(array('page-certificates.php'))
+  ->add_fields(array(
+    Field::make('complex', 'complex_certificates', 'Сертификаты')
+      // ->set_max(3) // Можно будет выбрать только 5 постов
+      ->add_fields(array(
+        Field::make('image', 'certificates_img', 'Картинка')
+          ->set_width(30),
+        Field::make('text', 'certificates_title', 'Название')
+          ->set_width(30),
+        Field::make('text', 'certificates_text', 'Текст')
+          ->set_width(30),
+      )),
+    Field::make('complex', 'complex_awards', 'Награды')
+      // ->set_max(3) // Можно будет выбрать только 5 постов
+      ->add_fields(array(
+        Field::make('image', 'awards_img', 'Картинка')
+          ->set_width(30),
+        Field::make('text', 'awards_title', 'Название')
+          ->set_width(30),
+        Field::make('text', 'awards_text', 'Текст')
+          ->set_width(30),
+      )),
+  ));
+
   // Container::make('post_meta', 'page-gallery-tkaney-obivki-sidenii', 'Характеристики записи')
   // ->show_on_template(array('page-gallery-tkaney-obivki-sidenii.php'))
   //     ->add_fields(array(   
