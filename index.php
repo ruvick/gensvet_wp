@@ -108,14 +108,14 @@
 						<ul class="production-wrap-cards-hidden-list">
 							<li class="production-wrap-cards-hidden-list-item">
 								<img src="./img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Каталог ГЕНСВЕТ</a>
+								<a href="<?php echo get_category_link(7); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог ГЕНСВЕТ</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
 								<img src="./img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
 								<a href="#" class="production-wrap-cards-hidden-list-item__link">Каталог DEKOlabs</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Калькулятор освещенности</a>
+								<a href="<?php echo get_permalink(153); ?>" class="production-wrap-cards-hidden-list-item__link">Калькулятор освещенности</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
 								<a href="#" class="production-wrap-cards-hidden-list-item__link">Видео-обзоры</a>
@@ -134,7 +134,7 @@
 				</div>
 				<div class="production-wrap-cards">
 					<div class="production-wrap-cards-card">
-						<a href="#" class="production-wrap-cards-card-link">
+						<a href="<?php echo get_permalink(153); ?>" class="production-wrap-cards-card-link">
 							<h3 class="production-wrap-cards-card-link__title">калькулятор <br>освещенности</h3>
 							<img src="./img/home/production-bg-4.svg" alt="" class="production-wrap-cards-card-link__img">
 						</a>
