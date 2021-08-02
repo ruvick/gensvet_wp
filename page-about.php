@@ -88,14 +88,14 @@ get_header(); ?>
     <div class="container">
       <div class="banners-wrap">
         <div class="banners-wrap-card">
-          <a href="" class="banners-wrap-card-link">
+          <a href="<?php echo get_category_link(7); ?>" class="banners-wrap-card-link">
             <h2 class="banners-wrap-card-link__title">Продукция<br> генсвет</h2>
             <img src="<?php echo get_template_directory_uri(); ?>/img/about/banners-bg-1.svg" alt="" class="banners-wrap-card-link__bg">
             <img src="<?php echo get_template_directory_uri(); ?>/img/about/banners-1.png" alt="" class="banners-wrap-card-link__img">
           </a>
         </div>
         <div class="banners-wrap-card">
-          <a href="" class="banners-wrap-card-link">
+          <a href="<?php echo get_category_link(7); ?>" class="banners-wrap-card-link">
             <h2 class="banners-wrap-card-link__title">Продукция<br>dekolabs</h2>
             <img src="<?php echo get_template_directory_uri(); ?>/img/about/banners-bg-2.svg" alt="" class="banners-wrap-card-link__bg">
             <img src="<?php echo get_template_directory_uri(); ?>/img/about/banners-2.png" alt="" class="banners-wrap-card-link__img">
