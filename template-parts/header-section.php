@@ -9,7 +9,7 @@
 					<a href="<?php echo get_permalink(6); ?>" class="header-top-nav-item__link">Презентация компании</a>
 				</li>
 				<li class="header-top-nav-item">
-					<a href="<?php echo get_permalink(6); ?>" class="header-top-nav-item__link">Сертификаты и награды</a>
+					<a href="<?php echo get_permalink(149); ?>" class="header-top-nav-item__link">Сертификаты и награды</a>
 				</li>
 				<li class="header-top-nav-item">
 					<a href="<?php echo get_permalink(38); ?>" class="header-top-nav-item__link">Контакты</a>
