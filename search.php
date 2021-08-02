@@ -13,14 +13,18 @@ get_header(); ?>
 
 <main id="primary" class="main">
 
-	<section class="content">
+	<section class="breadcrumb">
 		<div class="container">
-
 			<?php
 			if (function_exists('yoast_breadcrumb')) {
 				yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
 			}
 			?>
+		</div>
+	</section>
+
+	<section class="content">
+		<div class="container">
 
 			<h1>Результаты поиска</h1>
 

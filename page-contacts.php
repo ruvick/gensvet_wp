@@ -12,19 +12,11 @@ get_header(); ?>
 <main class="main">
 	<section class="breadcrumb">
 		<div class="container">
-			<div class="breadcrumb-wrap">
-				<ul class="breadcrumb-list">
-					<li class="breadcrumb-list-item">
-						<a href="" class="breadcrumb-list-item__link">Каталог</a>
-					</li>
-					<li class="breadcrumb-list-item">
-						<a href="" class="breadcrumb-list-item__link">О компании</a>
-					</li>
-					<li class="breadcrumb-list-item">
-						<a href="" class="breadcrumb-list-item__link">Контакты</a>
-					</li>
-				</ul>
-			</div>
+			<?php
+			if (function_exists('yoast_breadcrumb')) {
+				yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+			}
+			?>
 		</div>
 	</section>
 	<section class="contacts">

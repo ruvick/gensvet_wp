@@ -1,5 +1,5 @@
-
 <?php
+
 /**
  * The template for displaying all pages
  *
@@ -15,30 +15,34 @@
 
 get_header(); ?>
 
-<?php get_template_part('template-parts/header-section');?> 
+<?php get_template_part('template-parts/header-section'); ?>
 
-	<main id="primary" class="main"> 
+<main id="primary" class="main">
 
-		<section class="content"> 
-			<div class="container">
-
+	<section class="breadcrumb">
+		<div class="container">
 			<?php
-			if ( function_exists('yoast_breadcrumb') ) {
-				yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+			if (function_exists('yoast_breadcrumb')) {
+				yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
 			}
-			?> 
+			?>
+		</div>
+	</section>
 
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<h1><?php the_title();?></h1>
-					<?php the_content();?> 
-					<?php endwhile;?>
-				<?php endif; ?> 
+	<section class="content">
+		<div class="container">
 
-			</div>
-		</section>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+					<h1><?php the_title(); ?></h1>
+					<?php the_content(); ?>
+				<?php endwhile; ?>
+			<?php endif; ?>
 
-		<?php get_template_part('template-parts/subscription-section');?> 
-		
-	</main>
+		</div>
+	</section>
 
-	<?php get_footer(); ?>  
+	<?php get_template_part('template-parts/subscription-section'); ?>
+
+</main>
+
+<?php get_footer(); ?>

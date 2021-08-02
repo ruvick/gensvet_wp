@@ -1,46 +1,39 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-parts/header-section');?> 
+<?php get_template_part('template-parts/header-section'); ?>
 
-<main id="primary" class="main"> 
+<main id="primary" class="main">
 
-<section class="breadcrumb">
-            <div class="container">
+	<section class="breadcrumb">
+		<div class="container">
+			<?php
+			if (function_exists('yoast_breadcrumb')) {
+				yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+			}
+			?>
+		</div>
+	</section>
 
-                <div class="breadcrumb-wrap">
-                    <ul class="breadcrumb-list">
-                        <li class="breadcrumb-list-item">
-                            <a href="" class="breadcrumb-list-item__link">Каталог</a> 
-                        </li>
-                        <li class="breadcrumb-list-item">
-                            <a href="" class="breadcrumb-list-item__link">О компании</a>
-                        </li>
-                        <li class="breadcrumb-list-item">
-                            <a href="" class="breadcrumb-list-item__link">Новости</a> 
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-        </section>
+	<section class="newscom">
+		<div class="container">
 
-        <section class="newscom">
-            <div class="container">
+			<h1 class="newscom__title"><? single_cat_title(); ?></h1>
 
-                <h1 class="newscom__title"><? single_cat_title(); ?></h1> 
-
-                <div class="newscom-wrap">
-                  <?php if (have_posts()) { while (have_posts()) { the_post(); ?> 
+			<div class="newscom-wrap">
+				<?php if (have_posts()) {
+					while (have_posts()) {
+						the_post(); ?>
 
 
-                    <?php 	} //конец while
-                  } //конец if ?>
-                </div>
+				<?php 	} //конец while
+				} //конец if 
+				?>
+			</div>
 
-            </div>
-        </section>
+		</div>
+	</section>
 
-        <?php get_template_part('template-parts/subscription-section');?> 
+	<?php get_template_part('template-parts/subscription-section'); ?>
 
-    </main>
-    <?php get_footer(); ?>  
+</main>
+<?php get_footer(); ?>
