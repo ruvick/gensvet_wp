@@ -2,7 +2,7 @@
 
 <?php get_template_part('template-parts/header-section'); ?>
 
-<main class="page">
+<main class="main">
 
   <section class="breadcrumb">
     <div class="container">

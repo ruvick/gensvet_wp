@@ -2,7 +2,7 @@
 
 <?php get_template_part('template-parts/header-section'); ?>
 
-<main class="page">
+<main class="main">
 
 	<section class="production">
 		<div class="container">
@@ -94,7 +94,7 @@
 
 				<div class="production-wrap-cards">
 					<div class="production-wrap-cards-card">
-						<a href="#" class="production-wrap-cards-card-link">
+						<a href="<?php echo get_permalink(162); ?>" class="production-wrap-cards-card-link">
 							<h3 class="production-wrap-cards-card-link__title">Сервисы</h3>
 						</a>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-3.svg" alt="" class="production-wrap-cards-card__img">
@@ -102,7 +102,7 @@
 					</div>
 					<div class="production-wrap-cards-hidden">
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-hidden-3.svg" alt="" class="production-wrap-cards-hidden__img">
-						<a href="" class="production-wrap-cards-hidden-link">
+						<a href="<?php echo get_permalink(162); ?>" class="production-wrap-cards-hidden-link">
 							<h3 class="production-wrap-cards-hidden-link__title">Сервисы</h3>
 						</a>
 						<ul class="production-wrap-cards-hidden-list">
@@ -124,7 +124,7 @@
 								<a href="#" class="production-wrap-cards-hidden-list-item__link popup-price-list">Прайс-лист</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">IES-файлы</a>
+								<a href="<?php echo get_permalink(165); ?>" class="production-wrap-cards-hidden-list-item__link">IES-файлы</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
 								<a href="#" class="production-wrap-cards-hidden-list-item__link">Технические задания</a>
