@@ -85,6 +85,7 @@ function my_assets()
 	wp_enqueue_style("style-icon", get_template_directory_uri() . "/css/icon.css", array(), $style_version, 'all'); //Icon (стили)
 	wp_enqueue_style("style-normalize", get_template_directory_uri() . "/css/normalize.css", array(), $style_version, 'all'); //Normalize (стили)
 	wp_enqueue_style("style-nouislider", get_template_directory_uri() . "/css/nouislider.min.css", array(), $style_version, 'all'); //Nouislider (стили)
+	wp_enqueue_style("style-modal", get_template_directory_uri() . "/css/jquery.arcticmodal-0.3.css", array(), $style_version, 'all'); //Модальные окна (стили)
 
 	wp_enqueue_style("main-style", get_stylesheet_uri(), array(), $style_version, 'all'); // Подключение основных стилей в самом конце 
 
@@ -95,6 +96,7 @@ function my_assets()
 	wp_enqueue_script('dropdown', get_template_directory_uri() . '/js/dropdown.js', array(), $scrypt_version, true); //Dropdown
 	wp_enqueue_script('nouislider', get_template_directory_uri() . '/js/nouislider.min.js', array(), $scrypt_version, true); //Nouislider
 	wp_enqueue_script('range-slider', get_template_directory_uri() . '/js/range-slider.js', array(), $scrypt_version, true); //Range-slider
+	wp_enqueue_script('amodal', get_template_directory_uri() . '/js/jquery.arcticmodal-0.3.min.js', array(), $scrypt_version, true); //Модальные окна
 
 	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), $scrypt_version, true); // Подключение основного скрипта в самом конце
 

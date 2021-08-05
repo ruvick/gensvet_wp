@@ -1158,7 +1158,7 @@
 								</ul>
 							</li>
 							<li class="header-bottom-wrap-menu-item-submenu-item">
-								<a href="#" class="header-bottom-wrap-menu-item-submenu-item__link">Прайс-лист <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-menu-arrow-right.svg" alt="" class="header-bottom-wrap-menu-item-submenu-item-right__img"></a>
+								<a href="#" class="header-bottom-wrap-menu-item-submenu-item__link popup-price-list">Прайс-лист <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-menu-arrow-right.svg" alt="" class="header-bottom-wrap-menu-item-submenu-item-right__img"></a>
 								<ul class="header-bottom-wrap-menu-item-submenu-item-subsubmenu">
 									<li class="header-bottom-wrap-menu-item-submenu-item-subsubmenu-item">
 										<a href="#" class="header-bottom-wrap-menu-item-submenu-item-subsubmenu-item__link">600 × 600 (Армстронг)</a>
@@ -1261,7 +1261,7 @@
 						<button type="submit" tabindex="2" id="searchsubmit" value="" class="header-bottom-wrap-search-hidden__btn sub-search">найти</button>
 					</div>
 				</form>
-				<button class="production-top-right__btn hidden">Скачать инструкцию</button>
+				<button class="production-top-right__btn popup-instruction hidden">Скачать инструкцию</button>
 			</div>
 		</div>
 	</div>

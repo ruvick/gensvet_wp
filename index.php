@@ -10,7 +10,7 @@
 				<h1 class="production-top__title"><?php echo carbon_get_theme_option('about_home_title'); ?></h1>
 				<div class="production-top-right">
 					<h2 class="production-top-right__subtitle">Скачайте инструкцию <br>«Кривые силы света»</h2>
-					<button class="production-top-right__btn">Скачать инструкцию</button>
+					<button class="production-top-right__btn popup-instruction">Скачать инструкцию</button>
 					<!-- <div class="production-top-right-wrap">
                             <p class="production-top-right-wrap__desc">О компании</p>
                             <a href="#" class="production-top-right-wrap-link">
@@ -121,7 +121,7 @@
 								<a href="#" class="production-wrap-cards-hidden-list-item__link">Видео-обзоры</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Прайс-лист</a>
+								<a href="#" class="production-wrap-cards-hidden-list-item__link popup-price-list">Прайс-лист</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
 								<a href="#" class="production-wrap-cards-hidden-list-item__link">IES-файлы</a>

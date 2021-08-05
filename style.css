@@ -6442,7 +6442,7 @@ body {
   padding-top: 85px;
   padding-bottom: 85px;
   padding-left: 50px;
-  background-image: url("../img/modals/electrical.png");
+  background-image: url("img/modals/electrical.png");
   background-repeat: no-repeat;
   background-size: 242px 299px;
   background-position: top -21px right 35px;
@@ -6451,7 +6451,7 @@ body {
 .modal__close {
   position: absolute;
   display: inline-block;
-  background-image: url("../img/modals/close.svg");
+  background-image: url("img/modals/close.svg");
   width: 19px;
   height: 19px;
   top: 20px;
@@ -6460,7 +6460,7 @@ body {
 }
 
 .modal__close--success {
-  background-image: url("../img/modals/close-gray.svg");
+  background-image: url("img/modals/close-gray.svg");
 }
 
 .modal-container {
@@ -6606,13 +6606,13 @@ body {
 
 .modal__img {
   width: 50%;
-  background-image: url("../img/modals/panels.png");
+  background-image: url("img/modals/panels.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .modal__img--price {
-  background-image: url("../img/modals/metal-const.png");
+  background-image: url("img/modals/metal-const.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

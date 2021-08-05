@@ -238,12 +238,12 @@ checkbox.on('click', function () {
 });
 
 // modal
-$('.modal-overlay').on('click', function () {
-	$(this).parent().hide();
-});
-$('.modal__close').on('click', function () {
-	$(this).parent().parent().hide();
-});
+// $('.modal-overlay').on('click', function () {
+// 	$(this).parent().hide();
+// });
+// $('.modal__close').on('click', function () {
+// 	$(this).parent().parent().hide();
+// });
 
 // float menu
 $(window).scroll(function () {
@@ -401,15 +401,23 @@ $('.lines-button-767').on('click', function () {
 	$(this).toggleClass('active');
 	$(this).siblings('.lines-wrap').find('.lines-wrap-filter').slideToggle();
 });
+// ================================================================================
 
-
-// Открытие модального окна
-$(".popup-quest").on('click', function (e) {
+// Открытие модальных окон
+$(".popup-instruction").on('click', function (e) {
 	e.preventDefault();
 	jQuery(".windows_form h2").html(jQuery(this).data("winheader"));
 	jQuery(".windows_form .subtitle").html(jQuery(this).data("winsubheader"));
-	jQuery("#question").arcticmodal();
+	jQuery("#instruction").arcticmodal();
 });
+
+$(".popup-price-list").on('click', function (e) {
+	e.preventDefault();
+	jQuery(".windows_form h2").html(jQuery(this).data("winheader"));
+	jQuery(".windows_form .subtitle").html(jQuery(this).data("winsubheader"));
+	jQuery("#price-list").arcticmodal();
+});
+// ===============================================================================
 
 
 //Валидация + Отправщик
