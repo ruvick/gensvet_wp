@@ -455,8 +455,8 @@ $('.newButton').click(function (e) {
 		);
 
 		jqXHR.done(function (responce) {
-			jQuery(".headen_form_blk").hide();
-			jQuery('.SendetMsg').show();
+			jQuery("#instruction .headen_form_blk").hide();
+			jQuery('#instruction .SendetMsg').show();
 		});
 
 		jqXHR.fail(function (responce) {
@@ -497,8 +497,8 @@ $('.newButtonPrice').click(function (e) {
 		);
 
 		jqXHR.done(function (responce) {
-			jQuery(".headen_form_blk").hide();
-			jQuery('.SendetMsg').show();
+			jQuery("#price-list .headen_form_blk").hide();
+			jQuery('#price-list .SendetMsg').show();
 		});
 
 		jqXHR.fail(function (responce) {

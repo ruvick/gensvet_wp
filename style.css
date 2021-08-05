@@ -7129,7 +7129,7 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 
 
 /* Popup JS */
-.popup {
+/* .popup {
   -webkit-overflow-scrolling: touch;
   z-index: 500000;
   padding: 30px 10px;
@@ -7244,7 +7244,8 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   color: #fff;
   background-color: #d3820f; }
 .popup__item img {
-  width: 40%; }
+  width: 40%; } */
+
 .SendetMsg {
   padding: 10px 0;
   text-align: center;
@@ -7261,4 +7262,10 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   background-repeat: no-repeat;
   float: left;
   margin: 10px 0; }
-/* Popup JS End*/
+
+.box-modal .SendetMsg {
+  padding: 0;
+  margin-top: 0; }
+
+.box-modal .SendetMsg:before {
+  display: none; }
