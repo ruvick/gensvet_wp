@@ -42,7 +42,7 @@
 				<a href="/" class="header-bottom-wrap-link">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/home/logo-2.svg" alt="Deco" class="header-bottom-wrap-link-logo-2__img">
 				</a>
-				<a href="tel:+73832485548" class="header-bottom-wrap-btn-375">
+				<a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header-bottom-wrap-btn-375">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-phone-375.svg" alt="" class="header-bottom-wrap-btn-375__img">
 				</a>
 				<ul class="header-bottom-wrap-menu">
@@ -646,8 +646,8 @@
 					</li>
 				</ul>
 				<button class="header-bottom-wrap-menu-btn-767">
-					<img src="./img/home/header-menu-375.svg" alt="" class="header-bottom-wrap-menu-btn-767__img active">
-					<img src="./img/home/close.svg" alt="" class="header-bottom-wrap-menu-btn-767__img--close">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-menu-375.svg" alt="" class="header-bottom-wrap-menu-btn-767__img active">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/home/close.svg" alt="" class="header-bottom-wrap-menu-btn-767__img--close">
 					<p class="header-bottom-wrap-menu-btn-767__desc">Меню</p>
 				</button>
 				<ul class="header-bottom-wrap-menu-767">
@@ -1252,11 +1252,11 @@
 				</ul>
 				<form role="search" method="get" id="searchform" action="<?php echo home_url('/') ?>" class="header-bottom-wrap-search">
 					<button href="#" class="header-bottom-wrap-search-btn">
-						<img src="./img/home/zoom.svg" alt="" class="header-bottom-wrap-search-btn__img">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="header-bottom-wrap-search-btn__img">
 						<p class="header-bottom-wrap-search-btn__desc">Поиск...</p>
 					</button>
 					<div class="header-bottom-wrap-search-hidden">
-						<img src="./img/home/zoom.svg" alt="" class="header-bottom-wrap-search-hidden__img">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="header-bottom-wrap-search-hidden__img">
 						<input type="text" value="<?php echo get_search_query() ?>" name="s" id="s" class="header-bottom-wrap-search-hidden__input" placeholder="введите название или артикул товара..." minlength="2" maxlength="40" required>
 						<button type="submit" tabindex="2" id="searchsubmit" value="" class="header-bottom-wrap-search-hidden__btn sub-search">найти</button>
 					</div>

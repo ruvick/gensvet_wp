@@ -107,11 +107,11 @@
 						</a>
 						<ul class="production-wrap-cards-hidden-list">
 							<li class="production-wrap-cards-hidden-list-item">
-								<img src="./img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
 								<a href="<?php echo get_category_link(7); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог ГЕНСВЕТ</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
-								<img src="./img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
 								<a href="#" class="production-wrap-cards-hidden-list-item__link">Каталог DEKOlabs</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
