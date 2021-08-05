@@ -7263,9 +7263,11 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   float: left;
   margin: 10px 0; }
 
-.box-modal .SendetMsg {
+.box-modal .SendetMsg,
+.subscription .SendetMsg {
   padding: 0;
   margin-top: 0; }
 
-.box-modal .SendetMsg:before {
+.box-modal .SendetMsg:before, 
+.subscription .SendetMsg:before {
   display: none; }

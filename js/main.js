@@ -437,11 +437,6 @@ $('.newButton').click(function (e) {
 		return;
 	}
 
-	// if (jQuery("#sig-inp-e").val() == ""){
-	// 	jQuery("#sig-inp-e").css("border","1px solid red");
-	// 	return;
-	// }
-
 	else {
 		var jqXHR = jQuery.post(
 			allAjax.ajaxurl,
@@ -479,11 +474,6 @@ $('.newButtonPrice').click(function (e) {
 		return;
 	}
 
-	// if (jQuery("#sig-inp-e").val() == ""){
-	// 	jQuery("#sig-inp-e").css("border","1px solid red");
-	// 	return;
-	// }
-
 	else {
 		var jqXHR = jQuery.post(
 			allAjax.ajaxurl,
@@ -499,6 +489,39 @@ $('.newButtonPrice').click(function (e) {
 		jqXHR.done(function (responce) {
 			jQuery("#price-list .headen_form_blk").hide();
 			jQuery('#price-list .SendetMsg').show();
+		});
+
+		jqXHR.fail(function (responce) {
+			alert("Произошла ошибка. Попробуйте позднее.");
+		});
+
+	}
+});
+
+//Валидация + Отправщик Окно подписка
+$('.newButtonSubscribe').click(function (e) {
+
+	e.preventDefault();
+	const email = $("#form-subscribe-email").val();
+
+	if (jQuery("#form-subscribe-email").val() == "") {
+		jQuery("#form-subscribe-email").css("border", "1px solid red");
+		return;
+	}
+
+	else {
+		var jqXHR = jQuery.post(
+			allAjax.ajaxurl,
+			{
+				action: 'sendsubscribe',
+				nonce: allAjax.nonce,
+				email: email,
+			}
+		);
+
+		jqXHR.done(function (responce) {
+			jQuery(".subscription .headen_form_blk").hide();
+			jQuery('.subscription .SendetMsg').show();
 		});
 
 		jqXHR.fail(function (responce) {
