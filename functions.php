@@ -308,11 +308,11 @@ function posts_custom_columns($column_name, $id)
 }
 
 
-// Отправка формы из модального окна
-add_action('wp_ajax_sendphone', 'sendphone');
-add_action('wp_ajax_nopriv_sendphone', 'sendphone');
+// Отправка формы Скачать инструкцию
+add_action('wp_ajax_sendinstruction', 'sendinstruction');
+add_action('wp_ajax_nopriv_sendinstruction', 'sendinstruction');
 
-function sendphone()
+function sendinstruction()
 {
 	if (empty($_REQUEST['nonce'])) {
 		wp_die('0');
@@ -326,7 +326,33 @@ function sendphone()
 		);
 
 		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Заказ звонка', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"], $headers))
+		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос инструкции', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers))
+			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+		else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+	} else {
+		wp_die('НО-НО-НО!', '', 403);
+	}
+}
+
+// Отправка формы Скачать прайс-лист
+add_action('wp_ajax_sendprice', 'sendprice');
+add_action('wp_ajax_nopriv_sendprice', 'sendprice');
+
+function sendprice()
+{
+	if (empty($_REQUEST['nonce'])) {
+		wp_die('0');
+	}
+
+	if (check_ajax_referer('NEHERTUTLAZIT', 'nonce', false)) {
+
+		$headers = array(
+			'From: Сайт ' . COMPANY_NAME . ' <' . MAIL_RESEND . '>',
+			'content-type: text/html',
+		);
+
+		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
+		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос прайс-листа', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers))
 			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
 		else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
 	} else {

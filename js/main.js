@@ -424,16 +424,16 @@ $(".popup-price-list").on('click', function (e) {
 });
 
 
-//Валидация + Отправщик
+//Валидация + Отправщик Скачать инструкцию
 $('.newButton').click(function (e) {
 
 	e.preventDefault();
-	const name = $("#form-callback-name").val();
-	const tel = $("#form-callback-tel").val();
-	const email = $("#form-callback-email").val();
+	const name = $("#form-instruction-name").val();
+	const tel = $("#form-instruction-tel").val();
+	const email = $("#form-instruction-email").val();
 
-	if (jQuery("#form-callback-tel").val() == "") {
-		jQuery("#form-callback-tel").css("border", "1px solid red");
+	if (jQuery("#form-instruction-tel").val() == "") {
+		jQuery("#form-instruction-tel").css("border", "1px solid red");
 		return;
 	}
 
@@ -446,7 +446,7 @@ $('.newButton').click(function (e) {
 		var jqXHR = jQuery.post(
 			allAjax.ajaxurl,
 			{
-				action: 'sendphone',
+				action: 'sendinstruction',
 				nonce: allAjax.nonce,
 				name: name,
 				tel: tel,
@@ -466,3 +466,44 @@ $('.newButton').click(function (e) {
 	}
 });
 
+//Валидация + Отправщик Скачать прайс-лист
+$('.newButtonPrice').click(function (e) {
+
+	e.preventDefault();
+	const name = $("#form-price-name").val();
+	const tel = $("#form-price-tel").val();
+	const email = $("#form-price-email").val();
+
+	if (jQuery("#form-price-tel").val() == "") {
+		jQuery("#form-price-tel").css("border", "1px solid red");
+		return;
+	}
+
+	// if (jQuery("#sig-inp-e").val() == ""){
+	// 	jQuery("#sig-inp-e").css("border","1px solid red");
+	// 	return;
+	// }
+
+	else {
+		var jqXHR = jQuery.post(
+			allAjax.ajaxurl,
+			{
+				action: 'sendprice',
+				nonce: allAjax.nonce,
+				name: name,
+				tel: tel,
+				email: email,
+			}
+		);
+
+		jqXHR.done(function (responce) {
+			jQuery(".headen_form_blk").hide();
+			jQuery('.SendetMsg').show();
+		});
+
+		jqXHR.fail(function (responce) {
+			alert("Произошла ошибка. Попробуйте позднее.");
+		});
+
+	}
+});

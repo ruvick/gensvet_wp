@@ -9,9 +9,9 @@
 			<div class="modal-wrap">
 				<h3 class="modal-wrap__title">Получите инструкцию «Кривая силы света»</h3>
 				<form action="" class="modal-wrap-form">
-					<input name="user-name" type="text" class="modal-wrap-form__input" placeholder="Ваше имя" required minlength="2" maxlength="40" />
-					<input name="user-tel" type="tel" class="modal-wrap-form__input" placeholder="Номер телефона" required minlength="2" maxlength="40" />
-					<input name="user-mail" type="email" class="modal-wrap-form__input" placeholder="Адрес электронной почты" required minlength="2" maxlength="40" />
+					<input name="user-name" type="text" id="form-instruction-name" class="modal-wrap-form__input" placeholder="Ваше имя" required minlength="2" maxlength="40" />
+					<input name="user-tel" type="tel" id="form-instruction-tel" class="modal-wrap-form__input" placeholder="Номер телефона" required minlength="2" maxlength="40" />
+					<input name="user-mail" type="email" id="form-instruction-email" class="modal-wrap-form__input" placeholder="Адрес электронной почты" required minlength="2" maxlength="40" />
 					<div class="subscription-wrap-form-wrap modal-wrap-form-wrap">
 						<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked>
 						<span class="subscription-wrap-form-wrap__checkbox modal-wrap-form-wrap__checkbox"></span>
@@ -20,7 +20,7 @@
 						</p>
 					</div>
 				</form>
-				<button type="submit" href="#" class="modal-wrap__btn">ПОЛУЧИТЬ ИНСТРУКЦИЮ</button>
+				<button type="submit" href="#" class="modal-wrap__btn newButton">ПОЛУЧИТЬ ИНСТРУКЦИЮ</button>
 			</div>
 			<div class="modal__img"></div>
 		</div>
@@ -38,9 +38,9 @@
 			<div class="modal-wrap">
 				<h3 class="modal-wrap__title">скачать прайс-листы продукции</h3>
 				<form action="" class="modal-wrap-form">
-					<input name="user-name" type="text" class="modal-wrap-form__input" placeholder="Ваше имя" required minlength="2" maxlength="40" />
-					<input name="user-tel" type="tel" class="modal-wrap-form__input" placeholder="Номер телефона" required minlength="2" maxlength="40" />
-					<input name="user-mail" type="email" class="modal-wrap-form__input" placeholder="Адрес электронной почты" required minlength="2" maxlength="40" />
+					<input name="user-name" type="text" id="form-price-name" class="modal-wrap-form__input" placeholder="Ваше имя" required minlength="2" maxlength="40" />
+					<input name="user-tel" type="tel" id="form-price-tel" class="modal-wrap-form__input" placeholder="Номер телефона" required minlength="2" maxlength="40" />
+					<input name="user-mail" type="email" id="form-price-email" class="modal-wrap-form__input" placeholder="Адрес электронной почты" required minlength="2" maxlength="40" />
 					<div class="subscription-wrap-form-wrap modal-wrap-form-wrap">
 						<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked>
 						<span class="subscription-wrap-form-wrap__checkbox modal-wrap-form-wrap__checkbox"></span>
@@ -51,7 +51,7 @@
 						</p>
 					</div>
 				</form>
-				<button type="submit" href="#" class="modal-wrap__btn">ПОЛУЧИТЬ ИНСТРУКЦИЮ</button>
+				<button type="submit" href="#" class="modal-wrap__btn newButtonPrice">ПОЛУЧИТЬ ИНСТРУКЦИЮ</button>
 			</div>
 			<div class="modal__img modal__img--price"></div>
 		</div>
