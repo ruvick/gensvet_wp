@@ -96,7 +96,8 @@ function my_assets()
 	wp_enqueue_script('dropdown', get_template_directory_uri() . '/js/dropdown.js', array(), $scrypt_version, true); //Dropdown
 	wp_enqueue_script('nouislider', get_template_directory_uri() . '/js/nouislider.min.js', array(), $scrypt_version, true); //Nouislider
 	wp_enqueue_script('range-slider', get_template_directory_uri() . '/js/range-slider.js', array(), $scrypt_version, true); //Range-slider
-	wp_enqueue_script('amodal', get_template_directory_uri() . '/js/jquery.arcticmodal-0.3.min.js', array(), $scrypt_version, true); //Модальные окна
+	wp_enqueue_script('mask', get_template_directory_uri() . '/js/jquery.inputmask.bundle.js', array(), $scrypt_version, true); //маска для инпутов
+	wp_enqueue_script('amodal', get_template_directory_uri() . '/js/jquery.arcticmodal-0.3.min.js', array(), $scrypt_version, true); //Модальные окна 
 
 	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), $scrypt_version, true); // Подключение основного скрипта в самом конце
 
