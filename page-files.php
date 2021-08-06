@@ -32,6 +32,7 @@ get_header(); ?>
         </button>
       </div>
       <div class="files-table">
+
         <div class="files-table-row">
           <div class="files-table-row-cell">
             <p class="files-table-row-cell__desc">Наименование светильника</p>
@@ -40,275 +41,29 @@ get_header(); ?>
             <p class="files-table-row-cell__desc">Объем файла</p>
           </div>
           <div class="files-table-row-cell">
-
           </div>
         </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
-        <div class="files-table-row">
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">Название IES-файла.pdf</p>
-          </div>
-          <div class="files-table-row-cell">
-            <p class="files-table-row-cell__desc">1.4 МБ</p>
-          </div>
-          <div class="files-table-row-cell">
-            <button class="files-table-row-cell__btn">скачать</button>
-            <button class="files-table-row-cell-btn-375">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img">
-            </button>
-          </div>
-        </div>
+        <?php $complex = carbon_get_post_meta($post->ID, 'complex_file_list');
+        // $file = get_post_meta($file['ID'], '_wp_attached_file', true);
+        // $data = get_post($file);
+        if (!empty($complex)) : ?>
+          <?php foreach ($complex as $item) : ?>
+            <div class="files-table-row">
+              <div class="files-table-row-cell">
+                <p class="files-table-row-cell__desc"><?php echo $post->post_title; ?></p>
+              </div>
+              <div class="files-table-row-cell">
+                <p class="files-table-row-cell__desc">1.4 МБ</p>
+              </div>
+              <div class="files-table-row-cell">
+                <?php
+                printf('<a href="%s" download class="files-table-row-cell__btn">Скачать</a>', $item['file_list']);
+                printf('<a href="%s" download class="files-table-row-cell-btn-375"><img src="' . get_template_directory_uri() . '/img/files/files-download.svg" alt="" class="files-table-row-cell-btn-375__img"></a>', $item['file_list']);
+                ?>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </div>
       <div class="lines-wrap-tables-wrap">
         <div class="lines-wrap-tables-wrap-buttons">

@@ -213,6 +213,21 @@ Container::make('post_meta', 'page-certificates', 'Сертификаты и н�
       )),
   ));
 
+Container::make('post_meta', 'page-files', 'Файлы')
+  ->show_on_template(array('page-files.php'))
+  ->add_fields(array(
+    Field::make('complex', 'complex_file_list', 'Добавить файл')
+      // ->set_max(3) // Можно будет выбрать только 5 постов
+      ->add_fields(array(
+        Field::make("file", "file_list", "Файл")
+          ->set_value_type('id'), // сохранить в метаполе ссылку на файл
+        // Field::make('text', 'file_title', 'Название ')
+        //   ->set_width(30),
+        // Field::make('text', 'file_volume', 'Текст')
+        //   ->set_width(30),
+      )),
+  ));
+
   // Container::make('post_meta', 'page-gallery-tkaney-obivki-sidenii', 'Характеристики записи')
   // ->show_on_template(array('page-gallery-tkaney-obivki-sidenii.php'))
   //     ->add_fields(array(   
