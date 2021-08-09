@@ -87,23 +87,97 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
 Container::make('post_meta', 'ultra_product_cr', 'Характеристики товара')
   ->show_on_post_type(array('ultra'))
   ->add_fields(array(
-    Field::make('textarea', 'offer_smile_descr', 'Краткое описание')->set_width(100),
+    Field::make('text', 'offer_sticker', 'Стикер')->set_width(50),
+    Field::make('text', 'offer_sku', 'Артикул (Базовый)')->set_width(50),
+    Field::make('complex', 'offer_power_complex', "Мощность")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'offer_power_denomination', 'Номинал')->set_width(50),
+      )),
+
+    Field::make('complex', 'light_flow_complex', "Световой поток")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'light_flow_denomination', 'Номинал')->set_width(50),
+      )),
+    Field::make('complex', 'colour_temp_complex', "Цветовая температура")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'colour_temp_denomination', 'Номинал')->set_width(50),
+      )),
+
+    Field::make('complex', 'diffuser_complex', "Выберите рассеиватель")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'diffuser_denomination', 'Рассеиватель')->set_width(50),
+      )),
+
+    Field::make('complex', 'driver_complex', "Выберите драйвер")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'driver_denomination', 'Драйвер')->set_width(50),
+      )),
+
+    Field::make('complex', 'download_certificate', 'Скачать сертификат (PDF)')
+      ->set_max(1) // Можно будет выбрать только 1 пункт
+      ->add_fields(array(
+        Field::make("checkbox", "checkbox_certificate", "Активна ссылка на файл"),
+        // ->help_text('Меняет местами картинку и текст"'),
+        Field::make("file", "file_certificate", "Загрузить сертификат (PDF)")
+          ->set_value_type('url') // сохранить в метаполе ссылку на файл
+          ->set_width(50),
+        Field::make('text', 'link_certificate', 'Ссылка на сертификат (PDF)')
+          ->set_width(50),
+      )),
+
+    Field::make('complex', 'download_passport', 'Скачать паспорт (PDF)')
+      ->set_max(1) // Можно будет выбрать только 1 пункт
+      ->add_fields(array(
+        Field::make("checkbox", "checkbox_passport", "Активна ссылка на файл"),
+        // ->help_text('Меняет местами картинку и текст"'),
+        Field::make("file", "file_passport", "Загрузить паспорт (PDF)")
+          ->set_value_type('url') // сохранить в метаполе ссылку на файл
+          ->set_width(50),
+        Field::make('text', 'link_passport', 'Ссылка на паспорт (PDF)')
+          ->set_width(50),
+      )),
+    Field::make('text', 'consultation_link', 'Получить консультацию. Ссылка')->set_width(100),
+
+    Field::make('complex', 'offer_cherecter_light', "Характеристики светильника. Табы, левая колонка")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'tab_name_light', 'Наименование параметра')->set_width(100),
+        Field::make('text', 'tab_val_light',  'Значение')->set_width(100),
+      )),
+
+    Field::make('complex', 'offer_cherecter_light-r', "Характеристики светильника. Табы, правая колонка")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'tab_name_light-r', 'Наименование параметра')->set_width(100),
+        Field::make('text', 'tab_val_light-r',  'Значение')->set_width(100),
+      )),
+
+    Field::make('complex', 'offer_cherecter_driver', "Характеристики драйвера. Табы, левая колонка")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'tab_name_driver', 'Наименование параметра')->set_width(100),
+        Field::make('text', 'tab_val_driver',  'Значение')->set_width(100),
+      )),
+    Field::make('complex', 'offer_cherecter_driver-r', "Характеристики драйвера. Табы, правая колонка")->set_width(50)
+      ->add_fields(array(
+        Field::make('text', 'tab_name_driver-r', 'Наименование параметра')->set_width(100),
+        Field::make('text', 'tab_val_driver-r',  'Значение')->set_width(100),
+      )),
+    // Field::make('text', 'offer_power', 'Мощность')->set_width(50),
+    // Field::make('textarea', 'offer_smile_descr', 'Краткое описание')->set_width(100),
     // Field::make('text', 'offer_name', 'Название товара')->set_width(30),
     // Field::make('text', 'offer_label', 'Метка на товаре')->set_width(30),
-    Field::make('text', 'offer_weight', 'Вес')->set_width(50),
+    // Field::make('text', 'offer_weight', 'Вес')->set_width(50),
     // Field::make('text', 'offer_allsearch', 'Все артикулы для поиска')->set_width(50),
     // Field::make('text', 'offer_siries', 'Серия (для сопутствующих)')->set_width(30),
-    Field::make('text', 'offer_sticker', 'Стикер')->set_width(50),
-    Field::make('text', 'offer_price', 'Цена')->set_width(50),
-    Field::make('text', 'offer_number', 'Колличество')->set_width(50),
-    Field::make('text', 'offer_sku', 'Артикул (Базовый)')->set_width(50),
-    Field::make('text', 'offer_power', 'Мощность')->set_width(50),
+
+    // Field::make('text', 'offer_price', 'Цена')->set_width(50),
+    // Field::make('text', 'offer_number', 'Колличество')->set_width(50), 
+
+
     // Field::make('text', 'offer_benefit', 'Выгода')->set_width(50),
-    Field::make('rich_text', 'prod_descrip', 'Описание товара')->set_width(100),
-    Field::make('text', 'offer_calories', 'Калории')->set_width(50),
-    Field::make('text', 'offer_protein', 'Белки')->set_width(50),
-    Field::make('text', 'offer_fats', 'Жиры')->set_width(50),
-    Field::make('text', 'offer_carbohyd', 'Углеводы')->set_width(50),
+    // Field::make('rich_text', 'prod_descrip', 'Описание товара')->set_width(100),
+    // Field::make('text', 'offer_calories', 'Калории')->set_width(50),
+    // Field::make('text', 'offer_protein', 'Белки')->set_width(50),
+    // Field::make('text', 'offer_fats', 'Жиры')->set_width(50),
+    // Field::make('text', 'offer_carbohyd', 'Углеводы')->set_width(50),
 
     // Field::make( 'complex', 'offer_cherecter', "Характеристики товара табы, левая колонка" )
     // ->add_fields( array(
@@ -128,12 +202,12 @@ Container::make('post_meta', 'ultra_product_cr', 'Характеристики �
     //   Field::make('text', 'mod_picture_id', 'Изображения модификации')->set_width(20),
     // ) ),
 
-    Field::make('complex', 'offer_picture', "Галерея товара")
-      ->add_fields(array(
-        Field::make('image', 'gal_img', 'Изображение')->set_width(30),
-        Field::make('text', 'gal_img_sku', 'ID для модификации')->set_width(30),
-        Field::make('text', 'gal_img_alt', 'alt и title')->set_width(30)
-      )),
+    // Field::make('complex', 'offer_picture', "Галерея товара")
+    //   ->add_fields(array(
+    //     Field::make('image', 'gal_img', 'Изображение')->set_width(30),
+    //     Field::make('text', 'gal_img_sku', 'ID для модификации')->set_width(30),
+    //     Field::make('text', 'gal_img_alt', 'alt и title')->set_width(30)
+    //   )),
 
     //   Field::make('complex', 'complex_analogs', 'Ближайшие аналоги')
     //     ->set_max(4) // Можно будет выбрать только 5 постов
