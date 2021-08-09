@@ -3812,7 +3812,7 @@ body {
 .subscription-wrap-form-wrap__checkbox:after {
   content: "";
   display: none;
-  background-image: url(../img/home/subscription-check.svg);
+  background-image: url(img/home/subscription-check.svg);
   position: absolute;
   height: 8px;
   width: 11px
