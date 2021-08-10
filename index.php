@@ -22,72 +22,51 @@
 			<div class="production-wrap">
 				<div class="production-wrap-cards">
 					<div class="production-wrap-cards-card">
-						<a href="#" class="production-wrap-cards-card-link">
+						<a href="<?php echo get_category_link(7); ?>" class="production-wrap-cards-card-link">
 							<h3 class="production-wrap-cards-card-link__title">продукция <br>ГЕНСВЕТ</h3>
 						</a>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-1.svg" alt="" class="production-wrap-cards-card__img">
 					</div>
 					<div class="production-wrap-cards-hidden">
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-hidden-1.svg" alt="" class="production-wrap-cards-hidden__img">
-						<a href="" class="production-wrap-cards-hidden-link">
+						<a href="<?php echo get_category_link(7); ?>" class="production-wrap-cards-hidden-link">
 							<h3 class="production-wrap-cards-hidden-link__title">продукция <br>ГЕНСВЕТ</h3>
 						</a>
 						<ul class="production-wrap-cards-hidden-list">
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Коммерческое и офисное освещение (IP40)</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Освещение для чистых помещений (IP54)</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Промышленное освещение (IP40 / IP65)</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Линейные светильники (IP40)</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Для образовательных учреждений</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Специальные серии</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Светильники на заказ</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Драйверы и БАП для светильников ГЕНСВЕТ</a>
-							</li>
+							<?php
+							$termID = 7;
+							$taxonomyName = "ultracat";
+							$termchildren = get_term_children($termID, $taxonomyName);
+							foreach ($termchildren as $child) {
+								$term = get_term_by('id', $child, $taxonomyName);
+								echo '<li class="production-wrap-cards-hidden-list-item"><a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="production-wrap-cards-hidden-list-item__link">' . $term->name . '</a></li>';
+							}
+							?>
 						</ul>
 					</div>
 				</div>
 				<div class="production-wrap-cards">
 					<div class="production-wrap-cards-card">
-						<a href="#" class="production-wrap-cards-card-link">
+						<a href="<?php echo get_category_link(19); ?>" class="production-wrap-cards-card-link">
 							<h3 class="production-wrap-cards-card-link__title">продукция <br>dekolabs</h3>
 						</a>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-2.svg" alt="" class="production-wrap-cards-card__img">
 					</div>
 					<div class="production-wrap-cards-hidden">
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-hidden-2.svg" alt="" class="production-wrap-cards-hidden__img">
-						<a href="" class="production-wrap-cards-hidden-link">
+						<a href="<?php echo get_category_link(19); ?>" class="production-wrap-cards-hidden-link">
 							<h3 class="production-wrap-cards-hidden-link__title">продукция <br>dekolabs</h3>
 						</a>
 						<ul class="production-wrap-cards-hidden-list">
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Наружное освещение</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Внутреннее освещение</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Интерьерное освещение</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Светодиодные лампы</a>
-							</li>
-							<li class="production-wrap-cards-hidden-list-item">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Светодиодна лента</a>
-							</li>
+							<?php
+							$termID = 19;
+							$taxonomyName = "ultracat";
+							$termchildren = get_term_children($termID, $taxonomyName);
+							foreach ($termchildren as $child) {
+								$term = get_term_by('id', $child, $taxonomyName);
+								echo '<li class="production-wrap-cards-hidden-list-item"><a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="production-wrap-cards-hidden-list-item__link">' . $term->name . '</a></li>';
+							}
+							?>
 						</ul>
 					</div>
 				</div>
