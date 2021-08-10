@@ -90,19 +90,6 @@ function change_menu_item_args($args)
 add_filter('nav_menu_item_args', 'change_menu_item_args');
 
 
-// Добавляем класс к submenu, прикрепленное к области меню menu_main
-// add_filter('nav_menu_submenu_css_class', 'change_wp_nav_menu', 10, 3);
-
-// function change_wp_nav_menu($classes, $args, $depth)
-// {
-// 	if ($args->theme_location == 'menu_main') {
-// 		$classes[] = 'header-bottom-wrap-menu-item-submenu';
-// 		// $classes[] = 'my-css-2';
-// 	}
-
-// 	return $classes;
-// }
-
 // Изменить css класс submenu 
 add_filter('nav_menu_submenu_css_class', 'change_wp_nav_menu', 10, 3);
 
