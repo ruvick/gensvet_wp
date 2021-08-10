@@ -7289,3 +7289,6 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 .subscription .SendetMsg:before {
   display: none; }
 
+.menu-item-217 img {
+  display: none;
+}
