@@ -14,13 +14,34 @@
 	</section>
 	<section class="products">
 		<div class="container">
-			<h1 class="products__title">Все продукты</h1>
+			<h1 class="products__title">Каталог</h1>
 			<div class="products-wrap">
 				<?php
-				while (have_posts()) :
-					the_post();
-					get_template_part('template-parts/product-elem');
-				endwhile;
+				$terms = get_terms('ultracat');
+
+				if ($terms && !is_wp_error($terms)) {
+
+					foreach ($terms as $term) {
+
+						$term_id = $term->term_taxonomy_id;
+						// получим ID картинки из метаполя термина
+						$image_id = get_term_meta($term_id, '_thumbnail_id', 1);
+						// ссылка на полный размер картинки по ID вложения
+						$image_url = wp_get_attachment_image_url($image_id, 'full');
+
+						echo "<a href='" . get_term_link($term->term_id, $term->taxonomy) . "' class='catalog-list-item'>
+						<img src='" . $image_url . "' class='catalog-list-item__img'>
+						<div class='catalog-list-item-link'>
+							<h3 class='catalog-list-item-link__title'>" . $term->name . "</h3>
+						</div>
+						<p class='catalog-list-item__desc'><? echo carbon_get_post_meta(get_the_ID(), 'offer_power'); ?></p>
+						<div class='catalog-list-item-link'>
+							<p class='catalog-list-item-link__desc'>Подробнее</p>
+							<img src='<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg' class='catalog-list-item-link__img'>
+						</div>
+					</a>";
+					}
+				}
 				?>
 			</div>
 		</div>

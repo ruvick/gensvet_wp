@@ -45,7 +45,7 @@
 				<a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header-bottom-wrap-btn-375">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-phone-375.svg" alt="" class="header-bottom-wrap-btn-375__img">
 				</a>
-				<ul class="header-bottom-wrap-menu">
+				<!-- <ul class="header-bottom-wrap-menu">
 					<li class="header-bottom-wrap-menu-item">
 						<a href="#" class="header-bottom-wrap-menu-item__link">продукция генсвет <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="header-bottom-wrap-menu-item-down__img"></a>
 						<ul class="header-bottom-wrap-menu-item-submenu">
@@ -644,7 +644,11 @@
 					<li class="header-bottom-wrap-menu-item">
 						<a href="<?php echo get_category_link(8); ?>" class="header-bottom-wrap-menu-item__link">точки продажи</a>
 					</li>
-				</ul>
+				</ul> -->
+				<?php wp_nav_menu(array(
+					'theme_location' => 'menu_main', 'menu_class' => 'header-bottom-wrap-menu',
+					'container_class' => 'header-bottom-wrap-menu', 'container' => false
+				)); ?>
 				<button class="header-bottom-wrap-menu-btn-767">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-menu-375.svg" alt="" class="header-bottom-wrap-menu-btn-767__img active">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/home/close.svg" alt="" class="header-bottom-wrap-menu-btn-767__img--close">

@@ -23,7 +23,9 @@ function crb_load()
 	\Carbon_Fields\Carbon_Fields::boot();
 }
 
-//-----Блок описания вывода меню
+
+
+//-----Блок описания вывода меню =========================================================================
 // 1. Осмысленные названия для алиаса и для описания на русском.
 // если это меню в подвали пишем - Меню в подвале 
 // если в шапке то пишем - Меню в шапке 
@@ -39,7 +41,8 @@ add_action('after_setup_theme', function () {
 	]);
 });
 
-// Добавление стилей к пунктам меню
+
+// Добавление стилей к пунктам меню li
 add_filter('nav_menu_css_class', 'change_menu_item_css_classes', 10, 4);
 
 function change_menu_item_css_classes($classes, $item, $args, $depth)
@@ -52,8 +55,69 @@ function change_menu_item_css_classes($classes, $item, $args, $depth)
 		$classes[] = 'footer-top-wrap-list-item-sublist-item';
 	}
 
+	if ($item->ID  && 'menu_main' === $args->theme_location) {
+		$classes[] = 'header-bottom-wrap-menu-item';
+	}
+
 	return $classes;
 }
+
+
+// Добавляет атрибут class к ссылке в пунктах меню menu_main
+add_filter('nav_menu_link_attributes', 'filter_nav_menu_link_attributes', 10, 4);
+function filter_nav_menu_link_attributes($atts, $item, $args, $depth)
+{
+	if (in_array($args->theme_location, ['menu_main'])) {
+		$atts['class'] = 'header-bottom-wrap-menu-item__link';
+
+		if ($item->current) {
+			$atts['class'] .= ' menu-link--active'; //активный пункт меню
+		}
+	}
+	return $atts;
+}
+
+
+// Добавляет иконку к ссылкам меню, прикрепленное к области меню menu_main
+function change_menu_item_args($args)
+{
+	if ($args->theme_location == 'menu_main') {
+		$args->link_after = '<img src="' . get_template_directory_uri() . '/img/home/header-menu-arrow-down.svg" alt="" class="header-bottom-wrap-menu-item-down__img">';
+	}
+
+	return $args;
+}
+add_filter('nav_menu_item_args', 'change_menu_item_args');
+
+
+// Добавляем класс к submenu, прикрепленное к области меню menu_main
+// add_filter('nav_menu_submenu_css_class', 'change_wp_nav_menu', 10, 3);
+
+// function change_wp_nav_menu($classes, $args, $depth)
+// {
+// 	if ($args->theme_location == 'menu_main') {
+// 		$classes[] = 'header-bottom-wrap-menu-item-submenu';
+// 		// $classes[] = 'my-css-2';
+// 	}
+
+// 	return $classes;
+// }
+
+// Изменить css класс submenu 
+add_filter('nav_menu_submenu_css_class', 'change_wp_nav_menu', 10, 3);
+
+function change_wp_nav_menu($classes, $args, $depth)
+{
+	foreach ($classes as $key => $class) {
+		if ($class == 'sub-menu') {
+			$classes[$key] = 'header-bottom-wrap-menu-item-submenu';
+		}
+	}
+
+	return $classes;
+}
+//----- Menu End ====================================================================================================
+
 
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(185, 185);
@@ -78,8 +142,8 @@ function my_assets()
 
 	// Подключение стилей 
 
-	$style_version = "1.0.3";
-	$scrypt_version = "1.0.3";
+	$style_version = "1.0.4";
+	$scrypt_version = "1.0.4";
 
 	wp_enqueue_style("style-fonts", get_template_directory_uri() . "/css/fonts.css", array(), $style_version, 'all'); //Fonts (стили)
 	wp_enqueue_style("style-icon", get_template_directory_uri() . "/css/icon.css", array(), $style_version, 'all'); //Icon (стили)
@@ -240,8 +304,8 @@ function ultra_custom_init()
 {
 	register_post_type('ultra', array(
 		'labels'             => array(
-			'name'               => 'Продукты', // Основное название типа записи
-			'singular_name'      => 'Продукты', // отдельное название записи типа Book
+			'name'               => 'Каталог', // Основное название типа записи
+			'singular_name'      => 'Каталог', // отдельное название записи типа Book
 			'add_new'            => 'Добавить новый',
 			'add_new_item'       => 'Добавить новый товар',
 			'edit_item'          => 'Редактировать товар',
