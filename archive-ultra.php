@@ -29,17 +29,19 @@
 						// ссылка на полный размер картинки по ID вложения
 						$image_url = wp_get_attachment_image_url($image_id, 'full');
 
-						echo "<a href='" . get_term_link($term->term_id, $term->taxonomy) . "' class='catalog-list-item'>
-						<img src='" . $image_url . "' class='catalog-list-item__img'>
-						<div class='catalog-list-item-link'>
-							<h3 class='catalog-list-item-link__title'>" . $term->name . "</h3>
+						$description = term_description($term_id);
+
+						echo '<a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="catalog-list-item">
+						<img src="' . $image_url . '" alt="" class="catalog-list-item__img">
+						<div class="catalog-list-item-link">
+							<h3 class="catalog-list-item-link__title">' . $term->name . '</h3>
 						</div>
-						<p class='catalog-list-item__desc'><? echo carbon_get_post_meta(get_the_ID(), 'offer_power'); ?></p>
-						<div class='catalog-list-item-link'>
-							<p class='catalog-list-item-link__desc'>Подробнее</p>
-							<img src='<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg' class='catalog-list-item-link__img'>
+						<p class="catalog-list-item__desc">' . $description . '</p>
+						<div class="catalog-list-item-link">
+							<p class="catalog-list-item-link__desc">Подробнее</p>
+							<img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="catalog-list-item-link__img">
 						</div>
-					</a>";
+					</a>';
 					}
 				}
 				?>

@@ -127,7 +127,7 @@
 					<div class="production-wrap-cards-card">
 						<a href="<?php echo get_category_link(8); ?>" class="production-wrap-cards-card-link">
 							<h3 class="production-wrap-cards-card-link__title">Точки <br>продажи</h3>
-							<img src="./img/home/production-bg-5.svg" alt="" class="production-wrap-cards-card-link__img">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-5.svg" alt="" class="production-wrap-cards-card-link__img">
 						</a>
 					</div>
 				</div>
@@ -141,7 +141,7 @@
 					<h2 class="news-list-left__title">новости<br> и события</h2>
 					<div class="news-list-left-wrap">
 						<a href="<?php echo get_category_link(4); ?>" class="news-list-left-wrap-btn">
-							<img src="./img/home/header-arrow-right.svg" alt="" class="news-left-wrap-btn__img">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="news-left-wrap-btn__img">
 						</a>
 						<p class="news-list-left-wrap__desc">Смотреть<br> все новости</p>
 					</div>
@@ -178,9 +178,9 @@
 					?>
 				</div>
 				<div class="news-list-left-wrap-hidden">
-					<button class="news-list-left-wrap-btn">
+					<a href="<?php echo get_category_link(4); ?>" class="news-list-left-wrap-btn">
 						<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="news-left-wrap-btn__img">
-					</button>
+					</a>
 					<p class="news-list-left-wrap__desc">Смотреть<br> все новости</p>
 				</div>
 			</div>
@@ -198,12 +198,11 @@
 						array(
 							'taxonomy' => 'ultracat',
 							'field' => 'id',
-							'terms' => array(5)
+							'terms' => 'ultracat',
 						)
 					)
 				);
 				$query = new WP_Query($args);
-
 				foreach ($query->posts as $post) {
 					$query->the_post();
 					get_template_part('template-parts/product-elem');
