@@ -10,17 +10,17 @@ get_header(); ?>
 <?php get_template_part('template-parts/header-section'); ?>
 
 <main class="main">
-
   <section class="breadcrumb">
     <div class="container">
-      <?php
-      if (function_exists('yoast_breadcrumb')) {
-        yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-      }
-      ?>
+      <div class="breadcrumb-wrap">
+        <?php
+        if (function_exists('yoast_breadcrumb')) {
+          yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
+        }
+        ?>
+      </div>
     </div>
   </section>
-
   <section class="company">
     <div class="container">
       <h1 class="company__title"><?php the_title(); ?></h1>
