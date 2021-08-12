@@ -1612,6 +1612,22 @@ body {
   padding-bottom: 60px
 }
 
+.category-pagination {
+  margin-top: 30px;
+}
+
+.lines-wrap-tables-wrap-buttons .prev,
+.lines-wrap-tables-wrap-buttons .next {
+  display: none;
+}
+
+.page-numbers {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-numbers,
 .lines-wrap-tables-wrap-buttons__btn {
   font-weight: normal;
   font-size: 14px;
@@ -1624,6 +1640,7 @@ body {
   transition: background-color 0.3s, border 0, 3s, color 0.3s
 }
 
+.page-numbers.current,
 .lines-wrap-tables-wrap-buttons__btn.active {
   background-color: #6B6B6B;
   border: 1px solid #6B6B6B;
@@ -1632,6 +1649,7 @@ body {
   transition: background-color 0.3s, border 0, 3s, color 0.3s
 }
 
+.page-numbers:hover:not(.current),
 .lines-wrap-tables-wrap-buttons__btn:hover:not(.active) {
   background-color: #F2F3F3;
   border: 1px solid #DBE2EB;

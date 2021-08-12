@@ -180,20 +180,20 @@ function aj_fnc()
 
 
 // Пагинация
-// function wp_corenavi()
-// {
-// 	global $wp_query;
-// 	$total = isset($wp_query->max_num_pages) ? $wp_query->max_num_pages : 1;
-// 	$a['total'] = $total;
-// 	$a['mid_size'] = 3; // сколько ссылок показывать слева и справа от текущей
-// 	$a['end_size'] = 1; // сколько ссылок показывать в начале и в конце
-// 	$a['prev_text'] = ''; // текст ссылки "Предыдущая страница"
-// 	$a['next_text'] = ''; // текст ссылки "Следующая страница"
+function wp_corenavi()
+{
+	global $wp_query;
+	$total = isset($wp_query->max_num_pages) ? $wp_query->max_num_pages : 1;
+	$a['total'] = $total;
+	$a['mid_size'] = 3; // сколько ссылок показывать слева и справа от текущей
+	$a['end_size'] = 1; // сколько ссылок показывать в начале и в конце
+	$a['prev_text'] = ''; // текст ссылки "Предыдущая страница"
+	$a['next_text'] = ''; // текст ссылки "Следующая страница"
 
-// 	if ($total > 1) echo '<nav class="pagination">';
-// 	echo paginate_links($a);
-// 	if ($total > 1) echo '</nav>';
-// }
+	if ($total > 1) echo '<div class="category-pagination lines-wrap-tables-wrap-buttons">';
+	echo paginate_links($a);
+	if ($total > 1) echo '</div>';
+}
 
 
 /* Отправка почты
@@ -291,8 +291,8 @@ function ultra_custom_init()
 {
 	register_post_type('ultra', array(
 		'labels'             => array(
-			'name'               => 'Каталог', // Основное название типа записи
-			'singular_name'      => 'Каталог', // отдельное название записи типа Book
+			'name'               => 'Продукты', // Основное название типа записи
+			'singular_name'      => 'Продукты', // отдельное название записи типа Book
 			'add_new'            => 'Добавить новый',
 			'add_new_item'       => 'Добавить новый товар',
 			'edit_item'          => 'Редактировать товар',
