@@ -4,7 +4,7 @@
 	<div class="catalog-list-item-link">
 		<h3 class="catalog-list-item-link__title"><? the_title(); ?></h3>
 	</div>
-	<p class="catalog-list-item__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?></p>
+	<p class="catalog-list-item__desc">Мощность - <? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?> Вт</p>
 	<div class="catalog-list-item-link">
 		<p class="catalog-list-item-link__desc">Подробнее</p>
 		<img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="catalog-list-item-link__img">
