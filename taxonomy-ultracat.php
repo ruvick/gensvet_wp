@@ -193,27 +193,28 @@
 							</div>
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0000</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?></p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">36 Вт</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?> Вт</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3600 Лм</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_light_flow"); ?> Лм</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_size"); ?></p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3000 К</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_colour_temp"); ?> К</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_diffuser"); ?></p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?></p>
 								</div>
 							</a>
+
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0001</p>
@@ -237,6 +238,7 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
 								</div>
 							</a>
+
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0002</p>
@@ -260,6 +262,7 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
 								</div>
 							</a>
+
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0001</p>
@@ -283,6 +286,7 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
 								</div>
 							</a>
+
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0002</p>
@@ -306,6 +310,7 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
 								</div>
 							</a>
+
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0001</p>
@@ -329,6 +334,7 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
 								</div>
 							</a>
+
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0002</p>
@@ -352,6 +358,7 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
 								</div>
 							</a>
+
 						</div>
 
 					</div>
