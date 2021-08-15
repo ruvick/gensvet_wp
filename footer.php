@@ -10,7 +10,7 @@
 			<div class="footer-top-wrap">
 				<ul class="footer-top-wrap-list">
 					<li class="footer-top-wrap-list-item">
-						<a href="#" class="footer-top-wrap-list-item__link">Каталог</a>
+						<p class="footer-top-wrap-list-item__link">Каталог</p>
 						<?php wp_nav_menu(array(
 							'theme_location' => 'menu_cat', 'menu_class' => 'footer-top-wrap-list-item-sublist',
 							'container_class' => 'footer-top-wrap-list-item-sublist', 'container' => false
