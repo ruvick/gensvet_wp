@@ -211,6 +211,8 @@ $('.calculator-bottom-wrap-left-add').on('click', function () {
 // popup sertificates
 $('.certificates-wrap-tabs-tab-card').on('click', function () {
 
+	// Вот тут считываем дата аттрибуты
+	
 	let current = $(this).attr("data-target");
 
 	$(".certificates-popup-container[data-target=" + current + "]").show().css('display', 'flex');

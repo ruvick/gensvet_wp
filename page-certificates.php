@@ -56,7 +56,8 @@ get_header(); ?>
               foreach ($awards as $item) {
             ?>
                 <div class="certificates-wrap-tabs-tab-card" data-target="cert3">
-                  <a href="#" class="certificates-wrap-tabs-tab-card-wrap">
+                <!-- Вот в тег а запихиваем аттрибуты из комплексного поля   -->
+                <a href="#" class="certificates-wrap-tabs-tab-card-wrap">
                     <img src="<?php echo wp_get_attachment_image_src($item['awards_img'], 'large')[0]; ?>" alt="" class="certificates-wrap-tabs-tab-card-wrap__img">
                   </a>
                   <p class="certificates-wrap-tabs-tab-card__desc"><? echo $item['awards_title']; ?></p>
