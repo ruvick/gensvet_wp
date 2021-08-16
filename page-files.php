@@ -24,6 +24,25 @@ get_header(); ?>
   $search = !empty($_REQUEST["search"]) ? $_REQUEST["search"] : "";
   $countInPage = !empty($_REQUEST["countinpage"]) ? $_REQUEST["countinpage"] : "5";
 
+  $complex = carbon_get_post_meta($post->ID, 'complex_file_list');
+
+  $fullCount = 0;
+
+  $searchedArray = array();
+  foreach ($complex as $item) {
+    if ((!empty($search)) && (strripos($item['file_title'], $search) === false)) continue;
+    $searchedArray[] = $item;
+    $fullCount++;
+  }
+
+  $startPos = ($pagenumber-1) * $countInPage;
+
+  if ($startPos > $fullCount) {
+    $pagenumber = 1;
+    $startPos = ($pagenumber-1) * $countInPage;
+
+  }
+
   ?>
 
   <section class="files">
@@ -54,24 +73,22 @@ get_header(); ?>
         <?php
 
         $fileIndex = 0;
-        $complex = carbon_get_post_meta($post->ID, 'complex_file_list');
-        // $file = get_post_meta($file['ID'], '_wp_attached_file', true);
-        // $data = get_post($file);
+       
+        
         if (!empty($complex)) : ?>
           <?php
-          $fullCount = 0;
 
-          $searchedArray = array();
-          foreach ($complex as $item) {
-            if ((!empty($search)) && (strripos($item['file_title'], $search) === false)) continue;
-            $searchedArray[] = $item;
-            $fullCount++;
-          }
+
+          
 
           foreach ($searchedArray as $item) : ?>
 
             <?
-            if ($countInPage - 1 < $fileIndex) break;
+              if ($startPos > $fileIndex) {
+                $fileIndex++;
+                continue;
+              }
+              if ($startPos + $countInPage - 1 < $fileIndex) break;
             ?>
 
             <div class="files-table-row">
@@ -98,34 +115,46 @@ get_header(); ?>
 
         <div class="lines-wrap-tables-wrap-buttons">
           <div class="options">
-            <label for="paginf-1" class="option active lines-wrap-tables-wrap-buttons__btn">
-              1
-              <input id="paginf-1" type="radio" value="1" name="form[type]">
+            
+          <?
+          
+            $pagenCount = intdiv($fullCount, $countInPage);
+            if (($fullCount % $countInPage) != 0) $pagenCount++;
+
+
+            for($i = 1; $i <= $pagenCount; $i++ ) {
+          ?>
+            <label for="paginf-<?echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber)?"active":""; ?>">
+              <?echo $i; ?>
+              <input onclick  = "filesDropdownForm.submit()" id="paginf-<?echo $i; ?>" type="radio" value="<?echo $i; ?>" name="pagenumber">
             </label>
-            <label for="paginf-2" class="option lines-wrap-tables-wrap-buttons__btn">
+          <?}?>
+
+            
+            <!-- <label for="paginf-2" class="option lines-wrap-tables-wrap-buttons__btn">
               2
-              <input id="paginf-2" type="radio" value="2" name="form[type]">
+              <input id="paginf-2" type="radio" value="2" name="pagenumber">
             </label>
             <label for="paginf-3" class="option lines-wrap-tables-wrap-buttons__btn">
               3
-              <input id="paginf-3" type="radio" value="2" name="form[type]">
+              <input id="paginf-3" type="radio" value="2" name="pagenumber">
             </label>
             <label for="paginf-4" class="option lines-wrap-tables-wrap-buttons__btn">
               4
-              <input id="paginf-4" type="radio" value="2" name="form[type]">
+              <input id="paginf-4" type="radio" value="2" name="pagenumber">
             </label>
             <label for="paginf-5" class="option lines-wrap-tables-wrap-buttons__btn">
               5
-              <input id="paginf-5" type="radio" value="2" name="form[type]">
+              <input id="paginf-5" type="radio" value="2" name="pagenumber">
             </label>
             <label for="paginf-6" class="option lines-wrap-tables-wrap-buttons__btn">
               6
-              <input id="paginf-6" type="radio" value="2" name="form[type]">
+              <input id="paginf-6" type="radio" value="2" name="pagenumber">
             </label>
             <label for="paginf-7" class="option lines-wrap-tables-wrap-buttons__btn">
               7
-              <input id="paginf-7" type="radio" value="2" name="form[type]">
-            </label>
+              <input id="paginf-7" type="radio" value="2" name="pagenumber">
+            </label> -->
           </div>
         </div>
 
@@ -143,9 +172,9 @@ get_header(); ?>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
             </ul>
-            <input name="countinpage" id="ddFilesCountInPageToSearch" type="hidden" value="<? echo $countInPage; ?>">
+            
             <input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
-            <input name="countinpage" type="text" class="dropdown__input" value="">
+            <input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
           </div>
         </div>
       </form>
