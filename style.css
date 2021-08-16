@@ -7280,3 +7280,32 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 .menu-item-217 img {
   display: none;
 }
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.option {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 3px;
+}
+.option:last-child {
+  margin-right: 0px;
+}
+.option input {
+  display: none; }
+.option:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.option.active:before {
+  background: #6B6B6B;
+}

@@ -95,15 +95,40 @@ get_header(); ?>
         <?php endif; ?>
       </div>
       <form id="filesDropdownForm" action="" method="get" class="lines-wrap-tables-wrap">
+
         <div class="lines-wrap-tables-wrap-buttons">
-          <button class="lines-wrap-tables-wrap-buttons__btn active">1</button>
-          <button class="lines-wrap-tables-wrap-buttons__btn">2</button>
-          <button class="lines-wrap-tables-wrap-buttons__btn">3</button>
-          <button class="lines-wrap-tables-wrap-buttons__btn">4</button>
-          <button class="lines-wrap-tables-wrap-buttons__btn">5</button>
-          <button class="lines-wrap-tables-wrap-buttons__btn">6</button>
-          <button class="lines-wrap-tables-wrap-buttons__btn">7</button>
+          <div class="options">
+            <div class="option active lines-wrap-tables-wrap-buttons__btn">
+              1
+              <input type="radio" value="1" name="form[type]">
+            </div>
+            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              2
+              <input type="radio" value="2" name="form[type]">
+            </div>
+            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              3
+              <input type="radio" value="2" name="form[type]">
+            </div>
+            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              4
+              <input type="radio" value="2" name="form[type]">
+            </div>
+            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              5
+              <input type="radio" value="2" name="form[type]">
+            </div>
+            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              6
+              <input type="radio" value="2" name="form[type]">
+            </div>
+            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              7
+              <input type="radio" value="2" name="form[type]">
+            </div>
+          </div>
         </div>
+
         <div class="lines-wrap-tables-wrap-quant">
           <p class="lines-wrap-tables-wrap-quant__desc">Файлов <br>на странице:</p>
           <!-- <select class="lines-wrap-tables-wrap-quant-select">
