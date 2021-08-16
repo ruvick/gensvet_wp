@@ -89,6 +89,7 @@ get_header(); ?>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="100">100</li>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="150">150</li>
             </ul>
+            <input type = "hidden" name = "search" value ="<? echo $_REQUEST["search"]?>">
             <input name = "countinpage" type="text" class="dropdown__input" value="">
           </form>
         </div>
