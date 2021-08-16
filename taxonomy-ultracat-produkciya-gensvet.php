@@ -3,17 +3,15 @@
 <?php get_template_part('template-parts/header-section'); ?>
 
 <main class="main">
+
 	<section class="breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-wrap">
-				<?php
-				if (function_exists('yoast_breadcrumb')) {
-					yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-				}
-				?>
+				<?php if (function_exists('kama_breadcrumbs')) kama_breadcrumbs(); ?>
 			</div>
 		</div>
 	</section>
+
 	<section class="products">
 		<div class="container">
 			<h1 class="products__title">Продукция ГЕНСВЕТ</h1>

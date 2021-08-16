@@ -16,14 +16,11 @@ get_header(); ?>
 <?php get_template_part('template-parts/header-section'); ?>
 
 <main class="main page">
+
 	<section class="breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-wrap">
-				<?php
-				if (function_exists('yoast_breadcrumb')) {
-					yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-				}
-				?>
+				<?php if (function_exists('kama_breadcrumbs')) kama_breadcrumbs(); ?>
 			</div>
 		</div>
 	</section>
