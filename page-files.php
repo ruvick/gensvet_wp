@@ -19,13 +19,21 @@ get_header(); ?>
     </div>
   </section>
 
+  <?
+    $pagenumber = !empty($_REQUEST["pagenumber"])?$_REQUEST["pagenumber"]:1;
+    $search = !empty($_REQUEST["search"])?$_REQUEST["search"]:"";
+    $countInPage = !empty($_REQUEST["countinpage"])?$_REQUEST["countinpage"]:"5";
+
+  ?>
+
   <section class="files">
     <div class="container">
       <h1 class="files__title">IES-файлы</h1>
       <form action="" method="get" class="files-search">
         <img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="files-search__img">
-        <input name="countinpage" id="ddFilesCountInPageToSearch" type="hidden" value="50">
-        <input name="search" type="text" class="files-search__input" placeholder="Поиск по названию изделия..." minlength="2" maxlength="40" required value="<? echo $_REQUEST["search"] ?>">
+        <input name="countinpage" id="ddFilesCountInPageToSearch" type="hidden" value="<?echo $countInPage; ?>">
+        <input name="pagenumber" id="ddFilesNumberInPageToSearch" type="hidden" value="<?echo $pagenumber; ?>">
+        <input name="search" type="text" class="files-search__input" placeholder="Поиск по названию изделия..." minlength="2" maxlength="40" value="<? echo $_REQUEST["search"] ?>">
         <button type="submit" class="files-search__btn">найти</button>
         <button type="submit" class="files-search-375-btn">
           <img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="files-search-375-btn__img">
@@ -43,11 +51,30 @@ get_header(); ?>
           <div class="files-table-row-cell">
           </div>
         </div>
-        <?php $complex = carbon_get_post_meta($post->ID, 'complex_file_list');
+        <?php 
+        
+        $fileIndex = 0;
+        $complex = carbon_get_post_meta($post->ID, 'complex_file_list');
         // $file = get_post_meta($file['ID'], '_wp_attached_file', true);
         // $data = get_post($file);
         if (!empty($complex)) : ?>
-          <?php foreach ($complex as $item) : ?>
+          <?php 
+            $fullCount = 0;
+
+            $searchedArray = array(); 
+            foreach ($complex as $item)
+            {
+              if ((!empty($search)) && (strripos($item['file_title'], $search) === false)) continue;  
+              $searchedArray[] = $item;
+              $fullCount++;
+            }
+
+            foreach ($searchedArray as $item) : ?>
+
+            <?
+              if ($countInPage-1 < $fileIndex) break;
+            ?>
+
             <div class="files-table-row">
               <div class="files-table-row-cell">
                 <p class="files-table-row-cell__desc"><? echo $item['file_title']; ?></p>
@@ -62,7 +89,10 @@ get_header(); ?>
                 ?>
               </div>
             </div>
-          <?php endforeach; ?>
+          <?php 
+            $fileIndex++;
+            endforeach; 
+          ?>
         <?php endif; ?>
       </div>
       <div class="lines-wrap-tables-wrap">
@@ -83,12 +113,13 @@ get_header(); ?>
                             <option class="lines-wrap-tables-wrap-quant-select__num">200</option>  
                         </select> -->
           <form id="filesDropdownForm" action="" method="get" class="dropdown dropdown--files">
-            <button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files">50</button>
+            <button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><?echo $countInPage; ?></button>
             <ul id="filesDropdown" class="dropdown-list dropdown-list--files">
-              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="50">50</li>
-              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="100">100</li>
-              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="150">150</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="5">5</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
             </ul>
+            <input name="countinpage" id="ddFilesCountInPageToSearch" type="hidden" value="<?echo $countInPage; ?>">
             <input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
             <input name="countinpage" type="text" class="dropdown__input" value="">
           </form>
