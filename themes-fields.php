@@ -233,12 +233,12 @@ Container::make('post_meta', 'page-files', 'Файлы')
       ->add_fields(array(
         Field::make("file", "file_list", "Файл")
           ->set_value_type('id'), // сохранить в метаполе ссылку на файл
-        // Field::make('text', 'file_title', 'Название ')
-        //   ->set_width(30),
-        // Field::make('text', 'file_volume', 'Текст')
-        //   ->set_width(30),
+        Field::make('text', 'file_title', 'Имя файла')
+          ->set_width(30),
+        Field::make('text', 'file_volume', 'Объем файла')
+          ->set_width(30),
       )),
-  ));
+  )); 
 
   // Container::make('post_meta', 'page-gallery-tkaney-obivki-sidenii', 'Характеристики записи')
   // ->show_on_template(array('page-gallery-tkaney-obivki-sidenii.php'))
