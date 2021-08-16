@@ -98,34 +98,34 @@ get_header(); ?>
 
         <div class="lines-wrap-tables-wrap-buttons">
           <div class="options">
-            <div class="option active lines-wrap-tables-wrap-buttons__btn">
+            <label for="paginf-1" class="option active lines-wrap-tables-wrap-buttons__btn">
               1
-              <input type="radio" value="1" name="form[type]">
-            </div>
-            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              <input id="paginf-1" type="radio" value="1" name="form[type]">
+            </label>
+            <label for="paginf-2" class="option lines-wrap-tables-wrap-buttons__btn">
               2
-              <input type="radio" value="2" name="form[type]">
-            </div>
-            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              <input id="paginf-2" type="radio" value="2" name="form[type]">
+            </label>
+            <label for="paginf-3" class="option lines-wrap-tables-wrap-buttons__btn">
               3
-              <input type="radio" value="2" name="form[type]">
-            </div>
-            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              <input id="paginf-3" type="radio" value="2" name="form[type]">
+            </label>
+            <label for="paginf-4" class="option lines-wrap-tables-wrap-buttons__btn">
               4
-              <input type="radio" value="2" name="form[type]">
-            </div>
-            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              <input id="paginf-4" type="radio" value="2" name="form[type]">
+            </label>
+            <label for="paginf-5" class="option lines-wrap-tables-wrap-buttons__btn">
               5
-              <input type="radio" value="2" name="form[type]">
-            </div>
-            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              <input id="paginf-5" type="radio" value="2" name="form[type]">
+            </label>
+            <label for="paginf-6" class="option lines-wrap-tables-wrap-buttons__btn">
               6
-              <input type="radio" value="2" name="form[type]">
-            </div>
-            <div class="option lines-wrap-tables-wrap-buttons__btn">
+              <input id="paginf-6" type="radio" value="2" name="form[type]">
+            </label>
+            <label for="paginf-7" class="option lines-wrap-tables-wrap-buttons__btn">
               7
-              <input type="radio" value="2" name="form[type]">
-            </div>
+              <input id="paginf-7" type="radio" value="2" name="form[type]">
+            </label>
           </div>
         </div>
 
