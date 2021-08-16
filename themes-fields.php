@@ -232,7 +232,7 @@ Container::make('post_meta', 'page-files', 'Файлы')
       // ->set_max(3) // Можно будет выбрать только 5 постов
       ->add_fields(array(
         Field::make("file", "file_list", "Файл")
-          ->set_value_type('id'), // сохранить в метаполе ссылку на файл
+          ->set_value_type('url'), // сохранить в метаполе ссылку на файл
         Field::make('text', 'file_title', 'Имя файла')
           ->set_width(30),
         Field::make('text', 'file_volume', 'Объем файла')
