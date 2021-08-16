@@ -10,6 +10,19 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 
 document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
 
+    // const dropDownFilesButton = dropDownWrapper.querySelector('#filesDropdownBtn');
+    // const dropDownButtonFiles = dropDownWrapper.querySelector('#filesDropdown');
+    // const dropDownFilesListItems = dropDownButtonFiles.querySelectorAll('.dropdown-list__item');
+
+    // dropDownFilesListItems.forEach(function (listItem) {
+    //     listItem.addEventListener('click', function (e) {
+    //         e.stopPropagation();
+    //         dropDownFilesButton.innerText = this.innerText;
+    //         dropDownInput.value = this.dataset.value;
+    //         dropDownList.classList.remove('dropdown-list--visible');
+    //     });
+    // });
+
     const dropDownButton = dropDownWrapper.querySelector('.dropdown__button');
     const dropDownList = dropDownWrapper.querySelector('.dropdown-list');
     const dropDownListItems = dropDownList.querySelectorAll('.dropdown-list__item');
@@ -25,6 +38,12 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
             dropDownButton.innerText = this.innerText;
             dropDownInput.value = this.dataset.value;
             dropDownList.classList.remove('dropdown-list--visible');
+
+            if (this.classList.contains('dropdown-list__item--files_true')) {
+                console.log("GOGO!!!!");
+                ddFilesCountInPageToSearch.value = this.dataset.value;
+                filesDropdownForm.submit();
+            }
         });
     });
 

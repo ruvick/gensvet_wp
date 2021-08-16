@@ -22,14 +22,15 @@ get_header(); ?>
   <section class="files">
     <div class="container">
       <h1 class="files__title">IES-файлы</h1>
-      <div class="files-search">
+      <form action = "" method = "get" class="files-search">
         <img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="files-search__img">
-        <input name="search" type="text" class="files-search__input" placeholder="Поиск по названию изделия..." minlength="2" maxlength="40" required>
-        <button class="files-search__btn">найти</button>
-        <button class="files-search-375-btn">
+        <input name = "countinpage" id = "ddFilesCountInPageToSearch" type="hidden" value = "50" >
+        <input name="search" type="text" class="files-search__input" placeholder="Поиск по названию изделия..." minlength="2" maxlength="40" required value = "<? echo $_REQUEST["search"]?>">
+        <button type="submit" class="files-search__btn">найти</button>
+        <button type="submit" class="files-search-375-btn">
           <img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="files-search-375-btn__img">
         </button>
-      </div>
+      </form>
       <div class="files-table">
 
         <div class="files-table-row">
@@ -81,15 +82,15 @@ get_header(); ?>
                             <option class="lines-wrap-tables-wrap-quant-select__num">100</option>
                             <option class="lines-wrap-tables-wrap-quant-select__num">200</option>  
                         </select> -->
-          <div class="dropdown dropdown--files">
-            <button class="dropdown__button dropdown__button--files">50</button>
-            <ul class="dropdown-list dropdown-list--files">
-              <li class="dropdown-list__item dropdown-list__item--files" data-value="first">50</li>
-              <li class="dropdown-list__item dropdown-list__item--files" data-value="second">100</li>
-              <li class="dropdown-list__item dropdown-list__item--files" data-value="third">150</li>
+          <form id = "filesDropdownForm" action = "" method = "get" class="dropdown dropdown--files">
+            <button id = "filesDropdownBtn" type = "button" class="dropdown__button dropdown__button--files">50</button>
+            <ul id = "filesDropdown" class="dropdown-list dropdown-list--files">
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="50">50</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="100">100</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="150">150</li>
             </ul>
-            <input type="text" class="dropdown__input" value="">
-          </div>
+            <input name = "countinpage" type="text" class="dropdown__input" value="">
+          </form>
         </div>
       </div>
     </div>

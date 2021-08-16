@@ -8,7 +8,7 @@
     "clear_r": "ssh rudikov-web@rudikov-web.myjino.ru \"rm domains/gensvet/wp-content/themes/gensvet/*.*\"",
     "send_r": "scp -C *.php *.png *.css rudikov-web@rudikov-web.myjino.ru:domains/gensvet/wp-content/themes/gensvet/",
     "send_ms": "scp -C *.css rudikov-web@rudikov-web.myjino.ru:domains/gensvet/wp-content/themes/gensvet/",
-    "send_one": "scp -C page-pageresult.php rudikov-web@rudikov-web.myjino.ru:domains/gensvet/wp-content/themes/gensvet/",
+    "send_one": "scp -C page-files.php rudikov-web@rudikov-web.myjino.ru:domains/gensvet/wp-content/themes/gensvet/",
     "send_head": "scp -C header.php rudikov-web@rudikov-web.myjino.ru:domains/gensvet/wp-content/themes/gensvet/",
     "send_cat": "scp -C category.php rudikov-web@rudikov-web.myjino.ru:domains/gensvet/wp-content/themes/gensvet/",
     "send_singl": "scp -C single.php rudikov-web@rudikov-web.myjino.ru:domains/gensvet/wp-content/themes/gensvet/",
