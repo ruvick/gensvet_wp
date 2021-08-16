@@ -729,7 +729,7 @@ body {
   height: 300px;
   bottom: 0;
   left: 0;
-  background-image: url("../img/home/production-1.png");
+  background-image: url("img/home/production-1.png");
   background-size: cover
 }
 
@@ -742,7 +742,7 @@ body {
   height: 300px;
   bottom: 0;
   left: 0;
-  background-image: url("../img/home/production-2.png");
+  background-image: url("img/home/production-2.png");
   background-size: cover
 }
 
@@ -767,7 +767,7 @@ body {
   height: 30px;
   bottom: 32px;
   left: 32px;
-  background-image: url("../img/home/production-calc.svg")
+  background-image: url("img/home/production-calc.svg")
 }
 
 .production-wrap-cards:nth-child(4) .production-wrap-cards-card:hover {
@@ -792,7 +792,7 @@ body {
   height: 30px;
   bottom: 32px;
   left: 32px;
-  background-image: url("../img/home/production-map.svg")
+  background-image: url("img/home/production-map.svg")
 }
 
 .production-wrap-cards:nth-child(5) .production-wrap-cards-card:hover {
