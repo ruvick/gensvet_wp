@@ -216,6 +216,10 @@ $('.certificates-wrap-tabs-tab-card').on('click', function () {
 
 	let imgCertSrc = $(this).attr("data-src");
 
+	let butCert = $(this).attr("data-src");
+
+	$('#butCert').attr('href', butCert);
+
 	$('#imgCert').attr('src', imgCertSrc);
 
 	$(".certificates-popup-wrap__title").html(jQuery(this).data("title"));
@@ -232,7 +236,11 @@ $('.certificates-wrap-tabs-tab-card-adw').on('click', function () {
 
 	let imgAwards = $(this).attr("data-src");
 
+	let butAwards = $(this).attr("data-src");
+
 	$('#imgAwards').attr('src', imgAwards);
+
+	$('#butAwards').attr('href', butAwards);
 
 	$(".certificates-popup-wrap__title").html(jQuery(this).data("title"));
 

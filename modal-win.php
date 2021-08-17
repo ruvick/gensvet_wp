@@ -97,7 +97,7 @@
 		<div class="certificates-popup-wrap">
 			<h3 class="certificates-popup-wrap__title"></h3>
 			<p class="certificates-popup-wrap__desc"></p>
-			<button href="#" class="certificates-popup-wrap__btn">СКАЧАТЬ</button>
+			<a href="" download id="butCert" class="certificates-popup-wrap__btn">СКАЧАТЬ</a>
 		</div>
 	</div>
 </div>
@@ -114,7 +114,7 @@
 		<div class="certificates-popup-wrap">
 			<h3 class="certificates-popup-wrap__title"></h3>
 			<p class="certificates-popup-wrap__desc"></p>
-			<button href="#" class="certificates-popup-wrap__btn">СКАЧАТЬ</button>
+			<a href="" download id="butAwards" class="certificates-popup-wrap__btn">СКАЧАТЬ</a>
 		</div>
 	</div>
 </div>
