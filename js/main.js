@@ -225,6 +225,22 @@ $('.certificates-wrap-tabs-tab-card').on('click', function () {
 	$(".certificates-popup-container[data-target=" + current + "]").show().css('display', 'flex');
 });
 
+$('.certificates-wrap-tabs-tab-card-adw').on('click', function () {
+	// Вот тут считываем дата аттрибуты
+
+	let current = $(this).attr("data-target");
+
+	let imgAwards = $(this).attr("data-src");
+
+	$('#imgAwards').attr('src', imgAwards);
+
+	$(".certificates-popup-wrap__title").html(jQuery(this).data("title"));
+
+	$(".certificates-popup-wrap__desc").html(jQuery(this).data("sub"));
+
+	$(".certificates-popup-container[data-target=" + current + "]").show().css('display', 'flex');
+});
+
 $('.certificates-popup-overlay').on('click', function () {
 	$('.certificates-popup-container').hide();
 });
