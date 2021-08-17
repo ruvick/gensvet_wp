@@ -35,7 +35,7 @@ get_header(); ?>
               $certIndex = 0;
               foreach ($cert as $item) {
             ?>
-                <div class="certificates-wrap-tabs-tab-card" data-target="cert1">
+                <div class="certificates-wrap-tabs-tab-card" data-target="cert1" data-src="<?php echo wp_get_attachment_image_src($item['certificates_img'], 'large')[0]; ?>" data-title="<? echo $item['certificates_title']; ?>" data-sub="<? echo $item['certificates_text']; ?>">
                   <a href="#" class="certificates-wrap-tabs-tab-card-wrap">
                     <img src="<?php echo wp_get_attachment_image_src($item['certificates_img'], 'large')[0]; ?>" alt="" class="certificates-wrap-tabs-tab-card-wrap__img">
                   </a>
@@ -56,8 +56,8 @@ get_header(); ?>
               foreach ($awards as $item) {
             ?>
                 <div class="certificates-wrap-tabs-tab-card" data-target="cert3">
-                <!-- Вот в тег а запихиваем аттрибуты из комплексного поля   -->
-                <a href="#" class="certificates-wrap-tabs-tab-card-wrap">
+                  <!-- Вот в тег а запихиваем аттрибуты из комплексного поля   -->
+                  <a href="#" class="certificates-wrap-tabs-tab-card-wrap">
                     <img src="<?php echo wp_get_attachment_image_src($item['awards_img'], 'large')[0]; ?>" alt="" class="certificates-wrap-tabs-tab-card-wrap__img">
                   </a>
                   <p class="certificates-wrap-tabs-tab-card__desc"><? echo $item['awards_title']; ?></p>

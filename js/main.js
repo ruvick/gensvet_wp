@@ -210,10 +210,17 @@ $('.calculator-bottom-wrap-left-add').on('click', function () {
 
 // popup sertificates
 $('.certificates-wrap-tabs-tab-card').on('click', function () {
-
 	// Вот тут считываем дата аттрибуты
-	
+
 	let current = $(this).attr("data-target");
+
+	let imgCertSrc = $(this).attr("data-src");
+
+	$('#imgCert').attr('src', imgCertSrc);
+
+	$(".certificates-popup-wrap__title").html(jQuery(this).data("title"));
+
+	$(".certificates-popup-wrap__desc").html(jQuery(this).data("sub"));
 
 	$(".certificates-popup-container[data-target=" + current + "]").show().css('display', 'flex');
 });

@@ -35,12 +35,11 @@ get_header(); ?>
     $fullCount++;
   }
 
-  $startPos = ($pagenumber-1) * $countInPage;
+  $startPos = ($pagenumber - 1) * $countInPage;
 
   if ($startPos > $fullCount) {
     $pagenumber = 1;
-    $startPos = ($pagenumber-1) * $countInPage;
-
+    $startPos = ($pagenumber - 1) * $countInPage;
   }
 
   ?>
@@ -71,26 +70,17 @@ get_header(); ?>
           </div>
         </div>
         <?php
-
         $fileIndex = 0;
-       
-        
         if (!empty($complex)) : ?>
           <?php
-
-
-          
-
           foreach ($searchedArray as $item) : ?>
-
             <?
-              if ($startPos > $fileIndex) {
-                $fileIndex++;
-                continue;
-              }
-              if ($startPos + $countInPage - 1 < $fileIndex) break;
+            if ($startPos > $fileIndex) {
+              $fileIndex++;
+              continue;
+            }
+            if ($startPos + $countInPage - 1 < $fileIndex) break;
             ?>
-
             <div class="files-table-row">
               <div class="files-table-row-cell">
                 <p class="files-table-row-cell__desc"><? echo $item['file_title']; ?></p>
@@ -112,49 +102,18 @@ get_header(); ?>
         <?php endif; ?>
       </div>
       <form id="filesDropdownForm" action="" method="get" class="lines-wrap-tables-wrap">
-
         <div class="lines-wrap-tables-wrap-buttons">
           <div class="options">
-            
-          <?
-          
+            <?
             $pagenCount = intdiv($fullCount, $countInPage);
             if (($fullCount % $countInPage) != 0) $pagenCount++;
-
-
-            for($i = 1; $i <= $pagenCount; $i++ ) {
-          ?>
-            <label for="paginf-<?echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber)?"active":""; ?>">
-              <?echo $i; ?>
-              <input onclick  = "filesDropdownForm.submit()" id="paginf-<?echo $i; ?>" type="radio" value="<?echo $i; ?>" name="pagenumber">
-            </label>
-          <?}?>
-
-            
-            <!-- <label for="paginf-2" class="option lines-wrap-tables-wrap-buttons__btn">
-              2
-              <input id="paginf-2" type="radio" value="2" name="pagenumber">
-            </label>
-            <label for="paginf-3" class="option lines-wrap-tables-wrap-buttons__btn">
-              3
-              <input id="paginf-3" type="radio" value="2" name="pagenumber">
-            </label>
-            <label for="paginf-4" class="option lines-wrap-tables-wrap-buttons__btn">
-              4
-              <input id="paginf-4" type="radio" value="2" name="pagenumber">
-            </label>
-            <label for="paginf-5" class="option lines-wrap-tables-wrap-buttons__btn">
-              5
-              <input id="paginf-5" type="radio" value="2" name="pagenumber">
-            </label>
-            <label for="paginf-6" class="option lines-wrap-tables-wrap-buttons__btn">
-              6
-              <input id="paginf-6" type="radio" value="2" name="pagenumber">
-            </label>
-            <label for="paginf-7" class="option lines-wrap-tables-wrap-buttons__btn">
-              7
-              <input id="paginf-7" type="radio" value="2" name="pagenumber">
-            </label> -->
+            for ($i = 1; $i <= $pagenCount; $i++) {
+            ?>
+              <label for="paginf-<? echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber) ? "active" : ""; ?>">
+                <? echo $i; ?>
+                <input onclick="filesDropdownForm.submit()" id="paginf-<? echo $i; ?>" type="radio" value="<? echo $i; ?>" name="pagenumber">
+              </label>
+            <? } ?>
           </div>
         </div>
 
@@ -172,7 +131,7 @@ get_header(); ?>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
             </ul>
-            
+
             <input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
             <input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
           </div>
