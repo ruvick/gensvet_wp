@@ -30,14 +30,15 @@
             if ($sub_cats) {
               foreach ($sub_cats as $cat) {
 
-                echo '<a href="' . get_term_link($cat->cat_ID) . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link">' . $cat->name . '</a>';
+                // echo '<a href="' . get_term_link($cat->cat_ID) . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link">' . $cat->name . '</a>';
+                echo '<a href="'.get_category_link($parent_id).'?region='. $cat->cat_ID .'&caname='. $cat->name .'" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link">' . $cat->name . '</a>';
 
-                $myposts = get_posts(array(
-                  'numberposts' => -1,
-                  'category'    => $cat->cat_ID,
-                  'orderby'     => 'post_date',
-                  'order'       => 'ASC',
-                ));
+                // $myposts = get_posts(array(
+                //   'numberposts' => -1,
+                //   'category'    => $cat->cat_ID,
+                //   'orderby'     => 'post_date',
+                //   'order'       => 'ASC',
+                // ));
               }
               wp_reset_postdata();
             }
@@ -141,41 +142,68 @@
         </div>
         <div class="points-wrap-partners">
           <?php
-          $parent_id = 8;
-          $sub_cats = get_categories(array(
-            'child_of' => $parent_id,
-            'order'    => 'DESC',
-            'hide_empty' => 0
-          ));
-          if ($sub_cats) {
-            foreach ($sub_cats as $cat) {
+          if (empty($_REQUEST["region"])) {
+            $parent_id = 8;
+            $sub_cats = get_categories(array(
+              'child_of' => $parent_id,
+              'order'    => 'DESC',
+              'hide_empty' => 0
+            ));
+            if ($sub_cats) {
+              foreach ($sub_cats as $cat) {
 
-              echo '<h2 class="points-wrap-partners__title">' . $cat->name . '</h2>
-              <div class="points-wrap-partners-cards">';
+                echo '<h2 class="points-wrap-partners__title">' . $cat->name . '</h2>
+                <div class="points-wrap-partners-cards">';
 
-              $myposts = get_posts(array(
-                'numberposts' => -1,
-                'category'    => $cat->cat_ID,
-                'orderby'     => 'post_date',
-                'order'       => 'ASC',
-              ));
-              global $post;
-              foreach ($myposts as $post) {
-                setup_postdata($post);
-                echo '
-                  <a href="' . get_permalink() . '" class="points-wrap-partners-cards-card">
-                    <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "tominiatyre") . ' " alt="" class="points-wrap-partners-cards-card__img">
-                    <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
-                    <div class="points-wrap-partners-cards-card-link">
-                      <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
-                      <img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
-                    </div>
-                  </a>';
+                $myposts = get_posts(array(
+                  'numberposts' => -1,
+                  'category'    => $cat->cat_ID,
+                  'orderby'     => 'post_date',
+                  'order'       => 'ASC',
+                ));
+                global $post;
+                foreach ($myposts as $post) {
+                  setup_postdata($post);
+                  echo '
+                    <a href="' . get_permalink() . '" class="points-wrap-partners-cards-card">
+                      <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "tominiatyre") . ' " alt="" class="points-wrap-partners-cards-card__img">
+                      <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
+                      <div class="points-wrap-partners-cards-card-link">
+                        <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
+                        <img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
+                      </div>
+                    </a>';
+                }
+                echo '</div>';
               }
-              echo '</div>';
-            }
-            wp_reset_postdata();
-          } ?>
+              wp_reset_postdata();
+            } 
+          } else {
+            echo '<h2 class="points-wrap-partners__title">' . $_REQUEST["caname"] . '</h2>
+                <div class="points-wrap-partners-cards">';
+
+                $myposts = get_posts(array(
+                  'numberposts' => -1,
+                  'category'    => $_REQUEST["region"],
+                  'orderby'     => 'post_date',
+                  'order'       => 'ASC',
+                ));
+                global $post;
+                foreach ($myposts as $post) {
+                  setup_postdata($post);
+                  echo '
+                    <a href="' . get_permalink() . '" class="points-wrap-partners-cards-card">
+                      <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "tominiatyre") . ' " alt="" class="points-wrap-partners-cards-card__img">
+                      <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
+                      <div class="points-wrap-partners-cards-card-link">
+                        <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
+                        <img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
+                      </div>
+                    </a>';
+                }
+                echo '</div>';
+          }
+          ?>
         </div>
       </div>
     </div>
