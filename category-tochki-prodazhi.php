@@ -17,10 +17,10 @@
       <h1 class="points__title"><? single_cat_title(); ?></h1>
       <div class="points-wrap">
         <div class="points-wrap-left">
-          <select name="" size=19 id="" class="points-wrap-left-select">
+          <div name="" size=19 id="" class="points-wrap-left-select">
             <?php
             $parent_id = 8;
-            // echo '<select name="" size=19 id="" class="points-wrap-left-select">';
+            // echo '<select name="" size=19 id="" class="points-wrap-left-select">'; 
 
             $sub_cats = get_categories(array(
               'child_of' => $parent_id,
@@ -30,7 +30,7 @@
             if ($sub_cats) {
               foreach ($sub_cats as $cat) {
 
-                echo '<option value="" class="points-wrap-left-select__opt">' . $cat->name . '</option>';
+                echo '<a href="' . get_term_link($cat->cat_ID) . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link">' . $cat->name . '</a>';
 
                 $myposts = get_posts(array(
                   'numberposts' => -1,
@@ -42,7 +42,7 @@
               wp_reset_postdata();
             }
             ?>
-          </select>
+          </div>
           <!-- <select name="" size=19 id="" class="points-wrap-left-select">
             <option value="" class="points-wrap-left-select__opt">Москва и область</option> 
             <option value="" class="points-wrap-left-select__opt">Алтайский край</option>
