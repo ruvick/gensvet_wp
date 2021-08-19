@@ -93,25 +93,40 @@
 								<img src="<?php echo get_template_directory_uri(); ?>/img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
 								<a href="<?php echo get_category_link(19); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог DEKOlabs</a>
 							</li>
-							<?php
-							$page_children = new WP_Query(
-								array(
-									'post_type' => 'page',
-									'post_parent' => '162',
-									'order'       => 'ASC',
-								)
-							);
-							if ($page_children->have_posts()) :
-								while ($page_children->have_posts()) : $page_children->the_post();
-							?>
+							<!-- <?php
+										$page_children = new WP_Query(
+											array(
+												'post_type' => 'page',
+												'post_parent' => '162',
+												'order'       => 'ASC',
+											)
+										);
+										if ($page_children->have_posts()) :
+											while ($page_children->have_posts()) : $page_children->the_post();
+										?>
 									<li class="production-wrap-cards-hidden-list-item">
 										<a href="<?php the_permalink(); ?>" class="production-wrap-cards-hidden-list-item__link"><?php the_title(); ?></a>
 									</li>
 							<?php
-								endwhile;
-							endif;
-							wp_reset_query();
-							?>
+											endwhile;
+										endif;
+										wp_reset_query();
+							?> -->
+							<li class="production-wrap-cards-hidden-list-item">
+								<a href="<?php echo get_permalink(153); ?>" class="production-wrap-cards-hidden-list-item__link">Калькулятор освещенности</a>
+							</li>
+							<li class="production-wrap-cards-hidden-list-item">
+								<a href="<?php echo get_permalink(243); ?>" class="production-wrap-cards-hidden-list-item__link">Видео-обзоры</a>
+							</li>
+							<li class="production-wrap-cards-hidden-list-item">
+								<a href="#" class="production-wrap-cards-hidden-list-item__link popup-price-list">Прайс-лист</a>
+							</li>
+							<li class="production-wrap-cards-hidden-list-item">
+								<a href="<?php echo get_permalink(165); ?>" class="production-wrap-cards-hidden-list-item__link">IES-файлы</a>
+							</li>
+							<li class="production-wrap-cards-hidden-list-item">
+								<a href="<?php echo get_permalink(247); ?>" class="production-wrap-cards-hidden-list-item__link">Технические задания</a>
+							</li>
 						</ul>
 					</div>
 				</div>
