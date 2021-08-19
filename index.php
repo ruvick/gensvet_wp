@@ -91,7 +91,7 @@
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
-								<a href="#" class="production-wrap-cards-hidden-list-item__link">Каталог DEKOlabs</a>
+								<a href="<?php echo get_category_link(19); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог DEKOlabs</a>
 							</li>
 							<?php
 							$page_children = new WP_Query(
