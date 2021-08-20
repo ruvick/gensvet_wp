@@ -1,8 +1,8 @@
 <?php
 
 /*
-Template Name: Шаблон карточки товаров
-WP Post Template: Шаблон карточки товаров
+Template Name: Шаблон карточки товара
+WP Post Template: Шаблон карточки товара
 Template Post Type: post
 */
 
