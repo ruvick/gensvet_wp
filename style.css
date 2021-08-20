@@ -984,7 +984,7 @@ body {
   border-top: 1px solid #DBE2EB;
   border-bottom: 1px solid #DBE2EB;
   border-left: 1px solid #DBE2EB;
-  border-right: 1px solid #DBE2EB
+  border-right: 1px solid #000
 }
 
 .catalog-list-item:hover .catalog-list-item-link__title {
