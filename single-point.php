@@ -18,8 +18,9 @@ get_header(); ?>
         <p class="partner-link__desc">Все точки продажи</p>
       </a>
       <div class="partner-wrap">
-        <img src="<?php $imgTm = get_the_post_thumbnail_url(get_the_ID(), "tominiatyre");
-                  echo empty($imgTm) ? get_bloginfo("template_url") . "/img/no-photo.jpg" : $imgTm; ?>" alt="" class="partner-wrap__img">
+        <div class="partner-wrap-wrap">
+          <img src="<?php $imgTm = get_the_post_thumbnail_url(get_the_ID(), "tominiatyre"); echo empty($imgTm) ? get_bloginfo("template_url") . "/img/no-photo.jpg" : $imgTm; ?>" alt="" class="partner-wrap__img">
+        </div>
         <div class="partner-wrap-contacts">
           <h2 class="partner-wrap-contacts__title"><?php the_title(); ?></h2>
           <? $adr_p = carbon_get_the_post_meta("point_address");
@@ -54,9 +55,9 @@ get_header(); ?>
             <? } ?>
           </div>
         </div>
-        <div class="partner-wrap-article">
-          <?php the_content(); ?>
-        </div>
+      </div>
+      <div class="partner-wrap-article">
+        <?php the_content(); ?>
       </div>
     </div>
   </section>
