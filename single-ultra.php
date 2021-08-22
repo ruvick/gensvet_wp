@@ -197,10 +197,20 @@ get_header(); ?>
               <p class="card-wrap-properties-links-link__desc">Распечатать страницу</p>
             </a>
           </div>
-          <a href="<? echo carbon_get_post_meta(get_the_ID(), "consultation_link"); ?>" target="_blank" class="card-wrap-properties-btn">
+          <?php 
+          $phone_wa = carbon_get_theme_option("as_phones_wa");
+          $phone_wa = str_replace(array('+', ' ', '(' , ')', '-'), '', $phone_wa);
+
+          $message_wa = urlencode('Здравствуйте, меня интересует этот товар: ' . get_permalink());
+          ?>
+          <a href="https://wa.me/<?php echo $phone_wa; ?>?text=<?php echo $message_wa; ?>" target="_blank" class="card-wrap-properties-btn">
             <img src="<?php echo get_template_directory_uri(); ?>/img/product-card/card-wsapp.svg" alt="" class="card-wrap-properties-btn__img">
             <p class="card-wrap-properties-btn__desc">получить консультацию</p>
           </a>
+          <!-- <a href="<? echo carbon_get_post_meta(get_the_ID(), "consultation_link"); ?>" target="_blank" class="card-wrap-properties-btn">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/product-card/card-wsapp.svg" alt="" class="card-wrap-properties-btn__img">
+            <p class="card-wrap-properties-btn__desc">получить консультацию</p>
+          </a> -->
           <p class="card-wrap-properties__desc--hidden">Специалисты отвечают в ПН-ПТ с 09:00 до 17:00</p>
           <a href="<?php echo get_category_link(8); ?>" class="card-wrap-properties-link">
             <img src="<?php echo get_template_directory_uri(); ?>/img/product-card/card-location.svg" alt="" class="card-wrap-properties-link__img">
