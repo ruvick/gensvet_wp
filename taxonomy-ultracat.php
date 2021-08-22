@@ -16,7 +16,7 @@
 		<div class="container">
 			<h1 class="lines__title"><?php single_cat_title('', true); ?></h1>
 			<button class="lines-button-767">
-				<img src="./img/lines/lines-button.svg" alt="" class="lines-button-767__img">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/lines/lines-button.svg" alt="" class="lines-button-767__img">
 				<p class="lines-button-767__desc">фильтр</p>
 				<p class="lines-button-767__count">3</p>
 				<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-button-767-arrow__img">

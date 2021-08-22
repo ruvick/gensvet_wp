@@ -71,7 +71,7 @@ get_header(); ?>
 						<div class="contacts-wrap-left-social-links">
 							<a href="<?php echo carbon_get_theme_option('as_youtube'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-1 icon-social"></span>
-								<!-- <img src="./img/contacts/social-1.svg" alt="" class="contacts-wrap-left-social-links-link__img"> -->
+								<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/contacts/social-1.svg" alt="" class="contacts-wrap-left-social-links-link__img"> -->
 							</a>
 							<a href="<?php echo carbon_get_theme_option('as_insta'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-2 icon-social"></span>
@@ -93,7 +93,7 @@ get_header(); ?>
 				</div>
 				<div class="contacts-wrap-map">
 					<iframe src="<?php echo carbon_get_theme_option('map_point'); ?>" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
-					<!-- <img src="./img/contacts/map.png" alt="" class="contacts-wrap-map__img"> -->
+					<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/contacts/map.png" alt="" class="contacts-wrap-map__img"> -->
 				</div>
 			</div>
 

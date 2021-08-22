@@ -14,7 +14,7 @@
 					<!-- <div class="production-top-right-wrap">
                             <p class="production-top-right-wrap__desc">О компании</p>
                             <a href="#" class="production-top-right-wrap-link">
-                                <img src="./img/home/header-arrow-right.svg" alt="" class="production-top-right-wrap-link__img">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/home/header-arrow-right.svg" alt="" class="production-top-right-wrap-link__img">
                             </a>
                         </div> -->
 				</div>
@@ -134,7 +134,7 @@
 					<div class="production-wrap-cards-card">
 						<a href="<?php echo get_permalink(153); ?>" class="production-wrap-cards-card-link">
 							<h3 class="production-wrap-cards-card-link__title">калькулятор <br>освещенности</h3>
-							<img src="./img/home/production-bg-4.svg" alt="" class="production-wrap-cards-card-link__img">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/home/production-bg-4.svg" alt="" class="production-wrap-cards-card-link__img">
 						</a>
 					</div>
 				</div>

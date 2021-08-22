@@ -97,7 +97,7 @@ get_header(); ?>
 							</div>
 						</div>
 						<button class="calculator-bottom-wrap-left-btn">
-							<img src="./img/calculator/calc.svg" alt="" class="calculator-bottom-wrap-left-btn__img">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/calculator/calc.svg" alt="" class="calculator-bottom-wrap-left-btn__img">
 							<p class="calculator-bottom-wrap-left-btn__desc">рассчитать</p>
 						</button>
 						<div class="calculator-bottom-wrap-left-email">
@@ -306,7 +306,7 @@ get_header(); ?>
 									<input name="search" type="text" class="calculator-bottom-wrap-right-solo-search__input" placeholder="Введите название или артикул..." minlength="2" maxlength="40" required>
 									<button class="calculator-bottom-wrap-right-solo-search__btn">найти</button>
 									<button class="files-search-375-btn">
-										<img src="./img/home/zoom.svg" alt="" class="files-search-375-btn__img">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="files-search-375-btn__img">
 									</button>
 								</div>
 								<div class="calculator-bottom-wrap-right-solo-wrap">
