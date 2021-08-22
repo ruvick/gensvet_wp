@@ -2299,6 +2299,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin-right: -20px;
   padding-bottom: 12px
 }
 
@@ -2309,6 +2310,10 @@ body {
   margin-bottom: 20px;
   margin-right: 20px;
   width: 307px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   text-align: center
 }
 
@@ -2318,9 +2323,9 @@ body {
   transition: 200ms linear;
 }
 
-.points-wrap-partners-cards-card:nth-child(3n) {
+/* .points-wrap-partners-cards-card:nth-child(3n) {
   margin-right: 0
-}
+} */
 
 .points-wrap-partners-cards-card__img {
   width: 183px;
@@ -7543,5 +7548,11 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   }
   .certificates-wrap-tabs-tab {
     justify-content: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .points-wrap-partners-cards {
+    margin-right: 0;
   }
 }
