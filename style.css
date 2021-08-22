@@ -981,9 +981,10 @@ body {
   justify-content: space-between;
   padding: 32px 30px;
   background-color: #fff;
-  border-top: 1px solid #DBE2EB;
-  border-bottom: 1px solid #DBE2EB;
-  border-left: 1px solid #DBE2EB;
+  border: 1px solid #DBE2EB !important;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  width: 25%;
 }
 
 .catalog-list-item:hover .catalog-list-item-link__title {
@@ -5814,7 +5815,7 @@ body {
   }
 
   .products-wrap .catalog-list-item {
-    width: 49%
+    width: 100%;
   }
 
   .card-wrap-img__img {
