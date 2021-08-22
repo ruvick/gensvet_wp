@@ -210,7 +210,8 @@ $(".calculator-bottom-wrap-left-add").on("click", function () {
 });
 
 // popup sertificates
-$(".certificates-wrap-tabs-tab-card").on("click", function () {
+$(".certificates-wrap-tabs-tab-card").on("click", function (event) {
+  event.preventDefault();
   // Вот тут считываем дата аттрибуты
 
   let current = $(this).attr("data-target");
@@ -232,7 +233,8 @@ $(".certificates-wrap-tabs-tab-card").on("click", function () {
     .css("display", "flex");
 });
 
-$(".certificates-wrap-tabs-tab-card-adw").on("click", function () {
+$(".certificates-wrap-tabs-tab-card-adw").on("click", function (event) {
+  event.preventDefault();
   // Вот тут считываем дата аттрибуты
 
   let current = $(this).attr("data-target");
@@ -254,11 +256,13 @@ $(".certificates-wrap-tabs-tab-card-adw").on("click", function () {
     .css("display", "flex");
 });
 
-$(".certificates-popup-overlay").on("click", function () {
+$(".certificates-popup-overlay").on("click", function (event) {
+  event.preventDefault();
   $(".certificates-popup-container").hide();
 });
 
-$(".certificates-popup__close").on("click", function () {
+$(".certificates-popup__close").on("click", function (event) {
+  event.preventDefault();
   $(".certificates-popup-container").hide();
 });
 
