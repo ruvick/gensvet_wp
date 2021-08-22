@@ -274,8 +274,9 @@ $(".header-bottom-wrap-menu-btn-767").on("click", function () {
   $(".header-bottom-wrap-search-hidden__input").attr("placeholder", "Поиск...");
 });
 
-$(".header-bottom-wrap-menu-item__link").on("click", function (event) {
+$(".menu-item-has-children .header-bottom-wrap-menu-item__link").on("click", function (event) {
   event.preventDefault();
+
   $(".header-bottom-wrap-menu-item__link").not($(this)).removeClass("active");
   $(".header-bottom-wrap-menu-item__link")
     .not($(this))
