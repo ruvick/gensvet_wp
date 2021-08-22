@@ -459,7 +459,9 @@ body {
 .production-top-right {
   display: inline-block;
   margin-left: 280px;
-  position: relative
+  position: relative;
+  flex-shrink: 0;
+  max-width: 310px;
 }
 
 .production-top-right::after {
