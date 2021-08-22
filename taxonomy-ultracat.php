@@ -189,7 +189,9 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
 								</div>
 							</div>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
+
+							<!-- Раскомментировать, сейчас выводит пустые значения -->
+							<!-- <a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">
 										<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?>
@@ -225,7 +227,7 @@
 										<? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?>
 									</p>
 								</div>
-							</a>
+							</a> -->
 
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
