@@ -19,14 +19,14 @@
 				<img src="./img/lines/lines-button.svg" alt="" class="lines-button-767__img">
 				<p class="lines-button-767__desc">фильтр</p>
 				<p class="lines-button-767__count">3</p>
-				<img src="./img/home/header-menu-arrow-down.svg" alt="" class="lines-button-767-arrow__img">
+				<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-button-767-arrow__img">
 			</button>
 			<div class="lines-wrap">
 				<div class="lines-wrap-filter">
 					<div class="lines-wrap-filter-card">
 						<button class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Размеры</h4>
-							<img src="./img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list">
@@ -61,7 +61,7 @@
 					<div class="lines-wrap-filter-card">
 						<button class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Комплектация</h4>
-							<img src="./img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list">
@@ -77,7 +77,7 @@
 					<div class="lines-wrap-filter-card">
 						<button class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Мощность</h4>
-							<img src="./img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
 							<button class="lines-wrap-filter-card-features__btn">24 Вт</button>
@@ -109,7 +109,7 @@
 					<div class="lines-wrap-filter-card">
 						<button class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Рассеиватель</h4>
-							<img src="./img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list">
@@ -134,7 +134,7 @@
 					<div class="lines-wrap-filter-card">
 						<button class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Световая температура</h4>
-							<img src="./img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-range">
 							<label for="" class="lines-wrap-filter-card-range-label">
@@ -191,25 +191,39 @@
 							</div>
 							<a href="#" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?></p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc">
+										<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?>
+									</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?> Вт</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc">
+										<? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?> Вт
+									</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_light_flow"); ?> Лм</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc">
+										<? echo carbon_get_post_meta(get_the_ID(), "offer_light_flow"); ?> Лм
+									</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_size"); ?></p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc">
+										<? echo carbon_get_post_meta(get_the_ID(), "offer_size"); ?>
+									</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_colour_temp"); ?> К</p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc">
+										<? echo carbon_get_post_meta(get_the_ID(), "offer_colour_temp"); ?> К
+									</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_diffuser"); ?></p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc">
+										<? echo carbon_get_post_meta(get_the_ID(), "offer_diffuser"); ?>
+									</p>
 								</div>
 								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc"><? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?></p>
+									<p class="lines-wrap-tables-table-rows-row-cell__desc">
+										<? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?>
+									</p>
 								</div>
 							</a>
 
