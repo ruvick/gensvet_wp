@@ -1,5 +1,9 @@
 <footer class="footer">
-	<a href="#" class="footer-link-1">
+	<?php 
+	$phone = carbon_get_theme_option("as_phones_wa");
+	$phone = str_replace(array('+', ' ', '(' , ')', '-'), '', $phone);
+	?>
+	<a href="https://wa.me/<?php echo $phone; ?>" class="footer-link-1">
 		<img src="<?php echo get_template_directory_uri(); ?>/img/home/footer-whatsapp.svg" alt="" class="footer-link-1__img">
 	</a>
 	<a href="#top" class="footer-link-2">

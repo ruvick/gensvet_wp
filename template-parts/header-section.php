@@ -28,9 +28,10 @@
 					</a>
 				</li>
 				<li class="header-top-nav-item">
-					<a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header-top-nav-item__link">
+					<?php $tel = carbon_get_theme_option("as_phones_1"); ?>
+					<a href="tel:+<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header-top-nav-item__link">
 						<span class="icon-points-phone"></span>
-						<p class="header-top-nav-item__link--bold"><? echo $tel = carbon_get_theme_option("as_phones_1"); ?></p>
+						<p class="header-top-nav-item__link--bold"><? echo carbon_get_theme_option("as_phones_1"); ?></p>
 					</a>
 				</li>
 			</ul>

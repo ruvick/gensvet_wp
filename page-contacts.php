@@ -33,7 +33,7 @@ get_header(); ?>
 							if (!empty($telc)) { ?>
 								<div class="contacts-wrap-left-block-links-link">
 									<span class="icon-points-phone"></span>
-									<a href="tel:<? echo preg_replace('/[^0-9]/', '', $telc); ?>" class="partner-wrap-contacts-links-wrap__link partner-wrap-contacts-links-wrap__link--nondec"><? echo $telc; ?></a>
+									<a href="tel:+<? echo preg_replace('/[^0-9]/', '', $telc); ?>" class="partner-wrap-contacts-links-wrap__link partner-wrap-contacts-links-wrap__link--nondec"><? echo $telc; ?></a>
 								</div>
 							<? } ?>
 							<? $mail = carbon_get_theme_option("as_email");
@@ -69,25 +69,43 @@ get_header(); ?>
 					<div class="contacts-wrap-left-social">
 						<h2 class="contacts-wrap-left-social__title">Мы в соцсетях</h2>
 						<div class="contacts-wrap-left-social-links">
+							<? $soc1 = carbon_get_theme_option("as_youtube");
+							if (!empty($soc1)) { ?>
 							<a href="<?php echo carbon_get_theme_option('as_youtube'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-1 icon-social"></span>
 								<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/contacts/social-1.svg" alt="" class="contacts-wrap-left-social-links-link__img"> -->
 							</a>
+							<? } ?>
+							<? $soc2 = carbon_get_theme_option("as_insta");
+							if (!empty($soc2)) { ?>
 							<a href="<?php echo carbon_get_theme_option('as_insta'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-2 icon-social"></span>
 							</a>
+							<? } ?>
+							<? $soc3 = carbon_get_theme_option("as_telegr");
+							if (!empty($soc3)) { ?>
 							<a href="<?php echo carbon_get_theme_option('as_telegr'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-3 icon-social"></span>
 							</a>
+							<? } ?>
+							<? $soc4 = carbon_get_theme_option("as_ok");
+							if (!empty($soc4)) { ?>
 							<a href="<?php echo carbon_get_theme_option('as_ok'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-4 icon-social"></span>
 							</a>
+							<? } ?>
+							<? $soc5 = carbon_get_theme_option("as_face");
+							if (!empty($soc5)) { ?>
 							<a href="<?php echo carbon_get_theme_option('as_face'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-5 icon-social"></span>
 							</a>
+							<? } ?>
+							<? $soc6 = carbon_get_theme_option("as_vk");
+							if (!empty($soc6)) { ?>
 							<a href="<?php echo carbon_get_theme_option('as_vk'); ?>" class="contacts-wrap-left-social-links-link">
 								<span class="icon-social-6 icon-social"></span>
 							</a>
+							<? } ?>
 						</div>
 					</div>
 				</div>

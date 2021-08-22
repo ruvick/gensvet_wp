@@ -17,7 +17,7 @@
 							<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked>
 							<span class="subscription-wrap-form-wrap__checkbox modal-wrap-form-wrap__checkbox"></span>
 							<p class="subscription-wrap-form-wrap__desc modal-wrap-form-wrap__desc">Отправляя форму, я соглашаюсь с условиями
-								<a href="#" class="subscription-wrap-form-wrap__link modal-wrap-form-wrap__link"> политики персональных данных</a>
+								<a href="<?php echo get_permalink(6); ?>" class="subscription-wrap-form-wrap__link modal-wrap-form-wrap__link"> политики персональных данных</a>
 							</p>
 						</div>
 					</form>
@@ -33,7 +33,7 @@
 				<div class="modal-wrap modal-wrap--success">
 					<h3 class="modal-wrap__title modal-wrap__title--success">ОТЛИЧНО!</h3>
 					<p class="modal-wrap__desc">Мы уже отправили вам файлы. Проверьте вашу электронную почту. <br>
-						Если письма нет, проверьте папку Спам или напишите нам <a href="#" class="modal-wrap__desc--link">support@deko-tm.ru</a></p>
+						Если письма нет, проверьте папку Спам или напишите нам <a href="mailto:<?php echo carbon_get_theme_option("as_email"); ?>" class="modal-wrap__desc--link"><?php echo carbon_get_theme_option("as_email"); ?></a></p>
 				</div>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 							<span class="subscription-wrap-form-wrap__checkbox modal-wrap-form-wrap__checkbox"></span>
 							<p class="subscription-wrap-form-wrap__desc modal-wrap-form-wrap__desc">Отправляя форму, я
 								соглашаюсь с условиями
-								<a href="#" class="subscription-wrap-form-wrap__link modal-wrap-form-wrap__link"> политики
+								<a href="<?php echo get_permalink(6); ?>" class="subscription-wrap-form-wrap__link modal-wrap-form-wrap__link"> политики
 									персональных данных</a>
 							</p>
 						</div>
@@ -78,7 +78,7 @@
 				<div class="modal-wrap modal-wrap--success">
 					<h3 class="modal-wrap__title modal-wrap__title--success">ОТЛИЧНО!</h3>
 					<p class="modal-wrap__desc">Мы уже отправили вам файлы. Проверьте вашу электронную почту. <br>
-						Если письма нет, проверьте папку Спам или напишите нам <a href="#" class="modal-wrap__desc--link">support@deko-tm.ru</a></p>
+						Если письма нет, проверьте папку Спам или напишите нам <a href="mailto:<?php echo carbon_get_theme_option("as_email"); ?>" class="modal-wrap__desc--link"><?php echo carbon_get_theme_option("as_email"); ?></a></p>
 				</div>
 			</div>
 		</div>

@@ -13,7 +13,7 @@
 					<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked>
 					<span class="subscription-wrap-form-wrap__checkbox"></span>
 					<p class="subscription-wrap-form-wrap__desc">Отправляя форму, я соглашаюсь с условиями
-						<a href="#" class="subscription-wrap-form-wrap__link"> политики персональных данных</a>
+						<a href="<?php echo get_permalink(6); ?>" class="subscription-wrap-form-wrap__link"> политики персональных данных</a>
 					</p>
 				</div>
 			</div>

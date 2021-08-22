@@ -25,6 +25,8 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
       ->set_width(50),
     Field::make('text', 'as_schedule', __('Режим работы'))
       ->set_width(50),
+      Field::make('text', 'as_phones_wa', __('Телефон для WhatsApp'))
+      ->set_width(100),
     Field::make('text', 'as_phones_1', __('Телефон'))
       ->set_width(50),
     Field::make('text', 'as_phone_2', __('Телефон на стр.Контаткы'))
