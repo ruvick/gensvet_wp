@@ -30,6 +30,9 @@
 					$image_id = get_term_meta($term_id, '_thumbnail_id', 1);
 					// ссылка на полный размер картинки по ID вложения
 					$image_url = wp_get_attachment_image_url($image_id, 'full');
+					if (!$image_url) {
+						$image_url = 'https://imgholder.ru/250x250/8493a8/adb9ca&text=Фото+нет&font=kelson';
+					}
 
 					$description = term_description($term_id);
 
