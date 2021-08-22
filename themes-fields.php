@@ -71,7 +71,18 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
       ->set_width(50),
     Field::make('text', 'map_point', 'Координаты карты')
       ->set_width(50),
-  ));
+  ))
+  ->add_tab('Файлы', array(
+    Field::make('file', 'file_presentation', 'Презентация компании')
+      ->set_value_type('url'),
+    Field::make('file', 'file_catalog_gensvet', 'Каталог ГЕНСВЕТ (вставить в меню)')
+      ->set_value_type('url'),
+    Field::make('file', 'file_catalog_dekolabs', 'Каталог DEKOlabs (вставить в меню)')
+      ->set_value_type('url'),
+    Field::make('file', 'file_price_list', 'Прайс-лист (вставить в меню)')
+      ->set_value_type('url'),
+  ))
+  ;
 
 Container::make('post_meta', 'ultra_product', 'Характеристики товара')
   ->show_on_post_type(array('ultra'))
