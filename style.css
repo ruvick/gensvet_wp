@@ -5004,7 +5004,8 @@ body {
   }
 
   .why-wrap-card__title {
-    font-size: 32px
+    font-size: 32px;
+    word-wrap: break-word;
   }
 
   .article__title {
