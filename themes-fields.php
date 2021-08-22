@@ -148,16 +148,16 @@ Container::make('post_meta', 'ultra_product_cr', 'Дополнительные �
         Field::make('text', 'tab_val_light-r',  'Значение')->set_width(100),
       )),
 
-    Field::make('complex', 'offer_cherecter_driver', "Характеристики драйвера. Табы, левая колонка")->set_width(50)
+    Field::make('complex', 'offer_cherecter_driver', "Характеристики драйвера. Табы, одна колонка")->set_width(50)
       ->add_fields(array(
         Field::make('text', 'tab_name_driver', 'Наименование параметра')->set_width(100),
         Field::make('text', 'tab_val_driver',  'Значение')->set_width(100),
       )),
-    Field::make('complex', 'offer_cherecter_driver-r', "Характеристики драйвера. Табы, правая колонка")->set_width(50)
-      ->add_fields(array(
-        Field::make('text', 'tab_name_driver-r', 'Наименование параметра')->set_width(100),
-        Field::make('text', 'tab_val_driver-r',  'Значение')->set_width(100),
-      )),
+    // Field::make('complex', 'offer_cherecter_driver-r', "Характеристики драйвера. Табы, правая колонка")->set_width(50)
+    //   ->add_fields(array(
+    //     Field::make('text', 'tab_name_driver-r', 'Наименование параметра')->set_width(100),
+    //     Field::make('text', 'tab_val_driver-r',  'Значение')->set_width(100),
+    //   )),
   ));
 
 Container::make('post_meta', 'single-point', 'Контакты')

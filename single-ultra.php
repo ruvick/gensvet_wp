@@ -291,7 +291,7 @@ get_header(); ?>
                   ?>
                 </div>
               </div>
-              <div class="card-tabs-wrap-features-wrap-column">
+              <!-- <div class="card-tabs-wrap-features-wrap-column">
                 <div class="card-tabs-wrap-features-wrap-column-table">
                   <? $tabdrr = carbon_get_the_post_meta('offer_cherecter_driver-r');
                   if ($tabdrr) {
@@ -312,7 +312,7 @@ get_header(); ?>
                   }
                   ?>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="card-tabs-wrap-features" data-target="3">
