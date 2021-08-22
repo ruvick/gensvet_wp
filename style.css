@@ -3905,6 +3905,12 @@ body {
   transition: all 0.3s
 }
 
+.logged-in .header-bottom {
+  top: 72px;
+}
+
+
+
 .header-bottom.fixed {
   top: 0;
   background-color: #fff;
@@ -7475,4 +7481,28 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 
 .points-wrap-left-select__opt-link {
   display: block;
+}
+
+@media screen and (min-width: 782px) {
+  .logged-in .header-bottom.fixed {
+    top: 32px;
+  }
+}
+
+@media screen and (max-width: 782px) {
+  .logged-in .header-bottom {
+    top: 88px;
+  }
+  .logged-in .header-bottom.fixed {
+    top: 46px;
+  }
+  .logged-in .header {
+    top: 46px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logged-in .header-bottom.fixed {
+    top: 46px;
+  }
 }
