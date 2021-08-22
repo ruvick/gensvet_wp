@@ -36,7 +36,7 @@
 							</li>
 							<li class="footer-top-wrap-list-item-sublist-item">
 								<? $adr = carbon_get_theme_option("as_address_2");
-								if (!empty($adr)) { ?><a href="#" class="footer-top-wrap-list-item-sublist-item__link"><? echo $adr; ?></a><? } ?>
+								if (!empty($adr)) { ?><span class="footer-top-wrap-list-item-sublist-item__link"><? echo $adr; ?></span><? } ?>
 							</li>
 						</ul>
 					</li>

@@ -1253,13 +1253,16 @@ body {
   font-weight: normal;
   font-size: 16px;
   line-height: 1.3;
+}
+
+.footer-top-wrap-list-item-sublist-item a {
   -webkit-transition: color 0.3s, -webkit-text-decoration;
   transition: color 0.3s, -webkit-text-decoration;
   transition: text-decoration, color 0.3s;
   transition: text-decoration, color 0.3s, -webkit-text-decoration
 }
 
-.footer-top-wrap-list-item-sublist-item:hover {
+.footer-top-wrap-list-item-sublist-item:hover a {
   text-decoration: underline;
   color: #BCBCBC;
   -webkit-transition: color 0.3s, -webkit-text-decoration;
