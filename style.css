@@ -6600,6 +6600,7 @@ body {
 .modal-wrap--success {
   padding-top: 0;
   padding-right: 0;
+  text-align: left;
 }
 
 .modal-wrap__title {
