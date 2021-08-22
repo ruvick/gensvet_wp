@@ -9,7 +9,7 @@
 			<div class="production-top">
 				<h1 class="production-top__title"><?php echo carbon_get_theme_option('about_home_title'); ?></h1>
 				<div class="production-top-right">
-					<h2 class="production-top-right__subtitle">Скачайте инструкцию <br>«Кривые силы света»</h2>
+					<h2 class="production-top-right__subtitle"><?php echo carbon_get_theme_option('about_home_subtitle'); ?></h2>
 					<button class="production-top-right__btn popup-instruction">Скачать инструкцию</button>
 					<!-- <div class="production-top-right-wrap">
                             <p class="production-top-right-wrap__desc">О компании</p>
@@ -124,9 +124,9 @@
 							<li class="production-wrap-cards-hidden-list-item">
 								<a href="<?php echo get_permalink(165); ?>" class="production-wrap-cards-hidden-list-item__link">IES-файлы</a>
 							</li>
-							<li class="production-wrap-cards-hidden-list-item">
+							<!-- <li class="production-wrap-cards-hidden-list-item">
 								<a href="<?php echo get_permalink(247); ?>" class="production-wrap-cards-hidden-list-item__link">Технические задания</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</div>
