@@ -3642,12 +3642,24 @@ body {
   content: "";
   display: block;
   position: absolute;
-  left: 34%;
+  left: 50%;
+  transform: translateX(-50%);
   top: -50px;
   width: 412px;
-  height: 220px;
+  height: 1px;
   border-top: 1px solid #6B6B6B;
-  border-bottom: 1px solid #6B6B6B
+}
+
+.company__tagline:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+  width: 412px;
+  height: 1px;
+  border-top: 1px solid #6B6B6B;
 }
 
 .why {
@@ -4615,11 +4627,6 @@ body {
     width: 100%
   }
 
-  .company__tagline:after {
-    left: 22%;
-    height: 250px
-  }
-
   .why__title {
     font-size: 35px
   }
@@ -5004,11 +5011,17 @@ body {
     font-size: 24px
   }
 
-  .company__tagline:after {
+  .company__tagline:after,
+  .company__tagline:before {
     width: 300px;
-    left: 25%;
-    height: 130%;
-    top: -40px
+  }
+
+  .company__tagline:after {
+    top: -40px;
+  }
+
+  .company__tagline:before {
+    bottom: -40px;
   }
 
   .why-wrap-card__title {
@@ -5913,11 +5926,17 @@ body {
     width: 100%
   }
 
-  .company__tagline:after {
-    top: -31px;
-    left: 30%;
+  .company__tagline:after,
+  .company__tagline:before {
     width: 156px;
-    height: 117%
+  }
+
+  .company__tagline:after {
+    top: -30px;
+  }
+
+  .company__tagline:before {
+    bottom: -30px;
   }
 
   .why {
