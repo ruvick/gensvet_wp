@@ -28,7 +28,11 @@
             if ($sub_cats) {
               foreach ($sub_cats as $cat) {
 
-                echo '<a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link">' . $cat->name . '</a>';
+                if ($_REQUEST["region"] == $cat->cat_ID) {
+                  echo '<a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link active">' . $cat->name . '</a>';
+                } else {
+                  echo '<a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link">' . $cat->name . '</a>';
+                }
               }
               wp_reset_postdata();
             }
@@ -46,8 +50,11 @@
               ));
               if ($sub_cats) {
                 foreach ($sub_cats as $cat) {
-
+                  if ($_REQUEST["region"] == $cat->cat_ID) {
+                  echo '<li class="dropdown-list__item active" data-value="first"><a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="">' . $cat->name . '</a></li>';
+                } else {
                   echo '<li class="dropdown-list__item" data-value="first"><a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="">' . $cat->name . '</a></li>';
+                }
                 }
                 wp_reset_postdata();
               }

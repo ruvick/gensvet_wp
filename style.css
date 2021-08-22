@@ -6343,6 +6343,10 @@ body {
   cursor: pointer;
 }
 
+.dropdown-list__item.active {
+  font-weight: bold;
+}
+
 .dropdown-list__item:hover {
   background-color: #E4E4E4;
   -webkit-transition: background-color 0.15s ease-in;
@@ -7526,6 +7530,10 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 
 .points-wrap-left-select__opt-link {
   display: block;
+}
+
+.points-wrap-left-select__opt-link.active {
+  font-weight: bold;
 }
 
 @media screen and (min-width: 782px) {
