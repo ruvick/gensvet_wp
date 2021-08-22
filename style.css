@@ -1748,7 +1748,8 @@ body {
   font-weight: 100;
   font-size: 48px;
   line-height: 1.1;
-  color: #2F2E20
+  color: #2F2E20;
+  max-width: 800px;
 }
 
 .card-wrap {
