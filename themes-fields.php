@@ -19,7 +19,7 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
     //   ->set_width(30),
     Field::make('text', 'about_home_title', 'Заголовок на главной'),
     Field::make('text', 'about_home_subtitle', 'Заголовок инструкции'),
-    Field::make('rich_text', 'about_home', 'О нашей компании')
+    // Field::make('rich_text', 'about_home', 'О нашей компании')
   ))
   ->add_tab('Контакты', array(
     Field::make('text', 'as_company', __('Название'))
