@@ -39,7 +39,9 @@
 							$termchildren = get_term_children($termID, $taxonomyName);
 							foreach ($termchildren as $child) {
 								$term = get_term_by('id', $child, $taxonomyName);
-								echo '<li class="production-wrap-cards-hidden-list-item"><a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="production-wrap-cards-hidden-list-item__link">' . $term->name . '</a></li>';
+								if ($term->parent == $termID) {
+									echo '<li class="production-wrap-cards-hidden-list-item"><a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="production-wrap-cards-hidden-list-item__link">' . $term->name . '</a></li>';
+								}
 							}
 							?>
 						</ul>
@@ -64,7 +66,9 @@
 							$termchildren = get_term_children($termID, $taxonomyName);
 							foreach ($termchildren as $child) {
 								$term = get_term_by('id', $child, $taxonomyName);
-								echo '<li class="production-wrap-cards-hidden-list-item"><a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="production-wrap-cards-hidden-list-item__link">' . $term->name . '</a></li>';
+								if ($term->parent == $termID) {
+									echo '<li class="production-wrap-cards-hidden-list-item"><a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="production-wrap-cards-hidden-list-item__link">' . $term->name . '</a></li>';
+								}
 							}
 							?>
 						</ul>
