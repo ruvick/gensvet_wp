@@ -188,7 +188,7 @@ get_header(); ?>
                 ?>
               <?php endforeach; ?>
             <?php endif; ?>
-            <a href="" class="card-wrap-properties-links-link">
+            <a href="#" class="card-wrap-properties-links-link" onclick="generatePDF();">
               <img src="<?php echo get_template_directory_uri(); ?>/img/product-card/card-pdf.svg" alt="" class="card-wrap-properties-links-link__img">
               <p class="card-wrap-properties-links-link__desc">Скачать страницу в PDF</p>
             </a>

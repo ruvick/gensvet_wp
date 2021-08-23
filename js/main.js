@@ -104,6 +104,21 @@ function printit() {
     WebBrowser1.ExecWB(6, 2); //Use a 1 vs. a 2 for a prompting dialog box WebBrowser1.outerHTML = "";
   }
 }
+
+// Отправка на генерацию PDF
+function generatePDF() {
+    const element = document.getElementById('body');
+    const opt = {
+      margin:       1,
+      filename:     'file.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 1 },
+      jsPDF:        { unit: 'in', format: 'a2', orientation: 'portrait' }
+    };
+
+    // New Promise-based usage:
+    html2pdf().set(opt).from(element).save();
+}
 // Файлы Java Script End -----------------------------------------------------------------------------------------------------
 
 $ = jQuery;

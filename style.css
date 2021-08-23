@@ -7536,13 +7536,13 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   font-weight: bold;
 }
 
-@media screen and (min-width: 782px) {
+@media (min-width: 782px) {
   .logged-in .header-bottom.fixed {
     top: 32px;
   }
 }
 
-@media screen and (max-width: 782px) {
+@media (max-width: 782px) {
   .logged-in .header-bottom {
     top: 88px;
   }
@@ -7554,7 +7554,7 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .logged-in .header-bottom.fixed {
     top: 46px;
   }

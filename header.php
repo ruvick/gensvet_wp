@@ -21,7 +21,7 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body id="body" <?php body_class(); ?>>
   <!-- Скрипт корзины, отправка -->
   <script>
     let main_page = "<? echo get_bloginfo("url"); ?>";
