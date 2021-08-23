@@ -14,10 +14,10 @@
 
 	<section class="products">
 		<div class="container">
-			<h1 class="products__title">Продукция ГЕНСВЕТ</h1>
+			<h1 class="products__title"><?= single_term_title(); ?></h1>
 			<div class="products-wrap">
 				<?php
-				$termID = 7;
+				$termID = get_queried_object()->term_id;
 				$taxonomyName = "ultracat";
 				$termchildren = get_term_children($termID, $taxonomyName);
 

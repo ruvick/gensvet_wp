@@ -35,6 +35,8 @@
 					}
 
 					$description = term_description($term_id);
+					
+					if ($term->parent == $termID) {
 
 					echo '<a href="' . get_term_link($term->term_id, $term->taxonomy) . '" class="catalog-list-item">
 								<img src="' . $image_url . '" alt="" class="catalog-list-item__img">
@@ -47,6 +49,7 @@
 									<img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="catalog-list-item-link__img">
 								</div>
 							</a>';
+					}
 				}
 				?>
 			</div>
