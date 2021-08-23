@@ -7614,3 +7614,15 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
     opacity: 1;
   }
 }
+
+@media (max-width: 1200px) {
+  .catalog-list-item {
+    width: 33%;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-list-item {
+    width: 50%;
+  }
+}
