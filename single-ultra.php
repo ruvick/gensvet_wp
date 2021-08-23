@@ -326,7 +326,20 @@ get_header(); ?>
             </div>
           </div>
           <div class="card-tabs-wrap-features" data-target="3">
-            <? echo carbon_get_post_meta(get_the_ID(), "offer_description"); ?>
+            <? $tab_desc = carbon_get_the_post_meta('offer_description_complex');
+            if ($tab_desc) {
+              $tab_descIndex = 0;
+              foreach ($tab_desc as $tabs) {
+            ?>
+                <div class="card-tabs-wrap-desc-wrap">
+                  <h4 class="card-tabs-wrap-desc-wrap__title"><? echo $tabs['offer_description_title']; ?></h4>
+                  <p class="card-tabs-wrap-desc-wrap__desc"><? echo $tabs['offer_description_descp']; ?></p>
+                </div>
+            <?
+                $tab_descIndex++;
+              }
+            }
+            ?>
           </div>
         </div>
       </div>

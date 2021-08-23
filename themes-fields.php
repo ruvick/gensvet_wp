@@ -95,7 +95,13 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
 Container::make('post_meta', 'ultra_product', 'Характеристики товара')
   ->show_on_post_type(array('ultra'))
   ->add_fields(array(
-    Field::make('rich_text', 'offer_description', 'Описание товара')->set_width(100),
+    Field::make('complex', 'offer_description_complex', 'Описание товара')
+      ->add_fields(array(
+        Field::make('text', 'offer_description_title', 'Заголовок')
+          ->set_width(50),
+        Field::make('text', 'offer_description_descp', 'Описание')
+          ->set_width(50),
+      )),
     Field::make('text', 'offer_sticker', 'Стикер')->set_width(50),
     Field::make('text', 'offer_sku', 'Артикул товара')->set_width(50),
     Field::make('text', 'offer_power', 'Мощность товара')->set_width(50),
