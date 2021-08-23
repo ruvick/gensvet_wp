@@ -7536,15 +7536,31 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   font-weight: bold;
 }
 
+
+.card-tabs-wrap-features h2 {
+  font-size: 28px;
+}
+.card-tabs-wrap-features h3 {
+  font-size: 23px;
+}
 .card-tabs-wrap-features h4 {
   font-size: 16px;
+}
+.card-tabs-wrap-features h5 {
+  font-size: 16px;
+}
+.card-tabs-wrap-features h6 {
+  font-size: 16px;
+}
+.card-tabs-wrap-features h2,
+.card-tabs-wrap-features h3,
+.card-tabs-wrap-features h4,
+.card-tabs-wrap-features h5,
+.card-tabs-wrap-features h6 {
   font-weight: 600;
   line-height: 1.3;
   margin: 15px 0;
 }
-
-
-
 
 
 
