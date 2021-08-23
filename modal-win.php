@@ -8,7 +8,7 @@
 			<div class="modal">
 				<button class="box-modal_close box-modal_close_new arcticmodal-close modal__close"></button>
 				<div class="modal-wrap">
-					<h3 class="modal-wrap__title">Получите инструкцию «Кривая силы света»</h3>
+					<h3 class="modal-wrap__title"><?php echo carbon_get_theme_option("popup_guide_title"); ?></h3>
 					<form action="" class="modal-wrap-form">
 						<input name="user-name" type="text" id="form-instruction-name" class="modal-wrap-form__input" placeholder="Ваше имя" required minlength="2" maxlength="40" />
 						<input name="user-tel" type="tel" id="form-instruction-tel" class="modal-wrap-form__input" placeholder="Номер телефона" required minlength="2" maxlength="40" />
@@ -32,8 +32,7 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/img/modals/success.png" alt="" class="modal__checkmark">
 				<div class="modal-wrap modal-wrap--success">
 					<h3 class="modal-wrap__title modal-wrap__title--success">ОТЛИЧНО!</h3>
-					<p class="modal-wrap__desc">Мы уже отправили вам файлы. Проверьте вашу электронную почту. <br>
-						Если письма нет, проверьте папку Спам или напишите нам <a href="mailto:<?php echo carbon_get_theme_option("as_email"); ?>" class="modal-wrap__desc--link"><?php echo carbon_get_theme_option("as_email"); ?></a></p>
+					<p class="modal-wrap__desc"><?php echo carbon_get_theme_option("popup_guide_thanks"); ?></p>
 				</div>
 			</div>
 		</div>
@@ -51,7 +50,7 @@
 			<div class="modal">
 				<button class="box-modal_close box-modal_close_new arcticmodal-close modal__close"></button>
 				<div class="modal-wrap">
-					<h3 class="modal-wrap__title">скачать прайс-листы продукции</h3>
+					<h3 class="modal-wrap__title"><?php echo carbon_get_theme_option("popup_price_title"); ?></h3>
 					<form action="" class="modal-wrap-form">
 						<input name="user-name" type="text" id="form-price-name" class="modal-wrap-form__input" placeholder="Ваше имя" required minlength="2" maxlength="40" />
 						<input name="user-tel" type="tel" id="form-price-tel" class="modal-wrap-form__input" placeholder="Номер телефона" required minlength="2" maxlength="40" />
@@ -77,8 +76,7 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/img/modals/success.png" alt="" class="modal__checkmark">
 				<div class="modal-wrap modal-wrap--success">
 					<h3 class="modal-wrap__title modal-wrap__title--success">ОТЛИЧНО!</h3>
-					<p class="modal-wrap__desc">Мы уже отправили вам файлы. Проверьте вашу электронную почту. <br>
-						Если письма нет, проверьте папку Спам или напишите нам <a href="mailto:<?php echo carbon_get_theme_option("as_email"); ?>" class="modal-wrap__desc--link"><?php echo carbon_get_theme_option("as_email"); ?></a></p>
+					<p class="modal-wrap__desc"><?php echo carbon_get_theme_option("popup_price_thanks"); ?></p>
 				</div>
 			</div>
 		</div>

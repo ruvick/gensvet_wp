@@ -80,8 +80,16 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
       ->set_value_type('url'),
     Field::make('file', 'file_catalog_dekolabs', 'Каталог DEKOlabs (вставить в меню)')
       ->set_value_type('url'),
-    Field::make('file', 'file_price_list', 'Прайс-лист (вставить в меню)')
-      ->set_value_type('url'),
+    // Field::make('file', 'file_price_list', 'Прайс-лист (вставить в меню)')
+    //   ->set_value_type('url'),
+  ))
+  ->add_tab('Всплывающее окно "Инструкция"', array(
+    Field::make('text', 'popup_guide_title', __('Заголовок окна')),
+    Field::make('text', 'popup_guide_thanks', __('Текст "Спасибо"')),
+  ))
+  ->add_tab('Всплывающее окно "Прайс-лист"', array(
+    Field::make('text', 'popup_price_title', __('Заголовок окна')),
+    Field::make('text', 'popup_price_thanks', __('Текст "Спасибо"')),
   ))
   ;
 
