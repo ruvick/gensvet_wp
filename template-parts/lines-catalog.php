@@ -5,7 +5,6 @@
 <main class="main">
 
 	<section class="breadcrumb">
-
 		<div class="container">
 			<div class="breadcrumb-wrap">
 				<?php if (function_exists('kama_breadcrumbs')) kama_breadcrumbs(); ?>
@@ -149,10 +148,6 @@
 								<span class="lines-wrap-filter-card-range__span">К</span>
 							</label>
 							<div id="range-slider" class="lines-wrap-filter-card-range__slider"></div>
-
-							<!--                                 
-                                <input type="range" min="1000" step="100" max="6900" value="2100" class="lines-wrap-filter-card-features__range">
-                                <input type="range" min="1100" step="100" max="7000" value="5000" class="lines-wrap-filter-card-features__range"> -->
 						</div>
 					</div>
 					<button class="lines-wrap-filter__btn">применить фильтр</button>
@@ -161,9 +156,16 @@
 					</div>
 				</div>
 				<div class="lines-wrap-tables">
-
+					<!-- Цикл с выводом дочерних категорий таксономии -->
+					<?php
+					$termID = get_queried_object()->term_id;
+					$taxonomyName = "ultracat";
+					$termchildren = get_term_children($termID, $taxonomyName);
+					foreach ($termchildren as $child) {
+						$term = get_term_by('id', $child, $taxonomyName);
+						$term_id = $term->term_taxonomy_id; ?>
 					<div class="lines-wrap-tables-table">
-						<h2 class="lines-wrap-tables-table__title">серия ГСО-Премьер</h2>
+						<h2 class="lines-wrap-tables-table__title"><?= $term->name; ?></h2>
 
 						<div class="lines-wrap-tables-table-rows">
 							<div class="lines-wrap-tables-table-rows-row">
@@ -190,9 +192,26 @@
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
 								</div>
 							</div>
-
-							<!-- Раскомментировать, сейчас выводит пустые значения -->
-							<!-- <a href="#" class="lines-wrap-tables-table-rows-row">
+							<?php
+								$mypost = array(
+								'post_type' => 'ultra',
+								'posts_per_page' => -1,
+								'orderby' => 'title',
+								'order' => 'ASC',
+								'exclude' => array(417),
+								'tax_query' => array(
+									array(
+									'taxonomy' => 'ultracat',
+									'field' => 'id',
+									'terms' => strval($term->term_id)
+									),
+								),
+								);
+								$loop = new WP_Query( $mypost );
+							?>
+							<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+							<!-- Цикл с выводом записей дочерних категорий таксономии -->
+							<a href="<?php echo get_permalink(); ?>" class="lines-wrap-tables-table-rows-row">
 								<div class="lines-wrap-tables-table-rows-row-cell">
 									<p class="lines-wrap-tables-table-rows-row-cell__desc">
 										<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?>
@@ -228,606 +247,14 @@
 										<? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?>
 									</p>
 								</div>
-							</a> -->
-
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0001</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">36 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3600 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
-								</div>
 							</a>
-
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0002</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">36 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3600 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
-								</div>
-							</a>
-
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0001</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">36 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3600 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
-								</div>
-							</a>
-
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0002</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">36 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3600 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
-								</div>
-							</a>
-
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0001</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">36 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3600 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
-								</div>
-							</a>
-
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0002</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">36 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">3600 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">стандартный</p>
-								</div>
-							</a>
-
-						</div>
-
-					</div>
-
-					<div class="lines-wrap-tables-table">
-						<h2 class="lines-wrap-tables-table__title">серия ГСО-ПРЕМИУМ</h2>
-						<div class="lines-wrap-tables-table-rows">
-							<div class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Артикул</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Мощность</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой поток</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Размер</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
-								</div>
-							</div>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0004</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">100 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">заливной</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0005</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">110 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">заливной</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0004</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">100 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">заливной</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0005</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">110 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">заливной</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0004</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">100 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">заливной</p>
-								</div>
-							</a>
+							<!-- Конец цикла -->
+							<?php endwhile; ?>
 						</div>
 					</div>
-					<div class="lines-wrap-tables-table">
-						<h2 class="lines-wrap-tables-table__title">серия ГСО-Премьер/150</h2>
-						<div class="lines-wrap-tables-table-rows">
-							<div class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Артикул</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Мощность</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой поток</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Размер</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
-								</div>
-							</div>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0006</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0007</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0006</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0007</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0006</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0007</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0006</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0007</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0006</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0007</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0006</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4000 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-							<a href="#" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">ГСО-0007</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">150 Вт</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">4800 Лм</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">595×595×40</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">5700 К</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">опал</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">яркий</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="lines-wrap-tables-wrap">
+					<?php } ?>
+					<!-- Конец цикла -->
+					<!-- <div class="lines-wrap-tables-wrap">
 						<div class="lines-wrap-tables-wrap-buttons">
 							<button class="lines-wrap-tables-wrap-buttons__btn active">1</button>
 							<button class="lines-wrap-tables-wrap-buttons__btn">2</button>
@@ -839,11 +266,6 @@
 						</div>
 						<div class="lines-wrap-tables-wrap-quant">
 							<p class="lines-wrap-tables-wrap-quant__desc">Товаров <br>на странице:</p>
-							<!-- <select class="lines-wrap-tables-wrap-quant-select">
-                                    <option class="lines-wrap-tables-wrap-quant-select__num">50</option>
-                                    <option class="lines-wrap-tables-wrap-quant-select__num">100</option>
-                                    <option class="lines-wrap-tables-wrap-quant-select__num">200</option>  
-                                </select> -->
 							<div class="dropdown dropdown--files">
 								<button class="dropdown__button dropdown__button--files">200</button>
 								<ul class="dropdown-list dropdown-list--files">
@@ -854,7 +276,7 @@
 								<input type="text" class="dropdown__input" value="">
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
