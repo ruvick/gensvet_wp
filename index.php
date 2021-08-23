@@ -87,11 +87,11 @@
 						<ul class="production-wrap-cards-hidden-list">
 							<li class="production-wrap-cards-hidden-list-item">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
-								<a href="<?php echo get_category_link(7); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог ГЕНСВЕТ</a>
+								<a href="<?php echo carbon_get_theme_option("file_catalog_gensvet"); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог ГЕНСВЕТ</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/home/download.svg" alt="" class="production-wrap-cards-hidden-list-item__img">
-								<a href="<?php echo get_category_link(19); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог DEKOlabs</a>
+								<a href="<?php echo carbon_get_theme_option("file_catalog_dekolabs"); ?>" class="production-wrap-cards-hidden-list-item__link">Каталог DEKOlabs</a>
 							</li>
 							<!-- <?php
 										$page_children = new WP_Query(
@@ -116,7 +116,7 @@
 								<a href="<?php echo get_permalink(153); ?>" class="production-wrap-cards-hidden-list-item__link">Калькулятор освещенности</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
-								<a href="<?php echo get_permalink(243); ?>" class="production-wrap-cards-hidden-list-item__link">Видео-обзоры</a>
+								<a href="<?php echo carbon_get_theme_option('as_youtube'); ?>" class="production-wrap-cards-hidden-list-item__link">Видео-обзоры</a>
 							</li>
 							<li class="production-wrap-cards-hidden-list-item">
 								<a href="#" class="production-wrap-cards-hidden-list-item__link popup-price-list">Прайс-лист</a>
