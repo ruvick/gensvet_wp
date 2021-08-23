@@ -19,14 +19,14 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
     //   ->set_width(30),
     Field::make('text', 'about_home_title', 'Заголовок на главной'),
     Field::make('text', 'about_home_subtitle', 'Заголовок инструкции'),
-    // Field::make('rich_text', 'about_home', 'О нашей компании')
+    // Field::make('rich_text', 'about_home', 'О нашей компании') 
   ))
   ->add_tab('Контакты', array(
     Field::make('text', 'as_company', __('Название'))
       ->set_width(50),
     Field::make('text', 'as_schedule', __('Режим работы'))
       ->set_width(50),
-      Field::make('text', 'as_phones_wa', __('Телефон для WhatsApp'))
+    Field::make('text', 'as_phones_wa', __('Телефон для WhatsApp'))
       ->set_width(100),
     Field::make('text', 'as_phones_1', __('Телефон'))
       ->set_width(50),
@@ -90,12 +90,12 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
   ->add_tab('Всплывающее окно "Прайс-лист"', array(
     Field::make('text', 'popup_price_title', __('Заголовок окна')),
     Field::make('text', 'popup_price_thanks', __('Текст "Спасибо"')),
-  ))
-  ;
+  ));
 
 Container::make('post_meta', 'ultra_product', 'Характеристики товара')
   ->show_on_post_type(array('ultra'))
   ->add_fields(array(
+    Field::make('rich_text', 'offer_description', 'Описание товара')->set_width(100),
     Field::make('text', 'offer_sticker', 'Стикер')->set_width(50),
     Field::make('text', 'offer_sku', 'Артикул товара')->set_width(50),
     Field::make('text', 'offer_power', 'Мощность товара')->set_width(50),

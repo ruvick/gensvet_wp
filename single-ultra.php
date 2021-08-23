@@ -197,9 +197,9 @@ get_header(); ?>
               <p class="card-wrap-properties-links-link__desc">Распечатать страницу</p>
             </a>
           </div>
-          <?php 
+          <?php
           $phone_wa = carbon_get_theme_option("as_phones_wa");
-          $phone_wa = str_replace(array('+', ' ', '(' , ')', '-'), '', $phone_wa);
+          $phone_wa = str_replace(array('+', ' ', '(', ')', '-'), '', $phone_wa);
 
           $message_wa = urlencode('Здравствуйте, меня интересует этот товар: ' . get_permalink());
           ?>
@@ -326,7 +326,7 @@ get_header(); ?>
             </div>
           </div>
           <div class="card-tabs-wrap-features" data-target="3">
-            <?php the_content(); ?>
+            <? echo carbon_get_post_meta(get_the_ID(), "offer_description"); ?>
           </div>
         </div>
       </div>
