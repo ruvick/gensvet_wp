@@ -156,7 +156,7 @@ Container::make('post_meta', 'ultra_product_cr', 'Дополнительные �
         Field::make('text', 'link_passport', 'Ссылка на паспорт (PDF)')
           ->set_width(50),
       )),
-    Field::make('text', 'consultation_link', 'Получить консультацию. Ссылка')->set_width(100),
+    // Field::make('text', 'consultation_link', 'Получить консультацию. Ссылка')->set_width(100),
 
     Field::make('complex', 'offer_cherecter_light', "Характеристики светильника. Табы, левая колонка")->set_width(50)
       ->add_fields(array(
