@@ -80,21 +80,66 @@
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
-							<button class="lines-wrap-filter-card-features__btn">24 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">30 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">36 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">42 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">45 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">48 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">54 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">60 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">63 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">66 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">72 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">81 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">81 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">90 Вт</button>
-							<button class="lines-wrap-filter-card-features__btn">108 Вт</button>
+							<label for="" class="lines-wrap-filter-card-features__btn option active">
+								24 Вт
+								<input id="" type="radio" value="1" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								30 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								36 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								42 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								45 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								48 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								54 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								60 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								63 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								66 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								72 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								81 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								81 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								90 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
+							<label for="" class="lines-wrap-filter-card-features__btn option">
+								108 Вт
+								<input id="" type="radio" value="2" name="form[type]">
+							</label>
 						</div>
 					</div>
 					<div class="dropdown dropdown--lines">
@@ -150,11 +195,11 @@
 							<div id="range-slider" class="lines-wrap-filter-card-range__slider"></div>
 						</div>
 					</div>
-					<button  type = "submit" class="lines-wrap-filter__btn">применить фильтр</button>
+					<button type="submit" class="lines-wrap-filter__btn">применить фильтр</button>
 					<div class="lines-wrap-filter-clear">
 						<button class="lines-wrap-filter-clear__btn">Очистить фильтр</button>
 					</div>
-</form>
+				</form>
 				<div class="lines-wrap-tables">
 					<!-- Цикл с выводом дочерних категорий таксономии -->
 					<?php
@@ -164,52 +209,52 @@
 					foreach ($termchildren as $child) {
 						$term = get_term_by('id', $child, $taxonomyName);
 						$term_id = $term->term_taxonomy_id; ?>
-					<div class="lines-wrap-tables-table">
-						<h2 class="lines-wrap-tables-table__title"><?= $term->name; ?></h2>
+						<div class="lines-wrap-tables-table">
+							<h2 class="lines-wrap-tables-table__title"><?= $term->name; ?></h2>
 
-						<div class="lines-wrap-tables-table-rows">
-							<div class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Артикул</p>
+							<div class="lines-wrap-tables-table-rows">
+								<div class="lines-wrap-tables-table-rows-row">
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Артикул</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Мощность</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой поток</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Размер</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура
+										</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
+									</div>
 								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Мощность</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой поток</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Размер</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
-								</div>
-							</div>
-							<?php
+								<?php
 
 								$arg = $wp_query->query;
 
-								$startPrice = empty($_REQUEST["colour_temp_from"])?"0":$_REQUEST["colour_temp_from"];
-								$endPrice = empty($_REQUEST["colour_temp_to"])?PHP_INT_MAX:$_REQUEST["colour_temp_to"];
+								$startPrice = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
+								$endPrice = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
 
 								$metaquery = array(
 									'relation' => 'AND',
-									
-									'priceStart' => array (
+
+									'priceStart' => array(
 										'key'     => '_offer_colour_temp',
 										'value' => $startPrice,
 										'compare' => '>=',
 										'type'    => 'NUMERIC',
 									),
-									
-									'priceEnd' => array (
+
+									'priceEnd' => array(
 										'key'     => '_offer_colour_temp',
 										'value' => $endPrice,
 										'compare' => '<=',
@@ -218,66 +263,66 @@
 								);
 
 								$mypost = array(
-								'post_type' => 'ultra',
-								'posts_per_page' => -1,
-								'orderby' => 'title',
-								'order' => 'ASC',
-								'exclude' => array(417),
-								'tax_query' => array(
-									array(
-									'taxonomy' => 'ultracat',
-									'field' => 'id',
-									'terms' => strval($term->term_id)
+									'post_type' => 'ultra',
+									'posts_per_page' => -1,
+									'orderby' => 'title',
+									'order' => 'ASC',
+									'exclude' => array(417),
+									'tax_query' => array(
+										array(
+											'taxonomy' => 'ultracat',
+											'field' => 'id',
+											'terms' => strval($term->term_id)
+										),
 									),
-								),
 
-								'meta_query' => $metaquery
+									'meta_query' => $metaquery
 								);
-								$loop = new WP_Query( $mypost );
-							?>
-							<?php while ( $loop->have_posts() ) : $loop->the_post();?>
-							<!-- Цикл с выводом записей дочерних категорий таксономии -->
-							<a href="<?php echo get_permalink(); ?>" class="lines-wrap-tables-table-rows-row">
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">
-										<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?>
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">
-										<? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?> Вт
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">
-										<? echo carbon_get_post_meta(get_the_ID(), "offer_light_flow"); ?> Лм
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">
-										<? echo carbon_get_post_meta(get_the_ID(), "offer_size"); ?>
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">
-										<? echo carbon_get_post_meta(get_the_ID(), "offer_colour_temp"); ?> К
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">
-										<? echo carbon_get_post_meta(get_the_ID(), "offer_diffuser"); ?>
-									</p>
-								</div>
-								<div class="lines-wrap-tables-table-rows-row-cell">
-									<p class="lines-wrap-tables-table-rows-row-cell__desc">
-										<? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?>
-									</p>
-								</div>
-							</a>
-							<!-- Конец цикла -->
-							<?php endwhile; ?>
+								$loop = new WP_Query($mypost);
+								?>
+								<?php while ($loop->have_posts()) : $loop->the_post(); ?>
+									<!-- Цикл с выводом записей дочерних категорий таксономии -->
+									<a href="<?php echo get_permalink(); ?>" class="lines-wrap-tables-table-rows-row">
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?>
+											</p>
+										</div>
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?> Вт
+											</p>
+										</div>
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_light_flow"); ?> Лм
+											</p>
+										</div>
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_size"); ?>
+											</p>
+										</div>
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_colour_temp"); ?> К
+											</p>
+										</div>
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_diffuser"); ?>
+											</p>
+										</div>
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?>
+											</p>
+										</div>
+									</a>
+									<!-- Конец цикла -->
+								<?php endwhile; ?>
+							</div>
 						</div>
-					</div>
 					<?php } ?>
 					<!-- Конец цикла -->
 					<!-- <div class="lines-wrap-tables-wrap">

@@ -7536,6 +7536,18 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   font-weight: bold;
 }
 
+.lines-wrap-filter-card-features .option {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 0;
+}
+
+
+
+
 @media (min-width: 782px) {
   .logged-in .header-bottom.fixed {
     top: 32px;
