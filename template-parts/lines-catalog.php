@@ -22,7 +22,7 @@
 				<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-button-767-arrow__img">
 			</button>
 			<div class="lines-wrap">
-				<div class="lines-wrap-filter">
+				<form method="get" class="lines-wrap-filter">
 					<div class="lines-wrap-filter-card">
 						<button class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Размеры</h4>
@@ -139,22 +139,22 @@
 						<div class="lines-wrap-filter-card-range">
 							<label for="" class="lines-wrap-filter-card-range-label">
 								<span class="lines-wrap-filter-card-range__span">от</span>
-								<input id="input-0" type="number" name="от" value="2100" min="1000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
+								<input id="input-0" type="number" name="colour_temp_from" value="0" min="0" max="6900" step="1" class="lines-wrap-filter-card-range__input">
 								<span class="lines-wrap-filter-card-range__span">К</span>
 							</label>
 							<label for="" class="lines-wrap-filter-card-range-label">
 								<span class="lines-wrap-filter-card-range__span">до</span>
-								<input id="input-1" type="number" name="от" value="5000" min="1000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
+								<input id="input-1" type="number" name="colour_temp_to" value="1000" min="0" max="6900" step="1" class="lines-wrap-filter-card-range__input">
 								<span class="lines-wrap-filter-card-range__span">К</span>
 							</label>
 							<div id="range-slider" class="lines-wrap-filter-card-range__slider"></div>
 						</div>
 					</div>
-					<button class="lines-wrap-filter__btn">применить фильтр</button>
+					<button  type = "submit" class="lines-wrap-filter__btn">применить фильтр</button>
 					<div class="lines-wrap-filter-clear">
 						<button class="lines-wrap-filter-clear__btn">Очистить фильтр</button>
 					</div>
-				</div>
+</form>
 				<div class="lines-wrap-tables">
 					<!-- Цикл с выводом дочерних категорий таксономии -->
 					<?php
@@ -193,6 +193,30 @@
 								</div>
 							</div>
 							<?php
+
+								$arg = $wp_query->query;
+
+								$startPrice = empty($_REQUEST["colour_temp_from"])?"0":$_REQUEST["colour_temp_from"];
+								$endPrice = empty($_REQUEST["colour_temp_to"])?PHP_INT_MAX:$_REQUEST["colour_temp_to"];
+
+								$metaquery = array(
+									'relation' => 'AND',
+									
+									'priceStart' => array (
+										'key'     => '_offer_colour_temp',
+										'value' => $startPrice,
+										'compare' => '>=',
+										'type'    => 'NUMERIC',
+									),
+									
+									'priceEnd' => array (
+										'key'     => '_offer_colour_temp',
+										'value' => $endPrice,
+										'compare' => '<=',
+										'type'    => 'NUMERIC',
+									)
+								);
+
 								$mypost = array(
 								'post_type' => 'ultra',
 								'posts_per_page' => -1,
@@ -206,6 +230,8 @@
 									'terms' => strval($term->term_id)
 									),
 								),
+
+								'meta_query' => $metaquery
 								);
 								$loop = new WP_Query( $mypost );
 							?>

@@ -110,6 +110,7 @@ Container::make('post_meta', 'ultra_product', 'Характеристики то
     Field::make('text', 'offer_colour_temp', 'Цветовая температура товара')->set_width(50),
     Field::make('text', 'offer_diffuser', 'Рассеиватель товара')->set_width(50),
     Field::make('text', 'offer_light_effect', 'Световой эффект товара')->set_width(50),
+    Field::make('text', 'offer_price', 'Цена')->set_width(100),
   ));
 
 Container::make('post_meta', 'ultra_product_cr', 'Дополнительные харрактеристики товара')
