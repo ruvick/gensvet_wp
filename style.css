@@ -2284,7 +2284,8 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   width: 288px;
   padding-bottom: 24px;
   padding-left: 20px;
-  border: 1px solid #DBE2EB
+  border: 1px solid #DBE2EB;
+  overflow-y: auto;
 }
 
 .points-wrap-left-select__opt {
