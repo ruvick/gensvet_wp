@@ -1535,11 +1535,17 @@ body {
   transition: 100ms linear;
 }
 
+
+input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
 .lines-wrap-filter-card-features__btn.active {
   font-weight: bold;
   border: 2px solid #2F2E20;
   background-color: #Fff;
   transition: 100ms linear;
+}
+
+.lines-wrap-power input[type=checkbox]  {
+  display: none;
 }
 
 .lines-wrap-filter__btn {

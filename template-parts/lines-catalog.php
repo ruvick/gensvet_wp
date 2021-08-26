@@ -79,67 +79,50 @@
 							<h4 class="lines-wrap-filter-card-btn__title">Мощность</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
-						<div class="lines-wrap-filter-card-features">
-							<label for="" class="lines-wrap-filter-card-features__btn option active">
-								24 Вт
-								<input id="" type="radio" value="1" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								30 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								36 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								42 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								45 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								48 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								54 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								60 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								63 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								66 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								72 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								81 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								81 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								90 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
-							<label for="" class="lines-wrap-filter-card-features__btn option">
-								108 Вт
-								<input id="" type="radio" value="2" name="form[type]">
-							</label>
+						<div class="lines-wrap-filter-card-features lines-wrap-power">
+						<input id="vt24" type="checkbox" value="24" name="power">	
+						<label for="vt24" class="lines-wrap-filter-card-features__btn option">24 Вт</label>
+						
+						<input id="vt30" type="checkbox" value="30" name="power">
+						<label for="vt30" class="lines-wrap-filter-card-features__btn option">30 Вт</label>
+						
+						<input id="vt36" type="checkbox" value="36" name="power">
+						<label for="vt36" class="lines-wrap-filter-card-features__btn option">36 Вт</label>
+							
+						<input id="vt42" type="checkbox" value="42" name="power">
+						<label for="vt42" class="lines-wrap-filter-card-features__btn option">42 Вт</label>
+
+						<input id="vt45" type="checkbox" value="45" name="power">
+						<label for="vt45" class="lines-wrap-filter-card-features__btn option">45 Вт</label>
+						
+						<input id="vt48" type="checkbox" value="48" name="power">
+						<label for="vt48" class="lines-wrap-filter-card-features__btn option">48 Вт</label>
+
+						<input id="vt54" type="checkbox" value="54" name="power">
+						<label for="vt54" class="lines-wrap-filter-card-features__btn option">54 Вт</label>
+
+						<input id="vt60" type="checkbox" value="60" name="power">
+						<label for="vt60" class="lines-wrap-filter-card-features__btn option">60 Вт</label>
+
+						<input id="vt63" type="checkbox" value="63" name="power">
+						<label for="vt63" class="lines-wrap-filter-card-features__btn option">63 Вт</label>
+
+
+						<input id="vt66" type="checkbox" value="66" name="power">
+						<label for="vt66" class="lines-wrap-filter-card-features__btn option">66 Вт</label>
+
+						<input id="vt72" type="checkbox" value="72" name="power">
+						<label for="vt72" class="lines-wrap-filter-card-features__btn option">72 Вт</label>
+
+						<input id="vt81" type="checkbox" value="81" name="power">
+						<label for="vt81" class="lines-wrap-filter-card-features__btn option">81 Вт</label>
+						
+						<input id="vt90" type="checkbox" value="90" name="power">
+						<label for="vt90" class="lines-wrap-filter-card-features__btn option">90 Вт	</label>
+
+						<input id="vt108" type="checkbox" value="108" name="power">
+						<label for="vt108" class="lines-wrap-filter-card-features__btn option">108 Вт</label>
+
 						</div>
 					</div>
 					<div class="dropdown dropdown--lines">
@@ -240,23 +223,22 @@
 								<?php
 
 								$arg = $wp_query->query;
-
-								$startPrice = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
-								$endPrice = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
+								$startClrT = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
+								$endClrT = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
 
 								$metaquery = array(
 									'relation' => 'AND',
 
-									'priceStart' => array(
+									'clrtStart' => array(
 										'key'     => '_offer_colour_temp',
-										'value' => $startPrice,
+										'value' => $startClrT,
 										'compare' => '>=',
 										'type'    => 'NUMERIC',
 									),
 
-									'priceEnd' => array(
+									'clrtEnd' => array(
 										'key'     => '_offer_colour_temp',
-										'value' => $endPrice,
+										'value' => $endClrT,
 										'compare' => '<=',
 										'type'    => 'NUMERIC',
 									)
