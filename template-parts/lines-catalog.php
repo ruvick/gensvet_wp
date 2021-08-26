@@ -179,7 +179,7 @@
 					</div>
 					<button type="submit" class="lines-wrap-filter__btn">применить фильтр</button>
 					<div class="lines-wrap-filter-clear">
-						<button class="lines-wrap-filter-clear__btn">Очистить фильтр</button>
+						<button onclick = "document.location.href = location.protocol + '//' + location.host + location.pathname; return false;" class="lines-wrap-filter-clear__btn">Очистить фильтр</button>
 					</div>
 				</form>
 				<div class="lines-wrap-tables">
