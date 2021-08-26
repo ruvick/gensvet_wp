@@ -79,47 +79,49 @@
 							<h4 class="lines-wrap-filter-card-btn__title">Мощность</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
+
+						
 						<div class="lines-wrap-filter-card-features lines-wrap-power">
-						<input id="vt24" type="checkbox" value="24" name="power">	
+						<input id="vt24" type="checkbox" value="24" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(24, $_REQUEST["power"])) echo "checked"; ?>>	
 						<label for="vt24" class="lines-wrap-filter-card-features__btn option">24 Вт</label>
 						
-						<input id="vt30" type="checkbox" value="30" name="power">
+						<input id="vt30" type="checkbox" value="30" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(30, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt30" class="lines-wrap-filter-card-features__btn option">30 Вт</label>
 						
-						<input id="vt36" type="checkbox" value="36" name="power">
+						<input id="vt36" type="checkbox" value="36" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(36, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt36" class="lines-wrap-filter-card-features__btn option">36 Вт</label>
 							
-						<input id="vt42" type="checkbox" value="42" name="power">
+						<input id="vt42" type="checkbox" value="42" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(42, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt42" class="lines-wrap-filter-card-features__btn option">42 Вт</label>
 
-						<input id="vt45" type="checkbox" value="45" name="power">
+						<input id="vt45" type="checkbox" value="45" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(45, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt45" class="lines-wrap-filter-card-features__btn option">45 Вт</label>
 						
-						<input id="vt48" type="checkbox" value="48" name="power">
+						<input id="vt48" type="checkbox" value="48" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(48, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt48" class="lines-wrap-filter-card-features__btn option">48 Вт</label>
 
-						<input id="vt54" type="checkbox" value="54" name="power">
+						<input id="vt54" type="checkbox" value="54" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(54, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt54" class="lines-wrap-filter-card-features__btn option">54 Вт</label>
 
-						<input id="vt60" type="checkbox" value="60" name="power">
+						<input id="vt60" type="checkbox" value="60" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(60, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt60" class="lines-wrap-filter-card-features__btn option">60 Вт</label>
 
-						<input id="vt63" type="checkbox" value="63" name="power">
+						<input id="vt63" type="checkbox" value="63" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(63, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt63" class="lines-wrap-filter-card-features__btn option">63 Вт</label>
 
-						<input id="vt66" type="checkbox" value="66" name="power">
+						<input id="vt66" type="checkbox" value="66" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(66, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt66" class="lines-wrap-filter-card-features__btn option">66 Вт</label>
 
-						<input id="vt72" type="checkbox" value="72" name="power">
+						<input id="vt72" type="checkbox" value="72" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(72, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt72" class="lines-wrap-filter-card-features__btn option">72 Вт</label>
 
-						<input id="vt81" type="checkbox" value="81" name="power">
+						<input id="vt81" type="checkbox" value="81" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(81, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt81" class="lines-wrap-filter-card-features__btn option">81 Вт</label>
 						
-						<input id="vt90" type="checkbox" value="90" name="power">
+						<input id="vt90" type="checkbox" value="90" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(90, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt90" class="lines-wrap-filter-card-features__btn option">90 Вт	</label>
 
-						<input id="vt108" type="checkbox" value="108" name="power">
+						<input id="vt108" type="checkbox" value="108" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(108, $_REQUEST["power"])) echo "checked"; ?>>
 						<label for="vt108" class="lines-wrap-filter-card-features__btn option">108 Вт</label>
 
 						</div>
@@ -243,6 +245,21 @@
 									)
 								);
 
+								if (!empty($_REQUEST["power"])) {
+									$metaquery["powerQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["power"]); $i++) {
+										$metaquery["powerQuery"]["power".$i] = array(
+											'key'     => '_offer_power',
+											'value' => $_REQUEST["power"][$i],
+											'compare' => '=',
+											'type'    => 'CHAR',
+										);
+									} 
+								}
+
 								$mypost = array(
 									'post_type' => 'ultra',
 									'posts_per_page' => -1,
@@ -259,6 +276,11 @@
 
 									'meta_query' => $metaquery
 								);
+
+								// echo "<pre>";	
+								// var_dump($metaquery);
+								// echo "</pre>";
+
 								$loop = new WP_Query($mypost);
 								?>
 								<?php while ($loop->have_posts()) : $loop->the_post(); ?>
