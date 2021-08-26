@@ -52,11 +52,11 @@
 					<div class="dropdown dropdown--lines">
 						<button type = "button" class="dropdown__button dropdown__button--lines">Тип диодов</button>
 						<ul class="dropdown-list dropdown-list--lines">
-							<li class="dropdown-list__item" data-value="first">1</li>
-							<li class="dropdown-list__item" data-value="first">2</li>
-							<li class="dropdown-list__item" data-value="first">3</li>
+							<li class="dropdown-list__item" data-value="1">1</li>
+							<li class="dropdown-list__item" data-value="2">2</li>
+							<li class="dropdown-list__item" data-value="3">3</li>
 						</ul>
-						<input type="text" class="dropdown__input" value="">
+						<input type="text" name = "diodtype" class="dropdown__input" value="<? echo $_REQUEST["diodtype"];?>">
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
@@ -132,7 +132,7 @@
 							<li class="dropdown-list__item" data-value="4000">4000 Лм</li>
 							<li class="dropdown-list__item" data-value="4800">4800 Лм</li>
 						</ul>
-						<input type="text" name = "lightflow" class="dropdown__input" value="">
+						<input type="text" name = "lightflow" class="dropdown__input" value="<? echo $_REQUEST["lightflow"];?>">
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
@@ -192,34 +192,7 @@
 					foreach ($termchildren as $child) {
 						$term = get_term_by('id', $child, $taxonomyName);
 						$term_id = $term->term_taxonomy_id; ?>
-						<div class="lines-wrap-tables-table">
-							<h2 class="lines-wrap-tables-table__title"><?= $term->name; ?></h2>
 
-							<div class="lines-wrap-tables-table-rows">
-								<div class="lines-wrap-tables-table-rows-row">
-									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Артикул</p>
-									</div>
-									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Мощность</p>
-									</div>
-									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой поток</p>
-									</div>
-									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Размер</p>
-									</div>
-									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура
-										</p>
-									</div>
-									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>
-									</div>
-									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
-									</div>
-								</div>
 								<?php
 
 								$arg = $wp_query->query;
@@ -306,6 +279,19 @@
 									 
 								}
 
+								// Фильтрация по типу диодов
+								if (!empty($_REQUEST["diodtype"])) {
+									$metaquery["diodtypeQuery"] = array();
+									
+										$metaquery["diodtypeQuery"]["dt1"] = array(
+											'key'     => '_offer_diod_type',
+											'value' => $_REQUEST["diodtype"],
+											'compare' => '=',
+											'type'    => 'CHAR',
+										);
+									 
+								}
+
 								$mypost = array(
 									'post_type' => 'ultra',
 									'posts_per_page' => -1,
@@ -323,19 +309,55 @@
 									'meta_query' => $metaquery
 								);
 
-								echo "<pre>";	
-								var_dump($metaquery);
-								echo "</pre>";
+								// echo "<pre>";	
+								// var_dump($metaquery);
+								// echo "</pre>";
 
 								$loop = new WP_Query($mypost);
-								?>
+								
+								// if (empty($loop->posts)) continue;
+						?>
+
+						<div class="lines-wrap-tables-table">
+							<h2 class="lines-wrap-tables-table__title"><?= $term->name; ?></h2>
+
+							<div class="lines-wrap-tables-table-rows">
+								<div class="lines-wrap-tables-table-rows-row">
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Артикул</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Мощность</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой поток</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Размер</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура
+										</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
+									</div>
+								</div>
+								
 								<?php while ($loop->have_posts()) : $loop->the_post(); ?>
+
+
+
+
+
 									<!-- Цикл с выводом записей дочерних категорий таксономии -->
 									<a href="<?php echo get_permalink(); ?>" class="lines-wrap-tables-table-rows-row">
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?> - 
-												<? echo carbon_get_post_meta(get_the_ID(), "offer_driver"); ?>
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?> 
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">

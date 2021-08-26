@@ -24,9 +24,15 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
     // });
 
     const dropDownButton = dropDownWrapper.querySelector('.dropdown__button');
+    
+    
     const dropDownList = dropDownWrapper.querySelector('.dropdown-list');
     const dropDownListItems = dropDownList.querySelectorAll('.dropdown-list__item');
     const dropDownInput = dropDownWrapper.querySelector('.dropdown__input');
+
+    if (dropDownInput.value != '')
+        dropDownButton.innerText = dropDownInput.value;
+
 
     dropDownButton.addEventListener('click', function () {
         dropDownList.classList.toggle('dropdown-list--visible');
