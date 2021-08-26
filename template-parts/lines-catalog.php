@@ -24,7 +24,7 @@
 			<div class="lines-wrap">
 				<form method="get" class="lines-wrap-filter">
 					<div class="lines-wrap-filter-card">
-						<button class="lines-wrap-filter-card-btn">
+						<button type = "button" class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Размеры</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 					<div class="dropdown dropdown--lines">
-						<button class="dropdown__button dropdown__button--lines">Тип диодов</button>
+						<button type = "button" class="dropdown__button dropdown__button--lines">Тип диодов</button>
 						<ul class="dropdown-list dropdown-list--lines">
 							<li class="dropdown-list__item" data-value="first">1</li>
 							<li class="dropdown-list__item" data-value="first">2</li>
@@ -59,7 +59,7 @@
 						<input type="text" class="dropdown__input" value="">
 					</div>
 					<div class="lines-wrap-filter-card">
-						<button class="lines-wrap-filter-card-btn">
+						<button type = "button" class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Комплектация</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
@@ -75,7 +75,7 @@
 						</div>
 					</div>
 					<div class="lines-wrap-filter-card">
-						<button class="lines-wrap-filter-card-btn">
+						<button type = "button" class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Мощность</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
@@ -107,7 +107,6 @@
 						<input id="vt63" type="checkbox" value="63" name="power">
 						<label for="vt63" class="lines-wrap-filter-card-features__btn option">63 Вт</label>
 
-
 						<input id="vt66" type="checkbox" value="66" name="power">
 						<label for="vt66" class="lines-wrap-filter-card-features__btn option">66 Вт</label>
 
@@ -126,7 +125,7 @@
 						</div>
 					</div>
 					<div class="dropdown dropdown--lines">
-						<button class="dropdown__button dropdown__button--lines">Световой поток</button>
+						<button type = "button" class="dropdown__button dropdown__button--lines">Световой поток</button>
 						<ul class="dropdown-list dropdown-list--lines">
 							<li class="dropdown-list__item" data-value="first">3600 Лм</li>
 							<li class="dropdown-list__item" data-value="first">4000 Лм</li>
@@ -135,7 +134,7 @@
 						<input type="text" class="dropdown__input" value="">
 					</div>
 					<div class="lines-wrap-filter-card">
-						<button class="lines-wrap-filter-card-btn">
+						<button type = "button" class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Рассеиватель</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
@@ -160,7 +159,7 @@
 						</div>
 					</div>
 					<div class="lines-wrap-filter-card">
-						<button class="lines-wrap-filter-card-btn">
+						<button type = "button" class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Световая температура</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
