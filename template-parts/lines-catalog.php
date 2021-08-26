@@ -128,11 +128,11 @@
 					<div class="dropdown dropdown--lines">
 						<button type = "button" class="dropdown__button dropdown__button--lines">Световой поток</button>
 						<ul class="dropdown-list dropdown-list--lines">
-							<li class="dropdown-list__item" data-value="first">3600 Лм</li>
-							<li class="dropdown-list__item" data-value="first">4000 Лм</li>
-							<li class="dropdown-list__item" data-value="first">4800 Лм</li>
+							<li class="dropdown-list__item" data-value="3600">3600 Лм</li>
+							<li class="dropdown-list__item" data-value="4000">4000 Лм</li>
+							<li class="dropdown-list__item" data-value="4800">4800 Лм</li>
 						</ul>
-						<input type="text" class="dropdown__input" value="">
+						<input type="text" name = "lightflow" class="dropdown__input" value="">
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
@@ -142,17 +142,17 @@
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list li_checbox">
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_opal" name="rscheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden checked data-value="595×595×40">
+									<input id = "ras_opal" name="rscheck[]" value = "Опал" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Опал", $_REQUEST["rscheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_opal" class="lines-wrap-filter-card-features-list-item__desc">Опал</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_mat" name="rscheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden checked data-value="595×595×40">
+									<input id = "ras_mat" name="rscheck[]" value = "Матовый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Матовый", $_REQUEST["rscheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_mat" class="lines-wrap-filter-card-features-list-item__desc">Матовый</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_gl" name="rscheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden checked data-value="595×595×40">
+									<input id = "ras_gl" name="rscheck[]" value = "Глянцевый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Глянцевый", $_REQUEST["rscheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_gl" class="lines-wrap-filter-card-features-list-item__desc">Глянцевый</label>
 								</li>
@@ -226,6 +226,7 @@
 								$startClrT = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
 								$endClrT = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
 
+								// Фильтрация по цене
 								$metaquery = array(
 									'relation' => 'AND',
 
@@ -244,6 +245,7 @@
 									)
 								);
 
+								// Фильтрация по мощьности
 								if (!empty($_REQUEST["power"])) {
 									$metaquery["powerQuery"] = array(
 										'relation' => 'OR',
@@ -259,6 +261,23 @@
 									} 
 								}
 
+								// Фильтрация по типу рассеевателя
+								if (!empty($_REQUEST["rscheck"])) {
+									$metaquery["rsQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["rscheck"]); $i++) {
+										$metaquery["rsQuery"]["rscheck".$i] = array(
+											'key'     => '_offer_diffuser',
+											'value' => $_REQUEST["rscheck"][$i],
+											'compare' => '=',
+											'type'    => 'CHAR',
+										);
+									} 
+								}
+
+								// Фильтрация по наличию драйвера
 								if (!empty($_REQUEST["drivercheck"])) {
 									$metaquery["driverQuery"] = array(
 										'relation' => 'OR',
@@ -269,9 +288,22 @@
 											'key'     => '_offer_driver',
 											'value' => $_REQUEST["drivercheck"][$i],
 											'compare' => '=',
-											'type'    => 'CHAR',
+											'type'    => 'NUMERIC',
 										);
 									} 
+	
+								}
+								// Фильтрация по световому потоку
+								if (!empty($_REQUEST["lightflow"])) {
+									$metaquery["lightflowQuery"] = array();
+									
+										$metaquery["lightflowQuery"]["lf1"] = array(
+											'key'     => '_offer_light_flow',
+											'value' => $_REQUEST["lightflow"],
+											'compare' => '=',
+											'type'    => 'CHAR',
+										);
+									 
 								}
 
 								$mypost = array(
@@ -291,9 +323,9 @@
 									'meta_query' => $metaquery
 								);
 
-								// echo "<pre>";	
-								// var_dump($metaquery);
-								// echo "</pre>";
+								echo "<pre>";	
+								var_dump($metaquery);
+								echo "</pre>";
 
 								$loop = new WP_Query($mypost);
 								?>
@@ -302,7 +334,8 @@
 									<a href="<?php echo get_permalink(); ?>" class="lines-wrap-tables-table-rows-row">
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?>
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?> - 
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_driver"); ?>
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
