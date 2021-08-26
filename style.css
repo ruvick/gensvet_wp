@@ -3899,7 +3899,9 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   cursor: pointer;
 }
 
+.li_checbox label::before,
 .subscription-wrap-form-wrap__checkbox {
+  content:"";
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -3914,15 +3916,34 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   border: 2px solid #2F2E20;
   position: relative;
   cursor: pointer
+  
+}
+
+.li_checbox .lines-wrap-filter-card-features-list-item__desc {
+  margin-left: 0;
+}
+
+.li_checbox label::before
+{
+  content:"";
+  margin-right: 17px;
+  top:-4px;
 }
 
 .subscription-wrap-form-wrap__checkbox:after {
   content: "";
   display: none;
-  background-image: url(img/home/subscription-check.svg);
+  /* background-image: url(img/home/subscription-check.svg); */
   position: absolute;
   height: 8px;
   width: 11px
+}
+
+.li_checbox input[type=checkbox]:checked + label:before { 
+  background-image: url(img/home/subscription-check.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+ 
 }
 
 .subscription-wrap-form-wrap__checkbox-hidden:checked+.subscription-wrap-form-wrap__checkbox::after {

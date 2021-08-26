@@ -30,21 +30,21 @@
 						</button>
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list">
-								<li class="lines-wrap-filter-card-features-list-item">
-									<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
-									<span class="subscription-wrap-form-wrap__checkbox"></span>
-									<p class="lines-wrap-filter-card-features-list-item__desc">595×595×40</p>
+								<li class="lines-wrap-filter-card-features-list-item li_checbox">
+									<input id = "size_595_595_40" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked  data-value="595×595×40">
+									<!-- <label for = "size_595_595_40" class="subscription-wrap-form-wrap__checkbox"></label> -->
+									<label  for = "size_595_595_40" class=" lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 								</li>
-								<li class="lines-wrap-filter-card-features-list-item">
-									<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
-									<span class="subscription-wrap-form-wrap__checkbox"></span>
-									<p class="lines-wrap-filter-card-features-list-item__desc">595×595×40</p>
+								<li class="lines-wrap-filter-card-features-list-item li_checbox">
+									<input id = "size_595_595_41" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden  data-value="595×595×40">
+									<!-- <label for = "size_595_595_41" class="subscription-wrap-form-wrap__checkbox"></label> -->
+									<label for = "size_595_595_41" class="lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 
 								</li>
-								<li class="lines-wrap-filter-card-features-list-item">
-									<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
-									<span class="subscription-wrap-form-wrap__checkbox"></span>
-									<p class="lines-wrap-filter-card-features-list-item__desc">595×595×40</p>
+								<li class="lines-wrap-filter-card-features-list-item li_checbox">
+									<input id = "size_595_595_42" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden  data-value="595×595×40">
+									<!-- <label for = "size_595_595_42" class="subscription-wrap-form-wrap__checkbox"></label> -->
+									<label for = "size_595_595_42" class="lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 								</li>
 							</ul>
 						</div>
@@ -64,12 +64,11 @@
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
-							<ul class="lines-wrap-filter-card-features-list">
+							<ul class="lines-wrap-filter-card-features-list li_checbox">
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
-									<span class="subscription-wrap-form-wrap__checkbox"></span>
-									<p class="lines-wrap-filter-card-features-list-item__desc">Только с драйвером
-									</p>
+									<input id = "str_only" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
+									<label  for = "str_only" class="lines-wrap-filter-card-features-list-item__desc">Только с драйвером</label>
 								</li>
 							</ul>
 						</div>
@@ -141,21 +140,21 @@
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
-							<ul class="lines-wrap-filter-card-features-list">
+							<ul class="lines-wrap-filter-card-features-list li_checbox">
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
-									<span class="subscription-wrap-form-wrap__checkbox"></span>
-									<p class="lines-wrap-filter-card-features-list-item__desc">Опал</p>
+									<input id = "ras_opal" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
+									<label for = "ras_opal" class="lines-wrap-filter-card-features-list-item__desc">Опал</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
-									<span class="subscription-wrap-form-wrap__checkbox"></span>
-									<p class="lines-wrap-filter-card-features-list-item__desc">Матовый</p>
+									<input id = "ras_mat" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
+									<label for = "ras_mat" class="lines-wrap-filter-card-features-list-item__desc">Матовый</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
-									<span class="subscription-wrap-form-wrap__checkbox"></span>
-									<p class="lines-wrap-filter-card-features-list-item__desc">Глянцевый</p>
+									<input id = "ras_gl" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
+									<label for = "ras_gl" class="lines-wrap-filter-card-features-list-item__desc">Глянцевый</label>
 								</li>
 							</ul>
 						</div>
