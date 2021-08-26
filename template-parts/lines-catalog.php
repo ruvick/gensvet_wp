@@ -31,18 +31,18 @@
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list">
 								<li class="lines-wrap-filter-card-features-list-item li_checbox">
-									<input id = "size_595_595_40" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked  data-value="595×595×40">
+									<input id = "size_595_595_40" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden checked  data-value="595×595×40">
 									<!-- <label for = "size_595_595_40" class="subscription-wrap-form-wrap__checkbox"></label> -->
 									<label  for = "size_595_595_40" class=" lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item li_checbox">
-									<input id = "size_595_595_41" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden  data-value="595×595×40">
+									<input id = "size_595_595_41" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden  data-value="595×595×40">
 									<!-- <label for = "size_595_595_41" class="subscription-wrap-form-wrap__checkbox"></label> -->
 									<label for = "size_595_595_41" class="lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item li_checbox">
-									<input id = "size_595_595_42" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden  data-value="595×595×40">
+									<input id = "size_595_595_42" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden  data-value="595×595×40">
 									<!-- <label for = "size_595_595_42" class="subscription-wrap-form-wrap__checkbox"></label> -->
 									<label for = "size_595_595_42" class="lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 								</li>
@@ -66,9 +66,9 @@
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list li_checbox">
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "str_only" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<input id = "str_only" name="drivercheck[]" value="1" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["drivercheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
-									<label  for = "str_only" class="lines-wrap-filter-card-features-list-item__desc">Только с драйвером</label>
+									<label  for = "str_only" class="lines-wrap-filter-card-features-list-item__desc" >Только с драйвером</label>
 								</li>
 							</ul>
 						</div>
@@ -142,17 +142,17 @@
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list li_checbox">
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_opal" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<input id = "ras_opal" name="rscheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden checked data-value="595×595×40">
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_opal" class="lines-wrap-filter-card-features-list-item__desc">Опал</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_mat" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<input id = "ras_mat" name="rscheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden checked data-value="595×595×40">
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_mat" class="lines-wrap-filter-card-features-list-item__desc">Матовый</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_gl" name="user-check" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" required hidden checked data-value="595×595×40">
+									<input id = "ras_gl" name="rscheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden checked data-value="595×595×40">
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_gl" class="lines-wrap-filter-card-features-list-item__desc">Глянцевый</label>
 								</li>
@@ -253,6 +253,21 @@
 										$metaquery["powerQuery"]["power".$i] = array(
 											'key'     => '_offer_power',
 											'value' => $_REQUEST["power"][$i],
+											'compare' => '=',
+											'type'    => 'CHAR',
+										);
+									} 
+								}
+
+								if (!empty($_REQUEST["drivercheck"])) {
+									$metaquery["driverQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["drivercheck"]); $i++) {
+										$metaquery["driverQuery"]["drivercheck".$i] = array(
+											'key'     => '_offer_driver',
+											'value' => $_REQUEST["drivercheck"][$i],
 											'compare' => '=',
 											'type'    => 'CHAR',
 										);
