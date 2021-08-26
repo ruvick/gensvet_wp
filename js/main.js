@@ -518,3 +518,31 @@ $(".newButtonSubscribe").click(function (e) {
     });
   }
 });
+
+//Валидация + Отправщик Окно Рассчитать стоимость
+$(".calculatorFormBtn").click(function (e) {
+  e.preventDefault();
+  const inputEmail = $(this).parent().find('.calculator-bottom-wrap-left-email__input');
+  const email = inputEmail.val();
+  console.log(email);
+
+  if (email == "") {
+    inputEmail.css("border", "1px solid red");
+    return;
+  } else {
+    var jqXHR = jQuery.post(allAjax.ajaxurl, {
+      action: "sendcalcresult",
+      nonce: allAjax.nonce,
+      email: email,
+    });
+
+    jqXHR.done(function (responce) {
+      jQuery(".calculator-bottom-wrap-left-email .calculator-bottom-wrap-left-email-wrap").hide();
+      jQuery(".calculator-bottom-wrap-left-email .SendetMsg").show();
+    });
+
+    jqXHR.fail(function (responce) {
+      alert("Произошла ошибка. Попробуйте позднее.");
+    });
+  }
+});

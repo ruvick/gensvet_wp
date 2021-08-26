@@ -632,9 +632,34 @@ function sendinstruction()
 		);
 
 		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос инструкции', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers))
+
+		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос инструкции', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers)) {
+			
+			// отправляем данные в таблицу
+			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
+
+			$post_data = array (
+			"entry.1832350810" => $_REQUEST["email"],
+			"entry.217436313" => $_REQUEST["tel"],
+			"entry.1625375526" => $_REQUEST["name"],
+			"entry.1169221904" => 'Скачать инструкцию',
+			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+			"pageHistory" => "0",
+			"fbzx" => "-6004279802167264257"
+			);
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+			$output = curl_exec($ch);
+			curl_close($ch);
+		
 			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
-		else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+		} else { 
+			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+		}
 	} else {
 		wp_die('НО-НО-НО!', '', 403);
 	}
@@ -658,9 +683,32 @@ function sendprice()
 		);
 
 		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос прайс-листа', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers))
+		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос прайс-листа', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers)) {
+			// отправляем данные в таблицу
+			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
+
+			$post_data = array (
+			"entry.1832350810" => $_REQUEST["email"],
+			"entry.217436313" => $_REQUEST["tel"],
+			"entry.1625375526" => $_REQUEST["name"],
+			"entry.1169221904" => 'Скачать прайс-лист',
+			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+			"pageHistory" => "0",
+			"fbzx" => "-6004279802167264257"
+			);
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+			$output = curl_exec($ch);
+			curl_close($ch);
+
 			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
-		else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+		} else  {
+			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+		}
 	} else {
 		wp_die('НО-НО-НО!', '', 403);
 	}
@@ -684,15 +732,85 @@ function sendsubscribe()
 		);
 
 		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Заявка с окна "Подписаться"', '<strong>Email:</strong> ' . $_REQUEST["email"], $headers))
+		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Заявка с окна "Подписаться"', '<strong>Email:</strong> ' . $_REQUEST["email"], $headers)) {
+			// отправляем данные в таблицу
+			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
+
+			$post_data = array (
+			"entry.1832350810" => $_REQUEST["email"],
+			"entry.217436313" => '',
+			"entry.1625375526" => '',
+			"entry.1169221904" => 'Подписаться',
+			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+			"pageHistory" => "0",
+			"fbzx" => "-6004279802167264257"
+			);
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+			$output = curl_exec($ch);
+			curl_close($ch);
+
 			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
-		else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+		} else {
+			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+		}
 	} else {
 		wp_die('НО-НО-НО!', '', 403);
 	}
 }
 
+// Отправка формы Окна Расчёт стоимости
+add_action('wp_ajax_sendcalcresult', 'sendcalcresult');
+add_action('wp_ajax_nopriv_sendcalcresult', 'sendcalcresult');
 
+function sendcalcresult()
+{
+	if (empty($_REQUEST['nonce'])) {
+		wp_die('0');
+	}
+
+	if (check_ajax_referer('NEHERTUTLAZIT', 'nonce', false)) {
+
+		$headers = array(
+			'From: Сайт ' . COMPANY_NAME . ' <' . MAIL_RESEND . '>',
+			'content-type: text/html',
+		);
+
+		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
+		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Заявка с формы "Получить расчёт стоимости"', '<strong>Email:</strong> ' . $_REQUEST["email"], $headers)) {
+			// отправляем данные в таблицу
+			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
+
+			$post_data = array (
+			"entry.1832350810" => $_REQUEST["email"],
+			"entry.217436313" => '',
+			"entry.1625375526" => '',
+			"entry.1169221904" => 'Расчёт стоимости',
+			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+			"pageHistory" => "0",
+			"fbzx" => "-6004279802167264257"
+			);
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+			$output = curl_exec($ch);
+			curl_close($ch);
+
+			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+		} else {
+			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+		}
+	} else {
+		wp_die('НО-НО-НО!', '', 403);
+	}
+}
 
 // Хлебные крошки ================================================================================================================
 function kama_breadcrumbs($sep = '  ', $l10n = array(), $args = array())

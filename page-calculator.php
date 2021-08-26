@@ -102,8 +102,13 @@ get_header(); ?>
 						</button>
 						<div class="calculator-bottom-wrap-left-email">
 							<h2 class="calculator-bottom-wrap-left-email__title">Отправить расчет на электронную почту</h2>
-							<input type="email" placeholder="Ваш e-mail" class="calculator-bottom-wrap-left-email__input" required>
-							<button class="calculator-bottom-wrap-left-email__btn">отправить</button>
+							<div class="calculator-bottom-wrap-left-email-wrap">
+								<input type="email" placeholder="Ваш e-mail" class="calculator-bottom-wrap-left-email__input" required>
+							</div>
+							<div class="SendetMsg" style="display:none;">
+								<input type="email" disabled placeholder="Ваша заявка отправлена!" class="calculator-bottom-wrap-left-email__input" required>
+							</div>
+							<button class="calculator-bottom-wrap-left-email__btn calculatorFormBtn">отправить</button>
 						</div>
 					</div>
 					<div class="calculator-bottom-wrap-right">
