@@ -110,7 +110,7 @@ Container::make('post_meta', 'ultra_product', 'Характеристики то
     Field::make('text', 'offer_colour_temp', 'Цветовая температура товара')->set_width(50),
     Field::make('text', 'offer_diffuser', 'Рассеиватель товара')->set_width(50),
     Field::make('text', 'offer_light_effect', 'Световой эффект товара')->set_width(50),
-    Field::make('checkbox', 'offer_driver', 'Наличие драйвера')->set_width(50)->set_option_value( 'no' ),
+    Field::make('checkbox', 'offer_driver', 'Наличие драйвера')->set_width(50)->set_option_value( 'yes' ),
     Field::make('select', 'offer_diod_type', 'Тип диодов')->add_options( array(
       '1' => '1',
       '2' => '2',
