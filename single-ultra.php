@@ -33,6 +33,56 @@ get_header(); ?>
             <p class="card-wrap-img__teg"><? echo $sticker; ?></p>
           <? } ?>
         </div>
+
+
+
+        <?
+              
+            
+          		$queryParam = array (
+                'post_type' => 'ultra',
+                'meta_query' => [
+                  'relation' => 'OR',
+                    [
+                      'key' => '_offer_sku',
+                      'value' => carbon_get_the_post_meta('offer_sku')
+                    ]
+                ]
+          
+              );
+
+              $oneskuPosts = new WP_Query($queryParam);
+
+              $rez = array();
+              
+              $rez["offer_power"] = array();
+              $rez["offer_light_flow"] = array();
+              $rez["offer_colour_temp"] = array();
+              $rez["offer_diffuser"] = array();
+
+              foreach($oneskuPosts->posts as $postM) {
+                $offer_power = get_post_meta($postM->ID, "_offer_power", true);
+                if (!empty($offer_power) && !in_array($offer_power, $rez["offer_power"])) 
+                  $rez["offer_power"][$offer_power] = array( "value" => $offer_power, "lnk" =>  get_permalink($postM->ID));
+
+                $offer_light_flow = get_post_meta($postM->ID, "_offer_light_flow", true);
+                if (!empty($offer_light_flow) && !in_array($offer_light_flow, $rez["offer_light_flow"])) 
+                    $rez["offer_light_flow"][$offer_light_flow] = array( "value" => $offer_light_flow, "lnk" =>  get_permalink($postM->ID));
+
+                $offer_colour_temp = get_post_meta($postM->ID, "_offer_colour_temp", true);
+                if (!empty($offer_colour_temp) && !in_array($offer_colour_temp, $rez["offer_colour_temp"])) 
+                    $rez["offer_colour_temp"][$offer_colour_temp] = array( "value" => $offer_colour_temp, "lnk" =>  get_permalink($postM->ID));
+
+                $offer_diffuser = get_post_meta($postM->ID, "_offer_diffuser", true);
+                if (!empty($offer_diffuser) && !in_array($offer_diffuser, $rez["offer_diffuser"])) 
+                    $rez["offer_diffuser"][$offer_diffuser] = array( "value" => $offer_diffuser, "lnk" =>  get_permalink($postM->ID));
+              }
+
+              // echo "<pre>";	
+							// 	var_dump($oneskuPosts);
+							// echo "</pre>";
+        ?>
+
         <div class="card-wrap-properties">
           <h3 class="card-wrap-properties__title">выберите свойства</h3>
           <div class="card-wrap-properties-features">
@@ -54,7 +104,7 @@ get_header(); ?>
                                 <option value="" class="card-wrap-properties-features-select__opt">108 Вт</option>
                                 <option value="" class="card-wrap-properties-features-select__opt">150 Вт</option>
                             </select> -->
-            <div class="dropdown">
+            <!-- <div class="dropdown">
               <button class="dropdown__button">36 Bm</button>
               <ul class="dropdown-list">
                 <? $power = carbon_get_the_post_meta('offer_power_complex');
@@ -70,11 +120,32 @@ get_header(); ?>
                 ?>
               </ul>
               <input type="text" class="dropdown__input" value="">
+            </div> -->
+
+
+            <div class="dropdown">
+              <button class="dropdown__button"><? echo carbon_get_the_post_meta("offer_power"); ?> Bm</button>
+              <ul class="dropdown-list">
+                <? 
+                
+                  $powerIndex = 0;
+                  foreach ($rez["offer_power"] as $item) {
+                ?>
+                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Bm</li>
+                <?
+                    $powerIndex++;
+                  }
+                
+                ?>
+              </ul>
+              <input type="text" class="dropdown__input" value="">
             </div>
+
           </div>
           <div class="card-wrap-properties-features">
             <p class="card-wrap-properties-features__desc">Световой поток</p>
-            <div class="dropdown">
+            
+            <!-- <div class="dropdown">
               <button class="dropdown__button">Световой поток</button>
               <ul class="dropdown-list">
                 <? $light_flow = carbon_get_the_post_meta('light_flow_complex');
@@ -90,11 +161,30 @@ get_header(); ?>
                 ?>
               </ul>
               <input type="text" class="dropdown__input" value="">
+            </div> -->
+
+            <div class="dropdown">
+              <button class="dropdown__button">Световой поток</button>
+              <ul class="dropdown-list">
+                <? 
+                  $light_flowIndex = 0;
+                  foreach ($rez["offer_light_flow"] as $item) {
+                ?>
+                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Лм</li>
+                <?
+                    $light_flowIndex++;
+                  }
+                
+                ?>
+              </ul>
+              <input type="text" class="dropdown__input" value="">
             </div>
+
           </div>
           <div class="card-wrap-properties-features">
             <p class="card-wrap-properties-features__desc">Цветовая температура</p>
-            <div class="dropdown">
+            
+            <!-- <div class="dropdown">
               <button class="dropdown__button">Цветовая температура</button>
               <ul class="dropdown-list">
                 <? $colour_temp = carbon_get_the_post_meta('colour_temp_complex');
@@ -110,11 +200,31 @@ get_header(); ?>
                 ?>
               </ul>
               <input type="text" class="dropdown__input" value="">
+            </div> -->
+            
+            <div class="dropdown">
+              <button class="dropdown__button">Цветовая температура</button>
+              <ul class="dropdown-list">
+                <?
+                  $colour_tempIndex = 0;
+                  foreach ($rez["offer_colour_temp"] as $item) {
+                ?>
+                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> К</li>
+                <?
+                    $colour_tempIndex++;
+                  }
+                
+                ?>
+              </ul>
+              <input type="text" class="dropdown__input" value="">
             </div>
+
+            
           </div>
           <div class="card-wrap-properties-features">
             <p class="card-wrap-properties-features__desc">Рассеиватель</p>
-            <div class="dropdown">
+            
+            <!-- <div class="dropdown">
               <button class="dropdown__button">Выберите рассеиватель</button>
               <ul class="dropdown-list">
                 <? $diffuser = carbon_get_the_post_meta('diffuser_complex');
@@ -130,7 +240,24 @@ get_header(); ?>
                 ?>
               </ul>
               <input type="text" class="dropdown__input" value="">
+            </div> -->
+            
+            <div class="dropdown">
+              <button class="dropdown__button">Выберите рассеиватель</button>
+              <ul class="dropdown-list">
+                <? 
+                  $diffuserIndex = 0;
+                  foreach ($rez["offer_diffuser"] as $item) {
+                ?>
+                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
+                <?
+                    $diffuserIndex++;
+                  }
+                ?>
+              </ul>
+              <input type="text" class="dropdown__input" value="">
             </div>
+
           </div>
 
           <h3 class="card-wrap-properties__title">Выберите драйвер</h3>
