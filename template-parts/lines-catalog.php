@@ -49,14 +49,14 @@
 							</ul>
 						</div>
 					</div>
-					<div class="dropdown dropdown--lines">
+					<div class="dropdownAfterLoad dropdown--lines">
 						<button type = "button" class="dropdown__button dropdown__button--lines">Тип диодов</button>
 						<ul class="dropdown-list dropdown-list--lines"  id = "dtypeFilterList">
 							<li class="dropdown-list__item" data-value="1">1</li>
 							<li class="dropdown-list__item" data-value="2">2</li>
 							<li class="dropdown-list__item" data-value="3">3</li>
 						</ul>
-						<input type="text" name = "diodtype" class="dropdown__input" value="<? echo $_REQUEST["diodtype"];?>">
+						<input type="text" name = "diodtype" class="dropdown__input" id = "diodTypeInput" value="<? echo $_REQUEST["diodtype"];?>">
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">

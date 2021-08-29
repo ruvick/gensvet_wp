@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
    
     let qParam = getRequests();
+    console.log(qParam);
 
     if (document.getElementById('tovarCategoryId') == null) return;
     
@@ -43,10 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let sizeStr = ""
         xhr.response.offer_size.forEach((element, index) => {
             
-            let checed = (qParam.offer_size != undefined && qParam.offer_size === element)?"checked":"";
+            let checed = (qParam.sizecheck != undefined && qParam.sizecheck.includes(element) )?"checked":"";
 
             sizeStr += '<li class="lines-wrap-filter-card-features-list-item li_checbox">'+
-							'<input id="size_'+index+'" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden="" '+checed+' data-value="'+element+'">'+
+							'<input id="size_'+index+'" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden="" '+checed+' value = "'+element+'" data-value="'+element+'">'+
 							'<label for="size_'+index+'" class=" lines-wrap-filter-card-features-list-item__desc">'+element+'</label>'+
 						'</li>'
         });
@@ -58,7 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
             dtypeStr += '<li id = "dtype_'+index+'" class="dropdown-list__item" data-value="'+element+'">'+element+'</li>'
         });
 
-        dtypeFilterList.innerHTML = dtypeStr;
+        diodTypeInput.value = (qParam.diodtype != undefined )?qParam.diodtype:"";
+        
+        dtypeFilterList.innerHTML = dtypeStr
+        dropdownInit(".dropdownAfterLoad")
 
         // Комплектация
         let onlyStarter = ""
@@ -79,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         '<label for="vt'+index+'" class="lines-wrap-filter-card-features__btn option">'+element+' Вт</label>'
         });
 
-        // powerFilterList.innerHTML = powerStr;
+         powerFilterList.innerHTML = powerStr;
     }
 
     xhr.send();

@@ -6250,7 +6250,7 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   }
 }
 
-
+.dropdownAfterLoad,
 .dropdown {
   width: 300px;
   position: relative;
