@@ -2286,6 +2286,7 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   padding-left: 20px;
   border: 1px solid #DBE2EB;
   overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .points-wrap-left-select__opt {
@@ -2344,6 +2345,7 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
 .points-wrap-partners-cards-card__img {
   width: 183px;
   height: 78px;
+  object-fit: scale-down;
   transition: 200ms linear;
 }
 
