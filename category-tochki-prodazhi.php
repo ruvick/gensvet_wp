@@ -19,24 +19,31 @@
         <div class="points-wrap-left">
           <div name="" size=19 id="" class="points-wrap-left-select">
             <?php
-            $parent_id = 8;
-            $sub_cats = get_categories(array(
-              'child_of' => $parent_id,
-              'order'    => 'DESC',
-              'hide_empty' => 0
-            ));
-            if ($sub_cats) {
-              foreach ($sub_cats as $cat) {
+              $parent_id = 8;
+              $sub_cats = get_categories(array(
+                'child_of' => $parent_id,
+                'order'    => 'DESC',
+                'hide_empty' => 0
+              ));
+              if ($sub_cats) {
+                foreach ($sub_cats as $cat) {
 
-                if ($_REQUEST["region"] == $cat->cat_ID) {
-                  echo '<a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link active">' . $cat->name . '</a>';
-                } else {
-                  echo '<a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="" class="points-wrap-left-select__opt points-wrap-left-select__opt-link">' . $cat->name . '</a>';
+                  $is_parent = 'sales-child';
+                  $is_active = '';
+                  $sales_term = get_term($cat->term_id);
+
+                  if ($sales_term->parent == $parent_id) {
+                    $is_parent = 'sales-parent';
+                  }
+
+                  if ($_REQUEST["region"] == $cat->cat_ID) {
+                    $is_active = 'active';
+                  }
+                  echo '<a class="points-wrap-left-select__opt points-wrap-left-select__opt-link '. $is_active .' '. $is_parent .'" href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="">' . $cat->name . '</a>';
                 }
+                wp_reset_postdata();
               }
-              wp_reset_postdata();
-            }
-            ?>
+              ?>
           </div>
           <div class="dropdown">
             <button class="dropdown__button">Москва и область</button>
@@ -50,11 +57,20 @@
               ));
               if ($sub_cats) {
                 foreach ($sub_cats as $cat) {
+
+                  $is_parent = 'sales-child';
+                  $is_active = '';
+                  $sales_term = get_term($cat->term_id);
+
+                  if ($sales_term->parent == $parent_id) {
+                    $is_parent = 'sales-parent';
+                  }
+
                   if ($_REQUEST["region"] == $cat->cat_ID) {
-                  echo '<li class="dropdown-list__item active" data-value="first"><a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="">' . $cat->name . '</a></li>';
-                } else {
-                  echo '<li class="dropdown-list__item" data-value="first"><a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="">' . $cat->name . '</a></li>';
-                }
+                    $is_active = 'active';
+                  }
+
+                  echo '<li class="dropdown-list__item '. $is_active .' '. $is_parent .'" data-value="first"><a href="' . get_category_link($parent_id) . '?region=' . $cat->cat_ID . '&caname=' . $cat->name . '" value="">' . $cat->name . '</a></li>';
                 }
                 wp_reset_postdata();
               }

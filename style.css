@@ -7563,7 +7563,15 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 }
 
 .points-wrap-left-select__opt-link.active {
+  color: #EF7F1A;
+}
+
+.points-wrap-left-select__opt-link.sales-parent {
   font-weight: bold;
+}
+
+.points-wrap-left-select__opt-link.sales-parent:not(:first-child) {
+  margin-top: 28px;
 }
 
 .lines-wrap-filter-card-features .option {
