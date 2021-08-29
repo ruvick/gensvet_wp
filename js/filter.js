@@ -62,13 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
         diodTypeInput.value = (qParam.diodtype != undefined )?qParam.diodtype:"";
         
         dtypeFilterList.innerHTML = dtypeStr
-        dropdownInit(".dropdownAfterLoad")
 
         // Комплектация
         let onlyStarter = ""
         xhr.response.offer_driver.forEach((element, index) => {
+            let checed = (qParam.drivercheck != undefined && qParam.drivercheck.includes(element) )?"checked":"";
+
             onlyStarter += '<li class="lines-wrap-filter-card-features-list-item">'+
-                '<input id = "str_only_'+index+'" name="drivercheck[]" value="'+element+'" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="'+element+'">'+
+                '<input id = "str_only_'+index+'" name="drivercheck[]" value="yes" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" '+checed+' hidden data-value="yes">'+
                 '<label  for = "str_only_'+index+'" class="lines-wrap-filter-card-features-list-item__desc" >Только с драйвером</label>'+
             '</li>';
         });
@@ -79,11 +80,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let powerStr = ""
         xhr.response.offer_power.forEach((element, index) => {
-            powerStr += '<input id="vt'+index+'" type="checkbox" value="'+element+'" name="power[]" >'+
+            
+            let checed = (qParam.power != undefined && qParam.power.includes(element) )?"checked":"";
+
+            powerStr += '<input id="vt'+index+'" type="checkbox" value="'+element+'" name="power[]" '+checed+' >'+
                         '<label for="vt'+index+'" class="lines-wrap-filter-card-features__btn option">'+element+' Вт</label>'
         });
 
-         powerFilterList.innerHTML = powerStr;
+        powerFilterList.innerHTML = powerStr;
+
+        // Световой поток
+
+        let lightFlowStr = ""
+        xhr.response.offer_light_flow.forEach((element, index) => {
+           lightFlowStr += '<li id = "lightflow_'+index+'" class="dropdown-list__item" data-value="'+element+'">'+element+' Лм</li>'
+        });
+ 
+        lightflowTypeInput.value = (qParam.lightflow != undefined )?qParam.lightflow:"";
+        
+        lightflowFilterList.innerHTML = lightFlowStr
+
+        // Рассеиватель
+
+        let diffuserStr = ""
+        xhr.response.offer_diffuser.forEach((element, index) => {
+            
+            let checed = (qParam.rscheck != undefined && qParam.rscheck.includes(element) )?"checked":"";
+
+            diffuserStr += '<li class="lines-wrap-filter-card-features-list-item">'+
+                                '<input id = "ras_'+index+'" name="rscheck[]" value = "'+element+'" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" '+checed+' hidden data-value="'+element+'" >'+
+                                '<label for = "ras_'+index+'" class="lines-wrap-filter-card-features-list-item__desc">'+element+'</label>'+
+                            '</li>'
+        });
+        diffuserFilterList.innerHTML = diffuserStr;
+
+         dropdownInit(".dropdownAfterLoad")
     }
 
     xhr.send();

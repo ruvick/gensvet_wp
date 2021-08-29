@@ -125,14 +125,14 @@
 
 						</div>
 					</div>
-					<div class="dropdown dropdown--lines">
+					<div class="dropdownAfterLoad dropdown--lines">
 						<button type = "button" class="dropdown__button dropdown__button--lines">Световой поток</button>
-						<ul class="dropdown-list dropdown-list--lines">
+						<ul class="dropdown-list dropdown-list--lines" id = "lightflowFilterList">
 							<li class="dropdown-list__item" data-value="3600">3600 Лм</li>
 							<li class="dropdown-list__item" data-value="4000">4000 Лм</li>
 							<li class="dropdown-list__item" data-value="4800">4800 Лм</li>
 						</ul>
-						<input type="text" name = "lightflow" class="dropdown__input" value="<? echo $_REQUEST["lightflow"];?>">
+						<input type="text" name = "lightflow" id = "lightflowTypeInput" class="dropdown__input" value="<? echo $_REQUEST["lightflow"];?>">
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
@@ -140,7 +140,7 @@
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
-							<ul class="lines-wrap-filter-card-features-list li_checbox">
+							<ul class="lines-wrap-filter-card-features-list li_checbox" id = "diffuserFilterList">
 								<li class="lines-wrap-filter-card-features-list-item">
 									<input id = "ras_opal" name="rscheck[0]" value = "Опал" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Опал", $_REQUEST["rscheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
