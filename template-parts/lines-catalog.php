@@ -167,12 +167,12 @@
 						<div class="lines-wrap-filter-card-range">
 							<label for="" class="lines-wrap-filter-card-range-label">
 								<span class="lines-wrap-filter-card-range__span">от</span>
-								<input id="input-0" type="number" name="colour_temp_from" value="<? echo empty($_REQUEST["colour_temp_from"])?2100:$_REQUEST["colour_temp_from"] ?>" min="1000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
+								<input id="colortFrom" type="number" name="colour_temp_from" value="<? echo empty($_REQUEST["colour_temp_from"])?2100:$_REQUEST["colour_temp_from"] ?>" min="1000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
 								<span class="lines-wrap-filter-card-range__span">К</span>
 							</label>
 							<label for="" class="lines-wrap-filter-card-range-label">
 								<span class="lines-wrap-filter-card-range__span">до</span>
-								<input id="input-1" type="number" name="colour_temp_to" value="<? echo empty($_REQUEST["colour_temp_to"])?5000:$_REQUEST["colour_temp_to"] ?>" min="2000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
+								<input id="colortTo" type="number" name="colour_temp_to" value="<? echo empty($_REQUEST["colour_temp_to"])?5000:$_REQUEST["colour_temp_to"] ?>" min="2000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
 								<span class="lines-wrap-filter-card-range__span">К</span>
 							</label>
 							<div id="range-slider" class="lines-wrap-filter-card-range__slider"></div>

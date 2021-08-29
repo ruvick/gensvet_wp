@@ -1233,6 +1233,9 @@ add_action( 'rest_api_init', function () {
 		$rez["offer_light_flow"] = array();
 		$rez["offer_diffuser"] = array();
 
+		$min = PHP_INT_MAX;
+		$max = PHP_INT_MIN;
+
 		foreach($queryMain->posts as $postM) {
 			
 			$offer_size = get_post_meta($postM->ID, "_offer_size", true);
@@ -1260,7 +1263,16 @@ add_action( 'rest_api_init', function () {
 			$offer_diffuser = get_post_meta($postM->ID, "_offer_diffuser", true);
 			if (!empty($offer_diffuser) && !in_array($offer_diffuser, $rez["offer_diffuser"])) 
 				$rez["offer_diffuser"][] = $offer_diffuser;
+
+			if ($min > (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
+				$min = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
+			
+			if ($max < (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
+				$max = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
 		}
+
+		$rez["offer_colour_temp_max"] = $max;
+		$rez["offer_colour_temp_min"] = $min;
 
 		if (!empty($rez))
 			return $rez;

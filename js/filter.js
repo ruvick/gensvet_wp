@@ -114,7 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         diffuserFilterList.innerHTML = diffuserStr;
 
-         dropdownInit(".dropdownAfterLoad")
+        colortFrom.value = xhr.response.offer_colour_temp_min;
+        colortTo.value = xhr.response.offer_colour_temp_max;
+
+        serRangeSlider();
+
+        dropdownInit(".dropdownAfterLoad")
     }
 
     xhr.send();
