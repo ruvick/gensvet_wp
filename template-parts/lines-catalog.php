@@ -3,7 +3,7 @@
 <?php get_template_part('template-parts/header-section'); ?>
 
 <main class="main">
-
+	<div id = "tovarCategoryId" data-id = "<? echo get_queried_object()->term_id; ?>"></div>
 	<section class="breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-wrap">
@@ -29,7 +29,7 @@
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
-							<ul class="lines-wrap-filter-card-features-list">
+							<ul class="lines-wrap-filter-card-features-list" id = "sizeFilterList">
 								<li class="lines-wrap-filter-card-features-list-item li_checbox">
 									<input id = "size_595_595_40" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden checked  data-value="595×595×40">
 									<!-- <label for = "size_595_595_40" class="subscription-wrap-form-wrap__checkbox"></label> -->
@@ -51,7 +51,7 @@
 					</div>
 					<div class="dropdown dropdown--lines">
 						<button type = "button" class="dropdown__button dropdown__button--lines">Тип диодов</button>
-						<ul class="dropdown-list dropdown-list--lines">
+						<ul class="dropdown-list dropdown-list--lines"  id = "dtypeFilterList">
 							<li class="dropdown-list__item" data-value="1">1</li>
 							<li class="dropdown-list__item" data-value="2">2</li>
 							<li class="dropdown-list__item" data-value="3">3</li>
@@ -64,7 +64,7 @@
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
-							<ul class="lines-wrap-filter-card-features-list li_checbox">
+							<ul class="lines-wrap-filter-card-features-list li_checbox" id = "komplFilterList" >
 								<li class="lines-wrap-filter-card-features-list-item">
 									<input id = "str_only" name="drivercheck[]" value="1" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["drivercheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
@@ -80,7 +80,7 @@
 						</button>
 
 						
-						<div class="lines-wrap-filter-card-features lines-wrap-power">
+						<div class="lines-wrap-filter-card-features lines-wrap-power" id = "powerFilterList">
 						<input id="vt24" type="checkbox" value="24" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(24, $_REQUEST["power"])) echo "checked"; ?>>	
 						<label for="vt24" class="lines-wrap-filter-card-features__btn option">24 Вт</label>
 						
@@ -142,17 +142,17 @@
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list li_checbox">
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_opal" name="rscheck[]" value = "Опал" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Опал", $_REQUEST["rscheck"])) echo "checked"; ?>>
+									<input id = "ras_opal" name="rscheck[0]" value = "Опал" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Опал", $_REQUEST["rscheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_opal" class="lines-wrap-filter-card-features-list-item__desc">Опал</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_mat" name="rscheck[]" value = "Матовый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Матовый", $_REQUEST["rscheck"])) echo "checked"; ?>>
+									<input id = "ras_mat" name="rscheck[1]" value = "Матовый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Матовый", $_REQUEST["rscheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_mat" class="lines-wrap-filter-card-features-list-item__desc">Матовый</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "ras_gl" name="rscheck[]" value = "Глянцевый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Глянцевый", $_REQUEST["rscheck"])) echo "checked"; ?>>
+									<input id = "ras_gl" name="rscheck[2]" value = "Глянцевый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Глянцевый", $_REQUEST["rscheck"])) echo "checked"; ?>>
 									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_gl" class="lines-wrap-filter-card-features-list-item__desc">Глянцевый</label>
 								</li>
@@ -315,7 +315,7 @@
 
 								$loop = new WP_Query($mypost);
 								
-								// if (empty($loop->posts)) continue;
+								 if (empty($loop->posts)) continue;
 						?>
 
 						<div class="lines-wrap-tables-table">
