@@ -56,6 +56,15 @@ body {
   color: #2F2E20
 }
 
+.loaderSize {
+  width: 100%;
+  text-align: center;
+}
+
+.lines-wrap-filter {
+  display: none;
+}
+
 .container {
   width: 1280px;
   margin: auto
@@ -4001,7 +4010,9 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
 
 .card-tabs-wrap-features:not(:first-child) {
   display: none
+  
 }
+
 
 @media (max-width: 1400px) {
   .container {
@@ -7106,6 +7117,9 @@ input[type=number] {
     display: none;
   }
 
+
+  
+
   .lines-button-767-arrow__img {
     transition: 200ms linear;
   }
@@ -7676,3 +7690,4 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
     width: 50%;
   }
 }
+

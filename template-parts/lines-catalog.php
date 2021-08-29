@@ -22,7 +22,8 @@
 				<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-button-767-arrow__img">
 			</button>
 			<div class="lines-wrap">
-				<form method="get" class="lines-wrap-filter">
+				<div class = "loaderSize" id = "categoryFilterLoader">Загрузка...</div>	
+				<form method="get" class="lines-wrap-filter" id = 'categoryFilterForm'>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Размеры</h4>

@@ -120,6 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
         serRangeSlider();
 
         dropdownInit(".dropdownAfterLoad")
+
+        categoryFilterLoader.style.display = "none"
+        categoryFilterForm.style.display = "block"
     }
 
     xhr.send();
