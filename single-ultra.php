@@ -26,7 +26,7 @@ get_header(); ?>
       <div class="card-wrap">
         <div class="card-wrap-img">
           <img src="<?php $imgTm = get_the_post_thumbnail_url(get_the_ID(), "tominiatyre");
-                    echo empty($imgTm) ? get_bloginfo("template_url") . "/img/no-photo.jpg" : $imgTm; ?>" alt="" class="card-wrap-img__img">
+                    echo empty($imgTm) ? "https://imgholder.ru/250x250/8493a8/adb9ca&text=Фото+нет&font=kelson" : $imgTm; ?>" alt="" class="card-wrap-img__img">
           <?
           $sticker = carbon_get_post_meta(get_the_ID(), "offer_sticker");
           if (!empty($sticker)) { ?>
