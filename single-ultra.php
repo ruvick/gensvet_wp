@@ -174,7 +174,7 @@ get_header(); ?>
           <h3 class="card-wrap-properties__title">Выберите драйвер</h3>
           <div class="card-wrap-properties-features">
             <div class="dropdown dropdown--long">
-              <button class="dropdown__button">Драйвер универсальный 12-36Вт для светильников ГЕНСВЕТ</button>
+              <button class="dropdown__button">Открыть список</button>
               <ul class="dropdown-list">
                 <? $driver = carbon_get_the_post_meta('driver_complex');
                 if ($driver) {
