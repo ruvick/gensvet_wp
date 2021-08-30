@@ -87,41 +87,6 @@ get_header(); ?>
           <h3 class="card-wrap-properties__title">выберите свойства</h3>
           <div class="card-wrap-properties-features">
             <p class="card-wrap-properties-features__desc">Мощность</p>
-            <!-- <select name="" id="" class="card-wrap-properties-features-select">
-                                <option value="" class="card-wrap-properties-features-select__opt">36 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">24 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">36 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">42 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">45 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">48 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">54 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">60 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">63 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">66 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">72 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">81 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">90 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">108 Вт</option>
-                                <option value="" class="card-wrap-properties-features-select__opt">150 Вт</option>
-                            </select> -->
-            <!-- <div class="dropdown">
-              <button class="dropdown__button">36 Bm</button>
-              <ul class="dropdown-list">
-                <? $power = carbon_get_the_post_meta('offer_power_complex');
-                if ($power) {
-                  $powerIndex = 0;
-                  foreach ($power as $item) {
-                ?>
-                    <li class="dropdown-list__item" data-value="first"><? echo $item['offer_power_denomination']; ?> Bm</li>
-                <?
-                    $powerIndex++;
-                  }
-                }
-                ?>
-              </ul>
-              <input type="text" class="dropdown__input" value="">
-            </div> -->
-
 
             <div class="dropdown">
               <button class="dropdown__button"><? echo carbon_get_the_post_meta("offer_power"); ?> Bm</button>
@@ -144,25 +109,7 @@ get_header(); ?>
           </div>
           <div class="card-wrap-properties-features">
             <p class="card-wrap-properties-features__desc">Световой поток</p>
-            
-            <!-- <div class="dropdown">
-              <button class="dropdown__button">Световой поток</button>
-              <ul class="dropdown-list">
-                <? $light_flow = carbon_get_the_post_meta('light_flow_complex');
-                if ($light_flow) {
-                  $light_flowIndex = 0;
-                  foreach ($light_flow as $item) {
-                ?>
-                    <li class="dropdown-list__item" data-value="first"><? echo $item['light_flow_denomination']; ?> Лм</li>
-                <?
-                    $light_flowIndex++;
-                  }
-                }
-                ?>
-              </ul>
-              <input type="text" class="dropdown__input" value="">
-            </div> -->
-
+          
             <div class="dropdown">
               <button class="dropdown__button">Световой поток</button>
               <ul class="dropdown-list">
@@ -183,24 +130,6 @@ get_header(); ?>
           </div>
           <div class="card-wrap-properties-features">
             <p class="card-wrap-properties-features__desc">Цветовая температура</p>
-            
-            <!-- <div class="dropdown">
-              <button class="dropdown__button">Цветовая температура</button>
-              <ul class="dropdown-list">
-                <? $colour_temp = carbon_get_the_post_meta('colour_temp_complex');
-                if ($colour_temp) {
-                  $colour_tempIndex = 0;
-                  foreach ($colour_temp as $item) {
-                ?>
-                    <li class="dropdown-list__item" data-value="first"><? echo $item['colour_temp_denomination']; ?> К</li>
-                <?
-                    $colour_tempIndex++;
-                  }
-                }
-                ?>
-              </ul>
-              <input type="text" class="dropdown__input" value="">
-            </div> -->
             
             <div class="dropdown">
               <button class="dropdown__button">Цветовая температура</button>
@@ -223,24 +152,6 @@ get_header(); ?>
           </div>
           <div class="card-wrap-properties-features">
             <p class="card-wrap-properties-features__desc">Рассеиватель</p>
-            
-            <!-- <div class="dropdown">
-              <button class="dropdown__button">Выберите рассеиватель</button>
-              <ul class="dropdown-list">
-                <? $diffuser = carbon_get_the_post_meta('diffuser_complex');
-                if ($diffuser) {
-                  $diffuserIndex = 0;
-                  foreach ($diffuser as $item) {
-                ?>
-                    <li class="dropdown-list__item" data-value="first"><? echo $item['diffuser_denomination']; ?> К</li>
-                <?
-                    $diffuserIndex++;
-                  }
-                }
-                ?>
-              </ul>
-              <input type="text" class="dropdown__input" value="">
-            </div> -->
             
             <div class="dropdown">
               <button class="dropdown__button">Выберите рассеиватель</button>
@@ -348,11 +259,26 @@ get_header(); ?>
       </div>
       <div class="card-tabs">
         <div class="card-tabs-buttons">
+          <? 
+          $tab = carbon_get_the_post_meta('offer_cherecter_light');
+          if ($tab) { ?>
           <button class="card-tabs-buttons__btn active" data-target="1">Характеристики светильника</button>
+          <?php } ?>
+          <? 
+          $tabdr = carbon_get_the_post_meta('offer_cherecter_driver');
+          if ($tabdr) { ?>
           <button class="card-tabs-buttons__btn" data-target="2">Характеристики драйвера</button>
-          <button class="card-tabs-buttons__btn" data-target="3">описание</button>
+          <?php } ?>
+          <? 
+          $tab_desc = carbon_get_the_post_meta('offer_description_complex');
+          if ($tab_desc) { ?>
+          <button class="card-tabs-buttons__btn" data-target="3">Описание</button>
+          <?php } ?>
         </div>
         <div class="card-tabs-wrap">
+          <? 
+          $tab = carbon_get_the_post_meta('offer_cherecter_light');
+          if ($tab) { ?>
           <div class="card-tabs-wrap-features active" data-target="1">
             <div class="card-tabs-wrap-features-wrap">
               <div class="card-tabs-wrap-features-wrap-column">
@@ -404,6 +330,10 @@ get_header(); ?>
               </div>
             </div>
           </div>
+          <?php } ?>
+          <? 
+          $tabdr = carbon_get_the_post_meta('offer_cherecter_driver');
+          if ($tabdr) { ?>
           <div class="card-tabs-wrap-features" data-target="2">
             <div class="card-tabs-wrap-features-wrap">
               <div class="card-tabs-wrap-features-wrap-column">
@@ -428,30 +358,12 @@ get_header(); ?>
                   ?>
                 </div>
               </div>
-              <!-- <div class="card-tabs-wrap-features-wrap-column">
-                <div class="card-tabs-wrap-features-wrap-column-table">
-                  <? $tabdrr = carbon_get_the_post_meta('offer_cherecter_driver-r');
-                  if ($tabdrr) {
-                    $$tabdrrIndex = 0;
-                    foreach ($tabdrr as $tabs) {
-                  ?>
-                      <div class="card-tabs-wrap-features-wrap-column-table-row">
-                        <div class="card-tabs-wrap-features-wrap-column-table-row-cell">
-                          <p class="card-tabs-wrap-features-wrap-column-table-row-cell__desc"><? echo $tabs['tab_name_driver-r']; ?></p>
-                        </div>
-                        <div class="card-tabs-wrap-features-wrap-column-table-row-cell">
-                          <p class="card-tabs-wrap-features-wrap-column-table-row-cell__desc"><? echo $tabs['tab_val_driver-r']; ?></p>
-                        </div>
-                      </div>
-                  <?
-                      $tabdrrIndex++;
-                    }
-                  }
-                  ?>
-                </div>
-              </div> -->
             </div>
           </div>
+          <?php } ?>
+          <? 
+          $tab_desc = carbon_get_the_post_meta('offer_description_complex');
+          if ($tab_desc) { ?>
           <div class="card-tabs-wrap-features" data-target="3">
             <? $tab_desc = carbon_get_the_post_meta('offer_description_complex');
             if ($tab_desc) {
@@ -468,6 +380,7 @@ get_header(); ?>
             }
             ?>
           </div>
+          <?php } ?>
         </div>
       </div>
     </div>
