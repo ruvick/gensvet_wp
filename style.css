@@ -1447,7 +1447,8 @@ body {
 
 .lines {
   margin-top: 24px;
-  color: #2F2E20
+  color: #2F2E20;
+  padding-bottom: 30px;
 }
 
 .lines__title {
@@ -1528,7 +1529,8 @@ body {
 }
 
 .lines-wrap-filter-card-features__btn {
-  width: 50px;
+  width: auto;
+  padding: 0 4px;
   height: 24px;
   margin-bottom: 6px;
   font-weight: normal;

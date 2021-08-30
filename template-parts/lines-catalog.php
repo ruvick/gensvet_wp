@@ -17,7 +17,7 @@
 			<button class="lines-button-767">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/lines/lines-button.svg" alt="" class="lines-button-767__img">
 				<p class="lines-button-767__desc">фильтр</p>
-				<p class="lines-button-767__count">3</p>
+				<!-- <p class="lines-button-767__count">3</p> -->
 				<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-button-767-arrow__img">
 			</button>
 			<div class="lines-wrap">
@@ -54,8 +54,8 @@
 						<div class="lines-wrap-filter-card-features">
 							<ul class="lines-wrap-filter-card-features-list li_checbox" id = "dtypeFilterList" >
 								<li class="lines-wrap-filter-card-features-list-item">
-									<input id = "str_only" name="diodtype[]" value="1" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["diodtype"])) echo "checked"; ?>>
-									<label  for = "str_only" class="lines-wrap-filter-card-features-list-item__desc" >Нормальный</label>
+									<input id = "dtype" name="diodtype[]" value="1" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["diodtype"])) echo "checked"; ?>>
+									<label  for = "dtype" class="lines-wrap-filter-card-features-list-item__desc" >Нормальный</label>
 								</li>
 							</ul>
 						</div>
@@ -82,55 +82,17 @@
 						<div class="lines-wrap-filter-card-features lines-wrap-power" id = "powerFilterList">
 							<input id="vt24" type="checkbox" value="24" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(24, $_REQUEST["power"])) echo "checked"; ?>>	
 							<label for="vt24" class="lines-wrap-filter-card-features__btn option">24 Вт</label>
-							
-							<input id="vt30" type="checkbox" value="30" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(30, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt30" class="lines-wrap-filter-card-features__btn option">30 Вт</label>
-							
-							<input id="vt36" type="checkbox" value="36" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(36, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt36" class="lines-wrap-filter-card-features__btn option">36 Вт</label>
-								
-							<input id="vt42" type="checkbox" value="42" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(42, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt42" class="lines-wrap-filter-card-features__btn option">42 Вт</label>
-
-							<input id="vt45" type="checkbox" value="45" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(45, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt45" class="lines-wrap-filter-card-features__btn option">45 Вт</label>
-							
-							<input id="vt48" type="checkbox" value="48" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(48, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt48" class="lines-wrap-filter-card-features__btn option">48 Вт</label>
-
-							<input id="vt54" type="checkbox" value="54" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(54, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt54" class="lines-wrap-filter-card-features__btn option">54 Вт</label>
-
-							<input id="vt60" type="checkbox" value="60" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(60, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt60" class="lines-wrap-filter-card-features__btn option">60 Вт</label>
-
-							<input id="vt63" type="checkbox" value="63" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(63, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt63" class="lines-wrap-filter-card-features__btn option">63 Вт</label>
-
-							<input id="vt66" type="checkbox" value="66" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(66, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt66" class="lines-wrap-filter-card-features__btn option">66 Вт</label>
-
-							<input id="vt72" type="checkbox" value="72" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(72, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt72" class="lines-wrap-filter-card-features__btn option">72 Вт</label>
-
-							<input id="vt81" type="checkbox" value="81" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(81, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt81" class="lines-wrap-filter-card-features__btn option">81 Вт</label>
-							
-							<input id="vt90" type="checkbox" value="90" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(90, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt90" class="lines-wrap-filter-card-features__btn option">90 Вт	</label>
-
-							<input id="vt108" type="checkbox" value="108" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(108, $_REQUEST["power"])) echo "checked"; ?>>
-							<label for="vt108" class="lines-wrap-filter-card-features__btn option">108 Вт</label>
 						</div>
 					</div>
-					<div class="dropdownAfterLoad dropdown--lines">
-						<button type = "button" class="dropdown__button dropdown__button--lines">Световой поток</button>
-						<ul class="dropdown-list dropdown-list--lines" id = "lightflowFilterList">
-							<li class="dropdown-list__item" data-value="3600">3600 Лм</li>
-							<li class="dropdown-list__item" data-value="4000">4000 Лм</li>
-							<li class="dropdown-list__item" data-value="4800">4800 Лм</li>
-						</ul>
-						<input type="text" name = "lightflow" id = "lightflowTypeInput" class="dropdown__input" value="<? echo $_REQUEST["lightflow"];?>">
+					<div class="lines-wrap-filter-card">
+						<button type = "button" class="lines-wrap-filter-card-btn">
+							<h4 class="lines-wrap-filter-card-btn__title">Световой поток</h4>
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+						</button>
+						<div class="lines-wrap-filter-card-features lines-wrap-power" id = "lightflowFilterList">
+							<input id="lightflow" type="checkbox" value="24" name="lightflow[]" <? if (!empty($_REQUEST["lightflow"]) && in_array(24, $_REQUEST["lightflow"])) echo "checked"; ?>>	
+							<label for="lightflow" class="lines-wrap-filter-card-features__btn option">0 Лм</label>
+						</div>
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
@@ -159,6 +121,20 @@
 							<h4 class="lines-wrap-filter-card-btn__title">Световая температура</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
+						<div class="lines-wrap-filter-card-features">
+							<ul class="lines-wrap-filter-card-features-list li_checbox" id = "colortypeFilterList" >
+								<li class="lines-wrap-filter-card-features-list-item">
+									<input id = "color_" name="colortype[]" value="1" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["color_check"])) echo "checked"; ?>>
+									<label  for = "color_" class="lines-wrap-filter-card-features-list-item__desc" >0 K</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- <div class="lines-wrap-filter-card">
+						<button type = "button" class="lines-wrap-filter-card-btn">
+							<h4 class="lines-wrap-filter-card-btn__title">Световая температура</h4>
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+						</button>
 						<div class="lines-wrap-filter-card-range">
 							<label for="" class="lines-wrap-filter-card-range-label">
 								<span class="lines-wrap-filter-card-range__span">от</span>
@@ -172,7 +148,7 @@
 							</label>
 							<div id="range-slider" class="lines-wrap-filter-card-range__slider"></div>
 						</div>
-					</div>
+					</div> -->
 					<button type="submit" class="lines-wrap-filter__btn">применить фильтр</button>
 					<div class="lines-wrap-filter-clear">
 						<button onclick = "document.location.href = location.protocol + '//' + location.host + location.pathname; return false;" class="lines-wrap-filter-clear__btn">Очистить фильтр</button>
@@ -191,27 +167,41 @@
 								<?php
 
 								$arg = $wp_query->query;
-								$startClrT = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
-								$endClrT = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
+								// Фильтрация по световой температуре
+								if (!empty($_REQUEST["colortype"])) {
+									$metaquery["colorQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["colortype"]); $i++) {
+										$metaquery["colorQuery"]["colortype".$i] = array(
+											'key'     => '_offer_colour_temp',
+											'value' => $_REQUEST["colortype"][$i],
+											'compare' => '=',
+											'type'    => 'CHAR',
+										);
+									} 
+								}
+								// $startClrT = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
+								// $endClrT = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
+								// $metaquery = array(
+								// 	'relation' => 'AND',
 
-								// Фильтрация по цене
-								$metaquery = array(
-									'relation' => 'AND',
+								// 	'clrtStart' => array(
+								// 		'key'     => '_offer_colour_temp',
+								// 		'value' => $startClrT,
+								// 		'compare' => '>=',
+								// 		'type'    => 'NUMERIC',
+								// 	),
 
-									'clrtStart' => array(
-										'key'     => '_offer_colour_temp',
-										'value' => $startClrT,
-										'compare' => '>=',
-										'type'    => 'NUMERIC',
-									),
-
-									'clrtEnd' => array(
-										'key'     => '_offer_colour_temp',
-										'value' => $endClrT,
-										'compare' => '<=',
-										'type'    => 'NUMERIC',
-									)
-								);
+								// 	'clrtEnd' => array(
+								// 		'key'     => '_offer_colour_temp',
+								// 		'value' => $endClrT,
+								// 		'compare' => '<=',
+								// 		'type'    => 'NUMERIC',
+								// 	)
+								// );
+								
 								// Фильтрация по мощьности
 								if (!empty($_REQUEST["power"])) {
 									$metaquery["powerQuery"] = array(
@@ -253,22 +243,25 @@
 											'key'     => '_offer_driver',
 											'value' => $_REQUEST["drivercheck"][$i],
 											'compare' => '=',
-											'type'    => 'NUMERIC',
+											'type'    => 'CHAR',
 										);
 									} 
 	
 								}
 								// Фильтрация по световому потоку
 								if (!empty($_REQUEST["lightflow"])) {
-									$metaquery["lightflowQuery"] = array();
+									$metaquery["lightflowQuery"] = array(
+										'relation' => 'OR',
+									);
 									
-										$metaquery["lightflowQuery"]["lf1"] = array(
+									for ($i = 0; $i<count($_REQUEST["lightflow"]); $i++) {
+										$metaquery["lightflowQuery"]["lightflow".$i] = array(
 											'key'     => '_offer_light_flow',
-											'value' => $_REQUEST["lightflow"],
+											'value' => $_REQUEST["lightflow"][$i],
 											'compare' => '=',
 											'type'    => 'CHAR',
 										);
-									 
+									} 
 								}
 								// Фильтрация по световому эффекту
 								if (!empty($_REQUEST["diodtype"])) {
@@ -330,8 +323,7 @@
 										<p class="lines-wrap-tables-table-rows-row-cell__desc">Размер</p>
 									</div>
 									<div class="lines-wrap-tables-table-rows-row-cell">
-										<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура
-										</p>
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Цветовая <br>температура</p>
 									</div>
 									<div class="lines-wrap-tables-table-rows-row-cell">
 										<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>

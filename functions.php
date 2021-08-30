@@ -1232,9 +1232,10 @@ add_action( 'rest_api_init', function () {
 		$rez["offer_power"] = array();
 		$rez["offer_light_flow"] = array();
 		$rez["offer_diffuser"] = array();
+		$rez["offer_colour_temp"] = array();
 
-		$min = PHP_INT_MAX;
-		$max = PHP_INT_MIN;
+		// $min = PHP_INT_MAX;
+		// $max = PHP_INT_MIN;
 
 		foreach($queryMain->posts as $postM) {
 			
@@ -1264,15 +1265,19 @@ add_action( 'rest_api_init', function () {
 			if (!empty($offer_diffuser) && !in_array($offer_diffuser, $rez["offer_diffuser"])) 
 				$rez["offer_diffuser"][] = $offer_diffuser;
 
-			if ($min > (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
-				$min = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
+			$offer_color_type = get_post_meta($postM->ID, "_offer_colour_temp", true);
+			if (!empty($offer_color_type) && !in_array($offer_color_type, $rez["offer_colour_temp"])) 
+				$rez["offer_colour_temp"][] = $offer_color_type;
+
+			// if ($min > (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
+			// 	$min = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
 			
-			if ($max < (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
-				$max = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
+			// if ($max < (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
+			// 	$max = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
 		}
 
-		$rez["offer_colour_temp_max"] = $max;
-		$rez["offer_colour_temp_min"] = $min;
+		// $rez["offer_colour_temp_max"] = $max;
+		// $rez["offer_colour_temp_min"] = $min;
 
 		if (!empty($rez))
 			return $rez;

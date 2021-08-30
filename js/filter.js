@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let onlyStarter = ""
         xhr.response.offer_driver.forEach((element, index) => {
             let checed = (qParam.drivercheck != undefined && qParam.drivercheck.includes(element) )?"checked":"";
-
+            
             onlyStarter += '<li class="lines-wrap-filter-card-features-list-item">'+
                 '<input id = "str_only_'+index+'" name="drivercheck[]" value="yes" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" '+checed+' hidden data-value="yes">'+
                 '<label  for = "str_only_'+index+'" class="lines-wrap-filter-card-features-list-item__desc" >Только с драйвером</label>'+
@@ -79,8 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         komplFilterList.innerHTML = onlyStarter;
 
-        // Мощьность
-
+        // Мощность
         let powerStr = ""
         xhr.response.offer_power.forEach((element, index) => {
             
@@ -93,18 +92,18 @@ document.addEventListener("DOMContentLoaded", () => {
         powerFilterList.innerHTML = powerStr;
 
         // Световой поток
-
         let lightFlowStr = ""
         xhr.response.offer_light_flow.forEach((element, index) => {
-           lightFlowStr += '<li id = "lightflow_'+index+'" class="dropdown-list__item" data-value="'+element+'">'+element+' Лм</li>'
+            
+            let checed = (qParam.lightflow != undefined && qParam.lightflow.includes(element) )?"checked":"";
+
+            lightFlowStr += '<input id="lightflow_'+index+'" type="checkbox" value="'+element+'" name="lightflow[]" '+checed+' >'+
+                        '<label for="lightflow_'+index+'" class="lines-wrap-filter-card-features__btn option">'+element+' Лм</label>'
         });
- 
-        lightflowTypeInput.value = (qParam.lightflow != undefined )?qParam.lightflow:"";
-        
-        lightflowFilterList.innerHTML = lightFlowStr
+
+        lightflowFilterList.innerHTML = lightFlowStr;
 
         // Рассеиватель
-
         let diffuserStr = ""
         xhr.response.offer_diffuser.forEach((element, index) => {
             
@@ -117,15 +116,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         diffuserFilterList.innerHTML = diffuserStr;
 
-        colortFrom.value = xhr.response.offer_colour_temp_min;
-        colortTo.value = xhr.response.offer_colour_temp_max;
+        // Световая температура
+        let colortypeStr = ""
+        xhr.response.offer_colour_temp.forEach((element, index) => {
+            
+            let checed = (qParam.colortype != undefined && qParam.colortype.includes(element) )?"checked":"";
 
-        serRangeSlider();
+            colortypeStr += '<li class="lines-wrap-filter-card-features-list-item li_checbox">'+
+							'<input id="color_'+index+'" name="colortype[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden="" '+checed+' value = "'+element+'" data-value="'+element+'">'+
+							'<label for="color_'+index+'" class=" lines-wrap-filter-card-features-list-item__desc">'+element+' K</label>'+
+						'</li>'
+        });
+        colortypeFilterList.innerHTML = colortypeStr;
 
-        dropdownInit(".dropdownAfterLoad")
+        // colortFrom.value = xhr.response.offer_colour_temp_min;
+        // colortTo.value = xhr.response.offer_colour_temp_max;
 
-        categoryFilterLoader.style.display = "none"
-        categoryFilterForm.style.display = "block"
+        // serRangeSlider();
+
+        dropdownInit(".dropdownAfterLoad");
+
+        categoryFilterLoader.style.display = "none";
+        categoryFilterForm.style.display = "block";
     }
 
     xhr.send();
