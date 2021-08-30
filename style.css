@@ -7594,11 +7594,8 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-right: 0;
+  /* margin-right: 0; */
 }
-
-
-
 
 @media (min-width: 782px) {
   .logged-in .header-bottom.fixed {
