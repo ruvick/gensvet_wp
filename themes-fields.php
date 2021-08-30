@@ -121,24 +121,24 @@ Container::make('post_meta', 'ultra_product', 'Характеристики то
 Container::make('post_meta', 'ultra_product_cr', 'Дополнительные харрактеристики товара')
   ->show_on_post_type(array('ultra'))
   ->add_fields(array(
-    Field::make('complex', 'offer_power_complex', "Мощность")->set_width(50)
-      ->add_fields(array(
-        Field::make('text', 'offer_power_denomination', 'Номинал')->set_width(50),
-      )),
+    // Field::make('complex', 'offer_power_complex', "Мощность")->set_width(50)
+    //   ->add_fields(array(
+    //     Field::make('text', 'offer_power_denomination', 'Номинал')->set_width(50),
+    //   )),
 
-    Field::make('complex', 'light_flow_complex', "Световой поток")->set_width(50)
-      ->add_fields(array(
-        Field::make('text', 'light_flow_denomination', 'Номинал')->set_width(50),
-      )),
-    Field::make('complex', 'colour_temp_complex', "Цветовая температура")->set_width(50)
-      ->add_fields(array(
-        Field::make('text', 'colour_temp_denomination', 'Номинал')->set_width(50),
-      )),
+    // Field::make('complex', 'light_flow_complex', "Световой поток")->set_width(50)
+    //   ->add_fields(array(
+    //     Field::make('text', 'light_flow_denomination', 'Номинал')->set_width(50),
+    //   )),
+    // Field::make('complex', 'colour_temp_complex', "Цветовая температура")->set_width(50)
+    //   ->add_fields(array(
+    //     Field::make('text', 'colour_temp_denomination', 'Номинал')->set_width(50),
+    //   )),
 
-    Field::make('complex', 'diffuser_complex', "Выберите рассеиватель")->set_width(50)
-      ->add_fields(array(
-        Field::make('text', 'diffuser_denomination', 'Рассеиватель')->set_width(50),
-      )),
+    // Field::make('complex', 'diffuser_complex', "Выберите рассеиватель")->set_width(50)
+    //   ->add_fields(array(
+    //     Field::make('text', 'diffuser_denomination', 'Рассеиватель')->set_width(50),
+    //   )),
 
     Field::make('complex', 'driver_complex', "Выберите драйвер")->set_width(50)
       ->add_fields(array(
