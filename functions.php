@@ -1243,9 +1243,9 @@ add_action( 'rest_api_init', function () {
 				$rez["offer_size"][] = $offer_size;
 
 			
-			$offer_diod_type = get_post_meta($postM->ID, "_offer_diod_type", true);
-			if (!empty($offer_diod_type) && !in_array($offer_diod_type, $rez["offer_diod_type"])) 
-				$rez["offer_diod_type"][] = $offer_diod_type;
+			$offer_diod_type = get_post_meta($postM->ID, "_offer_light_effect", true);
+			if (!empty($offer_diod_type) && !in_array($offer_diod_type, $rez["offer_light_effect"])) 
+				$rez["offer_light_effect"][] = $offer_diod_type;
 
 			
 			$offer_driver = get_post_meta($postM->ID, "_offer_driver", true);

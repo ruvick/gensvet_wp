@@ -53,15 +53,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         sizeFilterList.innerHTML = sizeStr;
 
-        // Тип диодов
+        // Световой эффект
         let dtypeStr = ""
-        xhr.response.offer_diod_type.forEach((element, index) => {
-            dtypeStr += '<li id = "dtype_'+index+'" class="dropdown-list__item" data-value="'+element+'">'+element+'</li>'
-        });
+        xhr.response.offer_light_effect.forEach((element, index) => {
+            
+            let checed = (qParam.diodtype != undefined && qParam.diodtype.includes(element) )?"checked":"";
 
-        diodTypeInput.value = (qParam.diodtype != undefined )?qParam.diodtype:"";
-        
-        dtypeFilterList.innerHTML = dtypeStr
+            dtypeStr += '<li class="lines-wrap-filter-card-features-list-item li_checbox">'+
+							'<input id="dtype_'+index+'" name="diodtype[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden="" '+checed+' value = "'+element+'" data-value="'+element+'">'+
+							'<label for="dtype_'+index+'" class=" lines-wrap-filter-card-features-list-item__desc">'+element+'</label>'+
+						'</li>'
+        });
+        dtypeFilterList.innerHTML = dtypeStr;
 
         // Комплектация
         let onlyStarter = ""

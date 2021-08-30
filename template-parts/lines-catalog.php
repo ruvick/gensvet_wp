@@ -32,31 +32,33 @@
 							<ul class="lines-wrap-filter-card-features-list" id = "sizeFilterList">
 								<li class="lines-wrap-filter-card-features-list-item li_checbox">
 									<input id = "size_595_595_40" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden checked  data-value="595×595×40">
-									<!-- <label for = "size_595_595_40" class="subscription-wrap-form-wrap__checkbox"></label> -->
 									<label  for = "size_595_595_40" class=" lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item li_checbox">
 									<input id = "size_595_595_41" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden  data-value="595×595×40">
-									<!-- <label for = "size_595_595_41" class="subscription-wrap-form-wrap__checkbox"></label> -->
 									<label for = "size_595_595_41" class="lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item li_checbox">
 									<input id = "size_595_595_42" name="sizecheck[]" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" hidden  data-value="595×595×40">
-									<!-- <label for = "size_595_595_42" class="subscription-wrap-form-wrap__checkbox"></label> -->
 									<label for = "size_595_595_42" class="lines-wrap-filter-card-features-list-item__desc">595×595×40</label>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<div class="dropdownAfterLoad dropdown--lines">
-						<button type = "button" class="dropdown__button dropdown__button--lines">Тип диодов</button>
-						<ul class="dropdown-list dropdown-list--lines"  id = "dtypeFilterList">
-							<li class="dropdown-list__item" data-value="1">1</li>
-							<li class="dropdown-list__item" data-value="2">2</li>
-							<li class="dropdown-list__item" data-value="3">3</li>
-						</ul>
-						<input type="text" name = "diodtype" class="dropdown__input" id = "diodTypeInput" value="<? echo $_REQUEST["diodtype"];?>">
+					<div class="lines-wrap-filter-card">
+						<button type = "button" class="lines-wrap-filter-card-btn">
+							<h4 class="lines-wrap-filter-card-btn__title">Световой эффект</h4>
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+						</button>
+						<div class="lines-wrap-filter-card-features">
+							<ul class="lines-wrap-filter-card-features-list li_checbox" id = "dtypeFilterList" >
+								<li class="lines-wrap-filter-card-features-list-item">
+									<input id = "str_only" name="diodtype[]" value="1" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["diodtype"])) echo "checked"; ?>>
+									<label  for = "str_only" class="lines-wrap-filter-card-features-list-item__desc" >Нормальный</label>
+								</li>
+							</ul>
+						</div>
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
@@ -67,7 +69,6 @@
 							<ul class="lines-wrap-filter-card-features-list li_checbox" id = "komplFilterList" >
 								<li class="lines-wrap-filter-card-features-list-item">
 									<input id = "str_only" name="drivercheck[]" value="1" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["drivercheck"])) echo "checked"; ?>>
-									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label  for = "str_only" class="lines-wrap-filter-card-features-list-item__desc" >Только с драйвером</label>
 								</li>
 							</ul>
@@ -78,8 +79,6 @@
 							<h4 class="lines-wrap-filter-card-btn__title">Мощность</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
-
-						
 						<div class="lines-wrap-filter-card-features lines-wrap-power" id = "powerFilterList">
 							<input id="vt24" type="checkbox" value="24" name="power[]" <? if (!empty($_REQUEST["power"]) && in_array(24, $_REQUEST["power"])) echo "checked"; ?>>	
 							<label for="vt24" class="lines-wrap-filter-card-features__btn option">24 Вт</label>
@@ -142,17 +141,14 @@
 							<ul class="lines-wrap-filter-card-features-list li_checbox" id = "diffuserFilterList">
 								<li class="lines-wrap-filter-card-features-list-item">
 									<input id = "ras_opal" name="rscheck[0]" value = "Опал" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Опал", $_REQUEST["rscheck"])) echo "checked"; ?>>
-									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_opal" class="lines-wrap-filter-card-features-list-item__desc">Опал</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
 									<input id = "ras_mat" name="rscheck[1]" value = "Матовый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Матовый", $_REQUEST["rscheck"])) echo "checked"; ?>>
-									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_mat" class="lines-wrap-filter-card-features-list-item__desc">Матовый</label>
 								</li>
 								<li class="lines-wrap-filter-card-features-list-item">
 									<input id = "ras_gl" name="rscheck[2]" value = "Глянцевый" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden"  hidden data-value="595×595×40" <? if (!empty($_REQUEST["rscheck"]) && in_array("Глянцевый", $_REQUEST["rscheck"])) echo "checked"; ?>>
-									<!-- <span class="subscription-wrap-form-wrap__checkbox"></span> -->
 									<label for = "ras_gl" class="lines-wrap-filter-card-features-list-item__desc">Глянцевый</label>
 								</li>
 							</ul>
@@ -216,7 +212,6 @@
 										'type'    => 'NUMERIC',
 									)
 								);
-
 								// Фильтрация по мощьности
 								if (!empty($_REQUEST["power"])) {
 									$metaquery["powerQuery"] = array(
@@ -232,7 +227,6 @@
 										);
 									} 
 								}
-
 								// Фильтрация по типу рассеевателя
 								if (!empty($_REQUEST["rscheck"])) {
 									$metaquery["rsQuery"] = array(
@@ -248,7 +242,6 @@
 										);
 									} 
 								}
-
 								// Фильтрация по наличию драйвера
 								if (!empty($_REQUEST["drivercheck"])) {
 									$metaquery["driverQuery"] = array(
@@ -277,20 +270,22 @@
 										);
 									 
 								}
-
-								// Фильтрация по типу диодов
+								// Фильтрация по световому эффекту
 								if (!empty($_REQUEST["diodtype"])) {
-									$metaquery["diodtypeQuery"] = array();
+									$metaquery["diodtypeQuery"] = array(
+										'relation' => 'OR',
+									);
 									
-										$metaquery["diodtypeQuery"]["dt1"] = array(
-											'key'     => '_offer_diod_type',
-											'value' => $_REQUEST["diodtype"],
+									for ($i = 0; $i<count($_REQUEST["diodtype"]); $i++) {
+										$metaquery["diodtypeQuery"]["diodtype".$i] = array(
+											'key'     => '_offer_light_effect',
+											'value' => $_REQUEST["diodtype"][$i],
 											'compare' => '=',
 											'type'    => 'CHAR',
 										);
-									 
+									} 
 								}
-
+								
 								$mypost = array(
 									'post_type' => 'ultra',
 									'posts_per_page' => -1,

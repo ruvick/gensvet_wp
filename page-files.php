@@ -116,14 +116,8 @@ get_header(); ?>
             <? } ?>
           </div>
         </div>
-
         <div class="lines-wrap-tables-wrap-quant">
           <p class="lines-wrap-tables-wrap-quant__desc">Файлов <br>на странице:</p>
-          <!-- <select class="lines-wrap-tables-wrap-quant-select">
-                            <option class="lines-wrap-tables-wrap-quant-select__num">50</option>
-                            <option class="lines-wrap-tables-wrap-quant-select__num">100</option>
-                            <option class="lines-wrap-tables-wrap-quant-select__num">200</option>  
-                        </select> -->
           <div class="dropdown dropdown--files">
             <button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><? echo $countInPage; ?></button>
             <ul id="filesDropdown" class="dropdown-list dropdown-list--files">
@@ -131,7 +125,6 @@ get_header(); ?>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
               <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
             </ul>
-
             <input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
             <input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
           </div>
