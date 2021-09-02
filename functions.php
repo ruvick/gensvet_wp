@@ -1205,7 +1205,7 @@ function get_filter(WP_REST_Request $request)
 
 	$queryParam = array(
 		'post_type' => 'ultra',
-		'numberposts' => -1,
+		'posts_per_page' => -1,
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'ultracat',
