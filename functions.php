@@ -635,18 +635,18 @@ function sendinstruction()
 		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
 
 		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос инструкции', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers)) {
-			
+
 			// отправляем данные в таблицу
 			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
 
-			$post_data = array (
-			"entry.1832350810" => $_REQUEST["email"],
-			"entry.217436313" => $_REQUEST["tel"],
-			"entry.1625375526" => $_REQUEST["name"],
-			"entry.1169221904" => 'Скачать инструкцию',
-			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
-			"pageHistory" => "0",
-			"fbzx" => "-6004279802167264257"
+			$post_data = array(
+				"entry.1832350810" => $_REQUEST["email"],
+				"entry.217436313" => $_REQUEST["tel"],
+				"entry.1625375526" => $_REQUEST["name"],
+				"entry.1169221904" => 'Скачать инструкцию',
+				"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+				"pageHistory" => "0",
+				"fbzx" => "-6004279802167264257"
 			);
 
 			$ch = curl_init();
@@ -656,9 +656,9 @@ function sendinstruction()
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 			$output = curl_exec($ch);
 			curl_close($ch);
-		
+
 			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
-		} else { 
+		} else {
 			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
 		}
 	} else {
@@ -688,14 +688,14 @@ function sendprice()
 			// отправляем данные в таблицу
 			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
 
-			$post_data = array (
-			"entry.1832350810" => $_REQUEST["email"],
-			"entry.217436313" => $_REQUEST["tel"],
-			"entry.1625375526" => $_REQUEST["name"],
-			"entry.1169221904" => 'Скачать прайс-лист',
-			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
-			"pageHistory" => "0",
-			"fbzx" => "-6004279802167264257"
+			$post_data = array(
+				"entry.1832350810" => $_REQUEST["email"],
+				"entry.217436313" => $_REQUEST["tel"],
+				"entry.1625375526" => $_REQUEST["name"],
+				"entry.1169221904" => 'Скачать прайс-лист',
+				"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+				"pageHistory" => "0",
+				"fbzx" => "-6004279802167264257"
 			);
 
 			$ch = curl_init();
@@ -707,7 +707,7 @@ function sendprice()
 			curl_close($ch);
 
 			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
-		} else  {
+		} else {
 			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
 		}
 	} else {
@@ -737,14 +737,14 @@ function sendsubscribe()
 			// отправляем данные в таблицу
 			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
 
-			$post_data = array (
-			"entry.1832350810" => $_REQUEST["email"],
-			"entry.217436313" => '',
-			"entry.1625375526" => '',
-			"entry.1169221904" => 'Подписаться',
-			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
-			"pageHistory" => "0",
-			"fbzx" => "-6004279802167264257"
+			$post_data = array(
+				"entry.1832350810" => $_REQUEST["email"],
+				"entry.217436313" => '',
+				"entry.1625375526" => '',
+				"entry.1169221904" => 'Подписаться',
+				"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+				"pageHistory" => "0",
+				"fbzx" => "-6004279802167264257"
 			);
 
 			$ch = curl_init();
@@ -786,14 +786,14 @@ function sendcalcresult()
 			// отправляем данные в таблицу
 			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
 
-			$post_data = array (
-			"entry.1832350810" => $_REQUEST["email"],
-			"entry.217436313" => '',
-			"entry.1625375526" => '',
-			"entry.1169221904" => 'Расчёт стоимости',
-			"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
-			"pageHistory" => "0",
-			"fbzx" => "-6004279802167264257"
+			$post_data = array(
+				"entry.1832350810" => $_REQUEST["email"],
+				"entry.217436313" => '',
+				"entry.1625375526" => '',
+				"entry.1169221904" => 'Расчёт стоимости',
+				"draftResponse" => "[,,&quot;-6004279802167264257&quot;]",
+				"pageHistory" => "0",
+				"fbzx" => "-6004279802167264257"
 			);
 
 			$ch = curl_init();
@@ -1186,105 +1186,106 @@ class Kama_Breadcrumbs
 // Фильтр Start ================================================================================================================
 
 
-add_action( 'rest_api_init', function () {
-	register_rest_route( 'gensvet/v2', '/get_filter', array(
+add_action('rest_api_init', function () {
+	register_rest_route('gensvet/v2', '/get_filter', array(
 		'methods'  => 'GET',
 		'callback' => 'get_filter',
 		'args' => array(
 			'catid' => array(
 				'default'           => null,
-				'required'          => true,        		
+				'required'          => true,
 			)
 		),
-	) );
-	});
-	
-	//http://ruvick.site/wp-json/gensvet/v2/get_filter?catid=33
-	function get_filter( WP_REST_Request $request) {
-		
-		$queryParam = array (
-			'post_type' => 'ultra',
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'ultracat',
-					'field'    => 'id',
-					'terms'    => $request['catid']
-				)
+	));
+});
+
+//http://ruvick.site/wp-json/gensvet/v2/get_filter?catid=33
+function get_filter(WP_REST_Request $request)
+{
+
+	$queryParam = array(
+		'post_type' => 'ultra',
+		'numberposts' => -1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'ultracat',
+				'field'    => 'id',
+				'terms'    => $request['catid']
 			)
+		)
 
-		);
+	);
 
-		//_offer_size - размер
-		//_offer_diod_type - тип диодов
-		//_offer_driver - наличие драйвера
-		//_offer_power - мощьность
-		//_offer_light_flow - Световой поток
-		//_offer_diffuser - Рассеиватель
+	//_offer_size - размер
+	//_offer_diod_type - тип диодов
+	//_offer_driver - наличие драйвера
+	//_offer_power - мощьность
+	//_offer_light_flow - Световой поток
+	//_offer_diffuser - Рассеиватель
 
-		$queryMain = new WP_Query($queryParam);
+	$queryMain = new WP_Query($queryParam);
 
 
-		$rez = array();
+	$rez = array();
 
-		$rez["offer_size"] = array();
-		$rez["offer_diod_type"] = array();
-		$rez["offer_driver"] = array();
-		$rez["offer_power"] = array();
-		$rez["offer_light_flow"] = array();
-		$rez["offer_diffuser"] = array();
-		$rez["offer_colour_temp"] = array();
+	$rez["offer_size"] = array();
+	$rez["offer_diod_type"] = array();
+	$rez["offer_driver"] = array();
+	$rez["offer_power"] = array();
+	$rez["offer_light_flow"] = array();
+	$rez["offer_diffuser"] = array();
+	$rez["offer_colour_temp"] = array();
 
-		// $min = PHP_INT_MAX;
-		// $max = PHP_INT_MIN;
+	// $min = PHP_INT_MAX;
+	// $max = PHP_INT_MIN;
 
-		foreach($queryMain->posts as $postM) {
-			
-			$offer_size = get_post_meta($postM->ID, "_offer_size", true);
-			if (!empty($offer_size) && !in_array($offer_size, $rez["offer_size"])) 
-				$rez["offer_size"][] = $offer_size;
+	foreach ($queryMain->posts as $postM) {
 
-			
-			$offer_diod_type = get_post_meta($postM->ID, "_offer_light_effect", true);
-			if (!empty($offer_diod_type) && !in_array($offer_diod_type, $rez["offer_light_effect"])) 
-				$rez["offer_light_effect"][] = $offer_diod_type;
+		$offer_size = get_post_meta($postM->ID, "_offer_size", true);
+		if (!empty($offer_size) && !in_array($offer_size, $rez["offer_size"]))
+			$rez["offer_size"][] = $offer_size;
 
-			
-			$offer_driver = get_post_meta($postM->ID, "_offer_driver", true);
-			if (!empty($offer_driver) && !in_array($offer_driver, $rez["offer_driver"])) 
-				$rez["offer_driver"][] = $offer_driver;
-			
-			$offer_power = get_post_meta($postM->ID, "_offer_power", true);
-			if (!empty($offer_power) && !in_array($offer_power, $rez["offer_power"])) 
-				$rez["offer_power"][] = $offer_power;
-			
-			$offer_light_flow = get_post_meta($postM->ID, "_offer_light_flow", true);
-			if (!empty($offer_light_flow) && !in_array($offer_light_flow, $rez["offer_light_flow"])) 
-				$rez["offer_light_flow"][] = $offer_light_flow;
-			
-			$offer_diffuser = get_post_meta($postM->ID, "_offer_diffuser", true);
-			if (!empty($offer_diffuser) && !in_array($offer_diffuser, $rez["offer_diffuser"])) 
-				$rez["offer_diffuser"][] = $offer_diffuser;
 
-			$offer_color_type = get_post_meta($postM->ID, "_offer_colour_temp", true);
-			if (!empty($offer_color_type) && !in_array($offer_color_type, $rez["offer_colour_temp"])) 
-				$rez["offer_colour_temp"][] = $offer_color_type;
+		$offer_diod_type = get_post_meta($postM->ID, "_offer_light_effect", true);
+		if (!empty($offer_diod_type) && !in_array($offer_diod_type, $rez["offer_light_effect"]))
+			$rez["offer_light_effect"][] = $offer_diod_type;
 
-			// if ($min > (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
-			// 	$min = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
-			
-			// if ($max < (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
-			// 	$max = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
-		}
 
-		// $rez["offer_colour_temp_max"] = $max;
-		// $rez["offer_colour_temp_min"] = $min;
+		$offer_driver = get_post_meta($postM->ID, "_offer_driver", true);
+		if (!empty($offer_driver) && !in_array($offer_driver, $rez["offer_driver"]))
+			$rez["offer_driver"][] = $offer_driver;
 
-		if (!empty($rez))
-			return $rez;
-		else 
-			return new WP_Error( 'no_token', 'Токен не найден или пользователь уже разлогинен.', [ 'status' => 403 ] ); 
-	
+		$offer_power = get_post_meta($postM->ID, "_offer_power", true);
+		if (!empty($offer_power) && !in_array($offer_power, $rez["offer_power"]))
+			$rez["offer_power"][] = $offer_power;
+
+		$offer_light_flow = get_post_meta($postM->ID, "_offer_light_flow", true);
+		if (!empty($offer_light_flow) && !in_array($offer_light_flow, $rez["offer_light_flow"]))
+			$rez["offer_light_flow"][] = $offer_light_flow;
+
+		$offer_diffuser = get_post_meta($postM->ID, "_offer_diffuser", true);
+		if (!empty($offer_diffuser) && !in_array($offer_diffuser, $rez["offer_diffuser"]))
+			$rez["offer_diffuser"][] = $offer_diffuser;
+
+		$offer_color_type = get_post_meta($postM->ID, "_offer_colour_temp", true);
+		if (!empty($offer_color_type) && !in_array($offer_color_type, $rez["offer_colour_temp"]))
+			$rez["offer_colour_temp"][] = $offer_color_type;
+
+		// if ($min > (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
+		// 	$min = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
+
+		// if ($max < (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
+		// 	$max = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
 	}
+
+	// $rez["offer_colour_temp_max"] = $max;
+	// $rez["offer_colour_temp_min"] = $min;
+
+	if (!empty($rez))
+		return $rez;
+	else
+		return new WP_Error('no_token', 'Токен не найден или пользователь уже разлогинен.', ['status' => 403]);
+}
 
 // Фильтр End ================================================================================================================
 	
