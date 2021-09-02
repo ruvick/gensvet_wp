@@ -1320,6 +1320,41 @@ add_action('rest_api_init', function () {
 			'app' => array(
 				'default'           => null,
 				'required'          => true,
+			),
+
+			"koofzap" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+
+			"dlinna" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"shirina" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"visota" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"visotarp" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"koofisp" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"tebosv" => array(
+				'default'           => null,
+				'required'          => true,
 			)
 		),
 	));
@@ -1340,10 +1375,125 @@ function get_lamp_count(WP_REST_Request $request)
 	$rez = array();
 
 	foreach ($queryCalc->posts as $tovarLg) {
+		
+		$tov_light_flow = carbon_get_post_meta($tovarLg->ID, "offer_light_flow");
+		$count = get_count_lamp(
+			$tov_light_flow,
+			$request["koofzap"],
+			$request["dlinna"],
+			$request["shirina"],
+			$request["visota"],
+			$request["visotarp"],
+			$request["koofisp"],
+			$request["tebosv"]
+		);
+
 		$rez[] = [
 					"name" => carbon_get_post_meta($tovarLg->ID, "offer_sku") . " - " .  $tovarLg->post_title, 
 					"lnk" => get_the_permalink($tovarLg->ID),
-					"count" => 0
+					"count" => $count
+		];	
+	}
+
+
+	return $rez;
+		
+}
+
+
+add_action('rest_api_init', function () {
+	register_rest_route('gensvet/v2', '/get_lamp_count_one', array(
+		'methods'  => 'GET',
+		'callback' => 'get_lamp_count_one',
+		'args' => array(
+			'str' => array(
+				'default'           => null,
+				'required'          => true,
+			),
+
+			"koofzap" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+
+			"dlinna" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"shirina" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"visota" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"visotarp" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"koofisp" => array(
+				'default'           => null,
+				'required'          => true,
+			),
+			
+			"tebosv" => array(
+				'default'           => null,
+				'required'          => true,
+			)
+		),
+	));
+});
+
+
+//http://ruvick.site/wp-json/gensvet/v2/get_lamp_count_one?count=20&app=20
+function get_lamp_count_one(WP_REST_Request $request)
+{
+	$queryParam = array(
+		'post_type' => 'ultra',
+		'posts_per_page' => -1,
+		'meta_query' => [
+			'relation' => 'OR',
+			[
+				'key' => '_offer_name',
+				'value' => $request['str'],
+				'compare' => "LIKE"
+			],
+			[
+				'key' => '_offer_sku',
+				'value' => $request['str'],
+				'compare' => "LIKE"
+			]
+		]
+	);
+
+	$queryCalc = new WP_Query($queryParam);
+
+	$rez = array();
+
+	foreach ($queryCalc->posts as $tovarLg) {
+		
+		$tov_light_flow = carbon_get_post_meta($tovarLg->ID, "offer_light_flow");
+		$count = get_count_lamp(
+			$tov_light_flow,
+			$request["koofzap"],
+			$request["dlinna"],
+			$request["shirina"],
+			$request["visota"],
+			$request["visotarp"],
+			$request["koofisp"],
+			$request["tebosv"]
+		);
+
+		$rez[] = [
+					"img" => get_the_post_thumbnail_url($tovarLg->ID), 
+					"name" => carbon_get_post_meta($tovarLg->ID, "offer_sku") . " - " .  $tovarLg->post_title, 
+					"lnk" => get_the_permalink($tovarLg->ID),
+					"count" => $count
 		];	
 	}
 

@@ -446,8 +446,8 @@ get_header(); ?>
 					</div>
 					<div class="calculator-bottom-wrap-right">
 						<div class="calculator-bottom-tab active" data-target="1">
-							<div class="calculator-bottom-wrap-right-table">
-							<div class="calculator-bottom-wrap-right-table-row">
+							<div class="calculator-bottom-wrap-right-table" id = "calcAjax" data-countinpage = "10">
+								<div class="calculator-bottom-wrap-right-table-row">
 									<div class="calculator-bottom-wrap-right-table-row-cell">
 										<p class="calculator-bottom-wrap-right-table-row-cell__desc">Наименование светильника</p>
 									</div>
@@ -459,7 +459,7 @@ get_header(); ?>
 								<?
 										$queryParam = array(
 											'post_type' => 'ultra',
-											'posts_per_page' => 20,
+											'posts_per_page' => 10,
 										);
 									
 										$queryCalc = new WP_Query($queryParam);
@@ -512,35 +512,36 @@ get_header(); ?>
 									}
 								?>
 
-								<div id = "calcAjax" data-countinpage = "20">
-								
-								</div>
 
-								<a id = "loadAndCalc" href = "#">Еще товары...</a>
+								
 							</div>
+
+							<a id = "loadAndCalc" href = "#">Еще товары...</a>
 						</div>
 						<div class="calculator-bottom-tab" data-target="2">
 							<div class="calculator-bottom-wrap-right-solo">
 								<div class="calculator-bottom-wrap-right-solo-search">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="calculator-bottom-wrap-right-solo-search__img">
-									<input name="search" type="text" class="calculator-bottom-wrap-right-solo-search__input" placeholder="Введите название или артикул..." minlength="2" maxlength="40" required>
-									<button class="calculator-bottom-wrap-right-solo-search__btn">найти</button>
-									<button class="files-search-375-btn">
+									<input id = "oneCalcSearchFeild" name="search" type="text" class="calculator-bottom-wrap-right-solo-search__input" placeholder="Введите название или артикул..." minlength="2" maxlength="40" required>
+									<button class="calculator-bottom-wrap-right-solo-search__btn" id = "oneCalcSearchBtn">найти</button>
+									<button  class="files-search-375-btn">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/home/zoom.svg" alt="" class="files-search-375-btn__img">
 									</button>
 								</div>
-								<div class="calculator-bottom-wrap-right-solo-wrap">
-									<img src="<?php echo get_template_directory_uri(); ?>/img/home/catalog-1.png" alt="" class="calculator-bottom-wrap-right-solo-wrap__img">
-									<div class="calculator-bottom-wrap-right-solo-wrap-right">
-										<a href="" class="calculator-bottom-wrap-right-solo-wrap-right__name">Светильник с декоративной
-											подсветкой 12+4Вт 5700К синий 190(160)мм 3 режима DEKOlabs (Номенклатура)</a>
-										<p class="calculator-bottom-wrap-right-solo-wrap-right__desc">Необходимо <br>
-											<span class="calculator-bottom-wrap-right-solo-wrap-right__desc--bold">~ 9 шт.</span>
-										</p>
-										<p class="calculator-bottom-wrap-right-solo-wrap-right__desc">Рекомендуемая сетка <br>
-											<span class="calculator-bottom-wrap-right-solo-wrap-right__desc--bold">2×4</span>
-										</p>
-									</div>
+								<div id = "ajaxOneLoad">
+									<!-- <div class="calculator-bottom-wrap-right-solo-wrap">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/home/catalog-1.png" alt="" class="calculator-bottom-wrap-right-solo-wrap__img">
+										<div class="calculator-bottom-wrap-right-solo-wrap-right">
+											<a href="" class="calculator-bottom-wrap-right-solo-wrap-right__name">Светильник с декоративной
+												подсветкой 12+4Вт 5700К синий 190(160)мм 3 режима DEKOlabs (Номенклатура)</a>
+											<p class="calculator-bottom-wrap-right-solo-wrap-right__desc">Необходимо <br>
+												<span class="calculator-bottom-wrap-right-solo-wrap-right__desc--bold">~ 9 шт.</span>
+											</p>
+											<p class="calculator-bottom-wrap-right-solo-wrap-right__desc">Рекомендуемая сетка <br>
+												<span class="calculator-bottom-wrap-right-solo-wrap-right__desc--bold">2×4</span>
+											</p>
+										</div>
+									</div> -->
 								</div>
 							</div>
 						</div>

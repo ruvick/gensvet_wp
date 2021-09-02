@@ -102,6 +102,7 @@ Container::make('post_meta', 'ultra_product', 'Характеристики то
         Field::make('text', 'offer_description_descp', 'Описание')
           ->set_width(50),
       )),
+      Field::make('text', 'offer_name', 'Наименование')->set_width(100),  
     Field::make('checkbox', 'offer_driver', 'Наличие драйвера. Есть?')->set_width(50)->set_option_value( 'yes' ),
     Field::make('text', 'offer_sticker', 'Стикер')->set_width(50),
     Field::make('text', 'offer_sku', 'Артикул товара')->set_width(50),
