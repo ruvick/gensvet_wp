@@ -153,6 +153,7 @@ function my_assets()
 
 	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), $scrypt_version, true); // Подключение основного скрипта в самом конце
 	wp_enqueue_script('filter', get_template_directory_uri() . '/js/filter.js', array(), $scrypt_version, true); // Подключение фильтра
+	wp_enqueue_script('calc', get_template_directory_uri() . '/js/lighting.calc.js', array(), $scrypt_version, true); // Калькулятор
 
 
 	wp_localize_script('main', 'allAjax', array(
@@ -1288,7 +1289,73 @@ function get_filter(WP_REST_Request $request)
 }
 
 // Фильтр End ================================================================================================================
-	
+
+// Расчет колличества светильников Start ==============================================================================================================
+function get_count_lamp(
+	$tov_light_flow,
+	$koof_zap,
+	$dlinna,
+	$shirina,
+	$visota,
+	$visotaRp,
+	$koof_isp,
+	$teb_osv
+) {
+	$s = $dlinna * $shirina;
+	$n = ($teb_osv * $s * $koof_zap)/($koof_isp * $tov_light_flow);
+	return round($n);
+}
+
+
+add_action('rest_api_init', function () {
+	register_rest_route('gensvet/v2', '/get_lamp_count', array(
+		'methods'  => 'GET',
+		'callback' => 'get_lamp_count',
+		'args' => array(
+			'count' => array(
+				'default'           => null,
+				'required'          => true,
+			),
+
+			'app' => array(
+				'default'           => null,
+				'required'          => true,
+			)
+		),
+	));
+});
+
+
+//http://ruvick.site/wp-json/gensvet/v2/get_lamp_count?count=20&app=20
+function get_lamp_count(WP_REST_Request $request)
+{
+	$queryParam = array(
+		'post_type' => 'ultra',
+		'posts_per_page' => $request['app'],
+		'offset' => $request['count']
+	);
+
+	$queryCalc = new WP_Query($queryParam);
+
+	$rez = array();
+
+	foreach ($queryCalc->posts as $tovarLg) {
+		$rez[] = [
+					"name" => carbon_get_post_meta($tovarLg->ID, "offer_sku") . " - " .  $tovarLg->post_title, 
+					"lnk" => get_the_permalink($tovarLg->ID),
+					"count" => 0
+		];	
+	}
+
+
+	return $rez;
+		
+}
+
+
+// Расчет колличества светильников End ================================================================================================================
+
+
 
 // Отправка корзины ==================================================================================================================
 // function tovarTo1c($bascetElem) {
