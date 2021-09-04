@@ -96,7 +96,7 @@ get_header(); ?>
                   $powerIndex = 0;
                   foreach ($rez["offer_power"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Bm</li>
+                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Bm</li>
                 <?
                     $powerIndex++;
                   }
@@ -117,7 +117,7 @@ get_header(); ?>
                   $light_flowIndex = 0;
                   foreach ($rez["offer_light_flow"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Лм</li>
+                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Лм</li>
                 <?
                     $light_flowIndex++;
                   }
@@ -138,7 +138,7 @@ get_header(); ?>
                   $colour_tempIndex = 0;
                   foreach ($rez["offer_colour_temp"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> К</li>
+                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> К</li>
                 <?
                     $colour_tempIndex++;
                   }
@@ -160,7 +160,7 @@ get_header(); ?>
                   $diffuserIndex = 0;
                   foreach ($rez["offer_diffuser"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item["lnk"]; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
+                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
                 <?
                     $diffuserIndex++;
                   }
