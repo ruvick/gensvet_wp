@@ -232,7 +232,22 @@
 										);
 									} 
 								}
-								// Фильтрация по наличию драйвера
+								// Фильтрация по драйверу
+								// if (!empty($_REQUEST["drivercheck"])) {
+								// 	$metaquery["driverQuery"] = array(
+								// 		'relation' => 'OR',
+								// 	);
+									
+								// 	for ($i = 0; $i<count($_REQUEST["drivercheck"]); $i++) {
+								// 		$metaquery["driverQuery"]["drivercheck".$i] = array(
+								// 			'key'     => '_offer_driver',
+								// 			'value' => $_REQUEST["drivercheck"][$i],
+								// 			'compare' => '=',
+								// 			'type'    => 'CHAR',
+								// 		);
+								// 	} 
+	
+								// }
 								if (!empty($_REQUEST["drivercheck"])) {
 									$metaquery["driverQuery"] = array(
 										'relation' => 'OR',
@@ -246,7 +261,6 @@
 											'type'    => 'CHAR',
 										);
 									} 
-	
 								}
 								// Фильтрация по световому потоку
 								if (!empty($_REQUEST["lightflow"])) {
@@ -329,6 +343,9 @@
 										<p class="lines-wrap-tables-table-rows-row-cell__desc">Рассеиватель</p>
 									</div>
 									<div class="lines-wrap-tables-table-rows-row-cell">
+										<p class="lines-wrap-tables-table-rows-row-cell__desc">Драйвер</p>
+									</div>
+									<div class="lines-wrap-tables-table-rows-row-cell">
 										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
 									</div>
 								</div>
@@ -363,6 +380,12 @@
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
 												<? echo carbon_get_post_meta(get_the_ID(), "offer_diffuser"); ?>
+											</p>
+										</div>
+										<div class="lines-wrap-tables-table-rows-row-cell">
+											<p class="lines-wrap-tables-table-rows-row-cell__desc">
+												<?php $product_driver =  carbon_get_post_meta(get_the_ID(), "driver_complex"); ?>
+												<?php echo $product_driver[0]['driver_denomination']; ?>
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
