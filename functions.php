@@ -1245,38 +1245,30 @@ function get_filter(WP_REST_Request $request)
 		$offer_size = get_post_meta($postM->ID, "_offer_size", true);
 		if (!empty($offer_size) && !in_array($offer_size, $rez["offer_size"]))
 			$rez["offer_size"][] = $offer_size;
-			sort($rez["offer_size"]);
 
 		$offer_diod_type = get_post_meta($postM->ID, "_offer_light_effect", true);
 		if (!empty($offer_diod_type) && !in_array($offer_diod_type, $rez["offer_light_effect"]))
 			$rez["offer_light_effect"][] = $offer_diod_type;
-			sort($rez["offer_light_effect"]);
-
 
 		$offer_driver = get_post_meta($postM->ID, "_offer_driver", true);
 		if (!empty($offer_driver) && !in_array($offer_driver, $rez["offer_driver"]))
 			$rez["offer_driver"][] = $offer_driver;
-			sort($rez["offer_driver"]);
 
 		$offer_power = get_post_meta($postM->ID, "_offer_power", true);
 		if (!empty($offer_power) && !in_array($offer_power, $rez["offer_power"]))
 			$rez["offer_power"][] = $offer_power;
-			sort($rez["offer_power"]);
 
 		$offer_light_flow = get_post_meta($postM->ID, "_offer_light_flow", true);
 		if (!empty($offer_light_flow) && !in_array($offer_light_flow, $rez["offer_light_flow"]))
 			$rez["offer_light_flow"][] = $offer_light_flow;
-			sort($rez["offer_light_flow"]);
 
 		$offer_diffuser = get_post_meta($postM->ID, "_offer_diffuser", true);
 		if (!empty($offer_diffuser) && !in_array($offer_diffuser, $rez["offer_diffuser"]))
 			$rez["offer_diffuser"][] = $offer_diffuser;
-			sort($rez["offer_diffuser"]);
 
 		$offer_color_type = get_post_meta($postM->ID, "_offer_colour_temp", true);
 		if (!empty($offer_color_type) && !in_array($offer_color_type, $rez["offer_colour_temp"]))
 			$rez["offer_colour_temp"][] = $offer_color_type;
-			sort($rez["offer_colour_temp"]);
 
 		// if ($min > (int)get_post_meta($postM->ID, "_offer_colour_temp", true))
 		// 	$min = (int)get_post_meta($postM->ID, "_offer_colour_temp", true);
@@ -1287,6 +1279,14 @@ function get_filter(WP_REST_Request $request)
 
 	// $rez["offer_colour_temp_max"] = $max;
 	// $rez["offer_colour_temp_min"] = $min;
+
+	sort($rez["offer_size"]);
+	sort($rez["offer_light_effect"]);
+	sort($rez["offer_driver"]);
+	sort($rez["offer_power"]);
+	sort($rez["offer_light_flow"]);
+	sort($rez["offer_diffuser"]);
+	sort($rez["offer_colour_temp"]);
 
 	if (!empty($rez))
 		return $rez;
