@@ -296,7 +296,9 @@
 								$mypost = array(
 									'post_type' => 'ultra',
 									'posts_per_page' => -1,
-									'orderby' => 'title',
+									'meta_query' => $metaquery,
+									'meta_key' => '_offer_sku',
+									'orderby' => 'meta_value',
 									'order' => 'ASC',
 									'exclude' => array(417),
 									'tax_query' => array(
@@ -306,8 +308,6 @@
 											'terms' => strval($term->term_id)
 										),
 									),
-
-									'meta_query' => $metaquery
 								);
 
 								// echo "<pre>";	
