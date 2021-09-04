@@ -1505,6 +1505,45 @@ function get_lamp_count_one(WP_REST_Request $request)
 
 // Расчет колличества светильников End ================================================================================================================
 
+/* поиск по артикулу в админке */
+add_action('restrict_manage_posts','custom_filter_for_posts_html');
+function custom_filter_for_posts_html(){  /* это функция которая отображает сам фильтр */?>
+<style>
+input[type='number'] {-moz-appearance:textfield;}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appearance: none;}
+</style>
+<label for="filter-by-field" class="screen-reader-text">Артикул</label>
+<input placeholder="Артикул" type="text" value="<?php if (isset($_GET['meta_filter'])) {echo sanitize_text_field($_GET['meta_filter']);} ?>" name="meta_filter" id="filter-by-field">
+<?php
+}
+add_filter('request','custom_filter_for_posts');
+function custom_filter_for_posts($vars){
+ // функция custom_filter_for_posts обрабатывает запрос и фильтрует данные
+ // $vars - это стандартные параметры запроса WP. Типа как у функции get_posts
+ // в итоге мы дописываем только то что нам нужно, не изменяя тех значений которые нам не нужны
+ global $pagenow;
+ global $post_type;
+
+ // тут нужно указать все типы постов где нужен этот фильтр, например 'page','product' и т.д.    
+ $start_in_post_types=array('ultra'); 
+ 
+ if( !empty($pagenow) && $pagenow=='edit.php' && in_array($post_type , $start_in_post_types)){
+     $contents = (string)sanitize_text_field($_GET['meta_filter']);
+     if (!empty($_GET['meta_filter'])){
+	$vars['meta_query']=array(
+	"relation"=>'OR',
+	 array(
+		"key"=>"offer_sku", // ключ 1-го произвольного поля по которому идет поиск
+		"value"=> $contents,
+		'type' => 'char',
+		'compare' => 'LIKE'
+	 ),
+	);
+     } 
+ }    
+ return $vars;
+}
+/* end поиск по артикулу в админке */
 
 
 // Отправка корзины ==================================================================================================================
