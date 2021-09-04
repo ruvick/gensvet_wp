@@ -67,18 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         dtypeFilterList.innerHTML = dtypeStr;
 
         // Комплектация
-        // let onlyStarter = ""
-        // xhr.response.offer_driver.forEach((element, index) => {
-        //     let checed = (qParam.drivercheck != undefined && qParam.drivercheck.includes(element) )?"checked":"";
-            
-        //     onlyStarter += '<li class="lines-wrap-filter-card-features-list-item">'+
-        //         '<input id = "str_only_'+index+'" name="drivercheck[]" value="yes" type="checkbox" class="subscription-wrap-form-wrap__checkbox-hidden" '+checed+' hidden data-value="yes">'+
-        //         '<label  for = "str_only_'+index+'" class="lines-wrap-filter-card-features-list-item__desc" >Только с драйвером</label>'+
-        //     '</li>';
-        // });
-
-        // komplFilterList.innerHTML = onlyStarter;
-
         let onlyStarter = ""
         xhr.response.offer_driver.forEach((element, index) => {
             
