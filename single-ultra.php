@@ -111,7 +111,7 @@ get_header(); ?>
             <p class="card-wrap-properties-features__desc">Световой поток</p>
           
             <div class="dropdown">
-              <button class="dropdown__button">Световой поток</button>
+              <button class="dropdown__button"><? echo carbon_get_the_post_meta("offer_light_flow"); ?> Лм</button>
               <ul class="dropdown-list">
                 <? 
                   $light_flowIndex = 0;
@@ -132,7 +132,7 @@ get_header(); ?>
             <p class="card-wrap-properties-features__desc">Цветовая температура</p>
             
             <div class="dropdown">
-              <button class="dropdown__button">Цветовая температура</button>
+              <button class="dropdown__button"><? echo carbon_get_the_post_meta("offer_colour_temp"); ?> К</button>
               <ul class="dropdown-list">
                 <?
                   $colour_tempIndex = 0;
@@ -154,7 +154,7 @@ get_header(); ?>
             <p class="card-wrap-properties-features__desc">Рассеиватель</p>
             
             <div class="dropdown">
-              <button class="dropdown__button">Выберите рассеиватель</button>
+              <button class="dropdown__button"><? echo carbon_get_the_post_meta("offer_diffuser"); ?></button>
               <ul class="dropdown-list">
                 <? 
                   $diffuserIndex = 0;
@@ -174,7 +174,8 @@ get_header(); ?>
           <h3 class="card-wrap-properties__title">Выберите драйвер</h3>
           <div class="card-wrap-properties-features">
             <div class="dropdown dropdown--long">
-              <button class="dropdown__button">Открыть список</button>
+              <?php $product_driver =  carbon_get_the_post_meta('driver_complex'); ?>
+              <button class="dropdown__button"><? echo $product_driver[0]['driver_denomination']; ?></button>
               <ul class="dropdown-list">
                 <? $driver = carbon_get_the_post_meta('driver_complex');
                 if ($driver) {
