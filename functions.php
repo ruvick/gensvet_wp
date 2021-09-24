@@ -1553,6 +1553,34 @@ function custom_filter_for_posts($vars){
 /* end поиск по артикулу в админке */
 
 
+add_filter( 'posts_clauses', 'km_metadata_search' );
+
+# Добавляем поиск по метаполям в базовый поиск WordPress
+function km_metadata_search( $clauses ){
+	global $wpdb;
+
+	if( ! is_search() || ! is_main_query() )
+		return $clauses;
+
+	$clauses['join'] .= " LEFT JOIN $wpdb->postmeta kmpm ON (ID = kmpm.post_id)";
+
+	$clauses['where'] = preg_replace(
+		"/OR +\( *$wpdb->posts.post_content +LIKE +('[^']+')/",
+		"OR (kmpm.meta_value LIKE $1) $0",
+		$clauses['where']
+	);
+
+	// если нужно искать в указанном метаполе
+	$clauses['where'] .= $wpdb->prepare(' AND kmpm.meta_key = %s', '_offer_sku' );
+
+	$clauses['distinct'] = 'DISTINCT';
+
+	// дебаг итогового запроса
+	0 && add_filter( 'posts_request', function( $sql ){   die( $sql );  } );
+
+	return $clauses;
+}
+
 // Отправка корзины ==================================================================================================================
 // function tovarTo1c($bascetElem) {
 // 	return 
