@@ -201,7 +201,24 @@
 								// 		'type'    => 'NUMERIC',
 								// 	)
 								// );
-								
+
+								// Фильтрация по размеру
+								if (!empty($_REQUEST["sizecheck"])) {
+									$metaquery["sizecheckQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["sizecheck"]); $i++) {
+										$metaquery["sizecheckQuery"]["size".$i] = array(
+											'key'     => '_offer_size',
+											'value' => $_REQUEST["sizecheck"][$i],
+											'compare' => '=',
+											'type'    => 'CHAR',
+										);
+									} 
+								}
+
+
 								// Фильтрация по мощьности
 								if (!empty($_REQUEST["power"])) {
 									$metaquery["powerQuery"] = array(
