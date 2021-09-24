@@ -37,17 +37,29 @@ get_header(); ?>
 
 
         <?
+              $cats = wp_get_post_terms( get_the_ID(), 'ultracat', array('fields' => 'ids') );
               
-            
-          		$queryParam = array (
+              // $catsName = wp_get_post_terms( get_the_ID(), 'ultracat', array('fields' => 'names') );
+              // print_r($catsName);
+          		
+              $queryParam = array (
                 'post_type' => 'ultra',
+                'post__not_in' => [get_the_ID()],
                 'meta_query' => [
                   'relation' => 'OR',
                     [
-                      'key' => '_offer_sku',
-                      'value' => carbon_get_the_post_meta('offer_sku')
+                      'key' => '_offer_power',
+                      'value' => carbon_get_the_post_meta('offer_power')
                     ]
-                ]
+                ],
+                
+                'tax_query' => [
+                      array(
+                        'taxonomy' => 'ultracat',
+                        'field' => 'id',
+                        'terms' => strval($cats[1])
+                      ),
+                ],
           
               );
 
@@ -59,6 +71,7 @@ get_header(); ?>
               $rez["offer_light_flow"] = array();
               $rez["offer_colour_temp"] = array();
               $rez["offer_diffuser"] = array();
+              $rez["driver_complex"] = array();
 
               foreach($oneskuPosts->posts as $postM) {
                 $offer_power = get_post_meta($postM->ID, "_offer_power", true);
@@ -76,6 +89,13 @@ get_header(); ?>
                 $offer_diffuser = get_post_meta($postM->ID, "_offer_diffuser", true);
                 if (!empty($offer_diffuser) && !in_array($offer_diffuser, $rez["offer_diffuser"])) 
                     $rez["offer_diffuser"][$offer_diffuser] = array( "value" => $offer_diffuser, "lnk" =>  get_permalink($postM->ID));
+                
+                $driver_complex = carbon_get_post_meta($postM->ID, 'driver_complex');
+                $driver_complexOne = $driver_complex[0]["driver_denomination"];
+                if (!empty($driver_complexOne) && !in_array($driver_complexOne, $rez["driver_complex"])) 
+                    $rez["driver_complex"][$driver_complexOne] = array( "value" => $driver_complexOne, "lnk" =>  get_permalink($postM->ID));
+                
+                   
               }
 
               // echo "<pre>";	
@@ -177,16 +197,28 @@ get_header(); ?>
               <?php $product_driver =  carbon_get_the_post_meta('driver_complex'); ?>
               <button class="dropdown__button"><? echo $product_driver[0]['driver_denomination']; ?></button>
               <ul class="dropdown-list">
-                <? $driver = carbon_get_the_post_meta('driver_complex');
-                if ($driver) {
+              
+              <? 
                   $driverIndex = 0;
-                  foreach ($driver as $item) {
+                  foreach ($rez["driver_complex"] as $item) {
                 ?>
-                    <li class="dropdown-list__item" data-value="first"><? echo $item['driver_denomination']; ?></li>
+                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
                 <?
                     $driverIndex++;
                   }
-                }
+                ?>
+
+                <? 
+                // $driver = carbon_get_the_post_meta('driver_complex');
+                // if ($driver) {
+                //   $driverIndex = 0;
+                //   foreach ($driver as $item) {
+                ?>
+                    <!-- <li class="dropdown-list__item" data-value="first"><? echo $item['driver_denomination']; ?></li> -->
+                <?
+                //     $driverIndex++;
+                //   }
+                // }
                 ?>
               </ul>
               <input type="text" class="dropdown__input" value="">
