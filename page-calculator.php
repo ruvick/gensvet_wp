@@ -472,15 +472,15 @@ get_header(); ?>
 										
 
 										foreach ($queryCalc->posts as $tovarLg) {
-											if (isset($_REQUEST["calc_all"])) {
+											// if (isset($_REQUEST["calc_all"])) {
 												$tov_light_flow = carbon_get_post_meta($tovarLg->ID, "offer_light_flow");  //сетовой поток
-												$koof_zap = $_REQUEST["pom_type"];
-												$dlinna = $_REQUEST["pom_a"];
-												$shirina = $_REQUEST["pom_b"];
-												$visota = $_REQUEST["pom_h"];
-												$visotaRp = $_REQUEST["pom_h2"];
-												$koof_isp = $_REQUEST["koof_isp"];
-												$teb_osv = $_REQUEST["treb_osv"];
+												$koof_zap = empty($_REQUEST["pom_type"])?"1.25":$_REQUEST["pom_type"];
+												$dlinna = empty($_REQUEST["pom_a"])?"6":$_REQUEST["pom_a"];
+												$shirina = empty($_REQUEST["pom_b"])?"9":$_REQUEST["pom_b"];
+												$visota = empty($_REQUEST["pom_h"])?"3.2":$_REQUEST["pom_h"];
+												$visotaRp = empty($_REQUEST["pom_h2"])?"0.8":$_REQUEST["pom_h2"];
+												$koof_isp = empty($_REQUEST["koof_isp"])?"0.51":$_REQUEST["koof_isp"];
+												$teb_osv = empty($_REQUEST["treb_osv"])?"300":$_REQUEST["treb_osv"];
 
 
 												$count = get_count_lamp(
@@ -493,7 +493,7 @@ get_header(); ?>
 													$koof_isp,
 													$teb_osv
 												);
-											}
+											// }
 											
 										
 								?>
