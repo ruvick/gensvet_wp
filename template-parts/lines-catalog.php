@@ -62,7 +62,7 @@
 					</div>
 					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
-							<h4 class="lines-wrap-filter-card-btn__title">Комплектация</h4>
+							<h4 class="lines-wrap-filter-card-btn__title">Драйвер</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
 						</button>
 						<div class="lines-wrap-filter-card-features">
