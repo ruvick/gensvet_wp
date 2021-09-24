@@ -13,9 +13,9 @@ function getRequests() {
             } else {
                 arrayIndex = arrayIndex.substring(0, arrayIndex.indexOf('['));
                 if (typeof r[arrayIndex] === 'object')
-                    r[arrayIndex].push(decodeURIComponent(s2[1]))
+                    r[arrayIndex].push(decodeURIComponent(s2[1]).replace('+', ' '))
                 else 
-                    r[arrayIndex] = [decodeURIComponent(s2[1])]
+                    r[arrayIndex] = [decodeURIComponent(s2[1]).replace('+', ' ')]
             }
     }
     return r;
@@ -55,8 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Световой эффект
         let dtypeStr = ""
+
+        console.log(xhr.response.offer_light_effect);
+            console.log(qParam.diodtype);
         xhr.response.offer_light_effect.forEach((element, index) => {
             
+            
+
             let checed = (qParam.diodtype != undefined && qParam.diodtype.includes(element) )?"checked":"";
 
             dtypeStr += '<li class="lines-wrap-filter-card-features-list-item li_checbox">'+
