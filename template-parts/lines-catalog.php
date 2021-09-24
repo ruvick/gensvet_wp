@@ -297,7 +297,7 @@
 									'post_type' => 'ultra',
 									'posts_per_page' => -1,
 									'meta_query' => $metaquery,
-									'meta_key' => '_offer_sku',
+									'meta_key' => '_offer_power',
 									'orderby' => 'meta_value',
 									'order' => 'ASC',
 									'exclude' => array(417),
