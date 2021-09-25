@@ -6281,6 +6281,7 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   width: 100%;
 }
 
+.dropdown--category,
 .dropdown--files {
   width: 90px;
   margin-left: 20px;
@@ -6313,11 +6314,13 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   background-image: url(img/home/header-menu-arrow-down.svg);
 }
 
+.dropdown__button--category,
 .dropdown__button--files {
   height: 40px;
   padding: 9px 16px;
 }
 
+.dropdown__button--category::after,
 .dropdown__button--files::after {
   content: '';
   position: absolute;
