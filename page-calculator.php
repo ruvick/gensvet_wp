@@ -355,15 +355,21 @@ get_header(); ?>
 									<p class="calculator-bottom-wrap-left-form-block__desc">Тип помещения</p>
 
 									<div class="dropdown dropdown--calc">
-										<button type = "button" class="dropdown__button">1,25 - Очень чистые помещения</button>
+										<button type = "button" class="dropdown__button">Офисное</button>
 										<ul class="dropdown-list">
-											<li class="dropdown-list__item" data-value="1.25">1,25 - Очень чистые помещения, а так же осветительные установки с малым временем использования</li>
+											<li class="dropdown-list__item" data-value="Офисное">Офисное</li>
+											<li class="dropdown-list__item" data-value="Торговое">Торговое</li>
+											<li class="dropdown-list__item" data-value="Школьное">Школьное</li>
+											<li class="dropdown-list__item" data-value="Промышленное">Промышленное</li>
+											<li class="dropdown-list__item" data-value="Жилое">Жилое</li>
+
+											<!-- <li class="dropdown-list__item" data-value="1.25">1,25 - Очень чистые помещения, а так же осветительные установки с малым временем использования</li>
 											<li class="dropdown-list__item" data-value="1.5">1,5 - Чистые помещения с трехгодичным циклом обслуживания </li>
 											<li class="dropdown-list__item" data-value="1.75">1,75 - Наружное освещение, трехгодичный цикл обслуживания</li>
-											<li class="dropdown-list__item" data-value="2">2 - Внутреннее и наружное освещение при сильном загрязнении</li>
+											<li class="dropdown-list__item" data-value="2">2 - Внутреннее и наружное освещение при сильном загрязнении</li> -->
 
 										</ul>
-										<input type="text" name = "pom_type" class="dropdown__input" value = "<? echo !empty($_REQUEST["pom_type"])?$_REQUEST["pom_type"]:"1.25"; ?>">
+										<input type="text" name = "pom_type" class="dropdown__input" value = "<? echo !empty($_REQUEST["pom_type"])?$_REQUEST["pom_type"]:"Офисное"; ?>">
 									</div>
 								</div>
 								<div class="calculator-bottom-wrap-left-form-block">
@@ -379,20 +385,9 @@ get_header(); ?>
 									<input type="number" min="1" max="120" step="0.01" name = "pom_h" value = "<? echo !empty($_REQUEST["pom_h"])?$_REQUEST["pom_h"]:"3.2"; ?>" class="calculator-bottom-wrap-left-form-block__input" required>
 								</div>
 
-								<div class="calculator-bottom-wrap-left-form-block">
-									<p class="calculator-bottom-wrap-left-form-block__desc">Высота расчетной поверхности, м</p>
-									<input type="number" min="0" max="120" step="0.01" name = "pom_h2" value = "<? echo !empty($_REQUEST["pom_h2"])?$_REQUEST["pom_h2"]:"0.8"; ?>" class="calculator-bottom-wrap-left-form-block__input" required>
-								</div>
 
-								<div class="calculator-bottom-wrap-left-form-block">
-									<p class="calculator-bottom-wrap-left-form-block__desc">Коэффициент использования</p>
-									<input type="number" min="0" max="120" step="0.01" name = "koof_isp" value = "<? echo !empty($_REQUEST["koof_isp"])?$_REQUEST["koof_isp"]:"0.51"; ?>" class="calculator-bottom-wrap-left-form-block__input" required>
-								</div>
 
-								<div class="calculator-bottom-wrap-left-form-block">
-									<p class="calculator-bottom-wrap-left-form-block__desc">Требуемое освещение, Лк</p>
-									<input type="number" min="10" max="500" name = "treb_osv" value = "<? echo !empty($_REQUEST["treb_osv"])?$_REQUEST["treb_osv"]:"300"; ?>" class="calculator-bottom-wrap-left-form-block__input" required>
-								</div>
+								
 							</div>
 							<button type = "button"class="calculator-bottom-wrap-left-add">
 								<p class="calculator-bottom-wrap-left-add__desc">Дополнительные параметры</p>
@@ -400,8 +395,20 @@ get_header(); ?>
 							</button>
 							<div class="calculator-bottom-wrap-left-options">
 								<div class="calculator-bottom-wrap-left-form-block">
+									<p class="calculator-bottom-wrap-left-form-block__desc">Высота расчетной поверхности, м</p>
+									<input type="number" min="0" max="120" step="0.01" name = "pom_h2" value = "<? echo !empty($_REQUEST["pom_h2"])?$_REQUEST["pom_h2"]:"0.8"; ?>" class="calculator-bottom-wrap-left-form-block__input" required>
+								</div>
+							
+								<div class="calculator-bottom-wrap-left-form-block">
+									<p class="calculator-bottom-wrap-left-form-block__desc">Коэффициент использования</p>
+									<input type="number" min="0" max="120" step="0.01" name = "koof_isp" value = "<? echo !empty($_REQUEST["koof_isp"])?$_REQUEST["koof_isp"]:"1"; ?>" class="calculator-bottom-wrap-left-form-block__input" required>
+								</div>
+
+
+							
+								<div class="calculator-bottom-wrap-left-form-block">
 									<p class="calculator-bottom-wrap-left-form-block__desc">Индекс помещения</p>
-									<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block__input">
+									<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block__input" value = "1">
 								</div>
 								
 
@@ -410,22 +417,22 @@ get_header(); ?>
 									<p class="calculator-bottom-wrap-left-form-block__desc">Отражение</p>
 									<div class="calculator-bottom-wrap-left-form-block-wrap">
 										<div class="calculator-bottom-wrap-left-form-block-wrap-card">
-											<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block-wrap-card__input">
+											<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block-wrap-card__input" value = "70">
 											<p class="calculator-bottom-wrap-left-form-block-wrap-card__desc">Потолок</p>
 										</div>
 										<div class="calculator-bottom-wrap-left-form-block-wrap-card">
-											<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block-wrap-card__input">
+											<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block-wrap-card__input" value = "30">
 											<p class="calculator-bottom-wrap-left-form-block-wrap-card__desc">Стены</p>
 										</div>
 										<div class="calculator-bottom-wrap-left-form-block-wrap-card">
-											<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block-wrap-card__input">
+											<input type="number" min="1" max="120" class="calculator-bottom-wrap-left-form-block-wrap-card__input" value = "30">
 											<p class="calculator-bottom-wrap-left-form-block-wrap-card__desc">Пол</p>
 										</div>
 									</div>
 								</div>
 								<div class="calculator-bottom-wrap-left-form-block">
-									<p class="calculator-bottom-wrap-left-form-block__desc">Требуемое освещение</p>
-									<input type="number" min="10" max="500" class="calculator-bottom-wrap-left-form-block__input">
+									<p class="calculator-bottom-wrap-left-form-block__desc">Требуемое освещение, Лк</p>
+									<input type="number" min="10" max="500" name = "treb_osv" value = "<? echo !empty($_REQUEST["treb_osv"])?$_REQUEST["treb_osv"]:"300"; ?>" class="calculator-bottom-wrap-left-form-block__input" required>
 								</div>
 							</div>
 							<button name = "calc_all"  type = "submit" class="calculator-bottom-wrap-left-btn">
@@ -474,12 +481,12 @@ get_header(); ?>
 										foreach ($queryCalc->posts as $tovarLg) {
 											// if (isset($_REQUEST["calc_all"])) {
 												$tov_light_flow = carbon_get_post_meta($tovarLg->ID, "offer_light_flow");  //сетовой поток
-												$koof_zap = empty($_REQUEST["pom_type"])?"1.25":$_REQUEST["pom_type"];
+												$koof_zap = empty($_REQUEST["pom_type"])?"Офисное":$_REQUEST["pom_type"];
 												$dlinna = empty($_REQUEST["pom_a"])?"6":$_REQUEST["pom_a"];
 												$shirina = empty($_REQUEST["pom_b"])?"9":$_REQUEST["pom_b"];
 												$visota = empty($_REQUEST["pom_h"])?"3.2":$_REQUEST["pom_h"];
 												$visotaRp = empty($_REQUEST["pom_h2"])?"0.8":$_REQUEST["pom_h2"];
-												$koof_isp = empty($_REQUEST["koof_isp"])?"0.51":$_REQUEST["koof_isp"];
+												$koof_isp = empty($_REQUEST["koof_isp"])?"1":$_REQUEST["koof_isp"];
 												$teb_osv = empty($_REQUEST["treb_osv"])?"300":$_REQUEST["treb_osv"];
 
 

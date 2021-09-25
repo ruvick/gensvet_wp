@@ -102,9 +102,7 @@ if (oneSerchBtn !== null) {
                             '<p class="calculator-bottom-wrap-right-solo-wrap-right__desc">Необходимо <br>'+
                                 '<span class="calculator-bottom-wrap-right-solo-wrap-right__desc--bold">~ '+element.count+' шт.</span>'+
                             '</p>'+
-                            '<p class="calculator-bottom-wrap-right-solo-wrap-right__desc">Рекомендуемая сетка <br>'+
-                                '<span class="calculator-bottom-wrap-right-solo-wrap-right__desc--bold">2×4</span>'+
-                            '</p>'+
+                            
                         '</div>'+
                     '</div>'
 
