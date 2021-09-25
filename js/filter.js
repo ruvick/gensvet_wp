@@ -1,6 +1,8 @@
 const filterParamLoad = 'http://ruvick.site/wp-json/gensvet/v2/get_filter'
 
 
+
+
 function getRequests() {
     var s1 = location.search.substring(1, location.search.length).split('&'),
         r = {}, s2, i;
@@ -13,9 +15,9 @@ function getRequests() {
             } else {
                 arrayIndex = arrayIndex.substring(0, arrayIndex.indexOf('['));
                 if (typeof r[arrayIndex] === 'object')
-                    r[arrayIndex].push(decodeURIComponent(s2[1]).replace('+', ' '))
+                    r[arrayIndex].push(decodeURIComponent(s2[1]).replaceAll('+', ' '))
                 else 
-                    r[arrayIndex] = [decodeURIComponent(s2[1]).replace('+', ' ')]
+                    r[arrayIndex] = [decodeURIComponent(s2[1]).replaceAll('+', ' ')]
             }
     }
     return r;

@@ -161,6 +161,23 @@
 					$taxonomyName = "ultracat";
 					$termchildren = get_term_children($termID, $taxonomyName);
 					foreach ($termchildren as $child) {
+						
+						$pagenumber = !empty($_REQUEST["pagenumber"]) ? $_REQUEST["pagenumber"] : 1;
+						$countInPage = !empty($_REQUEST["countinpage"]) ? $_REQUEST["countinpage"] : "5";
+					  
+						$complex = carbon_get_post_meta($post->ID, 'complex_file_list');
+					  
+						$fullCount = 0;
+					  
+		  
+						$startPos = ($pagenumber - 1) * $countInPage;
+					  
+						if ($startPos > $fullCount) {
+						  $pagenumber = 1;
+						  $startPos = ($pagenumber - 1) * $countInPage;
+						}
+
+
 						$term = get_term_by('id', $child, $taxonomyName);
 						$term_id = $term->term_taxonomy_id; ?>
 
@@ -272,9 +289,9 @@
 									
 									for ($i = 0; $i<count($_REQUEST["drivercheck"]); $i++) {
 										$metaquery["driverQuery"]["drivercheck".$i] = array(
-											'key'     => '_offer_driver',
+											'key'     => '_driver_complex|driver_denomination|0|0|value',
 											'value' => $_REQUEST["drivercheck"][$i],
-											'compare' => '=',
+											'compare' => 'LIKE',
 											'type'    => 'CHAR',
 										);
 									} 
@@ -315,7 +332,7 @@
 									'posts_per_page' => -1,
 									'meta_query' => $metaquery,
 									'meta_key' => '_offer_power',
-									'orderby' => 'meta_value',
+									'orderby' => 'meta_value_num',
 									'order' => 'ASC',
 									'exclude' => array(417),
 									'tax_query' => array(
@@ -414,8 +431,41 @@
 									<!-- Конец цикла -->
 								<?php endwhile; ?>
 							</div>
+
+
+
 						</div>
 					<?php } ?>
+
+					<form id="filesDropdownForm" action="" method="get" class="lines-wrap-tables-wrap">
+        <div class="lines-wrap-tables-wrap-buttons">
+          <div class="options">
+            <?
+            $pagenCount = intdiv($fullCount, $countInPage);
+            if (($fullCount % $countInPage) != 0) $pagenCount++;
+            for ($i = 1; $i <= $pagenCount; $i++) {
+            ?>
+              <label for="paginf-<? echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber) ? "active" : ""; ?>">
+                <? echo $i; ?>
+                <input onclick="filesDropdownForm.submit()" id="paginf-<? echo $i; ?>" type="radio" value="<? echo $i; ?>" name="pagenumber">
+              </label>
+            <? } ?>
+          </div>
+        </div>
+        <div class="lines-wrap-tables-wrap-quant">
+          <p class="lines-wrap-tables-wrap-quant__desc">Файлов <br>на странице:</p>
+          <div class="dropdown dropdown--files">
+            <button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><? echo $countInPage; ?></button>
+            <ul id="filesDropdown" class="dropdown-list dropdown-list--files">
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="5">5</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
+            </ul>
+            <input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
+            <input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
+          </div>
+        </div>
+      </form>
 					<!-- Конец цикла -->
 				</div>
 			</div>

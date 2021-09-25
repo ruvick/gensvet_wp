@@ -43,8 +43,9 @@ get_header(); ?>
               // print_r($catsName);
           		
               $queryParam = array (
+                'posts_per_page' => -1,
                 'post_type' => 'ultra',
-                'post__not_in' => [get_the_ID()],
+                // 'post__not_in' => [get_the_ID()],
                 'meta_query' => [
                   'relation' => 'OR',
                     [
@@ -73,6 +74,7 @@ get_header(); ?>
               $rez["offer_diffuser"] = array();
               $rez["driver_complex"] = array();
 
+              $allVarElement = [];
               foreach($oneskuPosts->posts as $postM) {
                 $offer_power = get_post_meta($postM->ID, "_offer_power", true);
                 if (!empty($offer_power) && !in_array($offer_power, $rez["offer_power"])) 
@@ -95,14 +97,112 @@ get_header(); ?>
                 if (!empty($driver_complexOne) && !in_array($driver_complexOne, $rez["driver_complex"])) 
                     $rez["driver_complex"][$driver_complexOne] = array( "value" => $driver_complexOne, "lnk" =>  get_permalink($postM->ID));
                 
-                   
+                $allVarElement[] = [
+                  "sku" => get_post_meta($postM->ID, "_offer_sku", true), 
+                  "lnk" => get_permalink($postM->ID),  
+                  "power" => $offer_power,
+                  "light_flow" => $offer_light_flow,
+                  "colour_temp" => $offer_colour_temp,
+                  "diffuser" => $offer_diffuser,
+                  "driver" => $driver_complexOne,
+                ];   
               }
 
               // echo "<pre>";	
-							// 	var_dump($oneskuPosts);
+							// 	var_dump($allVarElement);
 							// echo "</pre>";
         ?>
 
+
+        <script>
+          let mainPower = "<? echo carbon_get_the_post_meta("offer_power"); ?>";
+          let mainLightFl = "<? echo carbon_get_the_post_meta("offer_light_flow"); ?>";
+          let mainColorTemp = "<? echo carbon_get_the_post_meta("offer_colour_temp"); ?>";
+          let mainDiffuser = "<? echo carbon_get_the_post_meta("offer_diffuser"); ?>";
+          let mainDriver = "<? echo carbon_get_the_post_meta("driver_complex")[0]['driver_denomination']; ?>";
+          let allVarElement = <? echo json_encode($allVarElement)?>
+
+          function get_tovar_lnk(url, find_param, param_name) {
+            console.log(find_param)
+            console.log(param_name)
+            console.log("-----")
+            console.log(mainPower)
+            console.log(mainLightFl)
+            console.log(mainColorTemp)
+            console.log(mainDiffuser)
+            console.log(mainDriver)
+
+              for(let i = 0; i<allVarElement.length; i++)
+              {
+
+                console.log(allVarElement[i])
+
+                $lnk = ""
+
+                if ((param_name == 'power')
+                  &&(allVarElement[i].power == find_param)
+                  &&(mainLightFl == allVarElement[i].light_flow)
+                  &&(mainColorTemp == allVarElement[i].colour_temp)
+                  &&(mainDiffuser == allVarElement[i].diffuser)
+                  &&(mainDriver == allVarElement[i].driver))
+                    {
+                      $lnk = allVarElement[i].lnk;
+                      break;
+                    }
+
+                if ((param_name == 'light_flow')
+                  &&(mainPower == allVarElement[i].power)
+                  &&(allVarElement[i].light_flow == find_param)
+                  &&(mainColorTemp == allVarElement[i].colour_temp)
+                  &&(mainDiffuser == allVarElement[i].diffuser)
+                  &&(mainDriver == allVarElement[i].driver))
+                  {
+                      $lnk = allVarElement[i].lnk;
+                      break;
+                  }
+
+                if ((param_name == 'colour_temp')
+                  &&(mainPower == allVarElement[i].power)
+                  &&(mainLightFl == allVarElement[i].light_flow)
+                  &&(allVarElement[i].colour_temp == find_param)
+                  &&(mainDiffuser == allVarElement[i].diffuser)
+                  &&(mainDriver == allVarElement[i].driver))
+                  {
+                      $lnk = allVarElement[i].lnk;
+                      break;
+                  }
+
+                if ((param_name == 'diffuse')
+                  &&(mainPower == allVarElement[i].power)
+                  &&(mainLightFl == allVarElement[i].light_flow)
+                  &&(mainColorTemp == allVarElement[i].colour_temp)
+                  &&(allVarElement[i].diffuser == find_param)
+                  &&(mainDriver == allVarElement[i].driver))
+                  {
+                      $lnk = allVarElement[i].lnk;
+                      break;
+                  }
+
+                if ((param_name === 'driver')
+                  &&(mainPower === allVarElement[i].power)
+                  &&(mainLightFl === allVarElement[i].light_flow)
+                  &&(mainColorTemp === allVarElement[i].colour_temp)
+                  &&(mainDiffuser === allVarElement[i].diffuser)
+                  &&(allVarElement[i].driver === find_param))
+                    {
+                      $lnk = allVarElement[i].lnk;
+                      break;
+                    }
+              }
+              console.log($lnk);
+              if ($lnk == "")
+                document.location.href = url;
+              else  document.location.href = $lnk;
+
+          }
+
+        </script>
+        
         <div class="card-wrap-properties">
           <h3 class="card-wrap-properties__title">выберите свойства</h3>
           <div class="card-wrap-properties-features">
@@ -116,7 +216,7 @@ get_header(); ?>
                   $powerIndex = 0;
                   foreach ($rez["offer_power"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Bm</li>
+                    <li onclick = "get_tovar_lnk('<? echo $item['lnk']; ?>', '<? echo $item['value']; ?>', 'power'); return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Bm</li>
                 <?
                     $powerIndex++;
                   }
@@ -137,7 +237,7 @@ get_header(); ?>
                   $light_flowIndex = 0;
                   foreach ($rez["offer_light_flow"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Лм</li>
+                    <li onclick = "get_tovar_lnk('<? echo $item['lnk']; ?>', '<? echo $item['value']; ?>', 'light_flow'); return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> Лм</li>
                 <?
                     $light_flowIndex++;
                   }
@@ -158,7 +258,7 @@ get_header(); ?>
                   $colour_tempIndex = 0;
                   foreach ($rez["offer_colour_temp"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> К</li>
+                    <li onclick = "get_tovar_lnk('<? echo $item['lnk']; ?>', '<? echo $item['value']; ?>', 'colour_temp'); return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?> К</li>
                 <?
                     $colour_tempIndex++;
                   }
@@ -180,7 +280,7 @@ get_header(); ?>
                   $diffuserIndex = 0;
                   foreach ($rez["offer_diffuser"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
+                    <li onclick = "get_tovar_lnk('<? echo $item['lnk']; ?>', '<? echo $item['value']; ?>', 'diffuser'); return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
                 <?
                     $diffuserIndex++;
                   }
@@ -202,7 +302,7 @@ get_header(); ?>
                   $driverIndex = 0;
                   foreach ($rez["driver_complex"] as $item) {
                 ?>
-                    <li onclick = "document.location.href = '<? echo $item['lnk']; ?>'; return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
+                    <li onclick = "get_tovar_lnk('<? echo $item['lnk']; ?>', '<? echo $item['value']; ?>', 'driver'); return false;" class="dropdown-list__item" data-value="<? echo $item["value"]; ?>"><? echo $item["value"]; ?></li>
                 <?
                     $driverIndex++;
                   }
