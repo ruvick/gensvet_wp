@@ -523,7 +523,7 @@ get_header(); ?>
 								
 							</div>
 
-							<a id = "loadAndCalc" href = "#">Еще товары...</a>
+							<a id = "loadAndCalc" class="calculator-bottom-wrap-right__btn" href = "#">Еще товары...</a>
 						</div>
 						<div class="calculator-bottom-tab" data-target="2">
 							<div class="calculator-bottom-wrap-right-solo">

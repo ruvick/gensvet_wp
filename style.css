@@ -3421,7 +3421,9 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
 }
 
 .calculator-bottom-wrap-right-solo-wrap-right {
-  margin-left: 24px
+  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .calculator-bottom-wrap-right-solo-wrap-right__name {
@@ -7693,3 +7695,21 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   }
 }
 
+.calculator-bottom-wrap-right__btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 16px 40px;
+  border: 1px solid #FFF200;
+  background-color: #FFF200;
+  font-family: RoadRadio;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.calculator-bottom-wrap-right__btn:hover {
+  background-color: #fff;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s
+}
