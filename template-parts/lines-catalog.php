@@ -332,8 +332,14 @@
 									'posts_per_page' => -1,
 									'meta_query' => $metaquery,
 									'meta_key' => '_offer_power',
-									'orderby' => 'meta_value_num',
+									// 'order' => array(
+									// 	'_offer_power' => 'ASC',
+									// 	// '_offer_size' => 'ASC', 
+									// 	// '_offer_colour_temp' => 'ASC',
+									// 	// '_offer_diffuser' => 'ASC',
+									// ),
 									'order' => 'ASC',
+									'orderby' => 'meta_value_num',
 									'exclude' => array(417),
 									'tax_query' => array(
 										array(
@@ -437,35 +443,35 @@
 						</div>
 					<?php } ?>
 
-					<form id="filesDropdownForm" action="" method="get" class="lines-wrap-tables-wrap">
-        <div class="lines-wrap-tables-wrap-buttons">
-          <div class="options">
-            <?
-            $pagenCount = intdiv($fullCount, $countInPage);
-            if (($fullCount % $countInPage) != 0) $pagenCount++;
-            for ($i = 1; $i <= $pagenCount; $i++) {
-            ?>
-              <label for="paginf-<? echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber) ? "active" : ""; ?>">
-                <? echo $i; ?>
-                <input onclick="filesDropdownForm.submit()" id="paginf-<? echo $i; ?>" type="radio" value="<? echo $i; ?>" name="pagenumber">
-              </label>
-            <? } ?>
-          </div>
-        </div>
-        <div class="lines-wrap-tables-wrap-quant">
-          <p class="lines-wrap-tables-wrap-quant__desc">Файлов <br>на странице:</p>
-          <div class="dropdown dropdown--files">
-            <button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><? echo $countInPage; ?></button>
-            <ul id="filesDropdown" class="dropdown-list dropdown-list--files">
-              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="5">5</li>
-              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
-              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
-            </ul>
-            <input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
-            <input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
-          </div>
-        </div>
-      </form>
+					<!-- <form id="filesDropdownForm" action="" method="get" class="lines-wrap-tables-wrap">
+						<div class="lines-wrap-tables-wrap-buttons">
+						<div class="options">
+							<?
+							$pagenCount = intdiv($fullCount, $countInPage);
+							if (($fullCount % $countInPage) != 0) $pagenCount++;
+							for ($i = 1; $i <= $pagenCount; $i++) {
+							?>
+							<label for="paginf-<? echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber) ? "active" : ""; ?>">
+								<? echo $i; ?>
+								<input onclick="filesDropdownForm.submit()" id="paginf-<? echo $i; ?>" type="radio" value="<? echo $i; ?>" name="pagenumber">
+							</label>
+							<? } ?>
+						</div>
+						</div>
+						<div class="lines-wrap-tables-wrap-quant">
+						<p class="lines-wrap-tables-wrap-quant__desc">Файлов <br>на странице:</p>
+						<div class="dropdown dropdown--files">
+							<button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><? echo $countInPage; ?></button>
+							<ul id="filesDropdown" class="dropdown-list dropdown-list--files">
+							<li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="5">5</li>
+							<li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
+							<li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
+							</ul>
+							<input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
+							<input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
+						</div>
+						</div>
+					</form> -->
 					<!-- Конец цикла -->
 				</div>
 			</div>
