@@ -235,9 +235,9 @@ $(".certificates-wrap-tabs-tab-card").on("click", function (event) {
 
   let butCert = $(this).attr("data-src");
 
-  $("#butCert").attr("href", butCert);
+  $(".certificates-popup-wrap__btn").attr("href", butCert);
 
-  $("#imgCert").attr("src", imgCertSrc);
+  $(".certificates-popup__img").attr("src", imgCertSrc);
 
   $(".certificates-popup-wrap__title").html(jQuery(this).data("title"));
 

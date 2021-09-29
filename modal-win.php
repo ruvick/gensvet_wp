@@ -21,7 +21,7 @@
 							</p>
 						</div>
 					</form>
-					<button type="submit" href="#" class="modal-wrap__btn newButton">ПОЛУЧИТЬ ИНСТРУКЦИЮ</button>
+					<button type="submit" href="#" class="modal-wrap__btn newButton">ПОЛУЧИТЬ</button>
 				</div>
 				<div class="modal__img"></div>
 			</div>
@@ -65,7 +65,7 @@
 							</p>
 						</div>
 					</form>
-					<button type="submit" href="#" class="modal-wrap__btn newButtonPrice">ПОЛУЧИТЬ ИНСТРУКЦИЮ</button>
+					<button type="submit" href="#" class="modal-wrap__btn newButtonPrice">ПОЛУЧИТЬ</button>
 				</div>
 				<div class="modal__img modal__img--price"></div>
 			</div>
@@ -117,3 +117,19 @@
 	</div>
 </div>
 <!-- Popup-Награды End -->
+
+<!-- Popup-Благодарности -->
+<div class="certificates-popup-container" data-target="cert3">
+	<div class="certificates-popup-overlay"></div>
+	<div class="certificates-popup">
+		<button class="certificates-popup__close"></button>
+
+		<img id="imgRegards" src="" alt="" class="certificates-popup__img">
+		<div class="certificates-popup-wrap">
+			<h3 class="certificates-popup-wrap__title"></h3>
+			<p class="certificates-popup-wrap__desc"></p>
+			<a href="" download id="butRegards" class="certificates-popup-wrap__btn">СКАЧАТЬ</a>
+		</div>
+	</div>
+</div>
+<!-- Popup-Благодарности End -->

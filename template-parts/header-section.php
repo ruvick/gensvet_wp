@@ -73,7 +73,7 @@
 						<button type="submit" tabindex="2" id="searchsubmit" value="" class="header-bottom-wrap-search-hidden__btn sub-search">найти</button>
 					</div>
 				</form>
-				<button class="production-top-right__btn popup-instruction hidden">Скачать инструкцию</button>
+				<button class="production-top-right__btn popup-instruction hidden">Файл для расчёта</button>
 			</div>
 		</div>
 	</div>

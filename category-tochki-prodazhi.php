@@ -22,7 +22,7 @@
               $parent_id = 8;
               $sub_cats = get_categories(array(
                 'child_of' => $parent_id,
-                'order'    => 'DESC',
+                'order'    => 'ASC',
                 'hide_empty' => 0
               ));
               if ($sub_cats) {
@@ -52,7 +52,7 @@
               $parent_id = 8;
               $sub_cats = get_categories(array(
                 'child_of' => $parent_id,
-                'order'    => 'DESC',
+                'order'    => 'ASC',
                 'hide_empty' => 0
               ));
               if ($sub_cats) {
@@ -85,7 +85,7 @@
             $parent_id = 8;
             $sub_cats = get_categories(array(
               'child_of' => $parent_id,
-              'order'    => 'DESC',
+              'order'    => 'ASC',
               'hide_empty' => 0
             ));
             if ($sub_cats) {
@@ -108,7 +108,7 @@
                       <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "tominiatyre") . ' " alt="" class="points-wrap-partners-cards-card__img">
                       <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
                       <div class="points-wrap-partners-cards-card-link">
-                        <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
+                        <p class="points-wrap-partners-cards-card-link__ASC">Подробнее</p>
                         <img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
                       </div>
                     </a>';
@@ -135,7 +135,7 @@
                       <img src=" ' . get_the_post_thumbnail_url(get_the_ID(), "tominiatyre") . ' " alt="" class="points-wrap-partners-cards-card__img">
                       <p class="points-wrap-partners-cards-card__name">' . get_the_title() . '</p>
                       <div class="points-wrap-partners-cards-card-link">
-                        <p class="points-wrap-partners-cards-card-link__desc">Подробнее</p>
+                        <p class="points-wrap-partners-cards-card-link__ASC">Подробнее</p>
                         <img src="' . get_template_directory_uri() . '/img/home/header-arrow-right.svg" alt="" class="points-wrap-partners-cards-card-link__img">
                       </div>
                     </a>';

@@ -258,6 +258,16 @@ Container::make('post_meta', 'page-certificates', 'Сертификаты и н�
         Field::make('text', 'awards_text', 'Текст')
           ->set_width(30),
       )),
+    Field::make('complex', 'complex_regards', 'Благодарности')
+      // ->set_max(3) // Можно будет выбрать только 5 постов
+      ->add_fields(array(
+        Field::make('image', 'regards_img', 'Картинка')
+          ->set_width(30),
+        Field::make('text', 'regards_title', 'Название')
+          ->set_width(30),
+        Field::make('text', 'regards_text', 'Текст')
+          ->set_width(30),
+      )),
   ));
 
 Container::make('post_meta', 'page-files', 'Файлы')

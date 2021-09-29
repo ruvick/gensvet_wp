@@ -26,6 +26,7 @@ get_header(); ?>
         <div class="certificates-wrap-buttons">
           <button class="certificates-wrap-buttons__btn active" data-target="1">Сертификаты</button>
           <button class="certificates-wrap-buttons__btn" data-target="2">Награды</button>
+          <button class="certificates-wrap-buttons__btn" data-target="3">Благодарности</button>
         </div>
         <div class="certificates-wrap-tabs">
           <div class="certificates-wrap-tabs-tab active" data-target="1">
@@ -63,6 +64,26 @@ get_header(); ?>
                 </div>
             <?
                 $awardsIndex++;
+              }
+            }
+            ?>
+          </div>
+
+          <div class="certificates-wrap-tabs-tab" data-target="3">
+            <?
+            $regards = carbon_get_the_post_meta('complex_regards');
+            if ($regards) {
+              $regardsIndex = 0;
+              foreach ($regards as $item) {
+            ?>
+                <div class="certificates-wrap-tabs-tab-card" data-target="cert3" data-src="<?php echo wp_get_attachment_image_src($item['regards_img'], 'large')[0]; ?>" data-title="<? echo $item['regards_title']; ?>" data-sub="<? echo $item['regards_text']; ?>">
+                  <a href="#" class="certificates-wrap-tabs-tab-card-wrap">
+                    <img src="<?php echo wp_get_attachment_image_src($item['regards_img'], 'large')[0]; ?>" alt="" class="certificates-wrap-tabs-tab-card-wrap__img">
+                  </a>
+                  <p class="certificates-wrap-tabs-tab-card__desc"><? echo $item['regards_title']; ?></p>
+                </div>
+            <?
+                $regardsIndex++;
               }
             }
             ?>
