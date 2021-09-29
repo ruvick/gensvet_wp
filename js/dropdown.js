@@ -53,12 +53,6 @@ function dropdownInit(selector) {
                     ddFilesCountInPageToSearch.value = this.dataset.value;
                     filesDropdownForm.submit();
                 }
-
-                if (this.classList.contains('dropdown-list__item--category_true')) {
-                    console.log("GOGO222!!!!");
-                    // ddFilesCountInPageToSearch.value = this.dataset.value;
-                    categoryDropdownForm.submit();
-                }
             });
         });
 

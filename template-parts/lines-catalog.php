@@ -11,11 +11,6 @@
 			</div>
 		</div>
 	</section>
-
-	<?
-		$pagenumber = !empty($_REQUEST["pagenumber"]) ? $_REQUEST["pagenumber"] : 1;
-		$countInPage = !empty($_REQUEST["countinpage"]) ? $_REQUEST["countinpage"] : "30";
-	?>
 	<section class="lines">
 		<div class="container">
 			<h1 class="lines__title"><?php single_cat_title('', true); ?></h1>
@@ -28,9 +23,7 @@
 			<div class="lines-wrap">
 				<div class = "loaderSize" id = "categoryFilterLoader">Загрузка...</div>	
 				<form method="get" class="lines-wrap-filter" id = 'categoryFilterForm'>
-					<input type = "hidden" name = "countinpage" value = "<? echo $countInPage ?>">	
-					<input type = "hidden" name = "pagenumber"  value = "1">	
-				<div class="lines-wrap-filter-card">
+					<div class="lines-wrap-filter-card">
 						<button type = "button" class="lines-wrap-filter-card-btn">
 							<h4 class="lines-wrap-filter-card-btn__title">Размеры</h4>
 							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
@@ -137,7 +130,25 @@
 							</ul>
 						</div>
 					</div>
-		
+					<!-- <div class="lines-wrap-filter-card">
+						<button type = "button" class="lines-wrap-filter-card-btn">
+							<h4 class="lines-wrap-filter-card-btn__title">Световая температура</h4>
+							<img src="<?= get_template_directory_uri(); ?>/img/home/header-menu-arrow-down.svg" alt="" class="lines-wrap-filter-card-btn__img">
+						</button>
+						<div class="lines-wrap-filter-card-range">
+							<label for="" class="lines-wrap-filter-card-range-label">
+								<span class="lines-wrap-filter-card-range__span">от</span>
+								<input id="colortFrom" type="number" name="colour_temp_from" value="<? echo empty($_REQUEST["colour_temp_from"])?2100:$_REQUEST["colour_temp_from"] ?>" min="1000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
+								<span class="lines-wrap-filter-card-range__span">К</span>
+							</label>
+							<label for="" class="lines-wrap-filter-card-range-label">
+								<span class="lines-wrap-filter-card-range__span">до</span>
+								<input id="colortTo" type="number" name="colour_temp_to" value="<? echo empty($_REQUEST["colour_temp_to"])?5000:$_REQUEST["colour_temp_to"] ?>" min="2000" max="6900" step="1000" class="lines-wrap-filter-card-range__input">
+								<span class="lines-wrap-filter-card-range__span">К</span>
+							</label>
+							<div id="range-slider" class="lines-wrap-filter-card-range__slider"></div>
+						</div>
+					</div> -->
 					<button type="submit" class="lines-wrap-filter__btn">применить фильтр</button>
 					<div class="lines-wrap-filter-clear">
 						<button onclick = "document.location.href = location.protocol + '//' + location.host + location.pathname; return false;" class="lines-wrap-filter-clear__btn">Очистить фильтр</button>
@@ -146,11 +157,25 @@
 				<div class="lines-wrap-tables">
 					<!-- Цикл с выводом дочерних категорий таксономии -->
 					<?php
-					
 					$termID = get_queried_object()->term_id;
-
+					$taxonomyName = "ultracat";
+					$termchildren = get_term_children($termID, $taxonomyName);
+					foreach ($termchildren as $child) {
 						
-
+						$pagenumber = !empty($_REQUEST["pagenumber"]) ? $_REQUEST["pagenumber"] : 1;
+						$countInPage = !empty($_REQUEST["countinpage"]) ? $_REQUEST["countinpage"] : "5";
+					  
+						$complex = carbon_get_post_meta($post->ID, 'complex_file_list');
+					  
+						$fullCount = 0;
+					  
+		  
+						$startPos = ($pagenumber - 1) * $countInPage;
+					  
+						if ($startPos > $fullCount) {
+						  $pagenumber = 1;
+						  $startPos = ($pagenumber - 1) * $countInPage;
+						}
 
 
 						$term = get_term_by('id', $child, $taxonomyName);
@@ -174,7 +199,25 @@
 										);
 									} 
 								}
+								// $startClrT = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
+								// $endClrT = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
+								// $metaquery = array(
+								// 	'relation' => 'AND',
 
+								// 	'clrtStart' => array(
+								// 		'key'     => '_offer_colour_temp',
+								// 		'value' => $startClrT,
+								// 		'compare' => '>=',
+								// 		'type'    => 'NUMERIC',
+								// 	),
+
+								// 	'clrtEnd' => array(
+								// 		'key'     => '_offer_colour_temp',
+								// 		'value' => $endClrT,
+								// 		'compare' => '<=',
+								// 		'type'    => 'NUMERIC',
+								// 	)
+								// );
 
 								// Фильтрация по размеру
 								if (!empty($_REQUEST["sizecheck"])) {
@@ -223,7 +266,22 @@
 										);
 									} 
 								}
-
+								// Фильтрация по драйверу
+								// if (!empty($_REQUEST["drivercheck"])) {
+								// 	$metaquery["driverQuery"] = array(
+								// 		'relation' => 'OR',
+								// 	);
+									
+								// 	for ($i = 0; $i<count($_REQUEST["drivercheck"]); $i++) {
+								// 		$metaquery["driverQuery"]["drivercheck".$i] = array(
+								// 			'key'     => '_offer_driver',
+								// 			'value' => $_REQUEST["drivercheck"][$i],
+								// 			'compare' => '=',
+								// 			'type'    => 'CHAR',
+								// 		);
+								// 	} 
+	
+								// }
 								if (!empty($_REQUEST["drivercheck"])) {
 									$metaquery["driverQuery"] = array(
 										'relation' => 'OR',
@@ -268,47 +326,10 @@
 										);
 									} 
 								}
-
-
-
-							  
-								
-								$mypostCount = array(
-									'post_type' => 'ultra',
-									'posts_per_page' => -1,
-									'meta_query' => $metaquery,
-									'exclude' => array(417),
-									'tax_query' => array(
-										array(
-											'taxonomy' => 'ultracat',
-											'field' => 'id',
-											'terms' => strval($termID)
-										),
-									),
-								);
-
-								
-
-								$Count = new WP_Query($mypostCount);
-              					// echo "<pre>";	
-								// 	var_dump($Count->post_count);
-								// echo "</pre>";
-
-
-								$fullCount = $Count->post_count;
-							  
-				  
-								$startPos = ($pagenumber - 1) * $countInPage;
-							  
-								if ($startPos > $fullCount) {
-								  $pagenumber = 1;
-								  $startPos = ($pagenumber - 1) * $countInPage;
-								}
 								
 								$mypost = array(
 									'post_type' => 'ultra',
-									'posts_per_page' => $countInPage,
-									'offset' => $startPos,
+									'posts_per_page' => -1,
 									'meta_query' => $metaquery,
 									'meta_key' => '_offer_power',
 									'orderby' => 'meta_value_num',
@@ -318,32 +339,22 @@
 										array(
 											'taxonomy' => 'ultracat',
 											'field' => 'id',
-											'terms' => strval($termID)
+											'terms' => strval($term->term_id)
 										),
 									),
 								);
 
-						 
-								
-
-
+								// echo "<pre>";	
+								// var_dump($metaquery);
+								// echo "</pre>";
 
 								$loop = new WP_Query($mypost);
 								
-								$rezMass = [];
-								foreach ($loop->posts as $element) {
-									$catsName = wp_get_post_terms( $element->ID, 'ultracat', array('fields' => 'names') );
-									$rezMass[$catsName[1]][] = $element;
-								}
-
-								
+								 if (empty($loop->posts)) continue;
 						?>
 
-						<?php foreach ($rezMass as $key => $value) { ?>
-
 						<div class="lines-wrap-tables-table">
-							
-							<h2 class="lines-wrap-tables-table__title"><?= $key; ?></h2>
+							<h2 class="lines-wrap-tables-table__title"><?= $term->name; ?></h2>
 
 							<div class="lines-wrap-tables-table-rows">
 								<div class="lines-wrap-tables-table-rows-row">
@@ -372,103 +383,61 @@
 										<p class="lines-wrap-tables-table-rows-row-cell__desc">Световой <br>эффект</p>
 									</div>
 								</div>
-								<?php foreach ($value as $pElem) { ?>
+								<?php while ($loop->have_posts()) : $loop->the_post(); ?>
 									<!-- Цикл с выводом записей дочерних категорий таксономии -->
-									<a href="<?php echo get_permalink($pElem->ID); ?>" class="lines-wrap-tables-table-rows-row">
+									<a href="<?php echo get_permalink(); ?>" class="lines-wrap-tables-table-rows-row">
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta($pElem->ID, "offer_sku"); ?> 
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_sku"); ?> 
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta($pElem->ID, "offer_power"); ?> Вт
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_power"); ?> Вт
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta($pElem->ID, "offer_light_flow"); ?> Лм
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_light_flow"); ?> Лм
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta($pElem->ID, "offer_size"); ?>
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_size"); ?>
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta($pElem->ID, "offer_colour_temp"); ?> К
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_colour_temp"); ?> К
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta($pElem->ID, "offer_diffuser"); ?>
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_diffuser"); ?>
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<?php $product_driver =  carbon_get_post_meta($pElem->ID, "driver_complex"); ?>
+												<?php $product_driver =  carbon_get_post_meta(get_the_ID(), "driver_complex"); ?>
 												<?php echo $product_driver[0]['driver_denomination']; ?>
 											</p>
 										</div>
 										<div class="lines-wrap-tables-table-rows-row-cell">
 											<p class="lines-wrap-tables-table-rows-row-cell__desc">
-												<? echo carbon_get_post_meta($pElem->ID, "offer_light_effect"); ?>
+												<? echo carbon_get_post_meta(get_the_ID(), "offer_light_effect"); ?>
 											</p>
 										</div>
 									</a>
 									<!-- Конец цикла -->
-								<?php } ?>
+								<?php endwhile; ?>
 							</div>
 
 
 
 						</div>
-						<?php } ?>
+					<?php } ?>
 
-					<form id="categoryDropdownForm" action="" method="get" class="lines-wrap-tables-wrap">
-
-					<? 
-					if (isset($_REQUEST["sizecheck"]))
-					foreach ($_REQUEST["sizecheck"] as $elem) {?>
-						<input type = "hidden" name = "sizecheck[]" value = "<? echo $elem; ?>">	
-					<?}?>
-
-					<? 
-					if (isset($_REQUEST["diodtype"]))
-					foreach ($_REQUEST["diodtype"] as $elem) {?>
-						<input type = "hidden" name = "diodtype[]" value = "<? echo $elem;?>">	
-					<?}?>
-
-					<? 
-					if (isset($_REQUEST["drivercheck"]))
-					foreach ($_REQUEST["drivercheck"] as $elem) {?>
-						<input type = "hidden" name = "drivercheck[]" value = "<? echo $elem;?>">
-					<?}?>
-					
-					<? 
-					if (isset($_REQUEST["power"]))
-					foreach ($_REQUEST["power"] as $elem) {?>
-						<input type = "hidden" name = "power[]" value = "<? echo $elem;?>">	
-					<?}?>
-
-					<? 
-					if (isset($_REQUEST["lightflow"]))
-					foreach ($_REQUEST["lightflow"] as $elem) {?>
-						<input type = "hidden" name = "lightflow[]" value = "<? echo $elem;?>">	
-					<?}?>
-
-					<? 
-					if (isset($_REQUEST["rscheck"]))
-					foreach ($_REQUEST["rscheck"] as $elem) {?>
-						<input type = "hidden" name = "rscheck[]" value = "<? echo $elem;?>">	
-					<?}?>
-
-					<? 
-					if (isset($_REQUEST["colortype"]))
-					foreach ($_REQUEST["colortype"] as $elem) {?>
-						<input type = "hidden" name = "colortype[]" value = "<? echo $elem;?>">	
-					<?}?>
+					<form id="filesDropdownForm" action="" method="get" class="lines-wrap-tables-wrap">
         <div class="lines-wrap-tables-wrap-buttons">
           <div class="options">
             <?
@@ -478,19 +447,19 @@
             ?>
               <label for="paginf-<? echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber) ? "active" : ""; ?>">
                 <? echo $i; ?>
-                <input onclick="categoryDropdownForm.submit()" id="paginf-<? echo $i; ?>" type="radio" value="<? echo $i; ?>" name="pagenumber">
+                <input onclick="filesDropdownForm.submit()" id="paginf-<? echo $i; ?>" type="radio" value="<? echo $i; ?>" name="pagenumber">
               </label>
             <? } ?>
           </div>
         </div>
         <div class="lines-wrap-tables-wrap-quant">
-          <p class="lines-wrap-tables-wrap-quant__desc">Товаров <br>на странице:</p>
-          <div class="dropdown dropdown--category">
-            <button id="categoryDropdownBtn" type="button" class="dropdown__button dropdown__button--category"><? echo $countInPage; ?></button>
-            <ul id="categoryDropdown" class="dropdown-list dropdown-list--category">
-              <li class="dropdown-list__item dropdown-list__item--category dropdown-list__item--category_true" data-value="30">30</li>
-              <li class="dropdown-list__item dropdown-list__item--category dropdown-list__item--category_true" data-value="70">70</li>
-              <li class="dropdown-list__item dropdown-list__item--category dropdown-list__item--category_true" data-value="100">100</li>
+          <p class="lines-wrap-tables-wrap-quant__desc">Файлов <br>на странице:</p>
+          <div class="dropdown dropdown--files">
+            <button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><? echo $countInPage; ?></button>
+            <ul id="filesDropdown" class="dropdown-list dropdown-list--files">
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="5">5</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
+              <li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
             </ul>
             <input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
             <input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
