@@ -184,60 +184,14 @@
 								<?php
 
 								$arg = $wp_query->query;
-								// Фильтрация по световой температуре
-								if (!empty($_REQUEST["colortype"])) {
-									$metaquery["colorQuery"] = array(
-										'relation' => 'OR',
-									);
-									
-									for ($i = 0; $i<count($_REQUEST["colortype"]); $i++) {
-										$metaquery["colorQuery"]["colortype".$i] = array(
-											'key'     => '_offer_colour_temp',
-											'value' => $_REQUEST["colortype"][$i],
-											'compare' => '=',
-											'type'    => 'CHAR',
-										);
-									} 
-								}
-								// $startClrT = empty($_REQUEST["colour_temp_from"]) ? "0" : $_REQUEST["colour_temp_from"];
-								// $endClrT = empty($_REQUEST["colour_temp_to"]) ? PHP_INT_MAX : $_REQUEST["colour_temp_to"];
-								// $metaquery = array(
-								// 	'relation' => 'AND',
-
-								// 	'clrtStart' => array(
-								// 		'key'     => '_offer_colour_temp',
-								// 		'value' => $startClrT,
-								// 		'compare' => '>=',
-								// 		'type'    => 'NUMERIC',
-								// 	),
-
-								// 	'clrtEnd' => array(
-								// 		'key'     => '_offer_colour_temp',
-								// 		'value' => $endClrT,
-								// 		'compare' => '<=',
-								// 		'type'    => 'NUMERIC',
-								// 	)
-								// );
-
-								// Фильтрация по размеру
-								if (!empty($_REQUEST["sizecheck"])) {
-									$metaquery["sizecheckQuery"] = array(
-										'relation' => 'OR',
-									);
-									
-									for ($i = 0; $i<count($_REQUEST["sizecheck"]); $i++) {
-										$metaquery["sizecheckQuery"]["size".$i] = array(
-											'key'     => '_offer_size',
-											'value' => $_REQUEST["sizecheck"][$i],
-											'compare' => '=',
-											'type'    => 'CHAR',
-										);
-									} 
-								}
-
+								$request_disable = true;
+								$metaquery = array(
+									'relation' => 'AND',
+								);
 
 								// Фильтрация по мощьности
 								if (!empty($_REQUEST["power"])) {
+									$request_disable = false;
 									$metaquery["powerQuery"] = array(
 										'relation' => 'OR',
 									);
@@ -247,12 +201,65 @@
 											'key'     => '_offer_power',
 											'value' => $_REQUEST["power"][$i],
 											'compare' => '=',
+											'type'    => 'NUMERIC',
+										);
+									} 
+								}
+
+								// Фильтрация по световому потоку
+								if (!empty($_REQUEST["lightflow"])) {
+									$request_disable = false;
+									$metaquery["lightflowQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["lightflow"]); $i++) {
+										$metaquery["lightflowQuery"]["lightflow".$i] = array(
+											'key'     => '_offer_light_flow',
+											'value' => $_REQUEST["lightflow"][$i],
+											'compare' => '=',
+											'type'    => 'NUMERIC',
+										);
+									} 
+								}
+
+								// Фильтрация по размеру
+								if (!empty($_REQUEST["sizecheck"])) {
+									$request_disable = false;
+									$metaquery["sizecheckQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["sizecheck"]); $i++) {
+										$metaquery["sizecheckQuery"]["size".$i] = array(
+											'key'     => '_offer_size',
+											'value' => $_REQUEST["sizecheck"][$i],
+											'compare' => 'LIKE',
 											'type'    => 'CHAR',
 										);
 									} 
 								}
+
+								// Фильтрация по световой температуре
+								if (!empty($_REQUEST["colortype"])) {
+									$request_disable = false;
+									$metaquery["colorQuery"] = array(
+										'relation' => 'OR',
+									);
+									
+									for ($i = 0; $i<count($_REQUEST["colortype"]); $i++) {
+										$metaquery["colorQuery"]["colortype".$i] = array(
+											'key'     => '_offer_colour_temp',
+											'value' => $_REQUEST["colortype"][$i],
+											'compare' => '=',
+											'type'    => 'NUMERIC',
+										);
+									} 
+								}
+
 								// Фильтрация по типу рассеевателя
 								if (!empty($_REQUEST["rscheck"])) {
+									$request_disable = false;
 									$metaquery["rsQuery"] = array(
 										'relation' => 'OR',
 									);
@@ -261,28 +268,15 @@
 										$metaquery["rsQuery"]["rscheck".$i] = array(
 											'key'     => '_offer_diffuser',
 											'value' => $_REQUEST["rscheck"][$i],
-											'compare' => '=',
+											'compare' => 'LIKE',
 											'type'    => 'CHAR',
 										);
 									} 
 								}
+								
 								// Фильтрация по драйверу
-								// if (!empty($_REQUEST["drivercheck"])) {
-								// 	$metaquery["driverQuery"] = array(
-								// 		'relation' => 'OR',
-								// 	);
-									
-								// 	for ($i = 0; $i<count($_REQUEST["drivercheck"]); $i++) {
-								// 		$metaquery["driverQuery"]["drivercheck".$i] = array(
-								// 			'key'     => '_offer_driver',
-								// 			'value' => $_REQUEST["drivercheck"][$i],
-								// 			'compare' => '=',
-								// 			'type'    => 'CHAR',
-								// 		);
-								// 	} 
-	
-								// }
 								if (!empty($_REQUEST["drivercheck"])) {
+									$request_disable = false;
 									$metaquery["driverQuery"] = array(
 										'relation' => 'OR',
 									);
@@ -296,23 +290,10 @@
 										);
 									} 
 								}
-								// Фильтрация по световому потоку
-								if (!empty($_REQUEST["lightflow"])) {
-									$metaquery["lightflowQuery"] = array(
-										'relation' => 'OR',
-									);
-									
-									for ($i = 0; $i<count($_REQUEST["lightflow"]); $i++) {
-										$metaquery["lightflowQuery"]["lightflow".$i] = array(
-											'key'     => '_offer_light_flow',
-											'value' => $_REQUEST["lightflow"][$i],
-											'compare' => '=',
-											'type'    => 'CHAR',
-										);
-									} 
-								}
+								
 								// Фильтрация по световому эффекту
 								if (!empty($_REQUEST["diodtype"])) {
+									$request_disable = false;
 									$metaquery["diodtypeQuery"] = array(
 										'relation' => 'OR',
 									);
@@ -326,20 +307,57 @@
 										);
 									} 
 								}
+
+
+								if ($request_disable == true) {
+									$metaquery = array(
+										'relation' => 'AND',
+										'powerQuery' => array(
+											'key' => '_offer_power',
+											'type'    => 'NUMERIC',
+										),
+										'sizecheckQuery' => array(
+											'key' => '_offer_size',
+										),
+										'colorQuery' => array(
+											'key' => '_offer_colour_temp',
+										),
+										// 'diffuser' => array(
+										// 	'key' => '_offer_diffuser',
+										// ),
+										// 'driver' => array(
+										// 	'key' => '_driver_complex|driver_denomination|0|0|value',
+										// ),
+									);
+								}
+
+								if (empty($metaquery['powerQuery'])) {
+									$metaquery['powerQuery'] = array(
+										'key' => '_offer_power',
+										'type'    => 'NUMERIC',
+									);
+								}
+								if (empty($metaquery['sizecheckQuery'])) {
+									$metaquery['sizecheckQuery'] = array(
+										'key' => '_offer_size',
+									);
+								}
+								if (empty($metaquery['colorQuery'])) {
+									$metaquery['colorQuery'] = array(
+										'key' => '_offer_colour_temp',
+									);
+								}
 								
 								$mypost = array(
 									'post_type' => 'ultra',
 									'posts_per_page' => -1,
 									'meta_query' => $metaquery,
-									'meta_key' => '_offer_power',
-									// 'order' => array(
-									// 	'_offer_power' => 'ASC',
-									// 	// '_offer_size' => 'ASC', 
-									// 	// '_offer_colour_temp' => 'ASC',
-									// 	// '_offer_diffuser' => 'ASC',
-									// ),
-									'order' => 'ASC',
-									'orderby' => 'meta_value_num',
+									'orderby' => array(
+										'powerQuery' => 'ASC',
+										'sizecheckQuery' => 'ASC',
+										'colorQuery' => 'ASC',
+									),
+									// 'order' => 'ASC',
 									'exclude' => array(417),
 									'tax_query' => array(
 										array(
@@ -350,9 +368,9 @@
 									),
 								);
 
-								// echo "<pre>";	
-								// var_dump($metaquery);
-								// echo "</pre>";
+								echo "<pre>";	
+								var_dump($metaquery);
+								echo "</pre>";
 
 								$loop = new WP_Query($mypost);
 								
