@@ -3949,7 +3949,7 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
 .subscription-wrap-form-wrap__checkbox:after {
   content: "";
   display: none;
-  /* background-image: url(img/home/subscription-check.svg); */
+  background-image: url(img/home/subscription-check.svg);
   position: absolute;
   height: 8px;
   width: 11px
@@ -6736,7 +6736,7 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
 .modal-wrap__title {
   font-family: RoadRadio;
   font-weight: 300;
-  font-size: 32px;
+  font-size: 22px;
   line-height: 110%;
   text-transform: uppercase;
   margin-bottom: 35px;
@@ -6873,7 +6873,7 @@ input[type=number] {
   }
 
   .modal-wrap__title {
-    font-size: 28px;
+    font-size: 18px;
   }
 
   .modal-wrap-form-wrap__desc {

@@ -1309,11 +1309,7 @@ function get_count_lamp(
 	$teb_osv
 ) {
 
-	if ($koof_zap === "Офисное") $koof_zap = 1.25;
-	if ($koof_zap === "Торговое") $koof_zap = 1.5;
-	if ($koof_zap === "Школьное") $koof_zap = 1.75;
-	if ($koof_zap === "Промышленное") $koof_zap = 2;
-	if ($koof_zap === "Промышленное") $koof_zap = 1.25;
+	$koof_zap = floatval($koof_zap);
 
 	$s = $dlinna * $shirina;
 	$n = ($teb_osv * $s * $koof_zap)/($koof_isp * $tov_light_flow);

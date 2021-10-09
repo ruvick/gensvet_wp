@@ -19,6 +19,10 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
     //   ->set_width(30),
     Field::make('text', 'about_home_title', 'Заголовок на главной'),
     Field::make('text', 'about_home_subtitle', 'Заголовок инструкции'),
+    Field::make('file', 'about_home_img_1', 'Изображение для продукции ГЕНСВЕТ')
+      ->set_value_type('url'),
+    Field::make('file', 'about_home_img_2', 'Изображение для продукции ДЕКО')
+      ->set_value_type('url'),
     // Field::make('rich_text', 'about_home', 'О нашей компании') 
   ))
   ->add_tab('Контакты', array(

@@ -18,6 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <?php wp_head(); ?>
+  <style>
+    .production-wrap-cards:nth-child(1) .production-wrap-cards-card::after {
+      background-image: url(<?php echo carbon_get_theme_option('about_home_img_1'); ?>) !important;
+    }
+    .production-wrap-cards:nth-child(2) .production-wrap-cards-card::after {
+      background-image: url(<?php echo carbon_get_theme_option('about_home_img_2'); ?>) !important;
+    }
+  </style>
 
 </head>
 

@@ -368,9 +368,9 @@
 									),
 								);
 
-								echo "<pre>";	
-								var_dump($metaquery);
-								echo "</pre>";
+								// echo "<pre>";	
+								// var_dump($metaquery);
+								// echo "</pre>";
 
 								$loop = new WP_Query($mypost);
 								
