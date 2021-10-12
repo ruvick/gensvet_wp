@@ -20,7 +20,7 @@ get_header(); ?>
     </div>
   </section>
 
-  <section class="card">
+  <section id="card" class="card">
     <div class="container">
       <h1 class="card__title"><?php the_title(); ?></h1>
       <div class="card-wrap">
