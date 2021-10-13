@@ -1312,7 +1312,11 @@ function get_count_lamp(
 	$koof_zap = floatval($koof_zap);
 
 	$s = $dlinna * $shirina;
-	$n = ($teb_osv * $s * $koof_zap)/($koof_isp * $tov_light_flow);
+	if ($tov_light_flow == '-' || $tov_light_flow == '0') {
+		$n = 0;
+	} else {
+		$n = ($teb_osv * $s * $koof_zap)/($koof_isp * $tov_light_flow);
+	}
 	return round($n);
 }
 
