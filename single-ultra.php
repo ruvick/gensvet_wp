@@ -413,6 +413,7 @@ get_header(); ?>
           $tab = carbon_get_the_post_meta('offer_cherecter_light');
           if ($tab) { ?>
           <div class="card-tabs-wrap-features active" data-target="1">
+            <h3 class="card-tabs-wrap-features__title">Характеристики светильника</h3>
             <div class="card-tabs-wrap-features-wrap">
               <div class="card-tabs-wrap-features-wrap-column">
 
@@ -468,6 +469,7 @@ get_header(); ?>
           $tabdr = carbon_get_the_post_meta('offer_cherecter_driver');
           if ($tabdr) { ?>
           <div class="card-tabs-wrap-features" data-target="2">
+            <h3 class="card-tabs-wrap-features__title">Характеристики драйвера</h3>
             <div class="card-tabs-wrap-features-wrap">
               <div class="card-tabs-wrap-features-wrap-column">
                 <div class="card-tabs-wrap-features-wrap-column-table">
@@ -498,6 +500,7 @@ get_header(); ?>
           $tab_desc = carbon_get_the_post_meta('offer_description_complex');
           if ($tab_desc) { ?>
           <div class="card-tabs-wrap-features" data-target="3">
+            <h3 class="card-tabs-wrap-features__title">Описание</h3>
             <? $tab_desc = carbon_get_the_post_meta('offer_description_complex');
             if ($tab_desc) {
               $tab_descIndex = 0;

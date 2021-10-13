@@ -2047,6 +2047,13 @@ input[type=checkbox]:checked + .lines-wrap-filter-card-features__btn,
   transition: color 0.3s
 }
 
+.card-tabs-wrap-features__title {
+  display: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 .card-tabs-wrap-features-wrap {
   margin-top: 30px;
   display: -webkit-box;
