@@ -10,6 +10,7 @@
 				<div class="modal-wrap">
 					<h3 class="modal-wrap__title"><?php echo carbon_get_theme_option("popup_guide_title"); ?></h3>
 					<form action="" class="modal-wrap-form">
+						<input type="hidden" name="file" value="<?php echo carbon_get_theme_option("popup_guide_file"); ?>">
 						<input name="user-name" type="text" id="form-instruction-name" class="modal-wrap-form__input" placeholder="Ваше имя" required minlength="2" maxlength="40" />
 						<input name="user-tel" type="tel" id="form-instruction-tel" class="modal-wrap-form__input" placeholder="Номер телефона" required minlength="2" maxlength="40" />
 						<input name="user-mail" type="email" id="form-instruction-email" class="modal-wrap-form__input" placeholder="Адрес электронной почты" required minlength="2" maxlength="40" />
@@ -32,7 +33,11 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/img/modals/success.png" alt="" class="modal__checkmark">
 				<div class="modal-wrap modal-wrap--success">
 					<h3 class="modal-wrap__title modal-wrap__title--success">ОТЛИЧНО!</h3>
-					<p class="modal-wrap__desc"><?php echo carbon_get_theme_option("popup_guide_thanks"); ?></p>
+					<p class="modal-wrap__desc">
+						<?php echo carbon_get_theme_option("popup_guide_thanks"); ?>
+						<br>
+						<a href="<?php echo carbon_get_theme_option("popup_guide_file"); ?>" style="text-decoration: underline;" target="_blank">Скачать файл (нажать)</a>
+					</p>
 				</div>
 			</div>
 		</div>

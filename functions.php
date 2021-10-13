@@ -635,7 +635,7 @@ function sendinstruction()
 
 		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
 
-		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Запрос инструкции', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers)) {
+		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Посетитель скачал инструкцию', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"] . ' <br/> <strong>Email:</strong> ' . $_REQUEST["email"], $headers)) {
 
 			// отправляем данные в таблицу
 			$url = "https://docs.google.com/forms/d/1QsbqCzDHvWMCpiCBPJWF4Z1PYpBuXnF9NJptafbWRzA/formResponse";
@@ -658,7 +658,7 @@ function sendinstruction()
 			$output = curl_exec($ch);
 			curl_close($ch);
 
-			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+			wp_die("<span style = 'color:green;'>Если скачивание файла ещё не началось, перейдите по этой <a href=''>ссылке (нажать)</a>.</span>");
 		} else {
 			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
 		}
@@ -707,7 +707,7 @@ function sendprice()
 			$output = curl_exec($ch);
 			curl_close($ch);
 
-			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время, чтобы прислать прайс-лист.</span>");
 		} else {
 			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
 		}
@@ -756,7 +756,7 @@ function sendsubscribe()
 			$output = curl_exec($ch);
 			curl_close($ch);
 
-			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+			wp_die("<span style = 'color:green;'>Спасибо за подписку!</span>");
 		} else {
 			wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
 		}

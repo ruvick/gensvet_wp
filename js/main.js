@@ -466,6 +466,7 @@ $(".newButton").click(function (e) {
   const name = $("#form-instruction-name").val();
   const tel = $("#form-instruction-tel").val();
   const email = $("#form-instruction-email").val();
+  const file = $("#instruction input[name=file]").val();
 
   if (jQuery("#form-instruction-tel").val() == "") {
     jQuery("#form-instruction-tel").css("border", "1px solid red");
@@ -482,6 +483,14 @@ $(".newButton").click(function (e) {
     jqXHR.done(function (responce) {
       jQuery("#instruction .headen_form_blk").hide();
       jQuery("#instruction .SendetMsg").show();
+
+      console.log(file);
+      var link = document.createElement('a');
+      link.setAttribute('href', file);
+      link.setAttribute('download', 'Расчёт_эффективности_при_замене_люминесцентных_светильников.xls');
+      link.click();
+      console.log(link);
+      // return false;
     });
 
     jqXHR.fail(function (responce) {

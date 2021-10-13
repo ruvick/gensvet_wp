@@ -90,6 +90,8 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
   ->add_tab('Всплывающее окно "Инструкция"', array(
     Field::make('text', 'popup_guide_title', __('Заголовок окна')),
     Field::make('text', 'popup_guide_thanks', __('Текст "Спасибо"')),
+    Field::make('file', 'popup_guide_file', 'Файл-инструкция')
+      ->set_value_type('url'),
   ))
   ->add_tab('Всплывающее окно "Прайс-лист"', array(
     Field::make('text', 'popup_price_title', __('Заголовок окна')),
