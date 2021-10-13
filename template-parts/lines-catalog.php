@@ -162,20 +162,20 @@
 					$termchildren = get_term_children($termID, $taxonomyName);
 					foreach ($termchildren as $child) {
 						
-						$pagenumber = !empty($_REQUEST["pagenumber"]) ? $_REQUEST["pagenumber"] : 1;
-						$countInPage = !empty($_REQUEST["countinpage"]) ? $_REQUEST["countinpage"] : "5";
+						// $pagenumber = !empty($_REQUEST["pagenumber"]) ? $_REQUEST["pagenumber"] : 1;
+						// $countInPage = !empty($_REQUEST["countinpage"]) ? $_REQUEST["countinpage"] : "5";
 					  
-						$complex = carbon_get_post_meta($post->ID, 'complex_file_list');
+						// $complex = carbon_get_post_meta($post->ID, 'complex_file_list');
 					  
-						$fullCount = 0;
+						// $fullCount = 0;
 					  
 		  
-						$startPos = ($pagenumber - 1) * $countInPage;
+						// $startPos = ($pagenumber - 1) * $countInPage;
 					  
-						if ($startPos > $fullCount) {
-						  $pagenumber = 1;
-						  $startPos = ($pagenumber - 1) * $countInPage;
-						}
+						// if ($startPos > $fullCount) {
+						//   $pagenumber = 1;
+						//   $startPos = ($pagenumber - 1) * $countInPage;
+						// }
 
 
 						$term = get_term_by('id', $child, $taxonomyName);
@@ -183,7 +183,7 @@
 
 								<?php
 
-								$arg = $wp_query->query;
+								// $arg = $wp_query->query;
 								$request_disable = true;
 								$metaquery = array(
 									'relation' => 'AND',
@@ -195,15 +195,12 @@
 									$metaquery["powerQuery"] = array(
 										'relation' => 'OR',
 									);
-									
-									for ($i = 0; $i<count($_REQUEST["power"]); $i++) {
-										$metaquery["powerQuery"]["power".$i] = array(
-											'key'     => '_offer_power',
-											'value' => $_REQUEST["power"][$i],
-											'compare' => '=',
-											'type'    => 'NUMERIC',
-										);
-									} 
+
+									$metaquery["powerQuery"]["power"] = array(
+										'key'     => '_offer_power',
+										'value' => $_REQUEST["power"],
+										'compare' => 'IN',
+									);
 								}
 
 								// Фильтрация по световому потоку
@@ -212,15 +209,12 @@
 									$metaquery["lightflowQuery"] = array(
 										'relation' => 'OR',
 									);
-									
-									for ($i = 0; $i<count($_REQUEST["lightflow"]); $i++) {
-										$metaquery["lightflowQuery"]["lightflow".$i] = array(
-											'key'     => '_offer_light_flow',
-											'value' => $_REQUEST["lightflow"][$i],
-											'compare' => '=',
-											'type'    => 'NUMERIC',
-										);
-									} 
+
+									$metaquery["lightflowQuery"]["lightflow"] = array(
+										'key'     => '_offer_light_flow',
+										'value' => $_REQUEST["lightflow"],
+										'compare' => 'IN',
+									);
 								}
 
 								// Фильтрация по размеру
@@ -229,15 +223,12 @@
 									$metaquery["sizecheckQuery"] = array(
 										'relation' => 'OR',
 									);
-									
-									for ($i = 0; $i<count($_REQUEST["sizecheck"]); $i++) {
-										$metaquery["sizecheckQuery"]["size".$i] = array(
-											'key'     => '_offer_size',
-											'value' => $_REQUEST["sizecheck"][$i],
-											'compare' => 'LIKE',
-											'type'    => 'CHAR',
-										);
-									} 
+
+									$metaquery["sizecheckQuery"]["size"] = array(
+										'key'     => '_offer_size',
+										'value' => $_REQUEST["sizecheck"],
+										'compare' => 'IN',
+									);
 								}
 
 								// Фильтрация по световой температуре
@@ -246,15 +237,12 @@
 									$metaquery["colorQuery"] = array(
 										'relation' => 'OR',
 									);
-									
-									for ($i = 0; $i<count($_REQUEST["colortype"]); $i++) {
-										$metaquery["colorQuery"]["colortype".$i] = array(
-											'key'     => '_offer_colour_temp',
-											'value' => $_REQUEST["colortype"][$i],
-											'compare' => '=',
-											'type'    => 'NUMERIC',
-										);
-									} 
+
+									$metaquery["colorQuery"]["colortype"] = array(
+										'key'     => '_offer_colour_temp',
+										'value' => $_REQUEST["colortype"],
+										'compare' => 'IN',
+									);
 								}
 
 								// Фильтрация по типу рассеевателя
@@ -263,15 +251,12 @@
 									$metaquery["rsQuery"] = array(
 										'relation' => 'OR',
 									);
-									
-									for ($i = 0; $i<count($_REQUEST["rscheck"]); $i++) {
-										$metaquery["rsQuery"]["rscheck".$i] = array(
-											'key'     => '_offer_diffuser',
-											'value' => $_REQUEST["rscheck"][$i],
-											'compare' => 'LIKE',
-											'type'    => 'CHAR',
-										);
-									} 
+
+									$metaquery["rsQuery"]["rscheck"] = array(
+										'key'     => '_offer_diffuser',
+										'value' => $_REQUEST["rscheck"],
+										'compare' => 'IN',
+									);
 								}
 								
 								// Фильтрация по драйверу
@@ -280,15 +265,12 @@
 									$metaquery["driverQuery"] = array(
 										'relation' => 'OR',
 									);
-									
-									for ($i = 0; $i<count($_REQUEST["drivercheck"]); $i++) {
-										$metaquery["driverQuery"]["drivercheck".$i] = array(
-											'key'     => '_driver_complex|driver_denomination|0|0|value',
-											'value' => $_REQUEST["drivercheck"][$i],
-											'compare' => 'LIKE',
-											'type'    => 'CHAR',
-										);
-									} 
+
+									$metaquery["driverQuery"]["drivercheck"] = array(
+										'key'     => '_driver_complex|driver_denomination|0|0|value',
+										'value' => $_REQUEST["drivercheck"],
+										'compare' => 'IN',
+									);
 								}
 								
 								// Фильтрация по световому эффекту
@@ -297,15 +279,12 @@
 									$metaquery["diodtypeQuery"] = array(
 										'relation' => 'OR',
 									);
-									
-									for ($i = 0; $i<count($_REQUEST["diodtype"]); $i++) {
-										$metaquery["diodtypeQuery"]["diodtype".$i] = array(
-											'key'     => '_offer_light_effect',
-											'value' => $_REQUEST["diodtype"][$i],
-											'compare' => '=',
-											'type'    => 'CHAR',
-										);
-									} 
+
+									$metaquery["diodtypeQuery"]["diodtype"] = array(
+										'key'     => '_offer_light_effect',
+										'value' => $_REQUEST["diodtype"],
+										'compare' => 'IN',
+									);
 								}
 
 
@@ -331,22 +310,22 @@
 									);
 								}
 
-								if (empty($metaquery['powerQuery'])) {
-									$metaquery['powerQuery'] = array(
-										'key' => '_offer_power',
-										'type'    => 'NUMERIC',
-									);
-								}
-								if (empty($metaquery['sizecheckQuery'])) {
-									$metaquery['sizecheckQuery'] = array(
-										'key' => '_offer_size',
-									);
-								}
-								if (empty($metaquery['colorQuery'])) {
-									$metaquery['colorQuery'] = array(
-										'key' => '_offer_colour_temp',
-									);
-								}
+								// if (empty($metaquery['powerQuery'])) {
+								// 	$metaquery['powerQuery'] = array(
+								// 		'key' => '_offer_power',
+								// 		'type'    => 'NUMERIC',
+								// 	);
+								// }
+								// if (empty($metaquery['sizecheckQuery'])) {
+								// 	$metaquery['sizecheckQuery'] = array(
+								// 		'key' => '_offer_size',
+								// 	);
+								// }
+								// if (empty($metaquery['colorQuery'])) {
+								// 	$metaquery['colorQuery'] = array(
+								// 		'key' => '_offer_colour_temp',
+								// 	);
+								// }
 								
 								$mypost = array(
 									'post_type' => 'ultra',
@@ -368,13 +347,16 @@
 									),
 								);
 
-								// echo "<pre>";	
-								// var_dump($metaquery);
-								// echo "</pre>";
 
 								$loop = new WP_Query($mypost);
+
+								echo "<pre>";
+								// var_dump($metaquery);
+								echo "</pre>";
 								
-								 if (empty($loop->posts)) continue;
+								 if (empty($loop->posts)) {
+									continue;
+								}
 						?>
 
 						<div class="lines-wrap-tables-table">
@@ -465,28 +447,28 @@
 						<div class="lines-wrap-tables-wrap-buttons">
 						<div class="options">
 							<?
-							$pagenCount = intdiv($fullCount, $countInPage);
-							if (($fullCount % $countInPage) != 0) $pagenCount++;
-							for ($i = 1; $i <= $pagenCount; $i++) {
+							// $pagenCount = intdiv($fullCount, $countInPage);
+							// if (($fullCount % $countInPage) != 0) $pagenCount++;
+							// for ($i = 1; $i <= $pagenCount; $i++) {
 							?>
-							<label for="paginf-<? echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? echo ($i == $pagenumber) ? "active" : ""; ?>">
-								<? echo $i; ?>
-								<input onclick="filesDropdownForm.submit()" id="paginf-<? echo $i; ?>" type="radio" value="<? echo $i; ?>" name="pagenumber">
+							<label for="paginf-<? // echo $i; ?>" class="option lines-wrap-tables-wrap-buttons__btn <? // echo ($i == $pagenumber) ? "active" : ""; ?>">
+								<? // echo $i; ?>
+								<input onclick="filesDropdownForm.submit()" id="paginf-<? // echo $i; ?>" type="radio" value="<? // echo $i; ?>" name="pagenumber">
 							</label>
-							<? } ?>
+							<? // } ?>
 						</div>
 						</div>
 						<div class="lines-wrap-tables-wrap-quant">
 						<p class="lines-wrap-tables-wrap-quant__desc">Файлов <br>на странице:</p>
 						<div class="dropdown dropdown--files">
-							<button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><? echo $countInPage; ?></button>
+							<button id="filesDropdownBtn" type="button" class="dropdown__button dropdown__button--files"><? // echo $countInPage; ?></button>
 							<ul id="filesDropdown" class="dropdown-list dropdown-list--files">
 							<li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="5">5</li>
 							<li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="10">10</li>
 							<li class="dropdown-list__item dropdown-list__item--files dropdown-list__item--files_true" data-value="15">15</li>
 							</ul>
-							<input type="hidden" name="search" value="<? echo $_REQUEST["search"] ?>">
-							<input name="countinpage" type="text" class="dropdown__input" value="<? echo $countInPage; ?>">
+							<input type="hidden" name="search" value="<? // echo $_REQUEST["search"] ?>">
+							<input name="countinpage" type="text" class="dropdown__input" value="<? // echo $countInPage; ?>">
 						</div>
 						</div>
 					</form> -->
