@@ -7717,3 +7717,10 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s
 }
+
+.page-search-form {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  margin-top: 30px;
+}
